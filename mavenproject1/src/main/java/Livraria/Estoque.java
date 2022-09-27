@@ -9,5 +9,7 @@ package Livraria;
  * @author 01295230208
  */
 public class Estoque {
-    
+    public static void main(String[] args) {
+        System.out.println("TESTE");
+    }
 }
