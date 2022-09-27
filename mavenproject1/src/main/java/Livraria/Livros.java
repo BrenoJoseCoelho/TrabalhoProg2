@@ -9,9 +9,11 @@ package Livraria;
  *
  * @author 01295230208
  */
-public class Mavenproject1 {
+public class Livros {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        
+      
     }
 }
