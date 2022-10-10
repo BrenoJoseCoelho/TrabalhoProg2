@@ -4,12 +4,23 @@
  */
 package Livraria;
 
+import TipoDeLivros.Livro;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author 01295230208
  */
 public class Estoque {
-    public static void main(String[] args) {
-        System.out.println("TESTE");
+   private List<Livro> livros;
+   
+   public Estoque(){
+     this.livros = new ArrayList<>();
+    }   
+   
+    public void addLivro(Livro umLivro){
+        this.livros.add(umLivro);
     }
+    
 }
