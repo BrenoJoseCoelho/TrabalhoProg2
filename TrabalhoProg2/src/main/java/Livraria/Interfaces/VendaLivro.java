@@ -10,7 +10,7 @@ import TipoDeLivros.Livro;
  *
  * @author LRodrigues
  */
-public interface VendaLivro {
+public abstract class VendaLivro {
     
-    void vender(Livro livro);
+     public abstract float calcularDescontoLivro();
 }

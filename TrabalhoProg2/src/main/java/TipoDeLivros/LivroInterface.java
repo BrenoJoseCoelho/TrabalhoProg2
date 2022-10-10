@@ -12,7 +12,7 @@ public interface LivroInterface  {
     void addLivro(Livro livro);
     Livro buscarAutor(String autor);
     Livro buscarTitulo(String titulo);
-    Livro buscarLivroEditora(String nome);
+    Livro buscarLivroEditora(String editora);
     Livro buscarISBN(String isbn);
     Livro buscarPreco(float preco);
     void removeLivro(Livro livro);

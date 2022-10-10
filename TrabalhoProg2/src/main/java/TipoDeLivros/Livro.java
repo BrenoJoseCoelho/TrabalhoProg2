@@ -4,6 +4,8 @@
  */
 package TipoDeLivros;
 
+import Livraria.Interfaces.VendaLivro;
+
 /**
  *
  * @author LRodrigues
@@ -90,6 +92,8 @@ public class Livro {
         return "Livro{" + "Autor:" + autor + ", Titulo=" + titulo + ", editora=" + editora 
                 + ", local=" + local + ", edicao=" + edicao + ", isbn=" + isbn + ", preco=" + preco + '}';
     }
+
+
 
   
     

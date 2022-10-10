@@ -24,3 +24,4 @@ import Livraria.Funcionarios.FuncionarioVenda;
        Usuario login(String login);
        Usuario senha(String senha);
 }
+ 
