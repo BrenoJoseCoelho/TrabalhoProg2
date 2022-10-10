@@ -18,8 +18,8 @@ public class Estoque {
    public Estoque(){
      this.livros = new ArrayList<>();
     }   
-   
-    public void addLivro(Livro umLivro){
-        this.livros.add(umLivro);
-    }
+ 
+
+ 
+
 }

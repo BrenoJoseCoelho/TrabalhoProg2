@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author LRodrigues
  */
-public class LivroFisico extends Livro implements LivroInterface {
+public class LivroFisico extends Livro  {
     
     private List<Livro> livros;
       private List<VendaLivro> venderLivros;

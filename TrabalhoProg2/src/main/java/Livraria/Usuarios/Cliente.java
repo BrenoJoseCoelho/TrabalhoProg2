@@ -2,31 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Livraria;
+package Livraria.Usuarios;
 
 /**
  *
  * @author LRodrigues
  */
-public class Cliente  {
-  
+public class Cliente {
+    
          private String nome;
          private String sobrenome;
          private String cpf;
-         private String email;
          private String dataNasc;
          private String endereco;
-                 
-                 
-    public Cliente(String nome, String sobrenome, String cpf,
-            String email, String dataNasc, String endereco) {
+
+    public Cliente(String nome, String sobrenome, String cpf, String dataNasc, 
+            String endereco) {
+    
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
-        this.email = email;
         this.dataNasc = dataNasc;
         this.endereco = endereco;
     }
+
+   
 
     public String getNome() {
         return nome;
@@ -52,13 +52,6 @@ public class Cliente  {
         this.cpf = cpf;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getDataNasc() {
         return dataNasc;
@@ -79,9 +72,18 @@ public class Cliente  {
     @Override
     public String toString() {
         return "Cliente{" + "nome=" + nome + ", sobrenome=" + sobrenome +
-                ", cpf=" + cpf + ", email=" + email + ", dataNasc=" + dataNasc + 
+                ", cpf=" + cpf + ", dataNasc=" + dataNasc + 
                 ", endereco=" + endereco + '}';
     }
+
+//    @Override
+//    public boolean login(String Login, String senha) {
+//        if(Usuar)
+//             return false;
+//        
+//    }
+
+  
 
 
 }

@@ -10,7 +10,7 @@ import Livraria.Interfaces.VendaLivro;
  *
  * @author LRodrigues
  */
-public class Livro {
+public abstract class Livro {
     
     private String autor;
     private String titulo;
@@ -18,27 +18,34 @@ public class Livro {
     private String local;
     private String edicao;
     private String isbn;
-    private float preco;
+    private float precoCompra;
     
 
-    public Livro(String autor, String titulo, String editora, String local, String edicao, String isbn, float preco) {
+    public Livro(String autor, String titulo, String editora, String local,
+            String edicao, String isbn, float precoCompra) {
         this.autor = autor;
         this.titulo = titulo;
         this.editora = editora;
         this.local = local;
         this.edicao = edicao;
         this.isbn = isbn;
-         this.preco = preco;
+         this.precoCompra = precoCompra;
     }
+    
+    public abstract void addLivro(Livro livro);
+    public abstract Livro buscarAutor(String autor);
+    public abstract Livro buscarTitulo(String titulo);
+    public abstract Livro buscarLivroEditora(String editora);
+    public abstract Livro buscarISBN(String isbn);
+    public abstract Livro buscarPreco(float preco);
+    public abstract void removeLivro(Livro livro);
 
     public String getAutor() {
         return autor;
     }
-
     public void setAutor(String autor) {
         this.autor = autor;
     }
-
     public String getTitulo() {
         return titulo;
     }
@@ -80,23 +87,20 @@ public class Livro {
     }
 
     public float getPreco() {
-        return preco;
+        return precoCompra;
     }
 
-    public void setPreco(float preco) {
-        this.preco = preco;
+    public void setPreco(float precoCompra) {
+        this.precoCompra = precoCompra;
     }
 
     @Override
     public String toString() {
         return "Livro{" + "Autor:" + autor + ", Titulo=" + titulo + ", editora=" + editora 
-                + ", local=" + local + ", edicao=" + edicao + ", isbn=" + isbn + ", preco=" + preco + '}';
+                + ", local=" + local + ", edicao=" + edicao + ", isbn=" + isbn + ", Preco de Compra = " + precoCompra + '}';
     }
 
-
-
-  
-    
+ 
     
     
 }

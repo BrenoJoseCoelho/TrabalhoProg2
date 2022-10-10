@@ -4,49 +4,82 @@
  */
 package TipoDeLivros;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author LRodrigues
  */
-public class LivroVirtual extends Livro implements LivroInterface {
+public class LivroVirtual extends Livro  {
     
-    public LivroVirtual(String autor, String titulo, String editora, String local, String edicao, String isbn, float preco) {
+     private List<Livro> livros;
+    
+    public LivroVirtual(String autor, String titulo, String editora, 
+            String local, String edicao, String isbn, float preco) {
         super(autor, titulo, editora, local, edicao, isbn, preco);
+        this.livros = new ArrayList<Livro>();
     }
 
     @Override
     public void addLivro(Livro livro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        livros.add(livro);
     }
 
     @Override
     public Livro buscarAutor(String autor) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+          for(Livro book: livros){
+         if(book.getAutor().equals(book))
+         return book;
+    
+          }   
+        return null;
     }
 
     @Override
     public Livro buscarTitulo(String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         for(Livro book: livros){
+         if(book.getTitulo().equals(titulo))
+         return book;
+     
+          }   
+        return null;
     }
 
     @Override
-    public Livro buscarLivroEditora(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Livro buscarLivroEditora(String editora) {
+       
+         for(Livro book: livros){
+         if(book.getEditora().equals(editora))
+         return book;
+     
+          }   
+        return null;
     }
 
     @Override
     public Livro buscarISBN(String isbn) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for(Livro book: livros){
+        if(book.getIsbn().equals(isbn))
+        return book;
+     
+          }   
+        return null;
     }
 
     @Override
     public Livro buscarPreco(float preco) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for(Livro book: livros){
+        if(book.getPreco() > 0 )
+        return book;
+          }  
+        return null;
     }
 
     @Override
     public void removeLivro(Livro livro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        livros.remove(livro);
     }
+    
     
 }

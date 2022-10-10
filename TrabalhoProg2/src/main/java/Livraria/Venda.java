@@ -4,6 +4,7 @@
  */
 package Livraria;
 
+import Livraria.Usuarios.Cliente;
 import TipoDeLivros.Livro;
 import java.time.LocalDate;
 import java.util.ArrayList;
