@@ -16,16 +16,11 @@ import java.util.List;
 public class LivroFisico extends Livro  {
     
     private List<Livro> livros;
-      private List<VendaLivro> venderLivros;
-    
-    public LivroFisico(String autor, String titulo, String editora,
-            String local, String edicao, String isbn, float preco) {
-        super(autor, titulo, editora, local, edicao, isbn, preco);
-        this.livros = new ArrayList<Livro>();
-    }
-    
-    
 
+    public LivroFisico(List<Livro> livros) {
+          this.livros = new ArrayList<Livro>();
+    }
+     
     
     @Override
     public void addLivro(Livro livro) {

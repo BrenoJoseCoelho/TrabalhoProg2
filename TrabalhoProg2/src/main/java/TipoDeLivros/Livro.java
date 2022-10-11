@@ -20,7 +20,14 @@ public abstract class Livro {
     private String isbn;
     private float precoCompra;
     
-
+    public abstract void addLivro(Livro livro);
+    public abstract Livro buscarAutor(String autor);
+    public abstract Livro buscarTitulo(String titulo);
+    public abstract Livro buscarLivroEditora(String editora);
+    public abstract Livro buscarISBN(String isbn);
+    public abstract Livro buscarPreco(float preco);
+    public abstract void removeLivro(Livro livro);
+    
     public Livro(String autor, String titulo, String editora, String local,
             String edicao, String isbn, float precoCompra) {
         this.autor = autor;
@@ -32,13 +39,6 @@ public abstract class Livro {
          this.precoCompra = precoCompra;
     }
     
-    public abstract void addLivro(Livro livro);
-    public abstract Livro buscarAutor(String autor);
-    public abstract Livro buscarTitulo(String titulo);
-    public abstract Livro buscarLivroEditora(String editora);
-    public abstract Livro buscarISBN(String isbn);
-    public abstract Livro buscarPreco(float preco);
-    public abstract void removeLivro(Livro livro);
 
     public String getAutor() {
         return autor;
