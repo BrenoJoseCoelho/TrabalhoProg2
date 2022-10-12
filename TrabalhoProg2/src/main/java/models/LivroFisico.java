@@ -1,9 +1,11 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package TipoDeLivros;
+package models;
 
+import Livraria.Interfaces.VendaLivro;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,16 +13,15 @@ import java.util.List;
  *
  * @author LRodrigues
  */
-public class LivroVirtual extends Livro  {
+public class LivroFisico extends Livro  {
     
-     private List<Livro> livros;
-    
-    public LivroVirtual(String autor, String titulo, String editora, 
-            String local, String edicao, String isbn, float preco) {
-        super(autor, titulo, editora, local, edicao, isbn, preco);
-        this.livros = new ArrayList<Livro>();
-    }
+    private List<Livro> livros;
 
+    public LivroFisico(List<Livro> livros) {
+          this.livros = new ArrayList<Livro>();
+    }
+     
+    
     @Override
     public void addLivro(Livro livro) {
         livros.add(livro);
@@ -80,6 +81,5 @@ public class LivroVirtual extends Livro  {
     public void removeLivro(Livro livro) {
         livros.remove(livro);
     }
-    
     
 }
