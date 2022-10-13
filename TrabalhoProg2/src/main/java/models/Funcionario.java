@@ -11,14 +11,14 @@ import java.util.List;
  *
  * @author breno
  */
-public class Funcionario {
+public class Funcionario implements AutenticacaoLogin {
     
     private String nome;
-    private int cpf;
+    private String cpf;
     private String cargo;
     private String email;
 
-    public Funcionario(String nome, int cpf, String cargo, String email) {
+    public Funcionario(String nome, String cpf, String cargo, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.cargo = cargo;
@@ -46,13 +46,30 @@ public class Funcionario {
         return nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
     @Override
     public String toString() {
         return "Funcionario{" + "nome=" + nome + ", cpf=" + cpf + ", cargo=" + cargo + ", email=" + email + '}';
+    }
+
+    @Override
+    public boolean Logar(String login, String senha) {
+        if(login.equals(this.getEmail()) && senha.equals(this.cpf))
+            return true;
+        else
+            return false;
+    }
+
+    @Override
+    public List<String> getPermissoes() {
+        List<String> permissoes = new ArrayList<>();
+          permissoes.add("Visualizar Disponibilidade");
+          permissoes.add("Realizar Venda");
+        return permissoes;
+        
     }
 
    

@@ -37,7 +37,6 @@
                               <Component id="lblValorLivroUsado" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="txtISBNLivro" pref="326" max="32767" attributes="0"/>
                               <Component id="txtNEdicaoLivro" pref="326" max="32767" attributes="0"/>
                               <Component id="txtEditoraLivro" pref="326" max="32767" attributes="0"/>
@@ -50,8 +49,9 @@
                               <Component id="txtLocalEditoraLivro" max="32767" attributes="0"/>
                               <Component id="txtAutorLivro" alignment="0" pref="326" max="32767" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxTempo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jComboBoxTempo" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -90,7 +90,7 @@
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jComboBoxTempo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="lblValorLivroUsado" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="txtISBNLivro1" min="-2" max="-2" attributes="0"/>
@@ -175,26 +175,6 @@
         <Property name="text" type="java.lang.String" value="Tempo de Uso do Livro:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBoxTempo">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value="&lt;Selecione uma da op&#xe7;&#xf5;es&gt;"/>
-            <StringItem index="1" value="At&#xe9; 6 meses"/>
-            <StringItem index="2" value="At&#xe9; 1 ano"/>
-            <StringItem index="3" value="At&#xe9; 2 anos"/>
-            <StringItem index="4" value=" "/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxTempoActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="TelaAdicionarLivroUsado_ComboBoxTempo"/>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblValorLivroUsado">
       <Properties>
         <Property name="text" type="java.lang.String" value="Valor do Livro:"/>
@@ -204,6 +184,21 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtISBNLivro1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBoxTempo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -6,9 +6,11 @@ package View;
 
 import DAO.LivroUsadoListDAO;
 import Repositorio.LivroUsadoRepositorio;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import models.Livro;
+import models.LivroNovo;
 import models.LivroUsado;
 
 /**
@@ -48,9 +50,9 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
         txtISBNLivro = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jComboBoxTempo = new javax.swing.JComboBox<>();
         lblValorLivroUsado = new javax.swing.JLabel();
         txtISBNLivro1 = new javax.swing.JTextField();
+        jComboBoxTempo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,13 +113,6 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
 
         jLabel7.setText("Tempo de Uso do Livro:");
 
-        jComboBoxTempo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione uma da opções>", "Até 6 meses", "Até 1 ano", "Até 2 anos", " " }));
-        jComboBoxTempo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTempoActionPerformed(evt);
-            }
-        });
-
         lblValorLivroUsado.setText("Valor do Livro:");
 
         txtISBNLivro1.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +120,8 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
                 txtISBNLivro1ActionPerformed(evt);
             }
         });
+
+        jComboBoxTempo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,7 +139,6 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
                                 .addComponent(txtISBNLivro1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                                 .addComponent(lblValorLivroUsado))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel7)
                                 .addComponent(txtISBNLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                                 .addComponent(txtNEdicaoLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                                 .addComponent(txtEditoraLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
@@ -155,7 +151,8 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
                                 .addComponent(txtLocalEditoraLivro)
                                 .addComponent(txtAutorLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                                 .addComponent(jLabel5)
-                                .addComponent(jComboBoxTempo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(jLabel7))
+                            .addComponent(jComboBoxTempo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -228,13 +225,12 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        verificandoOpcaoInvalidaCombo();
     }//GEN-LAST:event_jButton1ActionPerformed
-   
-      private LivroUsado tempo;
-    private void jComboBoxTempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTempoActionPerformed
-     jComboBoxTempo.addItem(tempo.getTempoUso());
-        
-    }//GEN-LAST:event_jComboBoxTempoActionPerformed
-
+  
+     private JComboBox<LivroUsado> jComboBox = new javax.swing.JComboBox<>();   
+     public void precherComboTempo(){
+         //List<LivroUsado> listaLivrosUsado = new LivroUsadoListDAO;
+     }
+    //  private String [] tempoUso = {"Até 0.6 meses", "Até 1 ano","Até 2 anos"};
     private void txtISBNLivro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtISBNLivro1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtISBNLivro1ActionPerformed

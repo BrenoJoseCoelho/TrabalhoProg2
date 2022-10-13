@@ -216,11 +216,11 @@ public class TelaAdicionarLivroNovo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldValorLivroNovoActionPerformed
     private LivroUsado livroUsadoInstacia;    public void verificandoOpcaoInvalidaCombo(){
-        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
+       // if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
             JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
-        }else{
-            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
-        }
+      //  }else{
+       //     JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
+     //  }
             
     }
     /**
