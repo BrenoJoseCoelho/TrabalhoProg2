@@ -4,13 +4,11 @@
  */
 package models;
 
-import Livraria.Interfaces.VendaLivro;
-
 /**
  *
  * @author LRodrigues
  */
-public abstract class Livro {
+public abstract class Livro implements Comparable<Livro>{
     
     private String autor;
     private String titulo;
@@ -18,25 +16,20 @@ public abstract class Livro {
     private String local;
     private String edicao;
     private String isbn;
-    private float precoCompra;
+    private float preco;
+ 
+
     
-    public abstract void addLivro(Livro livro);
-    public abstract Livro buscarAutor(String autor);
-    public abstract Livro buscarTitulo(String titulo);
-    public abstract Livro buscarLivroEditora(String editora);
-    public abstract Livro buscarISBN(String isbn);
-    public abstract Livro buscarPreco(float preco);
-    public abstract void removeLivro(Livro livro);
-    
-    public Livro(String autor, String titulo, String editora, String local,
-            String edicao, String isbn, float precoCompra) {
+    public Livro(float preco, String autor, String titulo, String editora, String local,
+            String edicao, String isbn ) {
         this.autor = autor;
         this.titulo = titulo;
         this.editora = editora;
         this.local = local;
         this.edicao = edicao;
         this.isbn = isbn;
-         this.precoCompra = precoCompra;
+        this.preco = preco;
+       
     }
     
 
@@ -86,18 +79,18 @@ public abstract class Livro {
         this.isbn = isbn;
     }
 
-    public float getPreco() {
-        return precoCompra;
-    }
 
-    public void setPreco(float precoCompra) {
-        this.precoCompra = precoCompra;
-    }
 
+    @Override
+    public int compareTo(Livro o) {
+        return this.isbn.compareTo(o.getIsbn());
+    }
+    
+ 
     @Override
     public String toString() {
         return "Livro{" + "Autor:" + autor + ", Titulo=" + titulo + ", editora=" + editora 
-                + ", local=" + local + ", edicao=" + edicao + ", isbn=" + isbn + ", Preco de Compra = " + precoCompra + '}';
+                + ", local=" + local + ", edicao=" + edicao + ", isbn=" + isbn + '}';
     }
 
  
