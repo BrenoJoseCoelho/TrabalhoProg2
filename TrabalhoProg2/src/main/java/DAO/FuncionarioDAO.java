@@ -7,6 +7,7 @@ package DAO;
 import Repositorio.FuncionarioRepositorio;
 import java.util.ArrayList;
 import java.util.List;
+import models.Cliente;
 import models.Funcionario;
 
 /**
@@ -17,10 +18,12 @@ public class FuncionarioDAO implements FuncionarioRepositorio {
     
     private static List<Funcionario> funcionarios = new ArrayList<>();
 
-    @Override
-    public void salvarCliente(Funcionario c) {
+
+      @Override
+    public void salvarCliente(Cliente c) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+  
 
     @Override
     public Funcionario buscarCliente(String cpf) {
@@ -31,5 +34,30 @@ public class FuncionarioDAO implements FuncionarioRepositorio {
     public List<Funcionario> buscarTodosClientes() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public Funcionario retornarCpfFuncionario(String cpf) {
+       for(Funcionario func: funcionarios){
+            if(func.getCpf().equals(cpf))
+                return func;
+        }
+        return null;
+    }
+
+    @Override
+    public void salvarFuncionario(Funcionario func) {
+            funcionarios.add(func);
+    }
+
+    @Override
+    public Funcionario retornarEmailFuncionario(String email) {
+          for(Funcionario func: funcionarios){
+            if(func.getEmail().equals(email))
+                return func;
+          }
+        return null;
+          }
     
-}
+    
+    }
+

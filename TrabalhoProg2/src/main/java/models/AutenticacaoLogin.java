@@ -2,14 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Livraria;
+package models;
+
+import java.util.List;
 
 /**
  *
- * @author 01295230208
+ * @author LRodrigues
  */
-public class Estoque {
-    public static void main(String[] args) {
-        System.out.println("TESTE");
-    }
+public interface AutenticacaoLogin {
+    boolean Logar(String login, String senha);
+    List<String> getPermissoes();
 }

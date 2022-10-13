@@ -5,6 +5,7 @@
 package Repositorio;
 
 import java.util.List;
+import models.Cliente;
 import models.Funcionario;
 
 /**
@@ -13,8 +14,10 @@ import models.Funcionario;
  */
 public interface FuncionarioRepositorio {
     
-    public void salvarCliente(Funcionario c);
-    public Funcionario buscarCliente(String cpf);
-    public List<Funcionario> buscarTodosClientes();
-    
+    void salvarCliente(Cliente c);
+    void salvarFuncionario(Funcionario func);
+    Funcionario buscarCliente(String cpf);
+    List<Funcionario> buscarTodosClientes();
+    Funcionario retornarCpfFuncionario(String cpf);
+    Funcionario retornarEmailFuncionario(String Email);
 }
