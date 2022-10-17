@@ -1,0 +1,5 @@
+models\Fornecedor.class
+DAO\LivroNovoListDAO.class
+Repositorio\FornecedorRepositorio.class
+models\LivroNovo.class
+models\Livro.class
