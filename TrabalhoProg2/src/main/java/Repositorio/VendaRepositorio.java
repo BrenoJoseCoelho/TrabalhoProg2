@@ -4,16 +4,16 @@
  */
 package Repositorio;
 
-import java.util.List;
-import models.Funcionario;
+import models.Venda;
 
 /**
  *
  * @author breno
  */
-public interface FuncionarioRepositorio {
+public interface VendaRepositorio {
     
-    void salvarFuncionario(Funcionario func);
-    Funcionario retornarCpfFuncionario(String cpf);
-    Funcionario retornarEmailFuncionario(String Email);
+    void novaVenda(Venda ven);
+    Venda relatorioVendaData(String dataVenda);
+    Venda relatorioStatus(String status);
+    
 }

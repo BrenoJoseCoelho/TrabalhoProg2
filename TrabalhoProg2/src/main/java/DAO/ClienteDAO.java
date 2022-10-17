@@ -13,22 +13,32 @@ import models.Cliente;
  *
  * @author breno
  */
-public class ClienteDAO implements ClienteRepositorio{
-    
+public class ClienteDAO implements ClienteRepositorio {
+
     private static List<Cliente> clientes = new ArrayList<>();
 
     @Override
     public void salvarCliente(Cliente c) {
+        clientes.add(c);
     }
 
     @Override
     public Cliente buscarCliente(String cpf) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for (Cliente cli : clientes) {
+            if (cli.getCpf().equals(cli));
+            return cli;
+        }
+        return null;
     }
 
     @Override
     public List<Cliente> buscarTodosClientes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return clientes;
     }
-    
+
+    @Override
+    public void removeCliente(Cliente c) {
+        clientes.remove(c);
+    }
+
 }
