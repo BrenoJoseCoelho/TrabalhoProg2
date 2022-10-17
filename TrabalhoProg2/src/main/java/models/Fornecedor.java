@@ -16,7 +16,6 @@ public class Fornecedor {
     private String empresa;
     private String nome;
     private String CNPJ;
-    private List<Fornecedor> fornecedores = new ArrayList<>();
 
     public Fornecedor(String empresa, String nome, String cnpj) {
         this.empresa = empresa;
