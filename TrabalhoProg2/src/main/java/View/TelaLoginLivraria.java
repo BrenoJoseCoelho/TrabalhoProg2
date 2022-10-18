@@ -61,6 +61,11 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
         });
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         jPanel1.setLayout(new javax.swing.OverlayLayout(jPanel1));
 
@@ -125,11 +130,16 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        
         String login = this.txtLogin.getText();
+              
         String senha = this.txtSenha.getText();
         
         if(LogarSystem(login, senha)){
             openTelaInicial();     
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarActionPerformed
         else { 
              mostrarMensagem("Login ou Senha Inválida, verifique as suas Credencias!");
         }
