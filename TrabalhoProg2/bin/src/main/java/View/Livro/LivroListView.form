@@ -26,15 +26,15 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fieldValorLivroNovo" alignment="0" pref="326" max="32767" attributes="0"/>
-                              <Component id="lblValorLivroNovo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtISBNLivro1" alignment="0" pref="326" max="32767" attributes="0"/>
+                              <Component id="lblValorLivroUsado" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtISBNLivro" pref="326" max="32767" attributes="0"/>
@@ -84,13 +84,13 @@
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="txtISBNLivro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="10" max="32767" attributes="0"/>
-              <Component id="lblValorLivroNovo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="fieldValorLivroNovo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+              <Component id="lblValorLivroUsado" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtISBNLivro1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -164,14 +164,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblValorLivroNovo">
+    <Component class="javax.swing.JLabel" name="lblValorLivroUsado">
       <Properties>
         <Property name="text" type="java.lang.String" value="Valor do Livro:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="fieldValorLivroNovo">
+    <Component class="javax.swing.JTextField" name="txtISBNLivro1">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldValorLivroNovoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtISBNLivro1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

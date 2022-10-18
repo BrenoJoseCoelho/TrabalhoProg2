@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View;
+package View.Livro;
 
 import DAO.LivroUsadoListDAO;
 import Repositorio.LivroUsadoRepositorio;
@@ -17,12 +17,12 @@ import models.LivroUsado;
  *
  * @author LRodrigues
  */
-public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
+public class LivroListView extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaAdicionarPaciente
      */
-    public TelaAdicionarLivroUsado() {
+    public LivroListView() {
         
         initComponents();
     }
@@ -49,10 +49,8 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
         txtNEdicaoLivro = new javax.swing.JTextField();
         txtISBNLivro = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         lblValorLivroUsado = new javax.swing.JLabel();
         txtISBNLivro1 = new javax.swing.JTextField();
-        jComboBoxTempo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,8 +109,6 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Tempo de Uso do Livro:");
-
         lblValorLivroUsado.setText("Valor do Livro:");
 
         txtISBNLivro1.addActionListener(new java.awt.event.ActionListener() {
@@ -120,8 +116,6 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
                 txtISBNLivro1ActionPerformed(evt);
             }
         });
-
-        jComboBoxTempo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,9 +144,7 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addComponent(txtLocalEditoraLivro)
                                 .addComponent(txtAutorLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel7))
-                            .addComponent(jComboBoxTempo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel5)))))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -182,13 +174,9 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtISBNLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBoxTempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(86, 86, 86)
                 .addComponent(lblValorLivroUsado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtISBNLivro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -264,14 +252,30 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaAdicionarLivroUsado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LivroListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaAdicionarLivroUsado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LivroListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaAdicionarLivroUsado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LivroListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaAdicionarLivroUsado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LivroListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -292,21 +296,19 @@ public class TelaAdicionarLivroUsado extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaAdicionarLivroUsado().setVisible(true);
+                new LivroListView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBoxTempo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblValorLivroUsado;
     private javax.swing.JTextField txtAutorLivro;
     private javax.swing.JTextField txtEditoraLivro;
