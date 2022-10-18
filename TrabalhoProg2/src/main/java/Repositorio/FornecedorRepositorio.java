@@ -14,6 +14,7 @@ import models.Fornecedor;
 public interface FornecedorRepositorio {
     
     public void salvarFornecedor(Fornecedor f);
+    public void removerFornecedor(Fornecedor f);
     public Fornecedor buscarFornecedor(String CNPJ);
     public List<Fornecedor> buscarTodosFornecedores();
     

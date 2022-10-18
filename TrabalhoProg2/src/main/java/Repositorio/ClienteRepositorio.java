@@ -13,6 +13,7 @@ import models.Cliente;
  */
 public interface ClienteRepositorio {
      public void salvarCliente(Cliente c);
+     public void removeCliente(Cliente c);
     public Cliente buscarCliente(String cpf);
     public List<Cliente> buscarTodosClientes();
 }

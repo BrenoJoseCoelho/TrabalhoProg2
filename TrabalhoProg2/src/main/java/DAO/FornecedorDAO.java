@@ -19,17 +19,26 @@ public class FornecedorDAO implements FornecedorRepositorio {
 
     @Override
     public void salvarFornecedor(Fornecedor f) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        fornecedores.add(f);
     }
 
     @Override
     public Fornecedor buscarFornecedor(String CNPJ) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         for (Fornecedor forne : fornecedores) {
+            if (forne.getCnpj().equals(forne));
+            return forne;
+        }
+        return null;
     }
 
     @Override
     public List<Fornecedor> buscarTodosFornecedores() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return fornecedores;
+    }
+
+    @Override
+    public void removerFornecedor(Fornecedor f) {
+        fornecedores.remove(f);
     }
 
 
