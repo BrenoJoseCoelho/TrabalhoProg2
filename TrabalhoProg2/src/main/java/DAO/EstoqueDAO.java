@@ -4,10 +4,12 @@
  */
 package DAO;
 
+import Repositorio.EstoqueRepositorio;
+
 /**
  *
  * @author LRodrigues
  */
-public class EstoqueDAO {
+public class EstoqueDAO implements EstoqueRepositorio{
     
 }

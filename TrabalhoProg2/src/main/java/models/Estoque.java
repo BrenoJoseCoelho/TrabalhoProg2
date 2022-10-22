@@ -10,4 +10,9 @@ package models;
  */
 public class Estoque {
     
+    
+    private Funcionario funcionario;
+    private Venda venda;
+    private LivroNovo livroNovo;
+    private LivroUsado livroUsado;
 }

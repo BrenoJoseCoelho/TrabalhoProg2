@@ -21,7 +21,7 @@ public class LivroNovo extends Livro  {
         super(preco, autor, titulo, editora, local, edicao, isbn);
        
     }
-
+ 
 
 
     
