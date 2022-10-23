@@ -16,16 +16,19 @@ public class Venda {
     private String dataVenda;
     private String status;
     private String observacao;
+
     private Cliente clientes;
     private Funcionario funcionarios;
     private List<Livro> livros;
 
-    public Venda(String dataVenda, String status, String observacao, Cliente cliente, Funcionario funcionario) {
+
+    public Venda(String dataVenda, String status, String observacao) {
         this.dataVenda = dataVenda;
         this.status = status;
         this.observacao = observacao;
-        this.clientes = cliente;
-        this.funcionarios = funcionario;
+        this.clientes = clientes;
+        this.funcionarios = funcionarios;
+
         this.livros = new ArrayList<Livro>();
     }
 

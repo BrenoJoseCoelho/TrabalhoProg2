@@ -16,11 +16,19 @@ public abstract class Livro implements Comparable<Livro>{
     private String local;
     private String edicao;
     private String isbn;
+
     private double preco;
  
  
     
-    public Livro(double preco, String autor, String titulo, String editora, String local,
+   
+
+  
+ 
+
+    
+    public Livro(float preco, String autor, String titulo, String editora, String local,
+
             String edicao, String isbn ) {
         this.autor = autor;
         this.titulo = titulo;
@@ -31,6 +39,7 @@ public abstract class Livro implements Comparable<Livro>{
         this.preco = preco;
        
     }
+
    
     
 
@@ -41,6 +50,7 @@ public abstract class Livro implements Comparable<Livro>{
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
     
 
     public String getAutor() {
@@ -84,6 +94,14 @@ public abstract class Livro implements Comparable<Livro>{
     public String getIsbn() {
         return isbn;
     }
+
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+
+
 
     @Override
     public int compareTo(Livro o) {
