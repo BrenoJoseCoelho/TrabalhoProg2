@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-
+import View.JFListarCliente;
 /**
  *
  * @author levan
@@ -144,9 +144,6 @@ public class JFTelaInicial extends javax.swing.JFrame {
 
          JFVenda jfvenda = new JFVenda();
         jfvenda.setVisible(true);
-
-         JFListarCliente listarCliente = new JFListarCliente();
-        listarCliente.setVisible(true);
 
     }//GEN-LAST:event_txtClienteActionPerformed
 

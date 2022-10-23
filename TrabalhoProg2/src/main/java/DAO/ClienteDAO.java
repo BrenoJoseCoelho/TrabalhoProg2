@@ -24,12 +24,9 @@ public class ClienteDAO implements ClienteRepositorio {
 
     @Override
     public void salvarCliente(Cliente c) {
-<
+
         clientes.add(c);
-
-
     }
-
     @Override
     public Cliente buscarCliente(String cpf) {
 
@@ -37,27 +34,17 @@ public class ClienteDAO implements ClienteRepositorio {
             if (cli.getCpf().equals(cli));
             return cli;
         }
-        return null;
-
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-
+        return null;  
     }
 
     @Override
+    public List<Cliente> buscarTodosClientes() {
 
         return clientes;
     }
     @Override
     public List<Cliente> getCliente() {
-       return clientes;
-
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Cliente> getCliente() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-
+       return clientes;    
     }
 
     @Override
@@ -67,8 +54,8 @@ public class ClienteDAO implements ClienteRepositorio {
     }
 
 
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       
     }
     
 
-}
+
