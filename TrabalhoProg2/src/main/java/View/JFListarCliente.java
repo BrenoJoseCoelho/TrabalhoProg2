@@ -32,8 +32,13 @@ public class JFListarCliente extends javax.swing.JFrame {
     public void popularCliente(List<Cliente> cliente){
        
 
+
         for(Cliente c: cliente){
             txtCliente.append(c + "\n");
+
+
+        for(Cliente p: cliente){
+            txtCliente.append(p + "\n");
 
         }
     }
@@ -106,7 +111,6 @@ public class JFListarCliente extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -16,7 +16,6 @@ public class Venda {
     private String dataVenda;
     private String status;
     private String observacao;
-
     private Cliente clientes;
     private Funcionario funcionarios;
     private List<Livro> livros;
@@ -28,6 +27,13 @@ public class Venda {
         this.observacao = observacao;
         this.clientes = clientes;
         this.funcionarios = funcionarios;
+
+    public Venda(String dataVenda, String status, String observacao, Cliente cliente, Funcionario funcionario) {
+        this.dataVenda = dataVenda;
+        this.status = status;
+        this.observacao = observacao;
+        this.clientes = cliente;
+        this.funcionarios = funcionario;
 
         this.livros = new ArrayList<Livro>();
     }
@@ -52,6 +58,5 @@ public class Venda {
         this.observacao = observacao;
     }
     
-    
-    
+
 }

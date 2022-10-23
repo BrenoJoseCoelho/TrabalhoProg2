@@ -4,6 +4,10 @@
  */
 package models;
 
+import DAO.LivroNovoListDAO;
+import DAO.LivroUsadoListDAO;
+import Exception.IsbnExistenteException;
+
 /**
  *
  * @author LRodrigues
@@ -16,20 +20,16 @@ public abstract class Livro implements Comparable<Livro>{
     private String local;
     private String edicao;
     private String isbn;
-
     private double preco;
- 
- 
-    
-   
+    protected String isbn;
+    private double preco;
 
-  
- 
-
-    
     public Livro(float preco, String autor, String titulo, String editora, String local,
 
-            String edicao, String isbn ) {
+
+    public Livro(double preco, String autor, String titulo, String editora, String local,
+
+        String edicao, String isbn ) {
         this.autor = autor;
         this.titulo = titulo;
         this.editora = editora;
@@ -39,7 +39,6 @@ public abstract class Livro implements Comparable<Livro>{
         this.preco = preco;
        
     }
-
    
     
 
@@ -50,8 +49,6 @@ public abstract class Livro implements Comparable<Livro>{
     public void setPreco(double preco) {
         this.preco = preco;
     }
-
-    
 
     public String getAutor() {
         return autor;
@@ -90,18 +87,32 @@ public abstract class Livro implements Comparable<Livro>{
     public void setEdicao(String edicao) {
         this.edicao = edicao;
     }
-
+    
+    public void setIsbn(String isbn) throws IsbnExistenteException {
+        
+      LivroNovoListDAO livroNovoDAO = new LivroNovoListDAO();
+      LivroUsadoListDAO livroUsadoDAO = new LivroUsadoListDAO();
+      
+      for(Livro book : livroNovoDAO.getTodosLivrosNovos()){
+           if(book.getIsbn().equals(isbn)){
+                throw new  IsbnExistenteException();
+           }         
+      }
+      for(Livro book1 : livroUsadoDAO.getTodosLivrosUsados()){
+            if(book1.getIsbn().equals(isbn)){
+                throw new  IsbnExistenteException();
+           }         
+      }
+      this.isbn = isbn; 
+    }
+    
     public String getIsbn() {
         return isbn;
     }
 
-
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
-
-
-
 
     @Override
     public int compareTo(Livro o) {
@@ -115,7 +126,5 @@ public abstract class Livro implements Comparable<Livro>{
                 + ", local=" + local + ", edicao=" + edicao + ", isbn=" + isbn + '}';
     }
 
- 
-    
     
 }
