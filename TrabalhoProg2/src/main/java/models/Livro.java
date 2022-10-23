@@ -4,6 +4,10 @@
  */
 package models;
 
+import DAO.LivroNovoListDAO;
+import DAO.LivroUsadoListDAO;
+import Exception.IsbnExistenteException;
+
 /**
  *
  * @author LRodrigues
@@ -15,7 +19,7 @@ public abstract class Livro implements Comparable<Livro>{
     private String editora;
     private String local;
     private String edicao;
-    private String isbn;
+    protected String isbn;
     private double preco;
  
  
@@ -80,11 +84,30 @@ public abstract class Livro implements Comparable<Livro>{
     public void setEdicao(String edicao) {
         this.edicao = edicao;
     }
-
+    
+    public void setIsbn(String isbn) throws IsbnExistenteException {
+        
+      LivroNovoListDAO livroNovoDAO = new LivroNovoListDAO();
+      LivroUsadoListDAO livroUsadoDAO = new LivroUsadoListDAO();
+      
+      for(Livro book : livroNovoDAO.getTodosLivrosNovos()){
+           if(book.getIsbn().equals(isbn)){
+                throw new  IsbnExistenteException();
+           }         
+      }
+      for(Livro book1 : livroUsadoDAO.getTodosLivrosUsados()){
+            if(book1.getIsbn().equals(isbn)){
+                throw new  IsbnExistenteException();
+           }         
+      }
+      this.isbn = isbn; 
+    }
+    
     public String getIsbn() {
         return isbn;
     }
-
+    
+    
     @Override
     public int compareTo(Livro o) {
         return this.isbn.compareTo(o.getIsbn());
