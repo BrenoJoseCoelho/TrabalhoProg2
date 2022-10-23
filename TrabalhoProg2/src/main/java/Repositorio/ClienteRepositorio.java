@@ -16,4 +16,6 @@ public interface ClienteRepositorio {
      public void removeCliente(Cliente c);
     public Cliente buscarCliente(String cpf);
     public List<Cliente> buscarTodosClientes();
+
+    public List<Cliente> getCliente();
 }

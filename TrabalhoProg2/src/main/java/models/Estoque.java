@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package models;
-
 import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
 import Exception.IsbnExistenteException;
@@ -12,6 +11,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+
 /**
  *
  * @author LRodrigues
@@ -19,6 +19,12 @@ import java.util.Set;
 public class Estoque {
     
     
+
+    private Funcionario funcionario;
+    private Venda venda;
+    private LivroNovo livroNovo;
+    private LivroUsado livroUsado;
+
     private int qtdLivros;
     private Set<Livro> livros;
     private Map<String, Livro> obterLivroPorISBN;
