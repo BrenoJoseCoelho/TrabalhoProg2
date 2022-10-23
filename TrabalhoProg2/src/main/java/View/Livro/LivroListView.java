@@ -223,11 +223,19 @@ public class LivroListView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtISBNLivro1ActionPerformed
     public void verificandoOpcaoInvalidaCombo(){
+
+        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
+            JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
+        }else{
+            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
+        }
+
 //        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
 //            JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
 //        }else{
 //            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
 //        }
+
             
     }
     /**
@@ -261,7 +269,7 @@ public class LivroListView extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LivroListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
- 
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

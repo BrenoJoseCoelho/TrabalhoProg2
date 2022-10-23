@@ -31,8 +31,15 @@ public class JFListarCliente extends javax.swing.JFrame {
        
     public void popularCliente(List<Cliente> cliente){
        
+
+
+        for(Cliente c: cliente){
+            txtCliente.append(c + "\n");
+
+
         for(Cliente p: cliente){
             txtCliente.append(p + "\n");
+
         }
     }
     
@@ -102,8 +109,6 @@ public class JFListarCliente extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(JFListarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

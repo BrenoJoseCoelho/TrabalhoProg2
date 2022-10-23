@@ -4,6 +4,8 @@
  */
 package View;
 
+import View.JFListarCliente;
+
 /**
  *
  * @author levan
@@ -141,8 +143,15 @@ public class JFTelaInicial extends javax.swing.JFrame {
 
     private void txtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteActionPerformed
         // TODO add your handling code here:
+
+
+         JFVenda jfvenda = new JFVenda();
+        jfvenda.setVisible(true);
+
+
          JFListarCliente listarCliente = new JFListarCliente();
         listarCliente.setVisible(true);
+
     }//GEN-LAST:event_txtClienteActionPerformed
 
     
@@ -173,7 +182,6 @@ public class JFTelaInicial extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(JFTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
