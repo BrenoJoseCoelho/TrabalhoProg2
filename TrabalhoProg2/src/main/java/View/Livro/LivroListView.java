@@ -223,11 +223,11 @@ public class LivroListView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtISBNLivro1ActionPerformed
     public void verificandoOpcaoInvalidaCombo(){
-        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
-            JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
-        }else{
-            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
-        }
+//        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
+//            JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
+//        }else{
+//            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
+//        }
             
     }
     /**
