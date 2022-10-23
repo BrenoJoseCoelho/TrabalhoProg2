@@ -125,7 +125,6 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        
         String login = this.txtLogin.getText();
-              
         String senha = this.txtSenha.getText();
         
         if(LogarSystem(login, senha)){

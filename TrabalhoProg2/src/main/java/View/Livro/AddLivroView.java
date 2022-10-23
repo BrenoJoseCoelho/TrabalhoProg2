@@ -6,11 +6,14 @@ package View.Livro;
  */
 
 
+import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
+import Repositorio.LivroNovoRepositorio;
 import Repositorio.LivroUsadoRepositorio;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import models.Livro;
+import models.LivroNovo;
 import models.LivroUsado;
 
 /**
@@ -18,7 +21,8 @@ import models.LivroUsado;
  * @author LRodrigues
  */
 public class AddLivroView extends javax.swing.JFrame {
-
+    private LivroNovoListDAO livroNovoDAO =  new LivroNovoListDAO();
+      private LivroUsadoListDAO livroUsadoDAO =  new LivroUsadoListDAO();
     /**
      * Creates new form TelaAdicionarPaciente
      */
@@ -244,7 +248,16 @@ public class AddLivroView extends javax.swing.JFrame {
         String localEditora = txtLocalEditoraLivro.getText();
         String edicaoLivro = txtNEdicaoLivro.getText();
         String ISBNLivro =  txtISBNLivro.getText();
-        String precoLivro =  txtValorLivro.getText();
+        double precoLivro =  Double.parseDouble(txtValorLivro.getText());
+        //LivroNovoRepositorio livroNovoRepositorio = new LivroNovoListDAO();
+        Livro book = new LivroNovo((float) precoLivro, autorLivro, tituloLivro, localEditora, localEditora, edicaoLivro, ISBNLivro);
+        Livro book1 = new LivroUsado((float) precoLivro, autorLivro, tituloLivro, localEditora, localEditora, edicaoLivro, ISBNLivro);
+        if(btnLivroNovo.isSelected()){
+        livroNovoDAO.addLivroNovo((LivroNovo) book);
+        }else if(btnLivroUsado.isSelected()){
+            livroUsadoDAO.addLivroUsado((LivroUsado) book1);
+        }
+            
     }//GEN-LAST:event_btnAddLivroAction
 
     private void btnLivroUsadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLivroUsadoActionPerformed
