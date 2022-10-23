@@ -27,6 +27,7 @@ public class Venda {
         this.observacao = observacao;
         this.clientes = clientes;
         this.funcionarios = funcionarios;
+    }
 
     public Venda(String dataVenda, String status, String observacao, Cliente cliente, Funcionario funcionario) {
         this.dataVenda = dataVenda;
@@ -34,7 +35,6 @@ public class Venda {
         this.observacao = observacao;
         this.clientes = cliente;
         this.funcionarios = funcionario;
-
         this.livros = new ArrayList<Livro>();
     }
 

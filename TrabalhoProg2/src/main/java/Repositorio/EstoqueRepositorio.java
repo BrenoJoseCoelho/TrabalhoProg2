@@ -4,10 +4,15 @@
  */
 package Repositorio;
 
+import models.Estoque;
+
 /**
  *
  * @author LRodrigues
  */
 public interface EstoqueRepositorio {
-    
+    void addEstoque(Estoque estoque);
+    void attQuantidade(Estoque estoque);
+    void removeEstoque( Estoque estoque);
+    void listaEstoque(Estoque estoque);
 }
