@@ -3,13 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+
 import DAO.VendaDao;
 import Repositorio.VendaRepositorio;
 import models.Venda;
 import DAO.ClienteDAO;
+import DAO.EstoqueDAO;
+import DAO.FuncionarioDAO;
 import models.Cliente;
 import Repositorio.ClienteRepositorio;
+import Repositorio.EstoqueRepositorio;
+import Repositorio.FuncionarioRepositorio;
 import java.util.List;
+import javax.swing.JOptionPane;
+import models.Estoque;
+import models.Funcionario;
+import models.Livro;
+
 /**
  *
  * @author Marcos Levandoski
@@ -21,22 +31,44 @@ public class JFVenda extends javax.swing.JFrame {
      */
     public JFVenda() {
         initComponents();
-         
+
         List<Cliente> clientes = buscarTodosClientes();
         popularCliente(clientes);
+        popularFuncionario();
+        popularLivros();
+
     }
-    
-    public List<Cliente> buscarTodosClientes(){
+
+    public List<Cliente> buscarTodosClientes() {
         ClienteRepositorio clienteRepositorio = new ClienteDAO();
         return clienteRepositorio.getCliente();
     }
-       
-    public void popularCliente(List<Cliente> clientes){
-       
-        for(Cliente c: clientes){
+
+    public void popularFuncionario() {
+        FuncionarioRepositorio funcionariorepositorio = new FuncionarioDAO();
+        List<Funcionario> funcionarios = funcionariorepositorio.getTodosFuncionarios();
+
+        for (Funcionario fun : funcionarios) {
+            jComboBoxFuncionario.addItem(fun);
+        }
+    }
+
+    public void popularCliente(List<Cliente> clientes) {
+
+        for (Cliente c : clientes) {
             jComboBoxCliente.addItem(c);
         }
     }
+    
+    public void popularLivros() {
+        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
+        List<Livro> estoque = estoquerepositorio.getTodosLivros();
+
+        for (Livro livro : estoque) {
+            jComboBoxLivro.addItem(livro);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,6 +86,10 @@ public class JFVenda extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnVender = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jtfObservacao = new javax.swing.JTextField();
+        jlObservacao = new javax.swing.JLabel();
+        jComboBoxFuncionario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -79,6 +115,27 @@ public class JFVenda extends javax.swing.JFrame {
         jLabel4.setText("Livro:");
 
         btnVender.setText("Vender");
+        btnVender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVenderActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Funcionario:");
+
+        jtfObservacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfObservacaoActionPerformed(evt);
+            }
+        });
+
+        jlObservacao.setText("Observações:");
+
+        jComboBoxFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFuncionarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,36 +143,42 @@ public class JFVenda extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(133, 133, 133)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(135, 135, 135)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jtfDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(btnVender)))
-                .addContainerGap(152, Short.MAX_VALUE))
+                        .addGap(150, 150, 150)
+                        .addComponent(btnVender))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2)
+                            .addComponent(jtfDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jlObservacao)
+                                .addComponent(jLabel3)
+                                .addComponent(jComboBoxCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4)
+                                .addComponent(jComboBoxLivro, 0, 217, Short.MAX_VALUE)
+                                .addComponent(jtfObservacao)
+                                .addComponent(jComboBoxFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel1)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtfDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,9 +186,13 @@ public class JFVenda extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlObservacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtfObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnVender)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -139,6 +206,48 @@ public class JFVenda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfDataVendaActionPerformed
 
+    private void jtfObservacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfObservacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfObservacaoActionPerformed
+
+    private void jComboBoxFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxFuncionarioActionPerformed
+
+    private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
+        //obter o data
+        String data = jtfDataVenda.getText();
+        //obter o cliente
+        Cliente cliente = (Cliente) jComboBoxCliente.getSelectedItem();
+        //obter o funcionario
+        Funcionario funcionario = (Funcionario) jComboBoxFuncionario.getSelectedItem();
+        //obter o livros
+        Livro livros = (Livro) jComboBoxLivro.getSelectedItem();
+        
+        String observacao = jtfObservacao.getText();
+        //criar a instância de Paciente
+        Venda venda = new Venda(data, observacao, cliente, funcionario,livros);
+        //salvar no BD
+        salvarVenda(venda);
+        //Mostrar mensagem de sucesso
+        apresentarMensagem("Venda realizada com sucesso!");
+        //limpar tela
+        limparTela();
+    }//GEN-LAST:event_btnVenderActionPerformed
+
+     public void salvarVenda(Venda venda){
+       VendaRepositorio vendaRepositorio = new VendaDao();
+       vendaRepositorio.novaVenda(venda);
+    }
+    
+    public void limparTela(){
+        jtfObservacao.setText("");
+        jtfDataVenda.setText("");
+    }
+    
+    public void apresentarMensagem(String msg){
+        JOptionPane.showMessageDialog(null, msg);
+    }
     /**
      * @param args the command line arguments
      */
@@ -177,11 +286,15 @@ public class JFVenda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVender;
     private javax.swing.JComboBox<Cliente> jComboBoxCliente;
-    private javax.swing.JComboBox<String> jComboBoxLivro;
+    private javax.swing.JComboBox<Funcionario> jComboBoxFuncionario;
+    private javax.swing.JComboBox<Livro> jComboBoxLivro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jlObservacao;
     private javax.swing.JTextField jtfDataVenda;
+    private javax.swing.JTextField jtfObservacao;
     // End of variables declaration//GEN-END:variables
 }

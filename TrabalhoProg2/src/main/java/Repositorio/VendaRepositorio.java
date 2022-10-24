@@ -4,6 +4,7 @@
  */
 package Repositorio;
 
+import java.util.List;
 import models.Venda;
 
 /**
@@ -13,7 +14,6 @@ import models.Venda;
 public interface VendaRepositorio {
     
     void novaVenda(Venda ven);
-    Venda relatorioVendaData(String dataVenda);
-    Venda relatorioStatus(String status);
-    
+    String relatorioVendaData(String dataVenda);
+    List<Venda> listarTodasVendas();
 }

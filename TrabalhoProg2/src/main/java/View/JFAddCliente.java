@@ -128,7 +128,7 @@ public class JFAddCliente extends javax.swing.JFrame {
         //salvar no BD
         salvarCliente(cliente);
         //Mostrar mensagem de sucesso
-        apresentarMensagem(cliente.toString());
+        apresentarMensagem("Cliente Adicionado com Sucesso");
         //limpar tela
         limparTela();
     }//GEN-LAST:event_btnSalvarClienteActionPerformed

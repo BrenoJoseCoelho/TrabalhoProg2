@@ -14,48 +14,41 @@ import java.util.List;
 public class Venda {
     
     private String dataVenda;
-    private String status;
     private String observacao;
     private Cliente clientes;
     private Funcionario funcionarios;
-    private List<Livro> livros;
+    private Livro livros;
 
 
-    public Venda(String dataVenda, String status, String observacao) {
+   
+
+    public Venda(String dataVenda, String observacao, Cliente cliente, Funcionario funcionario, Livro livro) {
         this.dataVenda = dataVenda;
-        this.status = status;
-        this.observacao = observacao;
-        this.clientes = clientes;
-        this.funcionarios = funcionarios;
-    }
-
-    public Venda(String dataVenda, String status, String observacao, Cliente cliente, Funcionario funcionario) {
-        this.dataVenda = dataVenda;
-        this.status = status;
         this.observacao = observacao;
         this.clientes = cliente;
         this.funcionarios = funcionario;
-        this.livros = new ArrayList<Livro>();
+        this.livros = livro;
     }
 
     public String getDataVenda() {
         return dataVenda;
     }
 
-    public String getStatus() {
-        return status;
-    }
+   
 
     public String getObservacao() {
         return observacao;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+ 
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    @Override
+    public String toString() {
+        return "Data da Venda: " + dataVenda + ", observacao: " + observacao + ", Cliente: " + clientes.nome + ", funcionarios: " + funcionarios.nome + ", livro: " + livros +"\n";
     }
     
 
