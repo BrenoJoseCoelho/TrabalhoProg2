@@ -183,7 +183,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
         }
    
     public void openTelaInicial(){
-        JFTelaInicial fTelaInicial = new JFTelaInicial();
+        JFTelaInicial2 fTelaInicial = new JFTelaInicial2();
          fTelaInicial.setVisible(true);
          this.dispose();
     }
