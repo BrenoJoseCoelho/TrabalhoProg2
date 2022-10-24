@@ -6,9 +6,11 @@ package View.Livro;
  */
 
 
+import DAO.EstoqueDAO;
 import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
 import Exception.IsbnExistenteException;
+import Repositorio.EstoqueRepositorio;
 import Repositorio.LivroNovoRepositorio;
 import Repositorio.LivroUsadoRepositorio;
 import View.JFEstoque;
@@ -71,7 +73,7 @@ public class JFAddLivro extends javax.swing.JFrame {
         rbLivroNovo = new javax.swing.JRadioButton();
         lblValorLivroNovo1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -335,10 +337,12 @@ public class JFAddLivro extends javax.swing.JFrame {
   
     public void addLivroNovo() throws IsbnExistenteException{
       
+        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
         
         LivroNovoRepositorio livroNovoRepositorio =  new LivroNovoListDAO();
         LivroNovo livroNovo = returnLivroNovo();
         livroNovoRepositorio.addLivroNovo(livroNovo);
+        estoquerepositorio.addEstoqueNovo(livroNovo);
         mostrarMensagem("Adicionado Livro Novo com Sucesso!"+ livroNovo.toString());
     }
     
@@ -360,10 +364,12 @@ public class JFAddLivro extends javax.swing.JFrame {
     }
   
     public void addLivroUsado() throws IsbnExistenteException{
+        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
       
         LivroUsadoRepositorio livroUsadoRepositorio =  new LivroUsadoListDAO();
         LivroUsado livroUsado = returnLivroUsado();
         livroUsadoRepositorio.addLivroUsado(livroUsado);
+        estoquerepositorio.addEstoqueUsado(livroUsado);
         mostrarMensagem("Adicionado Livro Usado com Sucesso!"+ livroUsado.toString());
     
     }

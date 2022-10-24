@@ -16,24 +16,13 @@ import models.LivroUsado;
  *
  * @author LRodrigues
  */
-public class EstoqueDAO implements EstoqueRepositorio{
-    
-     private static List<Livro> livros = new ArrayList<>();
-  
-    
-    @Override
-    public void addEstoque(Estoque estoque) {
-      estoque.addLivro((Livro) livros);
-    }
+public class EstoqueDAO implements EstoqueRepositorio {
+
+    private static List<Livro> livros = new ArrayList<>();
 
     @Override
     public void attQuantidade(Estoque estoque) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void removeEstoque(Estoque estoque) {
-        estoque.removeLivro((Livro) livros);
     }
 
     @Override
@@ -43,10 +32,28 @@ public class EstoqueDAO implements EstoqueRepositorio{
 
     @Override
     public List<Livro> getTodosLivros() {
- 
-           return livros;
+
+        return livros;
     }
 
-}    
-    
+    @Override
+    public void removeEstoqueNovo(LivroNovo livroNovo) {
+        livros.remove(livroNovo);
+    }
 
+    @Override
+    public void addEstoqueNovo(LivroNovo livroNovo) {
+        livros.add(livroNovo);
+    }
+
+    @Override
+    public void addEstoqueUsado(LivroUsado livroUsado) {
+        livros.add(livroUsado);
+    }
+
+    @Override
+    public void removeEstoqueUsado(LivroUsado livroUsado) {
+        livros.remove(livroUsado);
+    }
+
+}
