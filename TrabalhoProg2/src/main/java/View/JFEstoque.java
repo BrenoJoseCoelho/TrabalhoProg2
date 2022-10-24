@@ -4,8 +4,8 @@
  */
 package View;
 
-import View.Livro.JFAddLivroNovoView;
-import View.Livro.JFLivroListView;
+import View.Livro.JFAddLivro;
+import View.Livro.JFLivroList;
 
 /**
  *
@@ -73,14 +73,14 @@ public class JFEstoque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroActionPerformed
-        JFAddLivroNovoView addLivroNovoView = new JFAddLivroNovoView();
+        JFAddLivro addLivroNovoView = new JFAddLivro();
         addLivroNovoView.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAddLivroActionPerformed
 
     private void btnListaLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaLivrosActionPerformed
          
-        JFLivroListView  fLivroListView=  new JFLivroListView();
+        JFLivroList  fLivroListView=  new JFLivroList();
         fLivroListView.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnListaLivrosActionPerformed

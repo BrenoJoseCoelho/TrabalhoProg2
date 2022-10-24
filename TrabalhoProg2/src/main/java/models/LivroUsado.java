@@ -34,7 +34,7 @@ public class LivroUsado extends Livro   {
 
     @Override
     public String toString() {
-        return super.toString() + "Livro Usado:" + "Tempo de Uso Livro: " + tempoUso;
+        return  super.toString()+ ", Tempo de Uso Livro: " + tempoUso  ;
     }
         
   
