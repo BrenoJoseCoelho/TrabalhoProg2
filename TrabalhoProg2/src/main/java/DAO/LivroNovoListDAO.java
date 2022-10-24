@@ -7,6 +7,7 @@ package DAO;
 import Repositorio.LivroNovoRepositorio;
 import java.util.ArrayList;
 import java.util.List;
+import models.Estoque;
 import models.Livro;
 import models.LivroNovo;
 
@@ -16,6 +17,7 @@ import models.LivroNovo;
  */
 public class LivroNovoListDAO implements LivroNovoRepositorio{
 
+    
       private static List<LivroNovo> livrosNovos = new ArrayList<>();
       
 
@@ -72,6 +74,8 @@ public class LivroNovoListDAO implements LivroNovoRepositorio{
           }   
         return null;
     }
+
+ 
     
 
 

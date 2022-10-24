@@ -139,17 +139,15 @@ public class JFAddFuncionario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSalvarFuncionarioActionPerformed
 
-    private void jTextFieldNomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomeFuncionarioActionPerformed
-
-    public void salvarFuncionario() throws FuncionarioException, CpfIgualException {
-        try {
-            FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
-            Funcionario func = returnFunc();
-            funcionarioRepositorio.salvarFuncionario(func);
-            mostrarMsg("Funcionario Adicionado com sucesso!");
-        } catch (FuncionarioException | CpfIgualException e) {
+// lucas-branch
+     public void salvarFuncionario() throws FuncionarioException, CpfIgualException {
+        try{
+        FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
+        Funcionario func = returnFunc();
+        funcionarioRepositorio.salvarFuncionario(func);
+            mostrarMsg(" Funcionario Adicionado com sucesso! -[ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - "+ func.toString());
+        }catch( FuncionarioException | CpfIgualException e){
+//
             mostrarMsg(e.getMessage());
 
         }

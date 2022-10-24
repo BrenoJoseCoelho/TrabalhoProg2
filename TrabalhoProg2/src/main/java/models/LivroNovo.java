@@ -16,6 +16,7 @@ import java.util.List;
 public class LivroNovo extends Livro  {
     
     private List<Livro> livros;
+  
 
     public LivroNovo(String autor, String titulo, String editora, String local, String edicao, String isbn, double preco) {
         super(autor, titulo, editora, local, edicao, isbn, preco);
@@ -27,7 +28,7 @@ public class LivroNovo extends Livro  {
         return super.toString();
     }
 
-
+    
  
 
 

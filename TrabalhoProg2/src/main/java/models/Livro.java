@@ -8,6 +8,9 @@ import DAO.EstoqueDAO;
 import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
 import Exception.IsbnExistenteException;
+import Repositorio.LivroNovoRepositorio;
+import Repositorio.LivroUsadoRepositorio;
+import java.util.Set;
 
 /**
  *
@@ -15,6 +18,7 @@ import Exception.IsbnExistenteException;
  */
 public abstract class Livro implements Comparable<Livro>{
     
+    private Estoque estoque;
     private String autor;
     private String titulo;
     private String editora;
@@ -22,8 +26,10 @@ public abstract class Livro implements Comparable<Livro>{
     private String edicao;
     protected String isbn;
     private double preco;
+  
+    public Livro(){
 
-
+    }
 
     public Livro(String autor, String titulo, String editora, String local, String edicao, String isbn, double preco  ) {
         this.autor = autor;
@@ -34,6 +40,14 @@ public abstract class Livro implements Comparable<Livro>{
         this.isbn = isbn;
         this.preco = preco;
        
+    }
+
+    public Estoque getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Estoque estoque) {
+        this.estoque = estoque;
     }
    
     
@@ -101,7 +115,9 @@ public abstract class Livro implements Comparable<Livro>{
     public String getIsbn() {
         return isbn;
     }
+    
 
+            
     @Override
     public int compareTo(Livro o) {
         return this.isbn.compareTo(o.getIsbn());
