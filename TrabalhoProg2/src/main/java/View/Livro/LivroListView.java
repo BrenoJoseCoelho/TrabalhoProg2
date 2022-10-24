@@ -4,10 +4,13 @@
  */
 package View.Livro;
 
+import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
 import Repositorio.LivroUsadoRepositorio;
+import java.util.Comparator;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import models.Livro;
 import models.LivroNovo;
@@ -19,10 +22,10 @@ import models.LivroUsado;
  */
 public class LivroListView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaAdicionarPaciente
-     */
+    private LivroNovoListDAO livroNovoListDAO = new LivroNovoListDAO();
+    
     public LivroListView() {
+     
         
         initComponents();
     }
@@ -36,84 +39,49 @@ public class LivroListView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtLocalEditoraLivro = new javax.swing.JTextField();
-        txtAutorLivro = new javax.swing.JTextField();
-        txtTituloLivro = new javax.swing.JTextField();
-        txtEditoraLivro = new javax.swing.JTextField();
-        txtNEdicaoLivro = new javax.swing.JTextField();
-        txtISBNLivro = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        lblValorLivroUsado = new javax.swing.JLabel();
-        txtISBNLivro1 = new javax.swing.JTextField();
+        jScrollBar1 = new javax.swing.JScrollBar();
+        btnListarLivrosNovos = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaListar = new javax.swing.JTextArea();
+        btnLimparTela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(32767, 32767));
 
-        jLabel1.setText("Autor do Livro:");
-
-        jLabel2.setText("Titulo do Livro:");
-
-        jLabel3.setText("Editora do Livro:");
-
-        jLabel4.setText("Local da Editora:");
-
-        jLabel5.setText("Numero de Edição do Livro:");
-
-        jLabel6.setText("ISBN do Livro:");
-
-        txtLocalEditoraLivro.addActionListener(new java.awt.event.ActionListener() {
+        btnListarLivrosNovos.setText("Listar Livros Novos");
+        btnListarLivrosNovos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocalEditoraLivroActionPerformed(evt);
+                btnListarLivrosNovosActionPerformed(evt);
             }
         });
 
-        txtAutorLivro.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Lista Livros Usados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAutorLivroActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        txtTituloLivro.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Listar Todos os Livros");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTituloLivroActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
-        txtEditoraLivro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEditoraLivroActionPerformed(evt);
-            }
-        });
+        jButton4.setText("Listar por OrdemAlfabética");
 
-        txtNEdicaoLivro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNEdicaoLivroActionPerformed(evt);
-            }
-        });
+        txtAreaListar.setColumns(20);
+        txtAreaListar.setRows(5);
+        jScrollPane1.setViewportView(txtAreaListar);
 
-        txtISBNLivro.addActionListener(new java.awt.event.ActionListener() {
+        btnLimparTela.setText("Limpar Tela");
+        btnLimparTela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtISBNLivroActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Adicionar Livro");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        lblValorLivroUsado.setText("Valor do Livro:");
-
-        txtISBNLivro1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtISBNLivro1ActionPerformed(evt);
+                btnLimparTelaActionPerformed(evt);
             }
         });
 
@@ -121,126 +89,101 @@ public class LivroListView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtISBNLivro1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                .addComponent(lblValorLivroUsado))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtISBNLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                .addComponent(txtNEdicaoLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                .addComponent(txtEditoraLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                .addComponent(txtTituloLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(txtLocalEditoraLivro)
-                                .addComponent(txtAutorLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                .addComponent(jLabel5)))))
-                .addContainerGap(67, Short.MAX_VALUE))
+                            .addComponent(btnListarLivrosNovos)
+                            .addComponent(jButton2))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(155, 155, 155)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLimparTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(21, 21, 21))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtAutorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTituloLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnListarLivrosNovos)
+                    .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLocalEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNEdicaoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtISBNLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addComponent(lblValorLivroUsado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtISBNLivro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(30, 30, 30))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton4)
+                        .addComponent(btnLimparTela)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLocalEditoraLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalEditoraLivroActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocalEditoraLivroActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void txtAutorLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAutorLivroActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAutorLivroActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void txtTituloLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloLivroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTituloLivroActionPerformed
+    private void btnListarLivrosNovosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarLivrosNovosActionPerformed
+       livroNovoListDAO.getTodosLivrosNovos().sort((new Comparator<LivroNovo>() {
+           @Override
+           public int compare(LivroNovo o1, LivroNovo o2) {
 
-    private void txtEditoraLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditoraLivroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEditoraLivroActionPerformed
+               return o1.getIsbn().compareTo(o2.getIsbn());      
+           }
+       }));
+       for(LivroNovo livroNovo : livroNovoListDAO.getTodosLivrosNovos()){
+           txtAreaListar.append(livroNovo.toString()+"\n");       
+       }
+    }//GEN-LAST:event_btnListarLivrosNovosActionPerformed
 
-    private void txtNEdicaoLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNEdicaoLivroActionPerformed
+    private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNEdicaoLivroActionPerformed
-
-    private void txtISBNLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtISBNLivroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtISBNLivroActionPerformed
-  
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       verificandoOpcaoInvalidaCombo();
-    }//GEN-LAST:event_jButton1ActionPerformed
-  
+        txtAreaListar.setText("");
+        
+    }//GEN-LAST:event_btnLimparTelaActionPerformed
+    
      private JComboBox<LivroUsado> jComboBox = new javax.swing.JComboBox<>();   
      public void precherComboTempo(){
          //List<LivroUsado> listaLivrosUsado = new LivroUsadoListDAO;
      }
-    //  private String [] tempoUso = {"Até 0.6 meses", "Até 1 ano","Até 2 anos"};
-    private void txtISBNLivro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtISBNLivro1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtISBNLivro1ActionPerformed
-    public void verificandoOpcaoInvalidaCombo(){
-
-        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
-            JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
-        }else{
-            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
-        }
-
+//   public void verificandoOpcaoInvalidaCombo(){
+//
 //        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
 //            JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
 //        }else{
 //            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
 //        }
-
-            
-    }
+//
+////        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
+////            JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
+////        }else{
+////            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
+////        }
+//
+//            
+//    }
     /**
      * @param args the command line arguments
      */
+     
     
       public void mostrarMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
@@ -279,20 +222,13 @@ public class LivroListView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel lblValorLivroUsado;
-    private javax.swing.JTextField txtAutorLivro;
-    private javax.swing.JTextField txtEditoraLivro;
-    private javax.swing.JTextField txtISBNLivro;
-    private javax.swing.JTextField txtISBNLivro1;
-    private javax.swing.JTextField txtLocalEditoraLivro;
-    private javax.swing.JTextField txtNEdicaoLivro;
-    private javax.swing.JTextField txtTituloLivro;
+    private javax.swing.JButton btnLimparTela;
+    private javax.swing.JButton btnListarLivrosNovos;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtAreaListar;
     // End of variables declaration//GEN-END:variables
 }
