@@ -151,7 +151,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
             mostrarMsg(e.getMessage());
 
         }
-        JFTelaInicial2 fTelaInicial = new JFTelaInicial2();
+        JFTelaInicial fTelaInicial = new JFTelaInicial();
         fTelaInicial.setVisible(true);
         this.dispose();
     
