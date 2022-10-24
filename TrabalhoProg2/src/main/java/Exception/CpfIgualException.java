@@ -4,15 +4,19 @@
  */
 package Exception;
 
-public class IsbnExistenteException extends Exception{
+/**
+ *
+ * @author LRodrigues
+ */
+public class CpfIgualException extends Exception{
 
-    public IsbnExistenteException() {
-    super("Livro com ISBN já cadastrado!");
-    }  
+    public CpfIgualException() {
+    super("CPF já cadastrado!");
+    }
 
-    public IsbnExistenteException(String msg) {
-        super(msg);
+    public CpfIgualException(String message) {
+        super(message);
     }
     
-    
+   
 }

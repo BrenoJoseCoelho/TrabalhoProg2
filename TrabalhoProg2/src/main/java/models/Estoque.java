@@ -24,11 +24,9 @@ public class Estoque {
     private Venda venda;
     private LivroNovo livroNovo;
     private LivroUsado livroUsado;
-
     private int qtdLivros;
     private Set<Livro> livros;
     private Map<String, Livro> obterLivroPorISBN;
-    private Funcionario funcionario;
     private Fornecedor fornecedor;
 
     public Estoque(int qtdLivros) {

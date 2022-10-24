@@ -41,6 +41,11 @@ public class FuncionarioDAO implements FuncionarioRepositorio {
           }
         return null;
           }
+
+    @Override
+    public List<Funcionario> getTodosFuncionarios() {
+   return funcionarios;
+    }
     
     
     }

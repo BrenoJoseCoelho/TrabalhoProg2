@@ -2,17 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package models;
-
-import java.util.List;
+package Exception;
 
 /**
  *
- * @author breno
+ * @author LRodrigues
  */
-public class ItemLivro {
-    
-    private double precoTotal;
-    private List<Livro> livros;
+public class FuncionarioException extends Exception{
+
+    public FuncionarioException(String message) {
+        super(message);
+    }
+
     
 }
