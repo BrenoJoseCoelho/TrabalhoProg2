@@ -10,6 +10,7 @@ import java.util.List;
 import models.Estoque;
 import models.Livro;
 import models.LivroNovo;
+import models.LivroUsado;
 
 /**
  *
@@ -18,6 +19,7 @@ import models.LivroNovo;
 public class EstoqueDAO implements EstoqueRepositorio{
     
      private static List<Livro> livros = new ArrayList<>();
+  
     
     @Override
     public void addEstoque(Estoque estoque) {
@@ -41,10 +43,10 @@ public class EstoqueDAO implements EstoqueRepositorio{
 
     @Override
     public List<Livro> getTodosLivros() {
-        return livros;
+ 
+           return livros;
     }
 
+}    
+    
 
-    
-    
-}

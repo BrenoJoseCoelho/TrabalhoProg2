@@ -14,13 +14,13 @@ import models.Funcionario;
  *
  * @author LRodrigues
  */
-public class TelaLoginLivraria extends javax.swing.JFrame {
+public class JFTelaLoginLivraria extends javax.swing.JFrame {
       private static AutenticacaoLogin loginSucess;
     
     /**
      * Creates new form TelaLoginLivraria
      */
-    public TelaLoginLivraria() {
+    public JFTelaLoginLivraria() {
         initComponents();
         dadosDefault();
     }
@@ -135,23 +135,20 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
         
         if(LogarSystem(login, senha)){
             openTelaInicial(); 
-        }else { 
-             mostrarMensagem("Login ou Senha Inválida, verifique as suas Credencias!");
+        }else if(!login.equals(login) || txtLogin.getText().isBlank() || txtLogin.getText().isEmpty()) { 
+             mostrarMensagem("Login Inválido, verifique as suas Credencias!");
+        }else if(!senha.equals(senha) || txtSenha.getText().isBlank() || txtSenha.getText().isEmpty()){
+              mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
         }
-//           if(!login.equals(funcionarioRepositorio.retornarEmailFuncionario(login))){ 
-//              mostrarMensagem("Login Inválido, verifique as suas Credencias!");
-//        }  
-//            if(!senha.equals(funcionarioRepositorio.retornarCpfFuncionario(senha))){ 
-//                 mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
-//            }
+        
        
     }//GEN-LAST:event_btnEntrarActionPerformed
     
  
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-         JFAddFuncionario addFuncionario= new JFAddFuncionario();
-
-         addFuncionario.setVisible(true);
+         JFCadastrarLogin cadastrarLogin = new JFCadastrarLogin();
+         cadastrarLogin.setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_btnCadastrarActionPerformed
         
      
@@ -186,8 +183,9 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
         }
    
     public void openTelaInicial(){
-        JFTelaInicial homePage = new JFTelaInicial();
-        homePage.setVisible(true);
+        JFTelaInicial fTelaInicial = new JFTelaInicial();
+         fTelaInicial.setVisible(true);
+         this.dispose();
     }
     
     public static void main(String args[]) {
@@ -218,7 +216,7 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TelaLoginLivraria().setVisible(true);
+                new JFTelaLoginLivraria().setVisible(true);
             }
         });
     }

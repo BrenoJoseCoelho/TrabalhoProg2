@@ -24,7 +24,7 @@ public class LivroNovo extends Livro  {
 
     @Override
     public String toString() {
-        return "Livro Novo - " + super.toString();
+        return super.toString();
     }
 
 

@@ -16,12 +16,12 @@ import models.Funcionario;
  *
  * @author levan
  */
-public class JFAddFuncionario extends javax.swing.JFrame {
+public class JFCadastrarLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form JFAddFuncionario
      */
-    public JFAddFuncionario() {
+    public JFCadastrarLogin() {
         initComponents();
     }
 
@@ -125,7 +125,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         try {
             salvarFuncionario();
         } catch (FuncionarioException | CpfIgualException ex) {
-            Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JFCadastrarLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
       
         
@@ -141,8 +141,8 @@ public class JFAddFuncionario extends javax.swing.JFrame {
             mostrarMsg(e.getMessage());
             
         }
-        JFTelaInicial fTelaInicial = new JFTelaInicial();
-        fTelaInicial.setVisible(true);
+        JFTelaLoginLivraria telaLoginLivraria = new JFTelaLoginLivraria();
+        telaLoginLivraria.setVisible(true);
         this.dispose();
     
     }
@@ -189,21 +189,22 @@ public class JFAddFuncionario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFAddFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFCadastrarLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFAddFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFCadastrarLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFAddFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFCadastrarLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFAddFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFCadastrarLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFAddFuncionario().setVisible(true);
+                new JFCadastrarLogin().setVisible(true);
             }
         });
     }
