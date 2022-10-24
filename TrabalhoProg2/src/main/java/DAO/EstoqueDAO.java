@@ -37,11 +37,6 @@ public class EstoqueDAO implements EstoqueRepositorio {
     }
 
     @Override
-    public void removeEstoqueNovo(LivroNovo livroNovo) {
-        livros.remove(livroNovo);
-    }
-
-    @Override
     public void addEstoqueNovo(LivroNovo livroNovo) {
         livros.add(livroNovo);
     }
@@ -51,9 +46,11 @@ public class EstoqueDAO implements EstoqueRepositorio {
         livros.add(livroUsado);
     }
 
+   
+
     @Override
-    public void removeEstoqueUsado(LivroUsado livroUsado) {
-        livros.remove(livroUsado);
+    public void removeLivro(Livro livro) {
+        livros.remove(livro);
     }
 
 }

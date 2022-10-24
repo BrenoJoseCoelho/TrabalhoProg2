@@ -18,8 +18,7 @@ public interface EstoqueRepositorio {
     void attQuantidade(Estoque estoque);
     void listaEstoque(Estoque estoque);
     List<Livro> getTodosLivros();
-    public void removeEstoqueNovo(LivroNovo livroNovo);
     public void addEstoqueNovo(LivroNovo livroNovo);
     public void addEstoqueUsado(LivroUsado livroUsado);
-    public void removeEstoqueUsado(LivroUsado livroUsado);
+    public void removeLivro(Livro livros);
 }
