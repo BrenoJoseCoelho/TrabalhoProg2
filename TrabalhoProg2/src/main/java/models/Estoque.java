@@ -6,8 +6,9 @@ package models;
 import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
 import Exception.IsbnExistenteException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,13 +27,13 @@ public class Estoque {
     private LivroUsado livroUsado;
     private int qtdLivros;
     private Set<Livro> livros;
-    private Map<String, Livro> obterLivroPorISBN;
+    private List<Livro> obterLivroPorISBN;
     private Fornecedor fornecedor;
 
     public Estoque(int qtdLivros) {
         this.qtdLivros = qtdLivros;
         this.livros = new HashSet<>();
-        this.obterLivroPorISBN = new HashMap<>();
+        this.obterLivroPorISBN = new ArrayList<>();
     }
 
     public Estoque() {
@@ -47,10 +48,7 @@ public class Estoque {
     } 
     
     public void addLivrosMap(Livro livro){
-        this.obterLivroPorISBN.put(livro.getIsbn(), livro);
-    }
-    public Livro buscarLivroISBN (String ISBN){
-        return this.obterLivroPorISBN.get(ISBN);
+        this.obterLivroPorISBN.add(livro);
     }
 
     public int getQtdLivros() {

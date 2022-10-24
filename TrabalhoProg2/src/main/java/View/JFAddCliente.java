@@ -7,6 +7,8 @@ package View;
 import DAO.ClienteDAO;
 import models.Cliente;
 import Repositorio.ClienteRepositorio;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 /**
  *
@@ -119,12 +121,10 @@ public class JFAddCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfCPFClienteActionPerformed
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-        //obter o nome
-        String nome = jtfNomeCliente.getText();
-        //obter o CPF
-        String CPF = jtfCPFCliente.getText();
+     
+        Map<String, String> dados = getCampos();
         //criar a instância de Paciente
-        Cliente cliente = new Cliente(nome, CPF);
+        Cliente cliente = new Cliente(dados.get("nome"), dados.get("CPF"));
         //salvar no BD
         salvarCliente(cliente);
         //Mostrar mensagem de sucesso
@@ -136,6 +136,14 @@ public class JFAddCliente extends javax.swing.JFrame {
     public void salvarCliente(Cliente cliente){
        ClienteRepositorio clienteRepositorio = new ClienteDAO();
        clienteRepositorio.salvarCliente(cliente);
+    }
+    
+    public Map<String, String> getCampos(){
+    
+        Map<String, String> campos = new HashMap();
+        campos.put("nome", jtfNomeCliente.getText());
+         campos.put("CPF", jtfCPFCliente.getText());
+         return campos;
     }
     
     public void limparTela(){
