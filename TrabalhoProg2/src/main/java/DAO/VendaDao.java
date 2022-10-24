@@ -23,21 +23,21 @@ public class VendaDao implements VendaRepositorio {
     }
 
     @Override
-    public Venda relatorioVendaData(String dataVenda) {
+    public String relatorioVendaData(String dataVenda) {
+        String datavenda = dataVenda;
         for(Venda ven: vendas){
-            if(ven.getDataVenda().equals(ven))
-                return ven;
+            if(ven.getDataVenda().equals(dataVenda))
+                return ven.toString();
         }
         return null;
-    }
+    } 
 
     @Override
-    public Venda relatorioStatus(String status) {
-        for(Venda ven: vendas){
-            if(ven.getStatus().equals(ven))
-                return ven;
-        }
-        return null;
+    public List<Venda> listarTodasVendas() {
+        return vendas;
     }
+
     
+    
+
 }
