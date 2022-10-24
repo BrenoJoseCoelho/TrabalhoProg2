@@ -225,6 +225,9 @@ public class JFVenda extends javax.swing.JFrame {
         Livro livros = (Livro) jComboBoxLivro.getSelectedItem();
         
         String observacao = jtfObservacao.getText();
+        
+          EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
+          estoquerepositorio.removeLivro(livros);
         //criar a instância de Paciente
         Venda venda = new Venda(data, observacao, cliente, funcionario,livros);
         //salvar no BD
@@ -236,6 +239,8 @@ public class JFVenda extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVenderActionPerformed
 
      public void salvarVenda(Venda venda){
+       
+         
        VendaRepositorio vendaRepositorio = new VendaDao();
        vendaRepositorio.novaVenda(venda);
     }

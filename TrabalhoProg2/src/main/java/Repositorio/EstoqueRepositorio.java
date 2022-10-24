@@ -8,15 +8,17 @@ import java.util.List;
 import models.Estoque;
 import models.Livro;
 import models.LivroNovo;
+import models.LivroUsado;
 
 /**
  *
  * @author LRodrigues
  */
 public interface EstoqueRepositorio {
-    void addEstoque(Estoque estoque);
     void attQuantidade(Estoque estoque);
-    void removeEstoque( Estoque estoque);
     void listaEstoque(Estoque estoque);
     List<Livro> getTodosLivros();
+    public void addEstoqueNovo(LivroNovo livroNovo);
+    public void addEstoqueUsado(LivroUsado livroUsado);
+    public void removeLivro(Livro livros);
 }

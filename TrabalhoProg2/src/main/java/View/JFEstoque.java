@@ -33,7 +33,7 @@ public class JFEstoque extends javax.swing.JFrame {
         btnAddLivro = new javax.swing.JButton();
         btnListaLivros = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnAddLivro.setText("Adicionar Livro");
         btnAddLivro.addActionListener(new java.awt.event.ActionListener() {

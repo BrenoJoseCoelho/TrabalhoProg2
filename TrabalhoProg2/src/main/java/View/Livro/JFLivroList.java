@@ -53,7 +53,7 @@ public class JFLivroList extends javax.swing.JFrame {
         btnLimparTela = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnListarLivrosNovos.setText("Listar Livros Novos");
         btnListarLivrosNovos.addActionListener(new java.awt.event.ActionListener() {
