@@ -121,7 +121,7 @@ public class JFAddFornecedor extends javax.swing.JFrame {
         
        salvarFornecedor(fornecedor);
         
-       apresentarMensagem(fornecedor.toString());
+       apresentarMensagem("Fornecedor cadastrado com sucesso!");
         
        limparTela();
         

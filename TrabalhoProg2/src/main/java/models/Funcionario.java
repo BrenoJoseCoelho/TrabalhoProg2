@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class Funcionario implements AutenticacaoLogin {
     
-    private String nome;
-    private String cpf;
-    private String cargo;
-    private String email;
+    protected String nome;
+    protected String cpf;
+    protected String cargo;
+    protected String email;
     static protected List<Venda> vendas = new ArrayList<>();
     
     public Funcionario(String nome, String cpf, String cargo, String email) {

@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
- import DAO.FuncionarioDAO;
+
+import DAO.FuncionarioDAO;
 import Exception.CpfIgualException;
 import Exception.FuncionarioException;
 import Repositorio.FuncionarioRepositorio;
@@ -12,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import models.Fornecedor;
 import models.Funcionario;
+
 /**
  *
  * @author levan
@@ -65,6 +67,12 @@ public class JFAddFuncionario extends javax.swing.JFrame {
 
         txtAddNovoFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtAddNovoFuncionario.setText("Adicionar novo Funcionario:");
+
+        jTextFieldNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeFuncionarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,10 +135,11 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         } catch (FuncionarioException | CpfIgualException ex) {
             Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
-        
+
+
     }//GEN-LAST:event_btnSalvarFuncionarioActionPerformed
 
+// lucas-branch
      public void salvarFuncionario() throws FuncionarioException, CpfIgualException {
         try{
         FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
@@ -138,40 +147,43 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         funcionarioRepositorio.salvarFuncionario(func);
             mostrarMsg(" Funcionario Adicionado com sucesso! -[ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - "+ func.toString());
         }catch( FuncionarioException | CpfIgualException e){
+//
             mostrarMsg(e.getMessage());
-            
+
         }
         JFTelaInicial fTelaInicial = new JFTelaInicial();
         fTelaInicial.setVisible(true);
         this.dispose();
     
+        limparTela();
     }
-        
+
+    
+
     public void mostrarMsg(String msg) {
         JOptionPane.showMessageDialog(null, msg);
+    }
+
+    public Funcionario returnFunc() throws FuncionarioException, CpfIgualException {
+        String nome = jTextFieldNomeFuncionario.getText();
+        if (nome.isBlank() || nome.isEmpty()) {
+            throw new FuncionarioException("Campo Vazio!");
         }
-       
-    public Funcionario returnFunc() throws FuncionarioException, CpfIgualException{
-       String nome = jTextFieldNomeFuncionario.getText();
-            if(nome.isBlank() || nome.isEmpty())
-                throw new FuncionarioException("Campo Vazio!");
-       String cpf = jTextFieldCPF.getText(); 
+        String cpf = jTextFieldCPF.getText();
         String email = jTextFieldEmailFuncionario.getText();
         String cargo = jTextFieldCargoFuncionario.getText();
-       
-        
-     Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
-       return  funcionario;
+
+        Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
+        return funcionario;
     }
-   
-    public void limparTela(){
+
+    public void limparTela() {
         jTextFieldCPF.setText("");
         jTextFieldCargoFuncionario.setText("");
         jTextFieldEmailFuncionario.setText("");
         jTextFieldNomeFuncionario.setText("");
     }
 
-    
     /**
      * @param args the command line arguments
      */

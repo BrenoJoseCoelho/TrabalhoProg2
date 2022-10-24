@@ -34,10 +34,37 @@ public class JFTelaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         btnVisualizarEstoque = new javax.swing.JButton();
-        btnMenuFuncionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Inicial");
+
+        btnAddCliente.setText("Adicionar Cliente");
+        btnAddCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddClienteActionPerformed(evt);
+            }
+        });
+
+        btnAddFuncionario.setText("Adicionar Funcionário");
+        btnAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddFuncionarioActionPerformed(evt);
+            }
+        });
+
+        btnAddFornecedor.setText("Adicionar Fornecedor");
+        btnAddFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddFornecedorActionPerformed(evt);
+            }
+        });
+
+        btnVisualizarVendas.setText("Vendas");
+        btnVisualizarVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarVendasActionPerformed(evt);
+            }
+        });
 
         btnVisualizarEstoque.setText("Visualizar Estoque");
         btnVisualizarEstoque.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +90,14 @@ public class JFTelaInicial extends javax.swing.JFrame {
                     .addComponent(btnMenuFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                     .addComponent(btnVisualizarEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(156, 156, 156)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnVisualizarEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddFornecedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVisualizarVendas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,10 +107,33 @@ public class JFTelaInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVisualizarEstoque)
                 .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClienteActionPerformed
+        // TODO add your handling code here:
+        JFAddCliente addCliente = new JFAddCliente();
+        
+        addCliente.setVisible(true);
+    }//GEN-LAST:event_btnAddClienteActionPerformed
+
+    private void btnAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFuncionarioActionPerformed
+        JFAddFuncionario addFuncionario = new JFAddFuncionario();
+        addFuncionario.setVisible(true);
+    }//GEN-LAST:event_btnAddFuncionarioActionPerformed
+
+    private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
+        JFAddFornecedor addFornecedor = new JFAddFornecedor();
+        addFornecedor.setVisible(true);
+    }//GEN-LAST:event_btnAddFornecedorActionPerformed
+
+    private void btnVisualizarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarVendasActionPerformed
+         JFGeralVendas venda = new JFGeralVendas();
+        venda.setVisible(true);
+    }//GEN-LAST:event_btnVisualizarVendasActionPerformed
 
     private void btnVisualizarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarEstoqueActionPerformed
          JFEstoque estoqueView = new JFEstoque();
@@ -130,5 +188,6 @@ public class JFTelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenuFuncionario;
     private javax.swing.JButton btnVisualizarEstoque;
+    private javax.swing.JButton btnVisualizarVendas;
     // End of variables declaration//GEN-END:variables
 }

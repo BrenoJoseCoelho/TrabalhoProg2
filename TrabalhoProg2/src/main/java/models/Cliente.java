@@ -13,8 +13,8 @@ import java.util.List;
  */
 public class Cliente {
     
-    private String nome;
-    private String cpf;
+    protected String nome;
+    protected String cpf;
 
     public Cliente(String nome, String cpf) {
         this.nome = nome;

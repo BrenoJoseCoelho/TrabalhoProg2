@@ -25,10 +25,13 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnMenuFuncionario" pref="147" max="32767" attributes="0"/>
-                  <Component id="btnVisualizarEstoque" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="btnVisualizarEstoque" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                  <Component id="btnAddFornecedor" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnVisualizarVendas" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnAddFuncionario" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnAddCliente" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="84" max="32767" attributes="0"/>
           </Group>
@@ -41,12 +44,44 @@
               <Component id="btnMenuFuncionario" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnVisualizarEstoque" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="57" max="32767" attributes="0"/>
+              <EmptySpace pref="130" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JButton" name="btnAddCliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Adicionar Cliente"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddClienteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddFuncionario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Adicionar Funcion&#xe1;rio"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddFuncionarioActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddFornecedor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Adicionar Fornecedor"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddFornecedorActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVisualizarVendas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vendas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisualizarVendasActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JButton" name="btnVisualizarEstoque">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visualizar Estoque"/>
