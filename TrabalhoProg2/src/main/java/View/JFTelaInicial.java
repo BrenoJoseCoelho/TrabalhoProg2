@@ -4,12 +4,9 @@
  */
 package View;
 
-import models.AutenticacaoLogin;
-
-
 /**
  *
- * @author levan
+ * @author breno
  */
 public class JFTelaInicial extends javax.swing.JFrame {
 
@@ -18,10 +15,6 @@ public class JFTelaInicial extends javax.swing.JFrame {
      */
     public JFTelaInicial() {
         initComponents();
-           AutenticacaoLogin loginSucesso = JFTelaLoginLivraria.getUsuarioLogado();
-        
-      
-        
     }
 
     /**
@@ -33,50 +26,46 @@ public class JFTelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnVisualizarEstoque = new javax.swing.JButton();
+        btnFornecedor = new javax.swing.JButton();
+        btnvenda = new javax.swing.JButton();
+        btnEstoque = new javax.swing.JButton();
+        btnFuncionario = new javax.swing.JButton();
+        btnCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela Inicial");
 
-        btnAddCliente.setText("Adicionar Cliente");
-        btnAddCliente.addActionListener(new java.awt.event.ActionListener() {
+        btnFornecedor.setText("Cadastro Fornecedor");
+        btnFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddClienteActionPerformed(evt);
+                btnFornecedorActionPerformed(evt);
             }
         });
 
-        btnAddFuncionario.setText("Adicionar Funcionário");
-        btnAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        btnvenda.setText("Venda");
+        btnvenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddFuncionarioActionPerformed(evt);
+                btnvendaActionPerformed(evt);
             }
         });
 
-        btnAddFornecedor.setText("Adicionar Fornecedor");
-        btnAddFornecedor.addActionListener(new java.awt.event.ActionListener() {
+        btnEstoque.setText("Visualizar Estoque");
+        btnEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddFornecedorActionPerformed(evt);
+                btnEstoqueActionPerformed(evt);
             }
         });
 
-        btnVisualizarVendas.setText("Vendas");
-        btnVisualizarVendas.addActionListener(new java.awt.event.ActionListener() {
+        btnFuncionario.setText("Cadastro Funcionario");
+        btnFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarVendasActionPerformed(evt);
+                btnFuncionarioActionPerformed(evt);
             }
         });
 
-        btnVisualizarEstoque.setText("Visualizar Estoque");
-        btnVisualizarEstoque.addActionListener(new java.awt.event.ActionListener() {
+        btnCliente.setText("Cadastro Cliente");
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarEstoqueActionPerformed(evt);
-            }
-        });
-
-        btnMenuFuncionario.setText("Menu Funcionario");
-        btnMenuFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuFuncionarioActionPerformed(evt);
+                btnClienteActionPerformed(evt);
             }
         });
 
@@ -85,70 +74,60 @@ public class JFTelaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnMenuFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                    .addComponent(btnVisualizarEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(84, Short.MAX_VALUE))
-                .addGap(156, 156, 156)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnVisualizarEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddFornecedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnVisualizarVendas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGap(139, 139, 139)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCliente)
+                    .addComponent(btnFuncionario)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnvenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(btnMenuFuncionario)
+                .addGap(18, 18, 18)
+                .addComponent(btnCliente)
+                .addGap(18, 18, 18)
+                .addComponent(btnFuncionario)
+                .addGap(24, 24, 24)
+                .addComponent(btnFornecedor)
+                .addGap(18, 18, 18)
+                .addComponent(btnvenda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVisualizarEstoque)
-                .addContainerGap(57, Short.MAX_VALUE))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addComponent(btnEstoque)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClienteActionPerformed
-        // TODO add your handling code here:
-        JFAddCliente addCliente = new JFAddCliente();
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
+      JFAddCliente addCliente = new JFAddCliente();
         
         addCliente.setVisible(true);
-    }//GEN-LAST:event_btnAddClienteActionPerformed
+    }//GEN-LAST:event_btnClienteActionPerformed
 
-    private void btnAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFuncionarioActionPerformed
-        JFAddFuncionario addFuncionario = new JFAddFuncionario();
+    private void btnFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionarioActionPerformed
+         JFAddFuncionario addFuncionario = new JFAddFuncionario();
         addFuncionario.setVisible(true);
-    }//GEN-LAST:event_btnAddFuncionarioActionPerformed
+    }//GEN-LAST:event_btnFuncionarioActionPerformed
 
-    private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
-        JFAddFornecedor addFornecedor = new JFAddFornecedor();
+    private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
+       JFAddFornecedor addFornecedor = new JFAddFornecedor();
         addFornecedor.setVisible(true);
-    }//GEN-LAST:event_btnAddFornecedorActionPerformed
+    }//GEN-LAST:event_btnFornecedorActionPerformed
 
-    private void btnVisualizarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarVendasActionPerformed
-         JFGeralVendas venda = new JFGeralVendas();
+    private void btnvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendaActionPerformed
+        JFGeralVendas venda = new JFGeralVendas();
         venda.setVisible(true);
-    }//GEN-LAST:event_btnVisualizarVendasActionPerformed
+    }//GEN-LAST:event_btnvendaActionPerformed
 
-    private void btnVisualizarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarEstoqueActionPerformed
-         JFEstoque estoqueView = new JFEstoque();
+    private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
+        JFEstoque estoqueView = new JFEstoque();
                  estoqueView.setVisible(true);
-                     this.dispose() ;
-    }//GEN-LAST:event_btnVisualizarEstoqueActionPerformed
-
-    private void btnMenuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuFuncionarioActionPerformed
-          JFTelaFuncionario fMenuFuncionario = new JFTelaFuncionario();
-           fMenuFuncionario.setVisible(true);
-           this.dispose();
-    }//GEN-LAST:event_btnMenuFuncionarioActionPerformed
-
-    
-    
+    }//GEN-LAST:event_btnEstoqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,8 +165,10 @@ public class JFTelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMenuFuncionario;
-    private javax.swing.JButton btnVisualizarEstoque;
-    private javax.swing.JButton btnVisualizarVendas;
+    private javax.swing.JButton btnCliente;
+    private javax.swing.JButton btnEstoque;
+    private javax.swing.JButton btnFornecedor;
+    private javax.swing.JButton btnFuncionario;
+    private javax.swing.JButton btnvenda;
     // End of variables declaration//GEN-END:variables
 }
