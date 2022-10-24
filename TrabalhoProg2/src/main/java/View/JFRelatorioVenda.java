@@ -17,6 +17,29 @@ public class JFRelatorioVenda extends javax.swing.JFrame {
         initComponents();
     }
 
+
+    
+    public List<Cliente> buscarTodosClientes(){
+        ClienteRepositorio clienteRepositorio = new ClienteDAO();
+        return clienteRepositorio.getCliente();
+    }
+       
+    public void popularCliente(List<Cliente> cliente){
+       
+
+
+        for(Cliente c: cliente){
+            txtCliente.append(c + "\n");
+
+
+        for(Cliente p: cliente){
+            txtCliente.append(p + "\n");
+
+        }
+    }
+    
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,6 +114,9 @@ public class JFRelatorioVenda extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(JFRelatorioVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+
+
         //</editor-fold>
 
         /* Create and display the form */
