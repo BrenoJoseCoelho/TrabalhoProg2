@@ -19,9 +19,6 @@ public class JFTelaInicial extends javax.swing.JFrame {
     public JFTelaInicial() {
         initComponents();
            AutenticacaoLogin loginSucesso = JFTelaLoginLivraria.getUsuarioLogado();
-        
-      
-        
     }
 
     /**
@@ -33,10 +30,9 @@ public class JFTelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnVisualizarEstoque = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela Inicial");
+        btnAddCliente = new javax.swing.JButton();
+        btnMenuFuncionario = new javax.swing.JButton();
+        bntEstoque = new javax.swing.JButton();
 
         btnAddCliente.setText("Adicionar Cliente");
         btnAddCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -45,33 +41,8 @@ public class JFTelaInicial extends javax.swing.JFrame {
             }
         });
 
-        btnAddFuncionario.setText("Adicionar Funcionário");
-        btnAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddFuncionarioActionPerformed(evt);
-            }
-        });
-
-        btnAddFornecedor.setText("Adicionar Fornecedor");
-        btnAddFornecedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddFornecedorActionPerformed(evt);
-            }
-        });
-
-        btnVisualizarVendas.setText("Vendas");
-        btnVisualizarVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarVendasActionPerformed(evt);
-            }
-        });
-
-        btnVisualizarEstoque.setText("Visualizar Estoque");
-        btnVisualizarEstoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarEstoqueActionPerformed(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela Inicial");
 
         btnMenuFuncionario.setText("Menu Funcionario");
         btnMenuFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -80,34 +51,32 @@ public class JFTelaInicial extends javax.swing.JFrame {
             }
         });
 
+        bntEstoque.setText("Menu Estoque");
+        bntEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntEstoqueActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(131, 131, 131)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnMenuFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                    .addComponent(btnVisualizarEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(84, Short.MAX_VALUE))
-                .addGap(156, 156, 156)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnVisualizarEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddFornecedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnVisualizarVendas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(232, Short.MAX_VALUE))
+                    .addComponent(btnMenuFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bntEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(142, 142, 142))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addComponent(bntEstoque)
+                .addGap(18, 18, 18)
                 .addComponent(btnMenuFuncionario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVisualizarEstoque)
-                .addContainerGap(57, Short.MAX_VALUE))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
 
         pack();
@@ -116,30 +85,8 @@ public class JFTelaInicial extends javax.swing.JFrame {
     private void btnAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClienteActionPerformed
         // TODO add your handling code here:
         JFAddCliente addCliente = new JFAddCliente();
-        
         addCliente.setVisible(true);
     }//GEN-LAST:event_btnAddClienteActionPerformed
-
-    private void btnAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFuncionarioActionPerformed
-        JFAddFuncionario addFuncionario = new JFAddFuncionario();
-        addFuncionario.setVisible(true);
-    }//GEN-LAST:event_btnAddFuncionarioActionPerformed
-
-    private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
-        JFAddFornecedor addFornecedor = new JFAddFornecedor();
-        addFornecedor.setVisible(true);
-    }//GEN-LAST:event_btnAddFornecedorActionPerformed
-
-    private void btnVisualizarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarVendasActionPerformed
-         JFGeralVendas venda = new JFGeralVendas();
-        venda.setVisible(true);
-    }//GEN-LAST:event_btnVisualizarVendasActionPerformed
-
-    private void btnVisualizarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarEstoqueActionPerformed
-         JFEstoque estoqueView = new JFEstoque();
-                 estoqueView.setVisible(true);
-                     this.dispose() ;
-    }//GEN-LAST:event_btnVisualizarEstoqueActionPerformed
 
     private void btnMenuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuFuncionarioActionPerformed
           JFTelaFuncionario fMenuFuncionario = new JFTelaFuncionario();
@@ -147,47 +94,20 @@ public class JFTelaInicial extends javax.swing.JFrame {
            this.dispose();
     }//GEN-LAST:event_btnMenuFuncionarioActionPerformed
 
-    
-    
+    private void bntEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntEstoqueActionPerformed
+        JFEstoque estoque = new JFEstoque();
+           estoque.setVisible(true);
+           this.dispose();
+    }//GEN-LAST:event_bntEstoqueActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFTelaInicial().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntEstoque;
+    private javax.swing.JButton btnAddCliente;
     private javax.swing.JButton btnMenuFuncionario;
-    private javax.swing.JButton btnVisualizarEstoque;
-    private javax.swing.JButton btnVisualizarVendas;
     // End of variables declaration//GEN-END:variables
 }

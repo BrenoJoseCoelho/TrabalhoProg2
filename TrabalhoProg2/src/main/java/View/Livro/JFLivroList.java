@@ -51,7 +51,7 @@ public class JFLivroList extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaListar = new javax.swing.JTextArea();
         btnLimparTela = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,10 +94,10 @@ public class JFLivroList extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Voltar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -118,7 +118,7 @@ public class JFLivroList extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnVoltar)
                 .addGap(370, 370, 370))
         );
         layout.setVerticalGroup(
@@ -138,7 +138,7 @@ public class JFLivroList extends javax.swing.JFrame {
                         .addComponent(btnLimparTela))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnVoltar)
                 .addGap(34, 34, 34))
         );
 
@@ -188,11 +188,11 @@ public class JFLivroList extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnLimparTelaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
       JFEstoque telaEstoque = new JFEstoque();
         telaEstoque.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void tbnOrdemAlfabeticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnOrdemAlfabeticaActionPerformed
         // TODO add your handling code here:
@@ -267,7 +267,7 @@ public class JFLivroList extends javax.swing.JFrame {
     private javax.swing.JButton btnLimparTela;
     private javax.swing.JButton btnListarLivrosNovos;
     private javax.swing.JButton btnListarLivrosUsados;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton tbnOrdemAlfabetica;
