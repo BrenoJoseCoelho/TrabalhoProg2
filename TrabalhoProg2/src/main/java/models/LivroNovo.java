@@ -22,6 +22,11 @@ public class LivroNovo extends Livro  {
         this.livros = new ArrayList<>();
     }
 
+    @Override
+    public String toString() {
+        return "Livro Novo - " + super.toString();
+    }
+
 
  
 

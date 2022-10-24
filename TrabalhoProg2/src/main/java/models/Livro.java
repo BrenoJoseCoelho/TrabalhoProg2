@@ -110,8 +110,8 @@ public abstract class Livro implements Comparable<Livro>{
  
     @Override
     public String toString() {
-        return "Livro{" + "Autor:" + autor + ", Titulo=" + titulo + ", editora=" + editora 
-                + ", local=" + local + ", edicao=" + edicao + ", isbn=" + isbn + '}';
+        return "Livro - " + "Autor: " + autor + ", Titulo: " + titulo + ", Editora: " + editora 
+                + ", Local: " + local + ", Edicao: " + edicao + ", ISBN: " + isbn;
     }
 
     

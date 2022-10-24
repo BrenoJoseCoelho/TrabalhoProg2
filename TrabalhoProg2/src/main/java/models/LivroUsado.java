@@ -29,7 +29,18 @@ public class LivroUsado extends Livro   {
  
     public String[] getTempoUso() {
         return tempoUso;
+        
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Livro Usado:" + "Tempo de Uso Livro: " + tempoUso;
+    }
+        
+  
+ 
+    
+}
 
  
 
@@ -45,4 +56,3 @@ public class LivroUsado extends Livro   {
 
 
  
-}

@@ -19,7 +19,8 @@ public class Funcionario implements AutenticacaoLogin {
     private String cpf;
     private String cargo;
     private String email;
-
+    static protected List<Venda> vendas = new ArrayList<>();
+    
     public Funcionario(String nome, String cpf, String cargo, String email) {
         this.nome = nome;
         this.cpf = cpf;
@@ -66,11 +67,14 @@ public class Funcionario implements AutenticacaoLogin {
     public String getCpf() {
         return cpf;
     }
-
+    
+    
     @Override
     public String toString() {
         return "Funcionario{" + "nome=" + nome + ", cpf=" + cpf + ", cargo=" + cargo + ", email=" + email + '}';
     }
+    
+      
 
     @Override
     public boolean Logar(String login, String senha) {
