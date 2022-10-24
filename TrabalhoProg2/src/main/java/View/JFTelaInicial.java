@@ -159,7 +159,9 @@ public class JFTelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_txtClienteActionPerformed
 
     private void btnVisualizarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarEstoqueActionPerformed
-      
+         JFEstoque estoqueView = new JFEstoque();
+                 estoqueView.setVisible(true);
+                     this.dispose() ;
     }//GEN-LAST:event_btnVisualizarEstoqueActionPerformed
 
     

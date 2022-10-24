@@ -26,7 +26,7 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
     }
     public void dadosDefault(){
     FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
-   funcionarioRepositorio.salvarFuncionario(new Funcionario("Funcionario1", "123", "Vendedor", "Func1@gmail.com"));
+   funcionarioRepositorio.salvarFuncionario(new Funcionario("Funcionario1", "12345", "Vendedor", "Func1@gmail.com"));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -186,7 +186,7 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
         }
    
     public void openTelaInicial(){
-        TelaInicialLivraria homePage = new TelaInicialLivraria();
+        JFTelaInicial homePage = new JFTelaInicial();
         homePage.setVisible(true);
     }
     

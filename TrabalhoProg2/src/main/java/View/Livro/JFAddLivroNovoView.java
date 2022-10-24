@@ -294,20 +294,24 @@ public class JFAddLivroNovoView extends javax.swing.JFrame {
             // comboTempoUso.disable();
             try {
                 addLivroNovo();
+                 JFEstoque estoqueView = new JFEstoque();
+                 estoqueView.setVisible(true);
+                 this.dispose() ;
             } catch (IsbnExistenteException ex) {
                 mostrarMensagem(ex.getMessage());
             }
         } else if (rbLivroUsado.isSelected()){
             try {
                 addLivroUsado();
+                 JFEstoque estoqueView = new JFEstoque();
+                 estoqueView.setVisible(true);
+                     this.dispose() ;
             } catch (Exception e) {
                 mostrarMensagem(e.getMessage());
             }
         }
 
-        JFEstoque estoqueView = new JFEstoque();
-        estoqueView.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_btnAddLivroAction
 
     private void txtValorLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorLivroActionPerformed
@@ -348,7 +352,8 @@ public class JFAddLivroNovoView extends javax.swing.JFrame {
         String tempoUso =(String) comboTempoUso.getSelectedItem();
         double precoLivro =  Double.parseDouble(txtValorLivro.getText()); 
        
-        Livro book = new LivroUsado(autorLivro, tituloLivro, localEditora, localEditora, edicaoLivro, ISBNLivro, precoLivro);
+        Livro book = new LivroUsado(autorLivro, tituloLivro, localEditora, localEditora, 
+                edicaoLivro, ISBNLivro, precoLivro);
        
         return (LivroUsado) book;
     }
