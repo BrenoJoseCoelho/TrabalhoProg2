@@ -11,12 +11,12 @@ import models.AutenticacaoLogin;
  *
  * @author LRodrigues
  */
-public class TelaFuncionario extends javax.swing.JFrame {
+public class JFTelaFuncionario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaFuncionario
      */
-    public TelaFuncionario() {
+    public JFTelaFuncionario() {
         initComponents();
         AutenticacaoLogin loginSucesso = TelaLoginLivraria.getUsuarioLogado();
         List<String> permissoes = loginSucesso.getPermissoes();

@@ -71,7 +71,7 @@ public class Funcionario implements AutenticacaoLogin {
     
     @Override
     public String toString() {
-        return "Funcionario{" + "nome=" + nome + ", cpf=" + cpf + ", cargo=" + cargo + ", email=" + email + '}';
+        return "Funcionario - " + "Nome:" + nome + ", CPF: " + cpf + ", Cargo: " + cargo + ", Email: " + email;
     }
     
       

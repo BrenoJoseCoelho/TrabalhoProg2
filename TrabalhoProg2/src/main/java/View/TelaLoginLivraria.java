@@ -61,6 +61,11 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
         });
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         jPanel1.setLayout(new javax.swing.OverlayLayout(jPanel1));
 
@@ -129,9 +134,8 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
         String senha = this.txtSenha.getText();
         
         if(LogarSystem(login, senha)){
-            openTelaInicial();     
-    }//GEN-LAST:event_btnEntrarActionPerformed
-        else { 
+            openTelaInicial(); 
+        }else { 
              mostrarMensagem("Login ou Senha Inválida, verifique as suas Credencias!");
         }
 //           if(!login.equals(funcionarioRepositorio.retornarEmailFuncionario(login))){ 
@@ -140,7 +144,16 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
 //            if(!senha.equals(funcionarioRepositorio.retornarCpfFuncionario(senha))){ 
 //                 mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
 //            }
-    }   
+       
+    }//GEN-LAST:event_btnEntrarActionPerformed
+    
+ 
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+         JFAddFuncionario addFuncionario= new JFAddFuncionario();
+
+         addFuncionario.setVisible(true);
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+        
      
     public static AutenticacaoLogin getUsuarioLogado(){
           return loginSucess;
@@ -166,7 +179,7 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
      //métodos de abrir Tela
     public void OpenTelaAfterLogin(){
         if(loginSucess instanceof Funcionario){
-            TelaFuncionario telaFuncionario = new TelaFuncionario();
+            JFTelaFuncionario telaFuncionario = new JFTelaFuncionario();
             telaFuncionario.setVisible(true);     
         }      
         this.dispose();

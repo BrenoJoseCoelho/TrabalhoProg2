@@ -11,6 +11,7 @@ import DAO.LivroUsadoListDAO;
 import Exception.IsbnExistenteException;
 import Repositorio.LivroNovoRepositorio;
 import Repositorio.LivroUsadoRepositorio;
+import View.JFEstoque;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -25,14 +26,14 @@ import models.LivroUsado;
  *
  * @author LRodrigues
  */
-public class AddLivroNovoView extends javax.swing.JFrame {
+public class JFAddLivroNovoView extends javax.swing.JFrame {
      private LivroUsado livroUsado ;
  
       private LivroUsadoListDAO livroUsadoDAO =  new LivroUsadoListDAO();
     /**
      * Creates new form TelaAdicionarPaciente
      */
-    public AddLivroNovoView() {
+    public JFAddLivroNovoView() {
      
         initComponents();
     }
@@ -149,40 +150,40 @@ public class AddLivroNovoView extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblISBN)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtISBNLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNEdicaoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCadatrarLivro)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblValorLivroNovo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtValorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lblCadatrarLivro))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(174, 174, 174)
+                        .addComponent(btnAddLivro))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(lblTempoUso)
                         .addGap(18, 18, 18)
                         .addComponent(comboTempoUso, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(102, 102, 102)
-                            .addComponent(rbLivroNovo)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rbLivroUsado))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(186, 186, 186)
-                            .addComponent(btnAddLivro))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblISBN)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtISBNLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblEdicaoLivro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNEdicaoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblValorLivroNovo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(rbLivroNovo)
+                                .addGap(28, 28, 28)
+                                .addComponent(rbLivroUsado))
+                            .addComponent(txtValorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(34, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -203,35 +204,36 @@ public class AddLivroNovoView extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtLocalEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(lblEdicaoLivro))
+                                .addComponent(txtLocalEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addContainerGap(33, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(lblCadatrarLivro)
-                .addGap(196, 196, 196)
-                .addComponent(txtNEdicaoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEdicaoLivro, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNEdicaoLivro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtISBNLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblISBN))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblValorLivroNovo)
                     .addComponent(txtValorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbLivroNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rbLivroUsado))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTempoUso)
                     .addComponent(comboTempoUso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(24, 24, 24)
                 .addComponent(btnAddLivro)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(65, 65, 65)
@@ -250,9 +252,7 @@ public class AddLivroNovoView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel7)
                         .addComponent(txtLocalEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addComponent(lblEdicaoLivro)
-                    .addContainerGap(278, Short.MAX_VALUE)))
+                    .addContainerGap(250, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -266,7 +266,7 @@ public class AddLivroNovoView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -274,6 +274,45 @@ public class AddLivroNovoView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rbLivroNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLivroNovoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbLivroNovoActionPerformed
+
+    private void rbLivroUsadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLivroUsadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbLivroUsadoActionPerformed
+
+    private void comboTempoUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTempoUsoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTempoUsoActionPerformed
+
+    private void btnAddLivroAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroAction
+
+        if(rbLivroNovo.isSelected()){
+            comboTempoUso.setVisible(false);
+            // comboTempoUso.disable();
+            try {
+                addLivroNovo();
+            } catch (IsbnExistenteException ex) {
+                mostrarMensagem(ex.getMessage());
+            }
+        } else if (rbLivroUsado.isSelected()){
+            try {
+                addLivroUsado();
+            } catch (Exception e) {
+                mostrarMensagem(e.getMessage());
+            }
+        }
+
+        JFEstoque estoqueView = new JFEstoque();
+        estoqueView.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAddLivroAction
+
+    private void txtValorLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorLivroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorLivroActionPerformed
 
            
     public LivroNovo returnLivroNovo(){
@@ -322,72 +361,7 @@ public class AddLivroNovoView extends javax.swing.JFrame {
         mostrarMensagem("Adicionado Livro Novo com Sucesso!"+ livroUsado.toString());
     
     }
-    
-    public class tempoUso implements ActionListener  { 
-     
-        
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            
-        }
-      
-    }
-   
-    
-    public void livroUsadoTempo(){
-       
-        
-        
-//        if(btnLivroNovo.isSelected()){
-//           btnLivroUsado.disable();
-//        }
-//        if(btnLivroUsado.isSelected()){
-//            btnLivroNovo.setVisible(false);
-//            comboTempoUso.setVisible(true);
-//            lblTempoUso.setVisible(true);          
-//        }
-//        else
-//            if(btnLivroUsado.isSelected()){
-//            comboTempoUso.setVisible(false);
-//            lblTempoUso.setVisible(false);
-//            btnLivroNovo.setVisible(false);
-//            }    
-    }
-    
-    private void rbLivroNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLivroNovoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbLivroNovoActionPerformed
-
-    private void rbLivroUsadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLivroUsadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbLivroUsadoActionPerformed
-
-    private void comboTempoUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTempoUsoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboTempoUsoActionPerformed
-
-    private void btnAddLivroAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroAction
-
-        if(rbLivroNovo.isSelected()){
-            comboTempoUso.disable();
-            try {
-                addLivroNovo();
-            } catch (IsbnExistenteException ex) {
-                mostrarMensagem(ex.getMessage());
-            }
-        } else if (rbLivroUsado.isSelected()){
-            try {
-                addLivroUsado();
-            } catch (Exception e) {
-                mostrarMensagem(e.getMessage());
-            }
-        }
-    }//GEN-LAST:event_btnAddLivroAction
-
-    private void txtValorLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorLivroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorLivroActionPerformed
-//    private LivroUsado livroUsadoInstacia;  
+ 
   
     /**
      * @param args the command line arguments
@@ -401,7 +375,7 @@ public class AddLivroNovoView extends javax.swing.JFrame {
   
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddLivroNovoView().setVisible(true);
+                new JFAddLivroNovoView().setVisible(true);
             }
         });
     }
