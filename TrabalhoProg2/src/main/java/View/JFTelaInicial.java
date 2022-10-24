@@ -4,6 +4,8 @@
  */
 package View;
 
+import models.AutenticacaoLogin;
+
 
 /**
  *
@@ -16,6 +18,7 @@ public class JFTelaInicial extends javax.swing.JFrame {
      */
     public JFTelaInicial() {
         initComponents();
+           AutenticacaoLogin loginSucesso = TelaLoginLivraria.getUsuarioLogado();
         
       
         
@@ -69,6 +72,11 @@ public class JFTelaInicial extends javax.swing.JFrame {
         });
 
         btnVisualizarEstoque.setText("Visualizar Estoque");
+        btnVisualizarEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarEstoqueActionPerformed(evt);
+            }
+        });
 
         txtCliente.setText("teste Cliente");
         txtCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -82,20 +90,17 @@ public class JFTelaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(156, 156, 156)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnVisualizarEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnAddFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(169, 169, 169)
-                            .addComponent(btnAddCliente))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(156, 156, 156)
-                            .addComponent(btnAddFuncionario)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnAddFornecedor)
-                        .addComponent(btnVisualizarVendas)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCliente)
-                            .addComponent(btnVisualizarEstoque))))
+                            .addGap(29, 29, 29)
+                            .addComponent(txtCliente))
+                        .addComponent(btnVisualizarVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAddFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(232, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -152,6 +157,10 @@ public class JFTelaInicial extends javax.swing.JFrame {
 //        listarCliente.setVisible(true);
 
     }//GEN-LAST:event_txtClienteActionPerformed
+
+    private void btnVisualizarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarEstoqueActionPerformed
+      
+    }//GEN-LAST:event_btnVisualizarEstoqueActionPerformed
 
     
     

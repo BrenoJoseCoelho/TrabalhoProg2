@@ -128,6 +128,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
             Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+        
     }//GEN-LAST:event_btnSalvarFuncionarioActionPerformed
 
      public void salvarFuncionario() throws FuncionarioException, CpfIgualException {
@@ -135,7 +136,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
         Funcionario func = returnFunc();
         funcionarioRepositorio.salvarFuncionario(func);
-            mostrarMsg("Funcionario Adicionado com sucesso!" + func.toString());
+            mostrarMsg("Funcionario Adicionado com sucesso! Login:"+func.getEmail()+"Senha:"+func.getCpf() + func.toString());
         }catch( FuncionarioException | CpfIgualException e){
             mostrarMsg(e.getMessage());
             

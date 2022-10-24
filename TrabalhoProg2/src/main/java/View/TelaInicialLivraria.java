@@ -72,7 +72,7 @@ public class TelaInicialLivraria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuFuncionarioActionPerformed
 
     private void btnMenuFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuFuncionarioMouseClicked
-      TelaFuncionario telaFuncionario =  new TelaFuncionario();
+      JFTelaFuncionario telaFuncionario =  new JFTelaFuncionario();
       telaFuncionario.setVisible(true);
     }//GEN-LAST:event_btnMenuFuncionarioMouseClicked
 

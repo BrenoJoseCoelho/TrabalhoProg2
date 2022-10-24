@@ -21,7 +21,7 @@ public class EstoqueDAO implements EstoqueRepositorio{
     
     @Override
     public void addEstoque(Estoque estoque) {
-      
+      estoque.addLivro((Livro) livros);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class EstoqueDAO implements EstoqueRepositorio{
 
     @Override
     public void removeEstoque(Estoque estoque) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        estoque.removeLivro((Livro) livros);
     }
 
     @Override
