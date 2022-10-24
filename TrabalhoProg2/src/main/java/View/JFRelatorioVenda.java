@@ -3,41 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-import DAO.ClienteDAO;
-import models.Cliente;
-import Repositorio.ClienteRepositorio;
-import java.util.List;
 
 /**
  *
- * @author levan
+ * @author Marcos Levandoski
  */
-public class JFListarCliente extends javax.swing.JFrame {
+public class JFRelatorioVenda extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFCliente
+     * Creates new form JFRelatorioVenda
      */
-    public JFListarCliente() {
-       
+    public JFRelatorioVenda() {
         initComponents();
-        List<Cliente> clientes = buscarTodosClientes();
-        popularCliente(clientes);
     }
-    
-    public List<Cliente> buscarTodosClientes(){
-        ClienteRepositorio clienteRepositorio = new ClienteDAO();
-        return clienteRepositorio.getCliente();
-    }
-       
-    public void popularCliente(List<Cliente> cliente){
-       
-
-        for(Cliente c: cliente){
-            txtCliente.append(c + "\n");
-
-        }
-    }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,36 +27,45 @@ public class JFListarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtCliente = new javax.swing.JTextArea();
+        jTextAreaVendas = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtCliente.setColumns(20);
-        txtCliente.setRows(5);
-        jScrollPane1.setViewportView(txtCliente);
+        jTextAreaVendas.setColumns(20);
+        jTextAreaVendas.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaVendas);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Vendas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(jLabel1)))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -96,28 +83,27 @@ public class JFListarCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFListarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRelatorioVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFListarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRelatorioVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFListarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRelatorioVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFListarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFRelatorioVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFListarCliente().setVisible(true);
+                new JFRelatorioVenda().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtCliente;
+    private javax.swing.JTextArea jTextAreaVendas;
     // End of variables declaration//GEN-END:variables
 }

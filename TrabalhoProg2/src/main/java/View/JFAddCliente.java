@@ -39,73 +39,54 @@ public class JFAddCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Adicionar Novo Cliente:");
+        setBackground(new java.awt.Color(152, 251, 152));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(523, 459));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(0, 80, 0));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Adicionar Novo Cliente:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
 
+        jtfNomeCliente.setBackground(new java.awt.Color(204, 204, 204));
+        jtfNomeCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
+        jtfNomeCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jtfNomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfNomeClienteActionPerformed(evt);
             }
         });
+        getContentPane().add(jtfNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 170, -1));
 
+        jtfCPFCliente.setBackground(new java.awt.Color(204, 204, 204));
+        jtfCPFCliente.setForeground(new java.awt.Color(0, 80, 0));
+        jtfCPFCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         jtfCPFCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfCPFClienteActionPerformed(evt);
             }
         });
+        getContentPane().add(jtfCPFCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 170, -1));
 
+        txtNomeCliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtNomeCliente.setText("Nome:");
+        getContentPane().add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
+        txtCPFCliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtCPFCliente.setText("CPF:");
+        getContentPane().add(txtCPFCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
+        btnSalvarCliente.setBackground(new java.awt.Color(204, 204, 204));
+        btnSalvarCliente.setForeground(new java.awt.Color(0, 0, 0));
         btnSalvarCliente.setText("Salvar");
+        btnSalvarCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         btnSalvarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarClienteActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jtfNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(151, 151, 151)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(183, 183, 183)
-                                .addComponent(txtNomeCliente)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCPFCliente)
-                            .addComponent(jtfCPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(btnSalvarCliente)))
-                .addContainerGap(165, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addGap(70, 70, 70)
-                .addComponent(txtNomeCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(txtCPFCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jtfCPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
-                .addComponent(btnSalvarCliente)
-                .addContainerGap(97, Short.MAX_VALUE))
-        );
+        getContentPane().add(btnSalvarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 120, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

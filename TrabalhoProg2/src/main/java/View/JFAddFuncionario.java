@@ -19,6 +19,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
      */
     public JFAddFuncionario() {
         initComponents();
+        
     }
 
     /**
@@ -30,6 +31,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        canvas1 = new java.awt.Canvas();
         txtNomeFuncionario = new javax.swing.JLabel();
         txtCPFFuncionario = new javax.swing.JLabel();
         txtCargoFuncionario = new javax.swing.JLabel();
@@ -43,61 +45,81 @@ public class JFAddFuncionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Adicionar novo funcionário");
+        setBackground(new java.awt.Color(204, 255, 204));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        txtNomeFuncionario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtNomeFuncionario.setText("Nome:");
 
+        txtCPFFuncionario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtCPFFuncionario.setText("CPF:");
 
+        txtCargoFuncionario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtCargoFuncionario.setText("Cargo:");
 
+        txtEmailFuncionario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtEmailFuncionario.setText("Email:");
 
+        btnSalvarFuncionario.setBackground(new java.awt.Color(204, 204, 204));
+        btnSalvarFuncionario.setForeground(new java.awt.Color(0, 0, 0));
         btnSalvarFuncionario.setText("Salvar ");
+        btnSalvarFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         btnSalvarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarFuncionarioActionPerformed(evt);
             }
         });
 
-        txtAddNovoFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtAddNovoFuncionario.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         txtAddNovoFuncionario.setText("Adicionar novo Funcionario:");
 
+        jTextFieldNomeFuncionario.setBackground(new java.awt.Color(204, 204, 204));
+        jTextFieldNomeFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         jTextFieldNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeFuncionarioActionPerformed(evt);
             }
         });
 
+        jTextFieldCPF.setBackground(new java.awt.Color(204, 204, 204));
+        jTextFieldCPF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         jTextFieldCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCPFActionPerformed(evt);
             }
         });
 
+        jTextFieldCargoFuncionario.setBackground(new java.awt.Color(204, 204, 204));
+        jTextFieldCargoFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
+
+        jTextFieldEmailFuncionario.setBackground(new java.awt.Color(204, 204, 204));
+        jTextFieldEmailFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 109, Short.MAX_VALUE)
+                .addComponent(txtAddNovoFuncionario)
+                .addGap(85, 85, 85))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(txtAddNovoFuncionario))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(btnSalvarFuncionario))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(170, 170, 170)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCPFFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNomeFuncionario)
-                            .addComponent(txtCargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEmailFuncionario)
                             .addComponent(jTextFieldNomeFuncionario)
                             .addComponent(jTextFieldCPF)
                             .addComponent(jTextFieldCargoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                            .addComponent(jTextFieldEmailFuncionario))))
-                .addContainerGap(141, Short.MAX_VALUE))
+                            .addComponent(jTextFieldEmailFuncionario)
+                            .addComponent(txtCargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(btnSalvarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +144,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
                 .addComponent(jTextFieldEmailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(btnSalvarFuncionario)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,6 +230,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvarFuncionario;
+    private java.awt.Canvas canvas1;
     private javax.swing.JTextField jTextFieldCPF;
     private javax.swing.JTextField jTextFieldCargoFuncionario;
     private javax.swing.JTextField jTextFieldEmailFuncionario;

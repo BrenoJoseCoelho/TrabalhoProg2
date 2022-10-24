@@ -38,23 +38,39 @@ public class JFAddFornecedor extends javax.swing.JFrame {
         btnSalvarFornecedor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 0, 51));
 
+        txtEmpresa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtEmpresa.setText("Empresa:");
 
+        txtNomeFOrnecedor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtNomeFOrnecedor.setText("Nome Fornecedor:");
 
+        txtCNPJFornecedor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtCNPJFornecedor.setText("CNPJ:");
 
+        jtfEmpresa.setBackground(new java.awt.Color(204, 204, 204));
+        jtfEmpresa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
+
+        jtfNomeFornecedor.setBackground(new java.awt.Color(204, 204, 204));
+        jtfNomeFornecedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         jtfNomeFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfNomeFornecedorActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setText("Adicionar Novo Fornecedor:");
+        jtfCNPJfornecedor.setBackground(new java.awt.Color(204, 204, 204));
+        jtfCNPJfornecedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
 
+        jLabel4.setBackground(new java.awt.Color(51, 255, 51));
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setText("               Adicionar Novo Fornecedor:");
+
+        btnSalvarFornecedor.setBackground(new java.awt.Color(204, 204, 204));
+        btnSalvarFornecedor.setForeground(new java.awt.Color(0, 0, 0));
         btnSalvarFornecedor.setText("Salvar");
+        btnSalvarFornecedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         btnSalvarFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarFornecedorActionPerformed(evt);
@@ -65,6 +81,7 @@ public class JFAddFornecedor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -77,19 +94,16 @@ public class JFAddFornecedor extends javax.swing.JFrame {
                             .addComponent(jtfEmpresa)
                             .addComponent(jtfCNPJfornecedor)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(btnSalvarFornecedor)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                        .addGap(167, 167, 167)
+                        .addComponent(btnSalvarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel4)
-                .addGap(41, 41, 41)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmpresa)
                 .addGap(4, 4, 4)
                 .addComponent(jtfEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -101,9 +115,9 @@ public class JFAddFornecedor extends javax.swing.JFrame {
                 .addComponent(txtCNPJFornecedor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfCNPJfornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(btnSalvarFornecedor)
-                .addGap(41, 41, 41))
+                .addGap(43, 43, 43))
         );
 
         pack();

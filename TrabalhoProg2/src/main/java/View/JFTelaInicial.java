@@ -15,6 +15,7 @@ public class JFTelaInicial extends javax.swing.JFrame {
      */
     public JFTelaInicial() {
         initComponents();
+      
         
       
         
@@ -39,35 +40,45 @@ public class JFTelaInicial extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Inicial");
 
+        btnAddCliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnAddCliente.setText("Adicionar Cliente");
+        btnAddCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         btnAddCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddClienteActionPerformed(evt);
             }
         });
 
+        btnAddFuncionario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnAddFuncionario.setText("Adicionar Funcionário");
+        btnAddFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         btnAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFuncionarioActionPerformed(evt);
             }
         });
 
+        btnAddFornecedor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnAddFornecedor.setText("Adicionar Fornecedor");
+        btnAddFornecedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         btnAddFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFornecedorActionPerformed(evt);
             }
         });
 
+        btnVisualizarVendas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnVisualizarVendas.setText("Visualizar Vendas");
+        btnVisualizarVendas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         btnVisualizarVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisualizarVendasActionPerformed(evt);
             }
         });
 
+        btnVisualizarEstoque.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnVisualizarEstoque.setText("Visualizar Estoque");
+        btnVisualizarEstoque.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
 
         txtCliente.setText("teste Cliente");
         txtCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -81,38 +92,36 @@ public class JFTelaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(169, 169, 169)
-                            .addComponent(btnAddCliente))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(156, 156, 156)
-                            .addComponent(btnAddFuncionario)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnAddFornecedor)
-                        .addComponent(btnVisualizarVendas)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCliente)
-                            .addComponent(btnVisualizarEstoque))))
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnVisualizarVendas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddFornecedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVisualizarEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(txtCliente)))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(107, 107, 107)
                 .addComponent(btnAddCliente)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
                 .addComponent(btnAddFuncionario)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(btnAddFornecedor)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addComponent(btnVisualizarVendas)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addComponent(btnVisualizarEstoque)
-                .addGap(37, 37, 37)
+                .addGap(70, 70, 70)
                 .addComponent(txtCliente)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();

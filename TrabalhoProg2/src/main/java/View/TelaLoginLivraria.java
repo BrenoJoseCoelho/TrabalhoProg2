@@ -49,18 +49,32 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
         lblTitleLivraria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitleLivraria.setText("LIVRARIA");
 
-        lblLogin.setText("Login");
+        lblLogin.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblLogin.setText("E-mail");
 
+        lblSenha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblSenha.setText("Senha");
 
+        txtSenha.setBackground(new java.awt.Color(204, 204, 204));
+        txtSenha.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
+
+        txtLogin.setBackground(new java.awt.Color(204, 204, 204));
+        txtLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
+
+        btnEntrar.setBackground(new java.awt.Color(204, 204, 204));
+        btnEntrar.setForeground(new java.awt.Color(0, 0, 0));
         btnEntrar.setText("Entrar");
+        btnEntrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);
             }
         });
 
+        btnCadastrar.setBackground(new java.awt.Color(204, 204, 204));
+        btnCadastrar.setForeground(new java.awt.Color(0, 0, 0));
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
 
         jPanel1.setLayout(new javax.swing.OverlayLayout(jPanel1));
 
@@ -71,22 +85,18 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(134, 134, 134)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblLogin)
+                                .addComponent(lblSenha))
+                            .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(173, 173, 173)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblSenha)
-                                    .addComponent(lblLogin)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnEntrar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                                        .addComponent(btnCadastrar))
-                                    .addComponent(txtLogin)
-                                    .addComponent(txtSenha))))
-                        .addGap(0, 112, Short.MAX_VALUE))
+                                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSenha))
+                        .addGap(0, 137, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblTitleLivraria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -102,7 +112,7 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(lblSenha)
@@ -112,7 +122,7 @@ public class TelaLoginLivraria extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEntrar)
                     .addComponent(btnCadastrar))
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
 
         pack();
