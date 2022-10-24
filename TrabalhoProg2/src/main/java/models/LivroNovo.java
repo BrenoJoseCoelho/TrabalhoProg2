@@ -17,10 +17,12 @@ public class LivroNovo extends Livro  {
     
     private List<Livro> livros;
 
-    public LivroNovo(float preco, String autor, String titulo, String editora, String local, String edicao, String isbn) {
-        super(preco, autor, titulo, editora, local, edicao, isbn);
-       
+    public LivroNovo(String autor, String titulo, String editora, String local, String edicao, String isbn, double preco) {
+        super(autor, titulo, editora, local, edicao, isbn, preco);
+        this.livros = new ArrayList<>();
     }
+
+
  
 
 

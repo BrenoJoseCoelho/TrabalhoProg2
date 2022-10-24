@@ -4,7 +4,10 @@
  */
 package Repositorio;
 
+import java.util.List;
 import models.Estoque;
+import models.Livro;
+import models.LivroNovo;
 
 /**
  *
@@ -15,4 +18,5 @@ public interface EstoqueRepositorio {
     void attQuantidade(Estoque estoque);
     void removeEstoque( Estoque estoque);
     void listaEstoque(Estoque estoque);
+    List<Livro> getTodosLivros();
 }

@@ -4,7 +4,11 @@
  */
 package View;
  import DAO.FuncionarioDAO;
+import Exception.CpfIgualException;
+import Exception.FuncionarioException;
 import Repositorio.FuncionarioRepositorio;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import models.Fornecedor;
 import models.Funcionario;
@@ -62,18 +66,6 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         txtAddNovoFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtAddNovoFuncionario.setText("Adicionar novo Funcionario:");
 
-        jTextFieldNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNomeFuncionarioActionPerformed(evt);
-            }
-        });
-
-        jTextFieldCPF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCPFActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,46 +121,52 @@ public class JFAddFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFuncionarioActionPerformed
-        String nome = jTextFieldNomeFuncionario.getText();
-        
-        String cpf = jTextFieldCPF.getText();
-        
-        String email = jTextFieldEmailFuncionario.getText();
-        
-        String cargo = jTextFieldCargoFuncionario.getText();
-        
-        Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
-        
-        salvarFuncionario(funcionario);
-        
-        apresentarMensagem(funcionario.toString());
-        
-        limparTela();
-       
+
+        try {
+            salvarFuncionario();
+        } catch (FuncionarioException | CpfIgualException ex) {
+            Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
     }//GEN-LAST:event_btnSalvarFuncionarioActionPerformed
 
-    private void jTextFieldNomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomeFuncionarioActionPerformed
-
-    private void jTextFieldCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCPFActionPerformed
-
-    public void salvarFuncionario(Funcionario funcionario){
-        FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
-        funcionarioRepositorio.salvarFuncionario(funcionario);
+     public void salvarFuncionario() throws FuncionarioException, CpfIgualException {
+        try{
+        FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
+        Funcionario func = returnFunc();
+        funcionarioRepositorio.salvarFuncionario(func);
+            mostrarMsg("Funcionario Adicionado com sucesso!" + func.toString());
+        }catch( FuncionarioException | CpfIgualException e){
+            mostrarMsg(e.getMessage());
+            
+        }
+    
     }
+        
+    public void mostrarMsg(String msg) {
+        JOptionPane.showMessageDialog(null, msg);
+        }
+       
+    public Funcionario returnFunc() throws FuncionarioException, CpfIgualException{
+       String nome = jTextFieldNomeFuncionario.getText();
+            if(nome.isBlank() || nome.isEmpty())
+                throw new FuncionarioException("Campo Vazio!");
+       String cpf = jTextFieldCPF.getText(); 
+        String email = jTextFieldEmailFuncionario.getText();
+        String cargo = jTextFieldCargoFuncionario.getText();
+       
+        
+     Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
+       return  funcionario;
+    }
+   
     public void limparTela(){
         jTextFieldCPF.setText("");
         jTextFieldCargoFuncionario.setText("");
         jTextFieldEmailFuncionario.setText("");
         jTextFieldNomeFuncionario.setText("");
     }
-    
-    public void apresentarMensagem(String msg){
-        JOptionPane.showMessageDialog(null, msg);
-    }
+
     
     /**
      * @param args the command line arguments

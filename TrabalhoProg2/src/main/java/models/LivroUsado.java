@@ -13,20 +13,25 @@ import java.util.List;
  */
 public class LivroUsado extends Livro   {
     
-    private String [] tempoUso = {"Até 0.6 meses", "Até 1 ano","Até 2 anos"};
+    private String tempoUso []= {"Até 6 meses!","Até 1 ano!","Acima de 1 ano!"} ;
 
-    public LivroUsado(float preco, String autor, String titulo, String editora, 
-            String local, String edicao, String isbn) {
-        super(preco, autor, titulo, editora, local, edicao, isbn);
+    public LivroUsado(String autor, String titulo, String editora, String local, String edicao, String isbn, double preco) {
+        super(autor, titulo, editora, local, edicao, isbn, preco);
     }
 
+    public LivroUsado(String tempoUso, String autor, String titulo, String editora, String local, String edicao, String isbn, double preco) {
+        super(autor, titulo, editora, local, edicao, isbn, preco);
+        
+        this.tempoUso =  this.tempoUso;
+
+ 
+    }
+ 
     public String[] getTempoUso() {
         return tempoUso;
     }
 
-    public void setTempoUso(String[] tempoUso) {
-        this.tempoUso = tempoUso;
-    }
+ 
 
 
 

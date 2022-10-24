@@ -6,6 +6,7 @@ package Repositorio;
 
 import java.util.List;
 import models.Funcionario;
+import models.LivroUsado;
 
 /**
  *
@@ -16,4 +17,5 @@ public interface FuncionarioRepositorio {
     void salvarFuncionario(Funcionario func);
     Funcionario retornarCpfFuncionario(String cpf);
     Funcionario retornarEmailFuncionario(String Email);
+    List<Funcionario> getTodosFuncionarios();        
 }

@@ -4,6 +4,8 @@
  */
 package models;
 
+import DAO.FuncionarioDAO;
+import Exception.CpfIgualException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +48,21 @@ public class Funcionario implements AutenticacaoLogin {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCpf(String cpf) throws CpfIgualException {
+      FuncionarioDAO  funcionarioDAO= new FuncionarioDAO();
+        for(Funcionario func : funcionarioDAO.getTodosFuncionarios()){
+          if(func.getCpf().equals(cpf)){
+             throw new CpfIgualException();
+            }
+                
+        }
+        this.cpf = cpf;
+    }
+    
     public String getCpf() {
         return cpf;
     }

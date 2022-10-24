@@ -4,7 +4,6 @@
  */
 package View;
 
-import View.JFListarCliente;
 
 /**
  *
@@ -149,8 +148,8 @@ public class JFTelaInicial extends javax.swing.JFrame {
         jfvenda.setVisible(true);
 
 
-         JFListarCliente listarCliente = new JFListarCliente();
-        listarCliente.setVisible(true);
+//         JFListarCliente listarCliente = new JFListarCliente();
+//        listarCliente.setVisible(true);
 
     }//GEN-LAST:event_txtClienteActionPerformed
 
