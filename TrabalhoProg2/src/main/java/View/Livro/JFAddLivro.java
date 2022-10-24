@@ -286,6 +286,7 @@ public class JFAddLivro extends javax.swing.JFrame {
 
     private void comboTempoUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTempoUsoActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_comboTempoUsoActionPerformed
 
     private void btnAddLivroAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroAction
@@ -339,7 +340,9 @@ public class JFAddLivro extends javax.swing.JFrame {
         LivroNovoRepositorio livroNovoRepositorio =  new LivroNovoListDAO();
         LivroNovo livroNovo = returnLivroNovo();
         livroNovoRepositorio.addLivroNovo(livroNovo);
-        mostrarMensagem("Adicionado Livro Novo com Sucesso!"+ livroNovo.toString());
+        
+        mostrarMensagem("Adicionado Livro Novo com Sucesso! "+ livroNovo.toString());
+        
     }
     
      public LivroUsado returnLivroUsado(){
@@ -364,7 +367,7 @@ public class JFAddLivro extends javax.swing.JFrame {
         LivroUsadoRepositorio livroUsadoRepositorio =  new LivroUsadoListDAO();
         LivroUsado livroUsado = returnLivroUsado();
         livroUsadoRepositorio.addLivroUsado(livroUsado);
-        mostrarMensagem("Adicionado Livro Usado com Sucesso!"+ livroUsado.toString());
+        mostrarMensagem("Adicionado Livro Usado com Sucesso! "+ livroUsado.toString());
     
     }
  

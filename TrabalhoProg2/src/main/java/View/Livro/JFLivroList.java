@@ -47,7 +47,7 @@ public class JFLivroList extends javax.swing.JFrame {
         btnListarLivrosNovos = new javax.swing.JButton();
         btnListarLivrosUsados = new javax.swing.JButton();
         btnGetLivros = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        tbnOrdemAlfabetica = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaListar = new javax.swing.JTextArea();
         btnLimparTela = new javax.swing.JButton();
@@ -76,7 +76,12 @@ public class JFLivroList extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Listar por OrdemAlfabética");
+        tbnOrdemAlfabetica.setText("Listar por OrdemAlfabética");
+        tbnOrdemAlfabetica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbnOrdemAlfabeticaActionPerformed(evt);
+            }
+        });
 
         txtAreaListar.setColumns(20);
         txtAreaListar.setRows(5);
@@ -103,7 +108,7 @@ public class JFLivroList extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tbnOrdemAlfabetica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnGetLivros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnListarLivrosUsados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnListarLivrosNovos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -128,7 +133,7 @@ public class JFLivroList extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnGetLivros)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)
+                        .addComponent(tbnOrdemAlfabetica)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnLimparTela))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -188,6 +193,10 @@ public class JFLivroList extends javax.swing.JFrame {
         telaEstoque.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tbnOrdemAlfabeticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnOrdemAlfabeticaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbnOrdemAlfabeticaActionPerformed
     
      private JComboBox<LivroUsado> jComboBox = new javax.swing.JComboBox<>();   
      public void precherComboTempo(){
@@ -259,9 +268,9 @@ public class JFLivroList extends javax.swing.JFrame {
     private javax.swing.JButton btnListarLivrosNovos;
     private javax.swing.JButton btnListarLivrosUsados;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton tbnOrdemAlfabetica;
     private javax.swing.JTextArea txtAreaListar;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,8 @@
 package DAO;
 
 import Repositorio.EstoqueRepositorio;
+import Repositorio.LivroNovoRepositorio;
+import Repositorio.LivroUsadoRepositorio;
 import java.util.ArrayList;
 import java.util.List;
 import models.Estoque;
@@ -19,32 +21,41 @@ import models.LivroUsado;
 public class EstoqueDAO implements EstoqueRepositorio{
     
      private static List<Livro> livros = new ArrayList<>();
-  
+     //private static List<Estoque> e =  new ArrayList<>();
     
-    @Override
-    public void addEstoque(Estoque estoque) {
-      estoque.addLivro((Livro) livros);
-    }
+  
 
     @Override
     public void attQuantidade(Estoque estoque) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public void removeEstoque(Estoque estoque) {
-        estoque.removeLivro((Livro) livros);
-    }
+  
 
     @Override
     public void listaEstoque(Estoque estoque) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        getTodosLivros();
     }
 
     @Override
     public List<Livro> getTodosLivros() {
  
            return livros;
+    }
+
+    @Override
+    public void addEstoque(Estoque estoque) {
+        
+        LivroNovoRepositorio livroNovoRepositorio = new LivroNovoListDAO();
+        LivroUsadoRepositorio livroUsadoRepositorio =  new LivroUsadoListDAO();
+        livroNovoRepositorio.addLivroNovo((LivroNovo) livros);
+        livroUsadoRepositorio.addLivroUsado((LivroUsado) livros);
+  }
+
+    @Override
+    public void removeEstoque(Estoque estoque) {
+  
+        
     }
 
 }    

@@ -6,6 +6,7 @@ package View;
 
 import View.Livro.JFAddLivro;
 import View.Livro.JFLivroList;
+import models.Estoque;
 
 /**
  *
@@ -53,20 +54,20 @@ public class JFEstoque extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(btnAddLivro)
-                .addGap(55, 55, 55)
-                .addComponent(btnListaLivros)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(btnListaLivros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddLivro)
-                    .addComponent(btnListaLivros))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addComponent(btnAddLivro)
+                .addGap(18, 18, 18)
+                .addComponent(btnListaLivros)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,6 +89,8 @@ public class JFEstoque extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+      
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
