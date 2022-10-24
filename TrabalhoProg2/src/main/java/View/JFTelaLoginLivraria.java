@@ -161,12 +161,10 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
          //Instaciando construtor da classe FuncionarioDAO
         FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
         Funcionario f1 = funcionarioRepositorio.retornarEmailFuncionario(login);
-        //funcionario1 = funcionarioRepositorio.retornarCpfFuncionario(senha);
-   
+        
         //Estrutura condicional para caso o funcionario for encontraado
         if(f1 != null){
-            if(f1.Logar(login, senha)){
-                loginSucess = f1;
+            if(f1.Logar(login, senha)){ loginSucess = f1;
                 return true;
             }
         }
@@ -174,14 +172,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
      }
     
      //métodos de abrir Tela
-    public void OpenTelaAfterLogin(){
-        if(loginSucess instanceof Funcionario){
-            JFTelaFuncionario telaFuncionario = new JFTelaFuncionario();
-            telaFuncionario.setVisible(true);     
-        }      
-        this.dispose();
-        }
-   
+
     public void openTelaInicial(){
         JFTelaInicial2 fTelaInicial = new JFTelaInicial2();
          fTelaInicial.setVisible(true);
