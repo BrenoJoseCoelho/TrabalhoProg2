@@ -59,12 +59,6 @@ public class JFAddFuncionario extends javax.swing.JFrame {
 
         txtEmailFuncionario.setText("Email:");
 
-        jTextFieldNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNomeFuncionarioActionPerformed(evt);
-            }
-        });
-
         btnSalvarFuncionario.setText("Salvar ");
         btnSalvarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,13 +120,10 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomeFuncionarioActionPerformed
-
     private void btnSalvarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFuncionarioActionPerformed
     try {
             salvarFuncionario();
+            
         } catch (FuncionarioException | CpfIgualException ex) {
             Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -151,8 +142,10 @@ public class JFAddFuncionario extends javax.swing.JFrame {
             mostrarMsg(e.getMessage());
 
         }
-        JFTelaInicial fTelaInicial = new JFTelaInicial();
-        fTelaInicial.setVisible(true);
+        JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
+        fFuncionarioList.setVisible(true);
+//        JFTelaInicial fTelaInicial = new JFTelaInicial();
+//        fTelaInicial.setVisible(true);
         this.dispose();
     
         limparTela();

@@ -46,6 +46,11 @@ public class FuncionarioDAO implements FuncionarioRepositorio {
     public List<Funcionario> getTodosFuncionarios() {
    return funcionarios;
     }
+
+    @Override
+    public void removerFuncionario(Funcionario f) {
+      funcionarios.remove(f);      
+    }
     
     
     }
