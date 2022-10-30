@@ -11,17 +11,16 @@ import Repositorio.FuncionarioRepositorio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import models.Fornecedor;
 import models.Funcionario;
 
 /**
  *
- * @author levan
+ * @author LRodrigues
  */
 public class JFAddFuncionario extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFAddFuncionario
+     * Creates new form JFAddFunc
      */
     public JFAddFuncionario() {
         initComponents();
@@ -36,19 +35,21 @@ public class JFAddFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtAddNovoFunc = new javax.swing.JLabel();
         txtNomeFuncionario = new javax.swing.JLabel();
         txtCPFFuncionario = new javax.swing.JLabel();
         txtCargoFuncionario = new javax.swing.JLabel();
         txtEmailFuncionario = new javax.swing.JLabel();
-        btnSalvarFuncionario = new javax.swing.JButton();
-        txtAddNovoFuncionario = new javax.swing.JLabel();
         jTextFieldNomeFuncionario = new javax.swing.JTextField();
         jTextFieldCPF = new javax.swing.JTextField();
         jTextFieldCargoFuncionario = new javax.swing.JTextField();
         jTextFieldEmailFuncionario = new javax.swing.JTextField();
+        btnSalvarFuncionario = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Adicionar novo funcionário");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtAddNovoFunc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtAddNovoFunc.setText("Adicionar novo Funcionario:");
 
         txtNomeFuncionario.setText("Nome:");
 
@@ -58,19 +59,16 @@ public class JFAddFuncionario extends javax.swing.JFrame {
 
         txtEmailFuncionario.setText("Email:");
 
+        jTextFieldNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeFuncionarioActionPerformed(evt);
+            }
+        });
+
         btnSalvarFuncionario.setText("Salvar ");
         btnSalvarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarFuncionarioActionPerformed(evt);
-            }
-        });
-
-        txtAddNovoFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtAddNovoFuncionario.setText("Adicionar novo Funcionario:");
-
-        jTextFieldNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNomeFuncionarioActionPerformed(evt);
             }
         });
 
@@ -81,66 +79,68 @@ public class JFAddFuncionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(txtAddNovoFuncionario))
+                        .addGap(155, 155, 155)
+                        .addComponent(txtAddNovoFunc))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(btnSalvarFuncionario))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
+                        .addGap(179, 179, 179)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCPFFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNomeFuncionario)
                             .addComponent(txtEmailFuncionario)
-                            .addComponent(jTextFieldNomeFuncionario)
+                            .addComponent(txtCargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                            .addComponent(txtCPFFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldCPF)
-                            .addComponent(jTextFieldCargoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                            .addComponent(jTextFieldEmailFuncionario)
-                            .addComponent(txtCargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(141, Short.MAX_VALUE))
+                            .addComponent(jTextFieldCargoFuncionario)
+                            .addComponent(jTextFieldEmailFuncionario)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(232, 232, 232)
+                        .addComponent(btnSalvarFuncionario)))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(txtAddNovoFuncionario)
-                .addGap(31, 31, 31)
+                .addGap(49, 49, 49)
+                .addComponent(txtAddNovoFunc)
+                .addGap(18, 18, 18)
                 .addComponent(txtNomeFuncionario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtCPFFuncionario)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtCargoFuncionario)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldCargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtEmailFuncionario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldEmailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(38, 38, 38)
                 .addComponent(btnSalvarFuncionario)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalvarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFuncionarioActionPerformed
+    private void jTextFieldNomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNomeFuncionarioActionPerformed
 
-        try {
+    private void btnSalvarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFuncionarioActionPerformed
+    try {
             salvarFuncionario();
         } catch (FuncionarioException | CpfIgualException ex) {
             Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
+ 
     }//GEN-LAST:event_btnSalvarFuncionarioActionPerformed
-
-// lucas-branch
-     public void salvarFuncionario() throws FuncionarioException, CpfIgualException {
+    
+      public void salvarFuncionario() throws FuncionarioException, CpfIgualException {
         try{
         FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
         Funcionario func = returnFunc();
@@ -157,10 +157,8 @@ public class JFAddFuncionario extends javax.swing.JFrame {
     
         limparTela();
     }
-
     
-
-    public void mostrarMsg(String msg) {
+      public void mostrarMsg(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
 
@@ -175,50 +173,19 @@ public class JFAddFuncionario extends javax.swing.JFrame {
 
         Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
         return funcionario;
-    }
-
-    public void limparTela() {
+    }  
+      
+    
+        public void limparTela() {
         jTextFieldCPF.setText("");
         jTextFieldCargoFuncionario.setText("");
         jTextFieldEmailFuncionario.setText("");
         jTextFieldNomeFuncionario.setText("");
     }
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFAddFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFAddFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFAddFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFAddFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFAddFuncionario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvarFuncionario;
@@ -226,7 +193,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCargoFuncionario;
     private javax.swing.JTextField jTextFieldEmailFuncionario;
     private javax.swing.JTextField jTextFieldNomeFuncionario;
-    private javax.swing.JLabel txtAddNovoFuncionario;
+    private javax.swing.JLabel txtAddNovoFunc;
     private javax.swing.JLabel txtCPFFuncionario;
     private javax.swing.JLabel txtCargoFuncionario;
     private javax.swing.JLabel txtEmailFuncionario;

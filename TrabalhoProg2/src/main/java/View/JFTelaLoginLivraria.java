@@ -183,8 +183,8 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
         }
    
     public void openTelaInicial(){
-        JFTelaInicial2 fTelaInicial = new JFTelaInicial2();
-         fTelaInicial.setVisible(true);
+        JFTelaInicial fTelaInicial = new JFTelaInicial();
+         fTelaInicial.setVisible(true );
          this.dispose();
     }
     
@@ -202,13 +202,13 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

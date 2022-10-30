@@ -64,7 +64,7 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
         });
 
         txtAddNovoFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtAddNovoFuncionario.setText("Adicionar novo Funcionario:");
+        txtAddNovoFuncionario.setText("Cadastro Login:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,30 +73,29 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(txtAddNovoFuncionario))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(218, 218, 218)
                         .addComponent(btnSalvarFuncionario))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(170, 170, 170)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCPFFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNomeFuncionario)
-                            .addComponent(txtEmailFuncionario)
-                            .addComponent(jTextFieldNomeFuncionario)
-                            .addComponent(jTextFieldCPF)
-                            .addComponent(jTextFieldCargoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                            .addComponent(jTextFieldEmailFuncionario)
-                            .addComponent(txtCargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(141, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAddNovoFuncionario)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtCPFFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNomeFuncionario)
+                                .addComponent(txtEmailFuncionario)
+                                .addComponent(jTextFieldNomeFuncionario)
+                                .addComponent(jTextFieldCPF)
+                                .addComponent(jTextFieldCargoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                .addComponent(jTextFieldEmailFuncionario)
+                                .addComponent(txtCargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(32, 32, 32)
                 .addComponent(txtAddNovoFuncionario)
-                .addGap(31, 31, 31)
+                .addGap(27, 27, 27)
                 .addComponent(txtNomeFuncionario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextFieldNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

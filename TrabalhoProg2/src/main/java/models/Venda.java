@@ -48,7 +48,7 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Data da Venda: " + dataVenda + ", observacao: " + observacao + ", Cliente: " + clientes.nome + ", funcionarios: " + funcionarios.nome + ", livro: " + livros +"\n";
+        return "Valor total da Venda: " +livros.preco +" Data da Venda: " + dataVenda + ", observacao: " + observacao + ", Cliente: " + clientes.nome + ", funcionarios: " + funcionarios.nome + ", livro: " + livros +"\n";
     }
     
 
