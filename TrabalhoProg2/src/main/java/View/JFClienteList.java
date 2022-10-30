@@ -4,6 +4,9 @@
  */
 package View;
 
+import DAO.ClienteDAO;
+import Repositorio.ClienteRepositorio;
+import java.util.Comparator;
 import models.Cliente;
 
 /**
@@ -29,18 +32,19 @@ public class JFClienteList extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtListFornecedor = new javax.swing.JTextArea();
+        txtListCientes = new javax.swing.JTextArea();
         btnAddCliente = new javax.swing.JButton();
         btnListClientes = new javax.swing.JButton();
         btnLimparTela = new javax.swing.JButton();
         btnRemoverCliente = new javax.swing.JButton();
         cbRemoverCliente = new javax.swing.JComboBox<>();
+        btnTelaInicial = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtListFornecedor.setColumns(20);
-        txtListFornecedor.setRows(5);
-        jScrollPane1.setViewportView(txtListFornecedor);
+        txtListCientes.setColumns(20);
+        txtListCientes.setRows(5);
+        jScrollPane1.setViewportView(txtListCientes);
 
         btnAddCliente.setText("Adicionar Cliente");
         btnAddCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -50,10 +54,27 @@ public class JFClienteList extends javax.swing.JFrame {
         });
 
         btnListClientes.setText("Listar Clientes");
+        btnListClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListClientesActionPerformed(evt);
+            }
+        });
 
         btnLimparTela.setText("Limpar Tela");
+        btnLimparTela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparTelaActionPerformed(evt);
+            }
+        });
 
         btnRemoverCliente.setText("Remover Cliente");
+
+        btnTelaInicial.setText("Tela Inicial");
+        btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelaInicialActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,11 +87,19 @@ public class JFClienteList extends javax.swing.JFrame {
                     .addComponent(btnListClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLimparTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRemoverCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
-                    .addComponent(cbRemoverCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(cbRemoverCliente, 0, 367, Short.MAX_VALUE)
+                        .addGap(25, 25, 25))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+                        .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(267, 267, 267)
+                .addComponent(btnTelaInicial)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +117,9 @@ public class JFClienteList extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRemoverCliente)
                     .addComponent(cbRemoverCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87))
+                .addGap(38, 38, 38)
+                .addComponent(btnTelaInicial)
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -98,6 +129,32 @@ public class JFClienteList extends javax.swing.JFrame {
         JFAddFuncionario addFuncionario = new JFAddFuncionario();
         addFuncionario.setVisible(true);
     }//GEN-LAST:event_btnAddClienteActionPerformed
+
+    private void btnListClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListClientesActionPerformed
+       ClienteRepositorio clienteRepositorio = new ClienteDAO();
+       clienteRepositorio.buscarTodosClientes().sort((new Comparator<Cliente>(){
+           @Override
+           public int compare(Cliente o1, Cliente o2) {
+               
+               return o1.getNome().compareTo(o2.getNome());
+               
+           }
+           
+       }));
+       for(Cliente c : clienteRepositorio.buscarTodosClientes()){
+          txtListCientes.append(c.getNome().toString()+"\n");
+           
+       }
+    }//GEN-LAST:event_btnListClientesActionPerformed
+
+    private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
+        txtListCientes.setText("");
+    }//GEN-LAST:event_btnLimparTelaActionPerformed
+
+    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
+        JFTelaInicial fTelaInicial = new JFTelaInicial();
+        fTelaInicial.setVisible(true);
+    }//GEN-LAST:event_btnTelaInicialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,8 +196,9 @@ public class JFClienteList extends javax.swing.JFrame {
     private javax.swing.JButton btnLimparTela;
     private javax.swing.JButton btnListClientes;
     private javax.swing.JButton btnRemoverCliente;
+    private javax.swing.JButton btnTelaInicial;
     private javax.swing.JComboBox<Cliente> cbRemoverCliente;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtListFornecedor;
+    private javax.swing.JTextArea txtListCientes;
     // End of variables declaration//GEN-END:variables
 }

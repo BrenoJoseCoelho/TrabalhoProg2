@@ -30,30 +30,39 @@ public class JFFornecedorList extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         txtListFornecedor = new javax.swing.JTextArea();
-        btnAddFuncionario = new javax.swing.JButton();
-        btnListFuncionario = new javax.swing.JButton();
-        btnLimparTempa = new javax.swing.JButton();
-        btnRemoverFunc = new javax.swing.JButton();
+        btnAddFornecedor = new javax.swing.JButton();
+        btnListFornecedor = new javax.swing.JButton();
+        btnLimparTela = new javax.swing.JButton();
+        btnRemoverFornecedor = new javax.swing.JButton();
         cbRemoverFunc = new javax.swing.JComboBox<>();
+        btnTelaInicial = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerenciar Funcionário");
 
         txtListFornecedor.setColumns(20);
         txtListFornecedor.setRows(5);
         jScrollPane1.setViewportView(txtListFornecedor);
 
-        btnAddFuncionario.setText("Adicionar Funcionário");
-        btnAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        btnAddFornecedor.setText("Adicionar Fornecedor");
+        btnAddFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddFuncionarioActionPerformed(evt);
+                btnAddFornecedorActionPerformed(evt);
             }
         });
 
-        btnListFuncionario.setText("Listar Funcionario");
+        btnListFornecedor.setText("Listar Fornecedor");
 
-        btnLimparTempa.setText("Limpar Tela");
+        btnLimparTela.setText("Limpar Tela");
 
-        btnRemoverFunc.setText("Remover Funcionário");
+        btnRemoverFornecedor.setText("Remover Fornecedor");
+
+        btnTelaInicial.setText("Tela Inicial");
+        btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelaInicialActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,15 +71,19 @@ public class JFFornecedorList extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnListFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLimparTempa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRemoverFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(94, 94, 94)
+                    .addComponent(btnAddFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(btnListFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLimparTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRemoverFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
-                    .addComponent(cbRemoverFunc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbRemoverFunc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE))
                 .addGap(25, 25, 25))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(254, 254, 254)
+                .addComponent(btnTelaInicial)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,26 +91,33 @@ public class JFFornecedorList extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddFuncionario)
+                        .addComponent(btnAddFornecedor)
                         .addGap(18, 18, 18)
-                        .addComponent(btnListFuncionario)
+                        .addComponent(btnListFornecedor)
                         .addGap(18, 18, 18)
-                        .addComponent(btnLimparTempa))
+                        .addComponent(btnLimparTela))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRemoverFunc)
+                    .addComponent(btnRemoverFornecedor)
                     .addComponent(cbRemoverFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87))
+                .addGap(31, 31, 31)
+                .addComponent(btnTelaInicial)
+                .addGap(34, 34, 34))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFuncionarioActionPerformed
+    private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
         JFAddFuncionario addFuncionario = new JFAddFuncionario();
         addFuncionario.setVisible(true);
-    }//GEN-LAST:event_btnAddFuncionarioActionPerformed
+    }//GEN-LAST:event_btnAddFornecedorActionPerformed
+
+    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
+        JFTelaInicial fTelaInicial = new JFTelaInicial();
+        fTelaInicial.setVisible(true);
+    }//GEN-LAST:event_btnTelaInicialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,10 +155,11 @@ public class JFFornecedorList extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddFuncionario;
-    private javax.swing.JButton btnLimparTempa;
-    private javax.swing.JButton btnListFuncionario;
-    private javax.swing.JButton btnRemoverFunc;
+    private javax.swing.JButton btnAddFornecedor;
+    private javax.swing.JButton btnLimparTela;
+    private javax.swing.JButton btnListFornecedor;
+    private javax.swing.JButton btnRemoverFornecedor;
+    private javax.swing.JButton btnTelaInicial;
     private javax.swing.JComboBox<Funcionario> cbRemoverFunc;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtListFornecedor;

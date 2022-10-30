@@ -4,6 +4,7 @@
  */
 package View;
 
+import View.Livro.JFLivroList;
 import java.net.URL;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
@@ -174,8 +175,8 @@ public class JFTelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnvendaActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
-        JFEstoque estoqueView = new JFEstoque();
-                 estoqueView.setVisible(true);
+        JFLivroList fLivroList = new JFLivroList();
+        fLivroList.setVisible(true);
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

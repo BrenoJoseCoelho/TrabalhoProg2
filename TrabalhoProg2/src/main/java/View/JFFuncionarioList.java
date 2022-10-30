@@ -17,7 +17,7 @@ import models.LivroUsado;
  * @author LRodrigues
  */
 public class JFFuncionarioList extends javax.swing.JFrame {
-
+    FuncionarioRepositorio fr = new FuncionarioDAO();
     /**
      * Creates new form JFListFuncionario
      */
@@ -159,8 +159,13 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparTempaActionPerformed
 
     private void btnRemoverFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncActionPerformed
-       FuncionarioRepositorio fr = new FuncionarioDAO();
-       fr.removerFuncionario((Funcionario) cbRemoverFunc.getSelectedItem());
+//       FuncionarioRepositorio fr = new FuncionarioDAO();
+       Funcionario f = (Funcionario) cbRemoverFunc.getSelectedItem();
+       f.getFuncionario().remove(f);
+ 
+       
+       
+       
     }//GEN-LAST:event_btnRemoverFuncActionPerformed
 
     /**
@@ -169,10 +174,11 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     
 
     public void initComboFuncionario(){
-        FuncionarioRepositorio fr = new FuncionarioDAO();
+        //FuncionarioRepositorio fr = new FuncionarioDAO();
         List<Funcionario> func = fr.getTodosFuncionarios();
         for(Funcionario f : func ){
-            cbRemoverFunc.addItem(f);
+            
+            cbRemoverFunc.addItem(f.getNome());
         }
     }
 
@@ -182,7 +188,7 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     private javax.swing.JButton btnListFornecedor;
     private javax.swing.JButton btnRemoverFunc;
     private javax.swing.JButton btnTelaInicial;
-    private javax.swing.JComboBox<Funcionario> cbRemoverFunc;
+    private javax.swing.JComboBox<String> cbRemoverFunc;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtAreaFuncionarios;
     // End of variables declaration//GEN-END:variables

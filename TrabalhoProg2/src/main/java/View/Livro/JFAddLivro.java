@@ -314,7 +314,7 @@ public class JFAddLivro extends javax.swing.JFrame {
             }
         }
 
-      
+      this.dispose();
     }//GEN-LAST:event_btnAddLivroAction
 
     private void txtValorLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorLivroActionPerformed

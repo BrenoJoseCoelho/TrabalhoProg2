@@ -26,6 +26,10 @@ public class LivroUsado extends Livro   {
 
  
     }
+
+    LivroUsado() {
+       
+    }
  
     public String[] getTempoUso() {
         return tempoUso;

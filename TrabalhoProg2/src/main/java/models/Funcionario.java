@@ -20,12 +20,14 @@ public class Funcionario implements AutenticacaoLogin {
     protected String cargo;
     protected String email;
     static protected List<Venda> vendas = new ArrayList<>();
+    protected List<Funcionario> func = new ArrayList<>();
     
     public Funcionario(String nome, String cpf, String cargo, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.cargo = cargo;
         this.email = email;
+        this.func = new ArrayList<>();
     }
     
 
@@ -93,7 +95,12 @@ public class Funcionario implements AutenticacaoLogin {
         
     }
 
-   
+      public void removeFunc(Funcionario funcio){
+        this.func.remove(funcio);
+    }
+    public List<Funcionario> getFuncionario() {
+        return this.func;
+    }
     
    
 }

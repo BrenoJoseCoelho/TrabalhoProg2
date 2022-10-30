@@ -7,8 +7,11 @@ import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
 import Exception.IsbnExistenteException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -21,7 +24,7 @@ public class Estoque {
     
     
 
-    private Funcionario funcionario;
+    private List<Funcionario> funcionario;
     private Venda venda;
     private LivroNovo livroNovo;
     private LivroUsado livroUsado;
@@ -29,11 +32,15 @@ public class Estoque {
     private Set<Livro> livros;
     private List<Livro> obterLivroPorISBN;
     private Fornecedor fornecedor;
+    
 
     public Estoque(int qtdLivros) {
         this.qtdLivros = qtdLivros;
         this.livros = new HashSet<>();
         this.obterLivroPorISBN = new ArrayList<>();
+
+        
+     
     }
 
     public Estoque() {
@@ -44,7 +51,7 @@ public class Estoque {
     }
      
     public void removeLivro(Livro livros){
-        this.livros.add(livros);  
+        this.livros.remove(livros);
     } 
     
     public void addLivrosMap(Livro livro){
@@ -59,13 +66,10 @@ public class Estoque {
         this.qtdLivros = qtdLivros;
     
     }
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
+ 
 
     public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
+        this.funcionario = (List<Funcionario>) funcionario;
     }
 
     public Fornecedor getFornecedor() {
