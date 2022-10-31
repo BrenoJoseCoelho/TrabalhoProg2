@@ -5,8 +5,8 @@
 package View;
 
 import DAO.FuncionarioDAO;
+import Exception.CampoVazioException;
 import Exception.CpfIgualException;
-import Exception.FuncionarioException;
 import Repositorio.FuncionarioRepositorio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -124,48 +124,46 @@ public class JFAddFuncionario extends javax.swing.JFrame {
     try {
             salvarFuncionario();
             
-        } catch (FuncionarioException | CpfIgualException ex) {
+        } catch (CampoVazioException | CpfIgualException ex) {
             Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
  
     }//GEN-LAST:event_btnSalvarFuncionarioActionPerformed
     
-      public void salvarFuncionario() throws FuncionarioException, CpfIgualException {
+      public void salvarFuncionario() throws CampoVazioException, CpfIgualException {
         try{
         FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
         Funcionario func = returnFunc();
         funcionarioRepositorio.salvarFuncionario(func);
-            mostrarMsg(" Funcionario Adicionado com sucesso! -[ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - "+ func.toString());
-        }catch( FuncionarioException | CpfIgualException e){
-//
+        
+        mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - " + func.toString());
+        
+        }catch( CampoVazioException | CpfIgualException e){
             mostrarMsg(e.getMessage());
-
         }
-        JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
-        fFuncionarioList.setVisible(true);
-//        JFTelaInicial fTelaInicial = new JFTelaInicial();
-//        fTelaInicial.setVisible(true);
-        this.dispose();
-    
-        limparTela();
+        
+       
+//        limparTela();
     }
     
       public void mostrarMsg(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
 
-    public Funcionario returnFunc() throws FuncionarioException, CpfIgualException {
+    public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException {
         String nome = jTextFieldNomeFuncionario.getText();
-        if (nome.isBlank() || nome.isEmpty()) {
-            throw new FuncionarioException("Campo Vazio!");
-        }
         String cpf = jTextFieldCPF.getText();
         String email = jTextFieldEmailFuncionario.getText();
         String cargo = jTextFieldCargoFuncionario.getText();
 
-        Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
-        return funcionario;
+        Funcionario f = new Funcionario();
+        f.setNome(nome);
+        f.setCpf(cpf);
+        f.setEmail(email);
+        f.setCargo(cargo);
+      
+        return f;
     }  
       
     

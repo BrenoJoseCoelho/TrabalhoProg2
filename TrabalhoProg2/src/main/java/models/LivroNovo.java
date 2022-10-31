@@ -22,7 +22,11 @@ public class LivroNovo extends Livro  {
         super(autor, titulo, editora, local, edicao, isbn, preco);
         this.livros = new ArrayList<>();
     }
-
+    
+    public LivroNovo(){
+        
+    }
+    
     @Override
     public String toString() {
         return super.toString();

@@ -99,18 +99,18 @@ public abstract class Livro implements Comparable<Livro>{
     }
     
     public void setIsbn(String isbn) throws IsbnExistenteException {
+     
         
-//      LivroNovoListDAO livroNovoDAO = new LivroNovoListDAO();
-//      LivroUsadoListDAO livroUsadoDAO = new LivroUsadoListDAO();
-      EstoqueDAO estoqueDAO =  new EstoqueDAO();
+      LivroNovoRepositorio lnr = new LivroNovoListDAO();
+        LivroUsadoRepositorio lur = new LivroUsadoListDAO();
       
-      for(Livro livrosEstoque :  estoqueDAO.getTodosLivrosUsado()){
-          if(livrosEstoque.getIsbn().equals(isbn)){
+      for(LivroNovo livroNovo :  lnr.getTodosLivrosNovos()){
+          if(livroNovo.getIsbn().equals(isbn)){
           throw new  IsbnExistenteException();
       }
       }
-      for(Livro livrosEstoque :  estoqueDAO.getTodosLivrosNovo()){
-          if(livrosEstoque.getIsbn().equals(isbn)){
+      for(LivroUsado livroUsado : lur.getTodosLivrosUsados() ){
+          if(livroUsado.getIsbn().equals(isbn)){
           throw new  IsbnExistenteException();
       }
       }

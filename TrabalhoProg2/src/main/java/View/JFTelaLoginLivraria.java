@@ -5,6 +5,7 @@
 package View;
 
 import DAO.FuncionarioDAO;
+import Exception.CampoVazioException;
 import Repositorio.FuncionarioRepositorio;
 import javax.swing.JOptionPane;
 import models.AutenticacaoLogin;
@@ -134,7 +135,17 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        
-        String login = this.txtLogin.getText();
+        try {
+            entrar();
+        } catch (Exception e) {
+        }
+        
+        
+       
+    }//GEN-LAST:event_btnEntrarActionPerformed
+    
+    public void entrar() throws CampoVazioException{
+      String login = this.txtLogin.getText();
               
         String senha = this.txtSenha.getText();
         
@@ -144,18 +155,17 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
              mostrarMensagem("Login Inválido, verifique as suas Credencias!");
         }else if(!senha.equals(senha) || txtSenha.getText().isEmpty()){
               mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
-        }
-        
-       
-    }//GEN-LAST:event_btnEntrarActionPerformed
+        }  
+    }
     
- 
+    
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
          JFCadastrarLogin cadastrarLogin = new JFCadastrarLogin();
          cadastrarLogin.setVisible(true);
           this.dispose();
     }//GEN-LAST:event_btnCadastrarActionPerformed
-        
+    
+    
      
     public static AutenticacaoLogin getUsuarioLogado(){
           return loginSucess;

@@ -5,6 +5,7 @@
 package models;
 
 import DAO.FuncionarioDAO;
+import Exception.CampoVazioException;
 import Exception.CpfIgualException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +34,14 @@ public class Funcionario implements AutenticacaoLogin {
     public Funcionario() {
         
     }
-    
-
     public String getCargo() {
         return cargo;
     }
 
-    public void setCargo(String cargo) {
+    public void setCargo(String cargo) throws CampoVazioException{
+        if(cargo.isBlank()){
+            throw new CampoVazioException();
+        }
         this.cargo = cargo;
     }
 
@@ -47,7 +49,10 @@ public class Funcionario implements AutenticacaoLogin {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)throws CampoVazioException{
+        if(email.isBlank()){
+            throw new CampoVazioException();
+        }
         this.email = email;
     }
 
@@ -55,12 +60,20 @@ public class Funcionario implements AutenticacaoLogin {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws CampoVazioException{
+        if(nome.isBlank()){
+            throw new CampoVazioException();
+        }
         this.nome = nome;
     }
 
-    public void setCpf(String cpf) throws CpfIgualException {
-      FuncionarioDAO  funcionarioDAO= new FuncionarioDAO();
+    public void setCpf(String cpf) throws CpfIgualException, CampoVazioException {
+        
+        if(cpf.isBlank()){
+            throw new CampoVazioException();
+                    
+        }
+      FuncionarioDAO  funcionarioDAO = new FuncionarioDAO();
         for(Funcionario func : funcionarioDAO.getTodosFuncionarios()){
           if(func.getCpf().equals(cpf)){
              throw new CpfIgualException();

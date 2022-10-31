@@ -4,13 +4,12 @@
  */
 package View;
  import DAO.FuncionarioDAO;
+import Exception.CampoVazioException;
 import Exception.CpfIgualException;
-import Exception.FuncionarioException;
 import Repositorio.FuncionarioRepositorio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import models.Fornecedor;
 import models.Funcionario;
 /**
  *
@@ -121,47 +120,52 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
 
     private void btnSalvarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFuncionarioActionPerformed
 
-        try {
+     try {
             salvarFuncionario();
-        } catch (FuncionarioException | CpfIgualException ex) {
-            Logger.getLogger(JFCadastrarLogin.class.getName()).log(Level.SEVERE, null, ex);
+            
+        } catch (CampoVazioException | CpfIgualException ex) {
+            Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+
         
     }//GEN-LAST:event_btnSalvarFuncionarioActionPerformed
 
-     public void salvarFuncionario() throws FuncionarioException, CpfIgualException {
+      public void salvarFuncionario() throws CampoVazioException, CpfIgualException {
         try{
         FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
         Funcionario func = returnFunc();
         funcionarioRepositorio.salvarFuncionario(func);
-            mostrarMsg("Funcionario Adicionado com sucesso! - [ Login: "+func.getEmail()+"| Senha: "+func.getCpf() + " ] "+ func.toString());
-        }catch( FuncionarioException | CpfIgualException e){
-            mostrarMsg(e.getMessage());
-            
-        }
-        JFTelaLoginLivraria telaLoginLivraria = new JFTelaLoginLivraria();
-        telaLoginLivraria.setVisible(true);
+        
+        mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - " + func.toString());
+        JFTelaLoginLivraria fTelaLoginLivraria = new JFTelaLoginLivraria();
+        fTelaLoginLivraria.setVisible(true);
         this.dispose();
+        
+        }catch( CampoVazioException | CpfIgualException e){
+            mostrarMsg(e.getMessage());
+        }
     
+        limparTela();
     }
         
     public void mostrarMsg(String msg) {
         JOptionPane.showMessageDialog(null, msg);
         }
        
-    public Funcionario returnFunc() throws FuncionarioException, CpfIgualException{
-       String nome = jTextFieldNomeFuncionario.getText();
-            if(nome.isBlank() || nome.isEmpty())
-                throw new FuncionarioException("Campo Vazio!");
-       String cpf = jTextFieldCPF.getText(); 
+    public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException {
+        String nome = jTextFieldNomeFuncionario.getText();
+        String cpf = jTextFieldCPF.getText();
         String email = jTextFieldEmailFuncionario.getText();
         String cargo = jTextFieldCargoFuncionario.getText();
-       
-        
-     Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
-       return  funcionario;
-    }
+
+        Funcionario f = new Funcionario();
+        f.setCpf(nome);
+        f.setCpf(cpf);
+        f.setEmail(email);
+        f.setCargo(cargo);
+      
+        return f;
+    }  
    
     public void limparTela(){
         jTextFieldCPF.setText("");

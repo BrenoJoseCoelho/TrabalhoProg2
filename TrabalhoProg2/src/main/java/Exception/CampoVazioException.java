@@ -8,11 +8,12 @@ package Exception;
  *
  * @author LRodrigues
  */
-public class FuncionarioException extends Exception{
+public class CampoVazioException extends Exception{
 
-    public FuncionarioException(String message) {
-        super(message);
+    public CampoVazioException() {
+        super("Campo Vazio!");
     }
-
+    
+    
     
 }

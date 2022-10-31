@@ -309,8 +309,8 @@ public class JFAddLivro extends javax.swing.JFrame {
         String edicaoLivro = txtNEdicaoLivro.getText();
         String ISBNLivro =  txtISBNLivro.getText();
         double precoLivro =  Double.parseDouble(txtValorLivro.getText());
-        Livro book = new LivroNovo(autorLivro, tituloLivro, localEditora, localEditora, 
-                edicaoLivro, ISBNLivro, precoLivro);
+        Livro book = new LivroNovo();
+        
         return (LivroNovo) book;
     }
   
