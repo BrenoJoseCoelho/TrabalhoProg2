@@ -6,6 +6,7 @@ package DAO;
 
 import Repositorio.FornecedorRepositorio;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import models.Fornecedor;
@@ -16,7 +17,7 @@ import models.Fornecedor;
  */
 public class FornecedorDAO implements FornecedorRepositorio {
     
-    private static List<Fornecedor> fornecedores = new ArrayList<>();
+    private static Set<Fornecedor> fornecedores = new HashSet<>();
 
     @Override
     public void salvarFornecedor(Fornecedor f) {
@@ -34,7 +35,7 @@ public class FornecedorDAO implements FornecedorRepositorio {
 
     @Override
     public Set<Fornecedor> buscarTodosFornecedores() {
-        return (Set<Fornecedor>) fornecedores;
+        return fornecedores;
     }
 
     @Override

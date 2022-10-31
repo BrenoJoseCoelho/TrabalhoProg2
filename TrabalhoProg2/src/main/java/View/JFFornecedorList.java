@@ -175,7 +175,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoverFornecedorActionPerformed
     
     public void initComboFornecedor(){
-       Set<Fornecedor> fornecedores = (Set<Fornecedor>) fr.buscarTodosFornecedores();
+       Set<Fornecedor> fornecedores = fr.buscarTodosFornecedores();
         for(Fornecedor forne : fornecedores ){   
         cbRemoverFornecedor.addItem(forne);
         

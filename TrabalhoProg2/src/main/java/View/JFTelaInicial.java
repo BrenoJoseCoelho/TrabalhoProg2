@@ -168,7 +168,7 @@ public class JFTelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFuncionarioActionPerformed
 
     private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
-        JFFornecedorList fFornecedorList= new JFFornecedorList();
+        JFFornecedorList fFornecedorList = new JFFornecedorList();
          fFornecedorList.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_btnFornecedorActionPerformed
