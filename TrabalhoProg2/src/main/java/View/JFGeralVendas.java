@@ -72,13 +72,11 @@ public class JFGeralVendas extends javax.swing.JFrame {
     private void btnNovavendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovavendaActionPerformed
         JFVenda jfvenda = new JFVenda();
         jfvenda.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnNovavendaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
          JFRelatorioVenda relatoriovenda = new JFRelatorioVenda();
         relatoriovenda.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -176,7 +176,6 @@ public class JFTelaInicial extends javax.swing.JFrame {
     private void btnvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendaActionPerformed
         JFGeralVendas venda = new JFGeralVendas();
         venda.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnvendaActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
