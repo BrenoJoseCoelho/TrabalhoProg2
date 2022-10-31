@@ -261,6 +261,7 @@ public class JFVenda extends javax.swing.JFrame {
         
           EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
           estoquerepositorio.removeLivroUsado(livroUsado);
+          estoquerepositorio.removeLivroNovo(livroNovo);
         //criar a instância de Paciente
         Venda venda = new Venda(data, observacao, cliente, funcionario,livroUsado,livroNovo);
         //salvar no BD
