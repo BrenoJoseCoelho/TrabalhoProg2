@@ -36,7 +36,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
         btnRemoverFunc = new javax.swing.JButton();
         cbRemoverFunc = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         txtListFornecedor.setColumns(20);
         txtListFornecedor.setRows(5);

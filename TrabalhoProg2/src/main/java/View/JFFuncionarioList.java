@@ -44,7 +44,7 @@ public class JFFuncionarioList extends javax.swing.JFrame {
         btnAddFornecedor = new javax.swing.JButton();
         btnTelaInicial = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         txtAreaFuncionarios.setColumns(20);
         txtAreaFuncionarios.setRows(5);

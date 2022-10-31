@@ -19,6 +19,8 @@ import javax.swing.JOptionPane;
 import models.Estoque;
 import models.Funcionario;
 import models.Livro;
+import models.LivroNovo;
+import models.LivroUsado;
 
 /**
  *
@@ -62,10 +64,15 @@ public class JFVenda extends javax.swing.JFrame {
     
     public void popularLivros() {
         EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-        List<Livro> estoque = estoquerepositorio.getTodosLivros();
+        List<LivroUsado> estoqueu = estoquerepositorio.getTodosLivrosUsado();
+         List<LivroNovo> estoquen = estoquerepositorio.getTodosLivrosNovo();
 
-        for (Livro livro : estoque) {
-            jComboBoxLivro.addItem(livro);
+        for (LivroUsado livrou : estoqueu) {
+            jComboBoxLivroU.addItem(livrou);
+        }
+        
+        for (LivroNovo livron : estoquen) {
+            jComboBoxLivroN.addItem(livron);
         }
     }
 
@@ -79,7 +86,7 @@ public class JFVenda extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBoxCliente = new javax.swing.JComboBox<>();
-        jComboBoxLivro = new javax.swing.JComboBox<>();
+        jComboBoxLivroU = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtfDataVenda = new javax.swing.JTextField();
@@ -90,12 +97,21 @@ public class JFVenda extends javax.swing.JFrame {
         jtfObservacao = new javax.swing.JTextField();
         jlObservacao = new javax.swing.JLabel();
         jComboBoxFuncionario = new javax.swing.JComboBox<>();
+        jComboBoxLivroN = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jComboBoxCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxClienteActionPerformed(evt);
+            }
+        });
+
+        jComboBoxLivroU.setToolTipText("");
+        jComboBoxLivroU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxLivroUActionPerformed(evt);
             }
         });
 
@@ -112,7 +128,7 @@ public class JFVenda extends javax.swing.JFrame {
 
         jLabel3.setText("Cliente:");
 
-        jLabel4.setText("Livro:");
+        jLabel4.setText("Livro Usado:");
 
         btnVender.setText("Vender");
         btnVender.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +153,15 @@ public class JFVenda extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxLivroN.setToolTipText("");
+        jComboBoxLivroN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxLivroNActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Livro Novo:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,9 +182,11 @@ public class JFVenda extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addComponent(jComboBoxCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4)
-                                .addComponent(jComboBoxLivro, 0, 217, Short.MAX_VALUE)
+                                .addComponent(jComboBoxLivroU, 0, 217, Short.MAX_VALUE)
                                 .addComponent(jtfObservacao)
-                                .addComponent(jComboBoxFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jComboBoxFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel6)
+                            .addComponent(jComboBoxLivroN, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(jLabel1)))
@@ -170,7 +197,7 @@ public class JFVenda extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtfDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,10 +209,14 @@ public class JFVenda extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxLivroN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxLivroU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlObservacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -222,14 +253,16 @@ public class JFVenda extends javax.swing.JFrame {
         //obter o funcionario
         Funcionario funcionario = (Funcionario) jComboBoxFuncionario.getSelectedItem();
         //obter o livros
-        Livro livros = (Livro) jComboBoxLivro.getSelectedItem();
+        LivroUsado livroUsado = (LivroUsado) jComboBoxLivroU.getSelectedItem();
+        
+         LivroNovo livroNovo = (LivroNovo) jComboBoxLivroN.getSelectedItem();
         
         String observacao = jtfObservacao.getText();
         
           EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-          estoquerepositorio.removeLivro(livros);
+          estoquerepositorio.removeLivroUsado(livroUsado);
         //criar a instância de Paciente
-        Venda venda = new Venda(data, observacao, cliente, funcionario,livros);
+        Venda venda = new Venda(data, observacao, cliente, funcionario,livroUsado,livroNovo);
         //salvar no BD
         salvarVenda(venda);
         //Mostrar mensagem de sucesso
@@ -237,6 +270,14 @@ public class JFVenda extends javax.swing.JFrame {
         //limpar tela
         limparTela();
     }//GEN-LAST:event_btnVenderActionPerformed
+
+    private void jComboBoxLivroUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLivroUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxLivroUActionPerformed
+
+    private void jComboBoxLivroNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLivroNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxLivroNActionPerformed
 
      public void salvarVenda(Venda venda){
        
@@ -292,12 +333,14 @@ public class JFVenda extends javax.swing.JFrame {
     private javax.swing.JButton btnVender;
     private javax.swing.JComboBox<Cliente> jComboBoxCliente;
     private javax.swing.JComboBox<Funcionario> jComboBoxFuncionario;
-    private javax.swing.JComboBox<Livro> jComboBoxLivro;
+    private javax.swing.JComboBox<LivroNovo> jComboBoxLivroN;
+    private javax.swing.JComboBox<LivroUsado> jComboBoxLivroU;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jlObservacao;
     private javax.swing.JTextField jtfDataVenda;
     private javax.swing.JTextField jtfObservacao;
