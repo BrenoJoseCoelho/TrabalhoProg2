@@ -134,8 +134,7 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
         try{
         FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
         Funcionario func = returnFunc();
-        funcionarioRepositorio.salvarFuncionario(func);
-        
+        funcionarioRepositorio.salvarFuncionario(func); 
         mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - " + func.toString());
         JFTelaLoginLivraria fTelaLoginLivraria = new JFTelaLoginLivraria();
         fTelaLoginLivraria.setVisible(true);
@@ -159,7 +158,7 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
         String cargo = jTextFieldCargoFuncionario.getText();
 
         Funcionario f = new Funcionario();
-        f.setCpf(nome);
+        f.setNome(nome);
         f.setCpf(cpf);
         f.setEmail(email);
         f.setCargo(cargo);
