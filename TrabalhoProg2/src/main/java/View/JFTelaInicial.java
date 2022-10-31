@@ -154,29 +154,34 @@ public class JFTelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
    
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-      JFAddCliente addCliente = new JFAddCliente();
-        addCliente.setVisible(true);
+      JFClienteList clienteList = new JFClienteList();
+        clienteList.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionarioActionPerformed
          JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
          fFuncionarioList.setVisible(true); 
+         this.dispose();
       
     }//GEN-LAST:event_btnFuncionarioActionPerformed
 
     private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
         JFFornecedorList fFornecedorList= new JFFornecedorList();
          fFornecedorList.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_btnFornecedorActionPerformed
 
     private void btnvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendaActionPerformed
         JFGeralVendas venda = new JFGeralVendas();
         venda.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnvendaActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
         JFLivroList fLivroList = new JFLivroList();
         fLivroList.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

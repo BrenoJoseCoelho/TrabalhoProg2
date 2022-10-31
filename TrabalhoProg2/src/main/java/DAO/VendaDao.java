@@ -13,7 +13,7 @@ import models.Venda;
  *
  * @author breno
  */
-public class VendaDao implements VendaRepositorio {
+public class VendaDAO implements VendaRepositorio {
 
     private static List<Venda> vendas = new ArrayList<>();
     

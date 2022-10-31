@@ -4,7 +4,7 @@
  */
 package View;
 
-import DAO.VendaDao;
+import DAO.VendaDAO;
 import Repositorio.VendaRepositorio;
 import models.Venda;
 import DAO.ClienteDAO;
@@ -283,7 +283,7 @@ public class JFVenda extends javax.swing.JFrame {
      public void salvarVenda(Venda venda){
        
          
-       VendaRepositorio vendaRepositorio = new VendaDao();
+       VendaRepositorio vendaRepositorio = new VendaDAO();
        vendaRepositorio.novaVenda(venda);
     }
     

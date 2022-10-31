@@ -8,7 +8,7 @@ import DAO.EstoqueDAO;
 import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
 import Repositorio.LivroUsadoRepositorio;
-import View.JFEstoque;
+import View.JFTelaInicial;
 import java.util.Comparator;
 import java.util.List;
 import javax.swing.JComboBox;
@@ -173,11 +173,12 @@ public class JFLivroList extends javax.swing.JFrame {
 
     private void btnGetLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetLivrosActionPerformed
       
-         for(LivroNovo livroNovo : livroNovoListDAO.getTodosLivrosNovos()){
+ 
              for(LivroUsado livroUsado : livroUsadoListDAO.getTodosLivrosUsados()){
-           txtAreaListar.append(livroNovo.toString()+"\n"); 
-           txtAreaListar.append(livroUsado.toString()+"\n");       
+               txtAreaListar.append(livroUsado.toString()+"\n");       
        }
+            for(LivroNovo livroNovo : livroNovoListDAO.getTodosLivrosNovos()){
+              txtAreaListar.append(livroNovo.toString()+"\n"); 
        }
     }//GEN-LAST:event_btnGetLivrosActionPerformed
 
@@ -201,8 +202,8 @@ public class JFLivroList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparTelaActionPerformed
 
     private void btnPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaInicialActionPerformed
-      JFEstoque telaEstoque = new JFEstoque();
-        telaEstoque.setVisible(true);
+        JFTelaInicial fTelaInicial = new JFTelaInicial();
+        fTelaInicial.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnPaginaInicialActionPerformed
 

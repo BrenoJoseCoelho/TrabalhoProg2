@@ -4,7 +4,7 @@
  */
 package View;
 
-import DAO.VendaDao;
+import DAO.VendaDAO;
 import Repositorio.VendaRepositorio;
 import models.Venda;
 
@@ -14,7 +14,7 @@ import models.Venda;
  */
 public class JFRelatorioVenda extends javax.swing.JFrame {
 
-    private VendaDao vendalivro = new VendaDao();
+    private VendaDAO vendalivro = new VendaDAO();
     /**
      * Creates new form JFRelatorioVenda
      */
@@ -119,7 +119,7 @@ public class JFRelatorioVenda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
-        VendaRepositorio livrorepositorio = new VendaDao();
+        VendaRepositorio livrorepositorio = new VendaDAO();
         
          String data = tfdatapesquisa.getText();
          

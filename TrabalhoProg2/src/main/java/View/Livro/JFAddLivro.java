@@ -13,7 +13,8 @@ import Exception.IsbnExistenteException;
 import Repositorio.EstoqueRepositorio;
 import Repositorio.LivroNovoRepositorio;
 import Repositorio.LivroUsadoRepositorio;
-import View.JFEstoque;
+import View.JFTelaInicial;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -122,15 +123,9 @@ public class JFAddLivro extends javax.swing.JFrame {
         lblTempoUso.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblTempoUso.setText("Tempo de Uso:");
 
-        comboTempoUso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Até 6 meses", "Até 1 ano", "Acima de 1 ano"}));
         comboTempoUso.setToolTipText("");
         comboTempoUso.setAutoscrolls(true);
         comboTempoUso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        comboTempoUso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboTempoUsoActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(rbLivroUsado);
         rbLivroUsado.setText("Livro Usado");
@@ -286,29 +281,19 @@ public class JFAddLivro extends javax.swing.JFrame {
          lblTempoUso.setVisible(true);
     }//GEN-LAST:event_rbLivroUsadoActionPerformed
 
-    private void comboTempoUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTempoUsoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboTempoUsoActionPerformed
-
     private void btnAddLivroAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroAction
 
         if(rbLivroNovo.isSelected()){
            
             // comboTempoUso.disable();
             try {
-                addLivroNovo();
-                 JFEstoque estoqueView = new JFEstoque();
-                 estoqueView.setVisible(true);
-                 this.dispose() ;
+                addLivroNovo();              
             } catch (IsbnExistenteException ex) {
                 mostrarMensagem(ex.getMessage());
             }
         } else if (rbLivroUsado.isSelected()){
             try {
-                addLivroUsado();
-                 JFEstoque estoqueView = new JFEstoque();
-                 estoqueView.setVisible(true);
-                     this.dispose() ;
+                addLivroUsado();                  
             } catch (Exception e) {
                 mostrarMensagem(e.getMessage());
             }
@@ -344,6 +329,7 @@ public class JFAddLivro extends javax.swing.JFrame {
         livroNovoRepositorio.addLivroNovo(livroNovo);
         estoquerepositorio.addEstoqueNovo(livroNovo);
         mostrarMensagem("Adicionado Livro Novo com Sucesso!"+ livroNovo.toString());
+        this.dispose();
     }
     
      public LivroUsado returnLivroUsado(){
@@ -370,8 +356,8 @@ public class JFAddLivro extends javax.swing.JFrame {
         LivroUsado livroUsado = returnLivroUsado();
         livroUsadoRepositorio.addLivroUsado(livroUsado);
         estoquerepositorio.addEstoqueUsado(livroUsado);
-        mostrarMensagem("Adicionado Livro Usado com Sucesso!"+ livroUsado.toString());
-    
+        mostrarMensagem("Adicionado Livro Usado com Sucesso! "+ livroUsado.toString());
+        this.dispose();
     }
  
   

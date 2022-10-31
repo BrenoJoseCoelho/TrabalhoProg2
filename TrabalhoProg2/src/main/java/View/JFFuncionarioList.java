@@ -37,11 +37,11 @@ public class JFFuncionarioList extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaFuncionarios = new javax.swing.JTextArea();
-        btnListFornecedor = new javax.swing.JButton();
+        btnListFuncionario = new javax.swing.JButton();
         btnRemoverFunc = new javax.swing.JButton();
         cbRemoverFunc = new javax.swing.JComboBox<>();
-        btnLimparTempa = new javax.swing.JButton();
-        btnAddFornecedor = new javax.swing.JButton();
+        btnLimparTela = new javax.swing.JButton();
+        btnAddFuncionario = new javax.swing.JButton();
         btnTelaInicial = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -50,10 +50,10 @@ public class JFFuncionarioList extends javax.swing.JFrame {
         txtAreaFuncionarios.setRows(5);
         jScrollPane1.setViewportView(txtAreaFuncionarios);
 
-        btnListFornecedor.setText("Listar Funcionario");
-        btnListFornecedor.addActionListener(new java.awt.event.ActionListener() {
+        btnListFuncionario.setText("Listar Funcionario");
+        btnListFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListFornecedorActionPerformed(evt);
+                btnListFuncionarioActionPerformed(evt);
             }
         });
 
@@ -64,17 +64,17 @@ public class JFFuncionarioList extends javax.swing.JFrame {
             }
         });
 
-        btnLimparTempa.setText("Limpar Tela");
-        btnLimparTempa.addActionListener(new java.awt.event.ActionListener() {
+        btnLimparTela.setText("Limpar Tela");
+        btnLimparTela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparTempaActionPerformed(evt);
+                btnLimparTelaActionPerformed(evt);
             }
         });
 
-        btnAddFornecedor.setText("Adicionar Funcionário");
-        btnAddFornecedor.addActionListener(new java.awt.event.ActionListener() {
+        btnAddFuncionario.setText("Adicionar Funcionário");
+        btnAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddFornecedorActionPerformed(evt);
+                btnAddFuncionarioActionPerformed(evt);
             }
         });
 
@@ -92,10 +92,10 @@ public class JFFuncionarioList extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnListFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRemoverFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLimparTempa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLimparTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
@@ -112,11 +112,11 @@ public class JFFuncionarioList extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddFornecedor)
+                        .addComponent(btnAddFuncionario)
                         .addGap(18, 18, 18)
-                        .addComponent(btnListFornecedor)
+                        .addComponent(btnListFuncionario)
                         .addGap(18, 18, 18)
-                        .addComponent(btnLimparTempa))
+                        .addComponent(btnLimparTela))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -130,17 +130,19 @@ public class JFFuncionarioList extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
+    private void btnAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFuncionarioActionPerformed
        JFAddFuncionario addFuncionario = new JFAddFuncionario();
         addFuncionario.setVisible(true);
-    }//GEN-LAST:event_btnAddFornecedorActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnAddFuncionarioActionPerformed
 
     private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
         JFTelaInicial fTelaInicial = new JFTelaInicial();
         fTelaInicial.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnTelaInicialActionPerformed
 
-    private void btnListFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListFornecedorActionPerformed
+    private void btnListFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListFuncionarioActionPerformed
       FuncionarioRepositorio fr = new FuncionarioDAO();
       
       fr.getTodosFuncionarios().sort((new Comparator<Funcionario>() {
@@ -152,11 +154,11 @@ public class JFFuncionarioList extends javax.swing.JFrame {
           txtAreaFuncionarios.append(funcionario.toString()+"\n");
           
       }
-    }//GEN-LAST:event_btnListFornecedorActionPerformed
+    }//GEN-LAST:event_btnListFuncionarioActionPerformed
 
-    private void btnLimparTempaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTempaActionPerformed
+    private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
        txtAreaFuncionarios.setText("");
-    }//GEN-LAST:event_btnLimparTempaActionPerformed
+    }//GEN-LAST:event_btnLimparTelaActionPerformed
 
     private void btnRemoverFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncActionPerformed
 //       FuncionarioRepositorio fr = new FuncionarioDAO();
@@ -183,9 +185,9 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddFornecedor;
-    private javax.swing.JButton btnLimparTempa;
-    private javax.swing.JButton btnListFornecedor;
+    private javax.swing.JButton btnAddFuncionario;
+    private javax.swing.JButton btnLimparTela;
+    private javax.swing.JButton btnListFuncionario;
     private javax.swing.JButton btnRemoverFunc;
     private javax.swing.JButton btnTelaInicial;
     private javax.swing.JComboBox<String> cbRemoverFunc;

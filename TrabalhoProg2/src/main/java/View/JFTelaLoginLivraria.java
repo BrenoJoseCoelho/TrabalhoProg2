@@ -26,8 +26,8 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     }
     public void dadosDefault(){
     FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
-   funcionarioRepositorio.salvarFuncionario(new Funcionario("Funcionario1", "12345", "Vendedor", "func1@gmail.com"));
-   funcionarioRepositorio.salvarFuncionario(new Funcionario("Funcionario2", "12345", "Vendedor", "func2@gmail.com"));
+//   funcionarioRepositorio.salvarFuncionario(new Funcionario("Funcionario1", "12345", "Vendedor", "func1@gmail.com"));
+//   funcionarioRepositorio.salvarFuncionario(new Funcionario("Funcionario2", "12345", "Vendedor", "func2@gmail.com"));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
