@@ -136,8 +136,10 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        
         try {
-            entrar();
-        } catch (Exception e) {
+            entrar();   
+            mostrarMensagem("Login Realizado!");
+        } catch (CampoVazioException ex) {
+            mostrarMensagem(ex.getMessage());
         }
         
         

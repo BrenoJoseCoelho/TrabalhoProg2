@@ -102,29 +102,12 @@ public class JFVenda extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jComboBoxCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxClienteActionPerformed(evt);
-            }
-        });
-
         jComboBoxLivroU.setToolTipText("");
-        jComboBoxLivroU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxLivroUActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Realizar Venda");
 
         jLabel2.setText("Data:");
-
-        jtfDataVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfDataVendaActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Cliente:");
 
@@ -139,26 +122,9 @@ public class JFVenda extends javax.swing.JFrame {
 
         jLabel5.setText("Funcionario:");
 
-        jtfObservacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfObservacaoActionPerformed(evt);
-            }
-        });
-
         jlObservacao.setText("Observações:");
 
-        jComboBoxFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxFuncionarioActionPerformed(evt);
-            }
-        });
-
         jComboBoxLivroN.setToolTipText("");
-        jComboBoxLivroN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxLivroNActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Livro Novo:");
 
@@ -173,20 +139,19 @@ public class JFVenda extends javax.swing.JFrame {
                         .addComponent(btnVender))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5)
                             .addComponent(jLabel2)
-                            .addComponent(jtfDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jlObservacao)
-                                .addComponent(jLabel3)
-                                .addComponent(jComboBoxCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4)
-                                .addComponent(jComboBoxLivroU, 0, 217, Short.MAX_VALUE)
-                                .addComponent(jtfObservacao)
-                                .addComponent(jComboBoxFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jlObservacao)
+                            .addComponent(jLabel3)
+                            .addComponent(jComboBoxCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4)
+                            .addComponent(jComboBoxLivroU, 0, 217, Short.MAX_VALUE)
+                            .addComponent(jtfObservacao)
+                            .addComponent(jComboBoxFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel6)
-                            .addComponent(jComboBoxLivroN, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBoxLivroN, 0, 217, Short.MAX_VALUE)
+                            .addComponent(jtfDataVenda)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(jLabel1)))
@@ -229,22 +194,6 @@ public class JFVenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxClienteActionPerformed
-
-    private void jtfDataVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDataVendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfDataVendaActionPerformed
-
-    private void jtfObservacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfObservacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfObservacaoActionPerformed
-
-    private void jComboBoxFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxFuncionarioActionPerformed
-
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         //obter o data
         String data = jtfDataVenda.getText();
@@ -272,14 +221,6 @@ public class JFVenda extends javax.swing.JFrame {
         limparTela();
     }//GEN-LAST:event_btnVenderActionPerformed
 
-    private void jComboBoxLivroUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLivroUActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxLivroUActionPerformed
-
-    private void jComboBoxLivroNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLivroNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxLivroNActionPerformed
-
      public void salvarVenda(Venda venda){
        
          
@@ -298,37 +239,7 @@ public class JFVenda extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFVenda().setVisible(true);
-            }
-        });
-    }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVender;
