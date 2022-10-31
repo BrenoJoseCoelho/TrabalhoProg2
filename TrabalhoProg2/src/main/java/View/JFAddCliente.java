@@ -49,17 +49,6 @@ public class JFAddCliente extends javax.swing.JFrame {
         lblNovoCliente.setText("ADICIONAR CLIENTE");
 
         jtfNomeCliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jtfNomeCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfNomeClienteActionPerformed(evt);
-            }
-        });
-
-        jtfCPFCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfCPFClienteActionPerformed(evt);
-            }
-        });
 
         txtNomeCliente.setText("NOME :");
 
@@ -118,14 +107,6 @@ public class JFAddCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jtfNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfNomeClienteActionPerformed
-
-    private void jtfCPFClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCPFClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfCPFClienteActionPerformed
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
      
