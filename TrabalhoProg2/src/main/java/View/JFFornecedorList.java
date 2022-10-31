@@ -24,8 +24,9 @@ public class JFFornecedorList extends javax.swing.JFrame {
      * Creates new form JFFornecedorList
      */
     public JFFornecedorList() {
-        initComboFornecedor();
+       
         initComponents();
+         initComboFornecedor();
     }
 
     /**
@@ -150,15 +151,15 @@ public class JFFornecedorList extends javax.swing.JFrame {
     private void btnListFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListFornecedorActionPerformed
        FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
        fornecedorRepositorio.buscarTodosFornecedores().sort(( new Comparator<Fornecedor>(){
+           
            @Override
            public int compare(Fornecedor o1, Fornecedor o2) {
-               return o1.getEmpresa().compareTo(o2.getEmpresa());
-           }
-           }));
-       for(Fornecedor fornecedor : fornecedorRepositorio.buscarTodosFornecedores()){
-           txtListFornecedor.append(fornecedor.toString()+"\n");
-       }
+               return o1.getEmpresa().compareTo(o2.getEmpresa());   
+           }}));
        
+          for(Fornecedor fornecedor : fornecedorRepositorio.buscarTodosFornecedores()){
+              txtListFornecedor.append(fornecedor.toString()+"\n");
+       }
     }//GEN-LAST:event_btnListFornecedorActionPerformed
 
     private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
@@ -166,26 +167,25 @@ public class JFFornecedorList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparTelaActionPerformed
 
     private void btnRemoverFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFornecedorActionPerformed
-       FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
+      
+      FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
       Fornecedor fornecedor = new Fornecedor();
-       fornecedor = (Fornecedor) cbRemoverFornecedor.getSelectedItem();
-       fornecedorRepositorio.removerFornecedor(fornecedor);
-        JFFornecedorList fFornecedorList = new JFFornecedorList();
-        fFornecedorList.setVisible(true);
-        this.dispose();
+      fornecedor = (Fornecedor)
+              cbRemoverFornecedor.getSelectedItem();
+      fornecedorRepositorio
+              .removerFornecedor(fornecedor);
+      JFFornecedorList fFornecedorList = new JFFornecedorList();
+      fFornecedorList.setVisible(true);
+      this.dispose();
     }//GEN-LAST:event_btnRemoverFornecedorActionPerformed
     
     public void initComboFornecedor(){
         List<Fornecedor> fornecedores = fr.buscarTodosFornecedores();
-        for(Fornecedor func : fornecedores ){   
-        cbRemoverFornecedor.addItem(func);
+        for(Fornecedor forne : fornecedores ){   
+        cbRemoverFornecedor.addItem(forne);
+        
         }
     }
-    
-    /**
-     * @param args the command line arguments
-     */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddFornecedor;

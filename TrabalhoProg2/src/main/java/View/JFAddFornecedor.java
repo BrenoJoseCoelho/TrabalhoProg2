@@ -20,7 +20,6 @@ public class JFAddFornecedor extends javax.swing.JFrame {
         initComponents();
         
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -101,46 +100,33 @@ public class JFAddFornecedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFornecedorActionPerformed
-       String nome = jtfNomeFornecedor.getText();
-        
-       String empresa = jtfEmpresa.getText();
-        
-       String CNPJ = jtfCNPJfornecedor.getText();
-        
-       Fornecedor fornecedor = new Fornecedor(empresa, nome, CNPJ);
-        
-       salvarFornecedor(fornecedor);
-        
+      
+       String nome = jtfNomeFornecedor.getText();       
+       String empresa = jtfEmpresa.getText();       
+       String CNPJ = jtfCNPJfornecedor.getText();        
+       Fornecedor fornecedor = new Fornecedor(empresa, nome, CNPJ);      
+       salvarFornecedor(fornecedor);  
        apresentarMensagem("Fornecedor cadastrado com sucesso!");
-        
-     
        JFFornecedorList fFornecedorList = new JFFornecedorList();
        fFornecedorList.setVisible(true);
+       this.dispose();   
        
-       this.dispose();
-      
-//       JFTelaInicial fTelaInicial = new JFTelaInicial();
-//       fTelaInicial.setVisible(true);
-        
     }//GEN-LAST:event_btnSalvarFornecedorActionPerformed
 
     public void salvarFornecedor(Fornecedor fornecedor){
         FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
         fornecedorRepositorio.salvarFornecedor(fornecedor);
-        
     }
+    
     public void limparTela(){
         jtfCNPJfornecedor.setText("");
         jtfEmpresa.setText("");
         jtfNomeFornecedor.setText("");
     }
+    
     public void apresentarMensagem(String msg){
         JOptionPane.showMessageDialog(null, msg);
     }
-    /**
-     * @param args the command line arguments
-     */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvarFornecedor;
