@@ -52,6 +52,7 @@
             <BevelBorder/>
           </Border>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>
@@ -99,7 +100,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblTempoUso" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="comboTempoUso" min="-2" pref="107" max="-2" attributes="0"/>
+                                      <Component id="comboTempoUso" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblISBN" min="-2" max="-2" attributes="0"/>
@@ -210,9 +211,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorLivro">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValorLivroActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblEdicaoLivro">
           <Properties>
@@ -282,7 +280,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cadastrar Livro"/>
+            <Property name="text" type="java.lang.String" value="CADASTRAR LIVRO"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTempoUso">
@@ -295,6 +293,13 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="comboTempoUso">
           <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="At&#xe9; 6 Meses"/>
+                <StringItem index="1" value="At&#xe9; 1 Ano"/>
+                <StringItem index="2" value="Acima de 1 ano"/>
+              </StringArray>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="autoscrolls" type="boolean" value="true"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

@@ -29,6 +29,10 @@ public class Funcionario implements AutenticacaoLogin {
         this.email = email;
         this.func = new ArrayList<>();
     }
+
+    public Funcionario() {
+        
+    }
     
 
     public String getCargo() {
@@ -73,7 +77,7 @@ public class Funcionario implements AutenticacaoLogin {
     
     @Override
     public String toString() {
-        return "Funcionario - " + "Nome:" + nome + ", CPF: " + cpf + ", Cargo: " + cargo + ", Email: " + email;
+        return " Nome: " + nome + ", CPF: " + cpf + ", Cargo: " + cargo + ", Email: " + email +".";
     }
     
       

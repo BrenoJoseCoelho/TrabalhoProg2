@@ -13,33 +13,36 @@ import java.util.List;
  */
 public class LivroUsado extends Livro   {
     
-    private String tempoUso []= {"Até 6 meses!","Até 1 ano!","Acima de 1 ano!"} ;
+    private String tempoUSo;
 
+    public LivroUsado(String tempoUSo) {
+        this.tempoUSo = tempoUSo;
+    }
+    
+    public LivroUsado(){
+        
+    }
     public LivroUsado(String autor, String titulo, String editora, String local, String edicao, String isbn, double preco) {
         super(autor, titulo, editora, local, edicao, isbn, preco);
+        this.tempoUSo = tempoUSo;
     }
 
-    public LivroUsado(String tempoUso, String autor, String titulo, String editora, String local, String edicao, String isbn, double preco) {
-        super(autor, titulo, editora, local, edicao, isbn, preco);
-        
-        this.tempoUso =  this.tempoUso;
-
- 
+    public String getTempoUSo() {
+        return tempoUSo;
     }
 
-    LivroUsado() {
-       
-    }
- 
-    public String[] getTempoUso() {
-        return this.tempoUso;
-        
+    public void setTempoUSo(String tempoUSo) {
+        this.tempoUSo = tempoUSo;
     }
 
-    @Override
+    
+      @Override
     public String toString() {
-        return  super.toString()+ ", Tempo de Uso Livro: " + tempoUso.toString()  ;
+        return super.toString() + "Tempo de Uso: " + tempoUSo;
     }
+  
+    
+    
         
   
  

@@ -47,7 +47,6 @@ public class JFLivroList extends javax.swing.JFrame {
         btnListarLivrosNovos = new javax.swing.JButton();
         btnListarLivrosUsados = new javax.swing.JButton();
         btnGetLivros = new javax.swing.JButton();
-        tbnOrdemAlfabetica = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaListar = new javax.swing.JTextArea();
         btnLimparTela = new javax.swing.JButton();
@@ -56,31 +55,27 @@ public class JFLivroList extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        btnListarLivrosNovos.setText("Listar Livros Novos");
+        btnListarLivrosNovos.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnListarLivrosNovos.setText("LISTAR LIVROS NOVOS");
         btnListarLivrosNovos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListarLivrosNovosActionPerformed(evt);
             }
         });
 
-        btnListarLivrosUsados.setText("Lista Livros Usados");
+        btnListarLivrosUsados.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnListarLivrosUsados.setText("LISTAR LIVROS USADOS");
         btnListarLivrosUsados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListarLivrosUsadosActionPerformed(evt);
             }
         });
 
-        btnGetLivros.setText("Listar Todos os Livros");
+        btnGetLivros.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnGetLivros.setText("LISTAR TODOS OS LIVROS");
         btnGetLivros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGetLivrosActionPerformed(evt);
-            }
-        });
-
-        tbnOrdemAlfabetica.setText("Listar por OrdemAlfabética");
-        tbnOrdemAlfabetica.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbnOrdemAlfabeticaActionPerformed(evt);
             }
         });
 
@@ -88,21 +83,24 @@ public class JFLivroList extends javax.swing.JFrame {
         txtAreaListar.setRows(5);
         jScrollPane1.setViewportView(txtAreaListar);
 
-        btnLimparTela.setText("Limpar Tela");
+        btnLimparTela.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnLimparTela.setText("LIMPAR TELA");
         btnLimparTela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparTelaActionPerformed(evt);
             }
         });
 
-        btnPaginaInicial.setText("Página Inicial");
+        btnPaginaInicial.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnPaginaInicial.setText("PÁGINA INICIAL");
         btnPaginaInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPaginaInicialActionPerformed(evt);
             }
         });
 
-        btnAddLivro.setText("Adicionar Livro");
+        btnAddLivro.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnAddLivro.setText("ADICIONAR LIVRO");
         btnAddLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddLivroActionPerformed(evt);
@@ -118,7 +116,6 @@ public class JFLivroList extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tbnOrdemAlfabetica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnGetLivros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnListarLivrosUsados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnListarLivrosNovos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -129,7 +126,7 @@ public class JFLivroList extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(333, 333, 333)
                         .addComponent(btnPaginaInicial)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,20 +135,18 @@ public class JFLivroList extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAddLivro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnListarLivrosNovos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnListarLivrosUsados)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnGetLivros)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tbnOrdemAlfabetica)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(16, 16, 16)
                         .addComponent(btnLimparTela))
                     .addComponent(jScrollPane1))
                 .addGap(40, 40, 40)
                 .addComponent(btnPaginaInicial)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -207,10 +202,6 @@ public class JFLivroList extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnPaginaInicialActionPerformed
 
-    private void tbnOrdemAlfabeticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnOrdemAlfabeticaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbnOrdemAlfabeticaActionPerformed
-
     private void btnAddLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroActionPerformed
      JFAddLivro addLivro = new JFAddLivro();
      addLivro.setVisible(true);
@@ -256,7 +247,6 @@ public class JFLivroList extends javax.swing.JFrame {
     private javax.swing.JButton btnPaginaInicial;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton tbnOrdemAlfabetica;
     private javax.swing.JTextArea txtAreaListar;
     // End of variables declaration//GEN-END:variables
 }

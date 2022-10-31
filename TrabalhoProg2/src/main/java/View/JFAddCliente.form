@@ -34,28 +34,33 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="151" pref="151" max="-2" attributes="0"/>
-              <Component id="lblNovoCliente" min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="132" pref="132" max="-2" attributes="0"/>
-              <Component id="txtNomeCliente" min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="132" pref="132" max="-2" attributes="0"/>
-              <Component id="jtfNomeCliente" min="-2" pref="217" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="132" pref="132" max="-2" attributes="0"/>
-              <Component id="txtCPFCliente" min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="132" pref="132" max="-2" attributes="0"/>
-              <Component id="jtfCPFCliente" min="-2" pref="217" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="187" pref="187" max="-2" attributes="0"/>
-              <Component id="btnSalvarCliente" min="-2" pref="119" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="151" pref="151" max="-2" attributes="0"/>
+                      <Component id="lblNovoCliente" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="132" pref="132" max="-2" attributes="0"/>
+                      <Component id="txtNomeCliente" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="132" pref="132" max="-2" attributes="0"/>
+                      <Component id="jtfNomeCliente" min="-2" pref="217" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="132" pref="132" max="-2" attributes="0"/>
+                      <Component id="txtCPFCliente" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="132" pref="132" max="-2" attributes="0"/>
+                      <Component id="jtfCPFCliente" min="-2" pref="217" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="187" pref="187" max="-2" attributes="0"/>
+                      <Component id="btnSalvarCliente" min="-2" pref="119" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="135" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -74,6 +79,7 @@
               <Component id="jtfCPFCliente" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
               <Component id="btnSalvarCliente" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

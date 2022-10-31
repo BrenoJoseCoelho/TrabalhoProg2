@@ -22,6 +22,10 @@ public class Fornecedor {
         this.nome = nome;
         this.CNPJ = cnpj;
     }
+
+    public Fornecedor() {
+       
+    }
     
 
     public void setEmpresa(String empresa) {
@@ -46,7 +50,7 @@ public class Fornecedor {
 
     @Override
     public String toString() {
-        return "Fornecedor{" + "empresa=" + empresa + ", nome=" + nome + ", cnpj=" + CNPJ + '}';
+        return " Empresa: " + empresa + ", Nome: " + nome + ", CNPJ: " + CNPJ+".";
     }
     
     

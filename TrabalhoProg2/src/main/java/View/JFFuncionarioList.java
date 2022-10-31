@@ -4,10 +4,13 @@
  */
 package View;
 
+import DAO.ClienteDAO;
 import DAO.FuncionarioDAO;
+import Repositorio.ClienteRepositorio;
 import Repositorio.FuncionarioRepositorio;
 import java.util.Comparator;
 import java.util.List;
+import models.Cliente;
 import models.Funcionario;
 import models.LivroNovo;
 import models.LivroUsado;
@@ -147,7 +150,8 @@ public class JFFuncionarioList extends javax.swing.JFrame {
       
       fr.getTodosFuncionarios().sort((new Comparator<Funcionario>() {
           @Override
-          public int compare(Funcionario o1, Funcionario o2) { return o1.getNome().compareTo(o2.getNome());
+          public int compare(Funcionario o1, Funcionario o2) {
+              return o1.getNome().compareTo(o2.getNome());
           }
       }));
       for(Funcionario funcionario : fr.getTodosFuncionarios()){
@@ -162,9 +166,12 @@ public class JFFuncionarioList extends javax.swing.JFrame {
 
     private void btnRemoverFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncActionPerformed
       FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
-      Funcionario func = funcionarioRepositorio.getFuncionario();
-      func = (Funcionario) cbRemoverFunc.getSelectedItem();
-      func.getFuncionario().remove(func);
+      Funcionario f = new Funcionario();       
+      f = (Funcionario) cbRemoverFunc.getSelectedItem();
+      funcionarioRepositorio.removerFuncionario(f);
+      JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
+      fFuncionarioList.setVisible(true);
+       this.dispose();
  
     }//GEN-LAST:event_btnRemoverFuncActionPerformed
     
@@ -174,10 +181,9 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     
 
     public void initComboFuncionario(){
-        //FuncionarioRepositorio fr = new FuncionarioDAO();
-        List<Funcionario> func = fr.getTodosFuncionarios();
-        for(Funcionario f : func ){   
-            cbRemoverFunc.addItem(f.getNome());
+        List<Funcionario> funcionarios = fr.getTodosFuncionarios();
+        for(Funcionario f : funcionarios ){   
+            cbRemoverFunc.addItem(f);
         }
     }
 
@@ -187,7 +193,7 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     private javax.swing.JButton btnListFuncionario;
     private javax.swing.JButton btnRemoverFunc;
     private javax.swing.JButton btnTelaInicial;
-    private javax.swing.JComboBox<String> cbRemoverFunc;
+    private javax.swing.JComboBox<Funcionario> cbRemoverFunc;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtAreaFuncionarios;
     // End of variables declaration//GEN-END:variables

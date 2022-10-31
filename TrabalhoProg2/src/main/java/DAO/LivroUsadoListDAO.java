@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import Repositorio.EstoqueRepositorio;
 import Repositorio.LivroUsadoRepositorio;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +23,19 @@ public class LivroUsadoListDAO implements LivroUsadoRepositorio{
        @Override
     public void addLivroUsado(LivroUsado lu) {
         livrosUsados.add(lu);
+       if(livrosUsados.add(lu)){
+           EstoqueRepositorio er = new EstoqueDAO();
+           er.addEstoqueUsado(lu);
+       }
     }
 
     @Override
     public void removerLivroUsado(LivroUsado lu) {
       livrosUsados.remove(lu);
+       if(livrosUsados.remove(lu)){
+           EstoqueRepositorio er = new EstoqueDAO();
+           er.removeLivroUsado(lu);
+       }
     }
 
     @Override

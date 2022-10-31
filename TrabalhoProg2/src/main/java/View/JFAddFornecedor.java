@@ -42,12 +42,6 @@ public class JFAddFornecedor extends javax.swing.JFrame {
 
         txtCNPJFornecedor.setText("CNPJ:");
 
-        jtfNomeFornecedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfNomeFornecedorActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Adicionar Novo Fornecedor:");
 
@@ -106,10 +100,6 @@ public class JFAddFornecedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtfNomeFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeFornecedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfNomeFornecedorActionPerformed
-
     private void btnSalvarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFornecedorActionPerformed
        String nome = jtfNomeFornecedor.getText();
         
@@ -126,7 +116,7 @@ public class JFAddFornecedor extends javax.swing.JFrame {
      
        JFFornecedorList fFornecedorList = new JFFornecedorList();
        fFornecedorList.setVisible(true);
-       limparTela();
+       
        this.dispose();
       
 //       JFTelaInicial fTelaInicial = new JFTelaInicial();

@@ -35,6 +35,7 @@ public class EstoqueDAO implements EstoqueRepositorio {
 
     @Override
     public void addEstoqueUsado(LivroUsado livroUsado) {
+        
         livrosusado.add(livroUsado);
     }
 

@@ -73,6 +73,11 @@ public class JFClienteList extends javax.swing.JFrame {
         });
 
         btnRemoverCliente.setText("Remover Cliente");
+        btnRemoverCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverClienteActionPerformed(evt);
+            }
+        });
 
         btnTelaInicial.setText("Tela Inicial");
         btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
@@ -159,10 +164,21 @@ public class JFClienteList extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnTelaInicialActionPerformed
 
+    private void btnRemoverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverClienteActionPerformed
+       ClienteRepositorio clienteRepositorio = new ClienteDAO();
+       Cliente c = new Cliente();
+       c = (Cliente) cbRemoverCliente.getSelectedItem();
+       clienteRepositorio.removeCliente(c);
+        JFClienteList clienteList = new JFClienteList();
+        clienteList.setVisible(true);
+        this.dispose();
+      
+    }//GEN-LAST:event_btnRemoverClienteActionPerformed
+
        public void initComboCliente(){
         List<Cliente> cliente = cr.buscarTodosClientes();
         for(Cliente c : cliente ){   
-        cbRemoverCliente.addItem(c.getNome());
+        cbRemoverCliente.addItem(c);
         }
     }
 
@@ -173,7 +189,7 @@ public class JFClienteList extends javax.swing.JFrame {
     private javax.swing.JButton btnListClientes;
     private javax.swing.JButton btnRemoverCliente;
     private javax.swing.JButton btnTelaInicial;
-    private javax.swing.JComboBox<String> cbRemoverCliente;
+    private javax.swing.JComboBox<Cliente> cbRemoverCliente;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtListCientes;
     // End of variables declaration//GEN-END:variables

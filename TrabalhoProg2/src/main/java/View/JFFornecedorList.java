@@ -24,7 +24,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
      * Creates new form JFFornecedorList
      */
     public JFFornecedorList() {
-     
+        initComboFornecedor();
         initComponents();
     }
 
@@ -166,13 +166,19 @@ public class JFFornecedorList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparTelaActionPerformed
 
     private void btnRemoverFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFornecedorActionPerformed
-        // TODO add your handling code here:
+       FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
+      Fornecedor fornecedor = new Fornecedor();
+       fornecedor = (Fornecedor) cbRemoverFornecedor.getSelectedItem();
+       fornecedorRepositorio.removerFornecedor(fornecedor);
+        JFFornecedorList fFornecedorList = new JFFornecedorList();
+        fFornecedorList.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRemoverFornecedorActionPerformed
     
-         public void initComboFornecedor(){
-        List<Fornecedor> fs = fr.buscarTodosFornecedores();
-        for(Fornecedor f : fs ){   
-        cbRemoverFornecedor.addItem(f.getEmpresa());
+    public void initComboFornecedor(){
+        List<Fornecedor> fornecedores = fr.buscarTodosFornecedores();
+        for(Fornecedor func : fornecedores ){   
+        cbRemoverFornecedor.addItem(func);
         }
     }
     
@@ -187,7 +193,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
     private javax.swing.JButton btnListFornecedor;
     private javax.swing.JButton btnRemoverFornecedor;
     private javax.swing.JButton btnTelaInicial;
-    private javax.swing.JComboBox<String> cbRemoverFornecedor;
+    private javax.swing.JComboBox<Fornecedor> cbRemoverFornecedor;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtListFornecedor;
     // End of variables declaration//GEN-END:variables

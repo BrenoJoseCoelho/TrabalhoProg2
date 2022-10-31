@@ -37,8 +37,9 @@ public class JFAddLivro extends javax.swing.JFrame {
      * Creates new form TelaAdicionarPaciente
      */
     public JFAddLivro() {
-     
+        
         initComponents();
+  
     }
 
     /**
@@ -77,6 +78,7 @@ public class JFAddLivro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setToolTipText("");
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jPanel1.setFocusTraversalPolicyProvider(true);
@@ -87,12 +89,6 @@ public class JFAddLivro extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Local da Editora:");
-
-        txtValorLivro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorLivroActionPerformed(evt);
-            }
-        });
 
         lblEdicaoLivro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblEdicaoLivro.setText("Nº de Edição do Livro:");
@@ -118,11 +114,12 @@ public class JFAddLivro extends javax.swing.JFrame {
 
         lblCadatrarLivro.setBackground(new java.awt.Color(255, 255, 255));
         lblCadatrarLivro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblCadatrarLivro.setText("Cadastrar Livro");
+        lblCadatrarLivro.setText("CADASTRAR LIVRO");
 
         lblTempoUso.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblTempoUso.setText("Tempo de Uso:");
 
+        comboTempoUso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Até 6 Meses", "Até 1 Ano", "Acima de 1 ano" }));
         comboTempoUso.setToolTipText("");
         comboTempoUso.setAutoscrolls(true);
         comboTempoUso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -181,7 +178,7 @@ public class JFAddLivro extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(lblTempoUso)
                                     .addGap(18, 18, 18)
-                                    .addComponent(comboTempoUso, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(comboTempoUso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(lblISBN)
                                     .addGap(18, 18, 18)
@@ -293,7 +290,8 @@ public class JFAddLivro extends javax.swing.JFrame {
             }
         } else if (rbLivroUsado.isSelected()){
             try {
-                addLivroUsado();                  
+                addLivroUsado();   
+               
             } catch (Exception e) {
                 mostrarMensagem(e.getMessage());
             }
@@ -302,11 +300,19 @@ public class JFAddLivro extends javax.swing.JFrame {
       this.dispose();
     }//GEN-LAST:event_btnAddLivroAction
 
-    private void txtValorLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorLivroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorLivroActionPerformed
-
-           
+   
+    public void conditionalCombo(){
+        if(comboTempoUso.getSelectedItem().equals("Até 6 Meses")){
+            livroUsado.setTempoUSo((String) comboTempoUso.getSelectedItem());
+        }else
+            if(comboTempoUso.getSelectedItem().equals("Até 1 Ano")){
+            livroUsado.setTempoUSo((String) comboTempoUso.getSelectedItem());   
+            }else
+                if(comboTempoUso.getSelectedItem().equals("Acima de 1 ano")){
+            livroUsado.setTempoUSo((String) comboTempoUso.getSelectedItem());
+                }
+        
+    }      
     public LivroNovo returnLivroNovo(){
         String autorLivro =  txtAutorLivro.getText();
         String tituloLivro = txtTituloLivro.getText();
@@ -328,7 +334,7 @@ public class JFAddLivro extends javax.swing.JFrame {
         LivroNovo livroNovo = returnLivroNovo();
         livroNovoRepositorio.addLivroNovo(livroNovo);
         estoquerepositorio.addEstoqueNovo(livroNovo);
-        mostrarMensagem("Adicionado Livro Novo com Sucesso!"+ livroNovo.toString());
+        mostrarMensagem("Adicionado Livro Novo com Sucesso! "+ livroNovo.toString());
         this.dispose();
     }
     
@@ -341,6 +347,7 @@ public class JFAddLivro extends javax.swing.JFrame {
         String edicaoLivro = txtNEdicaoLivro.getText();
         String ISBNLivro =  txtISBNLivro.getText();
         String tempoUso =(String) comboTempoUso.getSelectedItem();
+        
         double precoLivro =  Double.parseDouble(txtValorLivro.getText()); 
        
         Livro book = new LivroUsado(autorLivro, tituloLivro, localEditora, localEditora, 
@@ -356,27 +363,16 @@ public class JFAddLivro extends javax.swing.JFrame {
         LivroUsado livroUsado = returnLivroUsado();
         livroUsadoRepositorio.addLivroUsado(livroUsado);
         estoquerepositorio.addEstoqueUsado(livroUsado);
-        mostrarMensagem("Adicionado Livro Usado com Sucesso! "+ livroUsado.toString());
+         conditionalCombo();
+        mostrarMensagem("Adicionado Livro Usado com Sucesso! " + livroUsado.getTempoUSo() );
         this.dispose();
     }
  
-  
-    /**
-     * @param args the command line arguments
-     */
-    
       public void mostrarMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
-    
-    public static void main(String args[]) {
-  
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFAddLivro().setVisible(true);
-            }
-        });
-    }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddLivro;

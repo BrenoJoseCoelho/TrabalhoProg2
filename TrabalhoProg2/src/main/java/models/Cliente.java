@@ -20,7 +20,9 @@ public class Cliente {
         this.nome = nome;
         this.cpf = cpf;
     }
-     
+    public Cliente(){
+        
+    }
      
 
     public String getNome() {
