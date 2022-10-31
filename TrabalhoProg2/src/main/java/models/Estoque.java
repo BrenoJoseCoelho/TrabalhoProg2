@@ -37,10 +37,7 @@ public class Estoque {
     public Estoque(int qtdLivros) {
         this.qtdLivros = qtdLivros;
         this.livros = new HashSet<>();
-        this.obterLivroPorISBN = new ArrayList<>();
-
-        
-     
+        this.obterLivroPorISBN = new ArrayList<>(); 
     }
 
     public Estoque() {
@@ -50,14 +47,6 @@ public class Estoque {
         this.livros.add(livros);  
     }
      
-    public void removeLivro(Livro livros){
-        this.livros.remove(livros);
-    } 
-    
-    public void addLivrosMap(Livro livro){
-        this.obterLivroPorISBN.add(livro);
-    }
-
     public int getQtdLivros() {
         return qtdLivros;
     }
@@ -67,7 +56,6 @@ public class Estoque {
     
     }
  
-
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = (List<Funcionario>) funcionario;
     }

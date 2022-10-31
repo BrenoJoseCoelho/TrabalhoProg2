@@ -5,6 +5,7 @@
 package Repositorio;
 
 import java.util.List;
+import java.util.Set;
 import models.Fornecedor;
 
 /**
@@ -16,6 +17,6 @@ public interface FornecedorRepositorio {
     public void salvarFornecedor(Fornecedor f);
     public void removerFornecedor(Fornecedor f);
     public Fornecedor buscarFornecedor(String CNPJ);
-    public List<Fornecedor> buscarTodosFornecedores();
+    public Set<Fornecedor> buscarTodosFornecedores();
     
 }

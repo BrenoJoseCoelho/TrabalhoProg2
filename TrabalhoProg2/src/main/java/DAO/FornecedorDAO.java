@@ -7,6 +7,7 @@ package DAO;
 import Repositorio.FornecedorRepositorio;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import models.Fornecedor;
 
 /**
@@ -32,8 +33,8 @@ public class FornecedorDAO implements FornecedorRepositorio {
     }
 
     @Override
-    public List<Fornecedor> buscarTodosFornecedores() {
-        return fornecedores;
+    public Set<Fornecedor> buscarTodosFornecedores() {
+        return (Set<Fornecedor>) fornecedores;
     }
 
     @Override

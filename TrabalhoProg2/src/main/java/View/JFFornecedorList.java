@@ -10,6 +10,7 @@ import Repositorio.ClienteRepositorio;
 import Repositorio.FornecedorRepositorio;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import models.Cliente;
 import models.Fornecedor;
 import models.Funcionario;
@@ -150,13 +151,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
 
     private void btnListFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListFornecedorActionPerformed
        FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
-       fornecedorRepositorio.buscarTodosFornecedores().sort(( new Comparator<Fornecedor>(){
-           
-           @Override
-           public int compare(Fornecedor o1, Fornecedor o2) {
-               return o1.getEmpresa().compareTo(o2.getEmpresa());   
-           }}));
-       
+  
           for(Fornecedor fornecedor : fornecedorRepositorio.buscarTodosFornecedores()){
               txtListFornecedor.append(fornecedor.toString()+"\n");
        }
@@ -180,7 +175,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoverFornecedorActionPerformed
     
     public void initComboFornecedor(){
-        List<Fornecedor> fornecedores = fr.buscarTodosFornecedores();
+       Set<Fornecedor> fornecedores = (Set<Fornecedor>) fr.buscarTodosFornecedores();
         for(Fornecedor forne : fornecedores ){   
         cbRemoverFornecedor.addItem(forne);
         
