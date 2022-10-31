@@ -7,14 +7,16 @@ package View;
 import DAO.ClienteDAO;
 import Repositorio.ClienteRepositorio;
 import java.util.Comparator;
+import java.util.List;
 import models.Cliente;
+import models.Funcionario;
 
 /**
  *
  * @author LRodrigues
  */
 public class JFClienteList extends javax.swing.JFrame {
-
+        ClienteRepositorio cr = new ClienteDAO();
     /**
      * Creates new form JFFornecedorList
      */
@@ -88,15 +90,14 @@ public class JFClienteList extends javax.swing.JFrame {
                     .addComponent(btnListClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLimparTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRemoverCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(cbRemoverCliente, 0, 367, Short.MAX_VALUE)
-                        .addGap(25, 25, 25))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cbRemoverCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(25, 25, 25))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(267, 267, 267)
                 .addComponent(btnTelaInicial)
@@ -155,13 +156,21 @@ public class JFClienteList extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnTelaInicialActionPerformed
 
+       public void initComboCliente(){
+        List<Cliente> cliente = cr.buscarTodosClientes();
+        for(Cliente c : cliente ){   
+        cbRemoverCliente.addItem(c.getNome());
+        }
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCliente;
     private javax.swing.JButton btnLimparTela;
     private javax.swing.JButton btnListClientes;
     private javax.swing.JButton btnRemoverCliente;
     private javax.swing.JButton btnTelaInicial;
-    private javax.swing.JComboBox<Cliente> cbRemoverCliente;
+    private javax.swing.JComboBox<String> cbRemoverCliente;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtListCientes;
     // End of variables declaration//GEN-END:variables

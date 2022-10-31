@@ -43,7 +43,7 @@ public class JFVenda extends javax.swing.JFrame {
 
     public List<Cliente> buscarTodosClientes() {
         ClienteRepositorio clienteRepositorio = new ClienteDAO();
-        return clienteRepositorio.getCliente();
+        return clienteRepositorio.buscarTodosClientes();
     }
 
     public void popularFuncionario() {

@@ -18,5 +18,9 @@ public interface FuncionarioRepositorio {
     Funcionario retornarCpfFuncionario(String cpf);
     Funcionario retornarEmailFuncionario(String Email);
     void removerFuncionario(Funcionario f);
-    List<Funcionario> getTodosFuncionarios();        
+    List<Funcionario> getTodosFuncionarios();
+    Funcionario getFuncionario();
+    
+    
+   
 }

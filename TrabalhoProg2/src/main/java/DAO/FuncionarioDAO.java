@@ -15,6 +15,7 @@ import models.Funcionario;
  */
 public class FuncionarioDAO implements FuncionarioRepositorio {
     
+    private static Funcionario funcionario;
     private static List<Funcionario> funcionarios = new ArrayList<>();
 
 
@@ -50,6 +51,11 @@ public class FuncionarioDAO implements FuncionarioRepositorio {
     @Override
     public void removerFuncionario(Funcionario f) {
       funcionarios.remove(f);      
+    }
+
+    @Override
+    public Funcionario getFuncionario() {
+       return funcionario;
     }
     
     

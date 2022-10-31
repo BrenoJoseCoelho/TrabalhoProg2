@@ -42,10 +42,7 @@ public class ClienteDAO implements ClienteRepositorio {
 
         return clientes;
     }
-    @Override
-    public List<Cliente> getCliente() {
-       return clientes;    
-    }
+
 
     @Override
     public void removeCliente(Cliente c) {

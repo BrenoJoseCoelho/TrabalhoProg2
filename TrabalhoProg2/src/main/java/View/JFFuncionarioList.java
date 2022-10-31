@@ -161,15 +161,13 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparTelaActionPerformed
 
     private void btnRemoverFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncActionPerformed
-//       FuncionarioRepositorio fr = new FuncionarioDAO();
-       Funcionario f = (Funcionario) cbRemoverFunc.getSelectedItem();
-       f.getFuncionario().remove(f);
+      FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
+      Funcionario func = funcionarioRepositorio.getFuncionario();
+      func = (Funcionario) cbRemoverFunc.getSelectedItem();
+      func.getFuncionario().remove(func);
  
-       
-       
-       
     }//GEN-LAST:event_btnRemoverFuncActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -178,8 +176,7 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     public void initComboFuncionario(){
         //FuncionarioRepositorio fr = new FuncionarioDAO();
         List<Funcionario> func = fr.getTodosFuncionarios();
-        for(Funcionario f : func ){
-            
+        for(Funcionario f : func ){   
             cbRemoverFunc.addItem(f.getNome());
         }
     }

@@ -40,6 +40,7 @@ public class JFTelaInicial extends javax.swing.JFrame {
         btnCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Página Inicial");
         setPreferredSize(new java.awt.Dimension(600, 400));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(500, 300));

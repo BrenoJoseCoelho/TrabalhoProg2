@@ -32,7 +32,7 @@ public class JFAddCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblNovoCliente = new javax.swing.JLabel();
         jtfNomeCliente = new javax.swing.JTextField();
         jtfCPFCliente = new javax.swing.JTextField();
         txtNomeCliente = new javax.swing.JLabel();
@@ -41,10 +41,14 @@ public class JFAddCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Adicionar Novo Cliente:");
+        setMaximumSize(new java.awt.Dimension(400, 500));
+        setMinimumSize(new java.awt.Dimension(400, 500));
+        setPreferredSize(new java.awt.Dimension(500, 400));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Adicionar Novo Cliente:");
+        lblNovoCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNovoCliente.setText("ADICIONAR CLIENTE");
 
+        jtfNomeCliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jtfNomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfNomeClienteActionPerformed(evt);
@@ -57,11 +61,11 @@ public class JFAddCliente extends javax.swing.JFrame {
             }
         });
 
-        txtNomeCliente.setText("Nome:");
+        txtNomeCliente.setText("NOME :");
 
-        txtCPFCliente.setText("CPF:");
+        txtCPFCliente.setText("CPF :");
 
-        btnSalvarCliente.setText("Salvar");
+        btnSalvarCliente.setText("SALVAR");
         btnSalvarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarClienteActionPerformed(evt);
@@ -73,40 +77,39 @@ public class JFAddCliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jtfNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(151, 151, 151)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(183, 183, 183)
-                                .addComponent(txtNomeCliente)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCPFCliente)
-                            .addComponent(jtfCPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(btnSalvarCliente)))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addGap(151, 151, 151)
+                .addComponent(lblNovoCliente))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(txtNomeCliente))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(jtfNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(txtCPFCliente))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(jtfCPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addGap(70, 70, 70)
+                .addComponent(lblNovoCliente)
+                .addGap(58, 58, 58)
                 .addComponent(txtNomeCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jtfNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(12, 12, 12)
                 .addComponent(txtCPFCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jtfCPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
-                .addComponent(btnSalvarCliente)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(49, 49, 49)
+                .addComponent(btnSalvarCliente))
         );
 
         pack();
@@ -169,9 +172,9 @@ public class JFAddCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvarCliente;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jtfCPFCliente;
     private javax.swing.JTextField jtfNomeCliente;
+    private javax.swing.JLabel lblNovoCliente;
     private javax.swing.JLabel txtCPFCliente;
     private javax.swing.JLabel txtNomeCliente;
     // End of variables declaration//GEN-END:variables
