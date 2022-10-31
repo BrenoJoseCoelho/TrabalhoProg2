@@ -22,6 +22,8 @@ public class JFClienteList extends javax.swing.JFrame {
      */
     public JFClienteList() {
         initComponents();
+        initComboCliente();
+        
     }
 
     /**
@@ -130,6 +132,7 @@ public class JFClienteList extends javax.swing.JFrame {
     private void btnAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClienteActionPerformed
         JFAddCliente addCliente = new JFAddCliente();
         addCliente.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAddClienteActionPerformed
 
     private void btnListClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListClientesActionPerformed

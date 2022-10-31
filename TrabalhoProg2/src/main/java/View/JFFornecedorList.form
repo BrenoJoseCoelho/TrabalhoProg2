@@ -34,7 +34,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cbRemoverFunc" max="32767" attributes="0"/>
+                  <Component id="cbRemoverFornecedor" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" pref="443" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
               <EmptySpace pref="54" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnRemoverFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbRemoverFunc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbRemoverFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="btnTelaInicial" min="-2" max="-2" attributes="0"/>
@@ -100,25 +100,34 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Listar Fornecedor"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListFornecedorActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnLimparTela">
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpar Tela"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparTelaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnRemoverFornecedor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remover Fornecedor"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverFornecedorActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbRemoverFunc">
+    <Component class="javax.swing.JComboBox" name="cbRemoverFornecedor">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Funcionario&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnTelaInicial">

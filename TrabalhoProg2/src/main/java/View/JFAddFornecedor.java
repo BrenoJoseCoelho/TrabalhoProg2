@@ -125,8 +125,10 @@ public class JFAddFornecedor extends javax.swing.JFrame {
         
        limparTela();
        this.dispose();
-       JFTelaInicial fTelaInicial = new JFTelaInicial();
-       fTelaInicial.setVisible(true);
+       JFFornecedorList fFornecedorList = new JFFornecedorList();
+       fFornecedorList.setVisible(true);
+//       JFTelaInicial fTelaInicial = new JFTelaInicial();
+//       fTelaInicial.setVisible(true);
         
     }//GEN-LAST:event_btnSalvarFornecedorActionPerformed
 
