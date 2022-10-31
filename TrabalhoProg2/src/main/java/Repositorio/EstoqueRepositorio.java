@@ -15,10 +15,10 @@ import models.LivroUsado;
  * @author LRodrigues
  */
 public interface EstoqueRepositorio {
-    void attQuantidade(Estoque estoque);
-    void listaEstoque(Estoque estoque);
-    List<Livro> getTodosLivros();
+    List<LivroUsado> getTodosLivrosUsado();
+    List<LivroNovo> getTodosLivrosNovo();
     public void addEstoqueNovo(LivroNovo livroNovo);
     public void addEstoqueUsado(LivroUsado livroUsado);
-    public void removeLivro(Livro livros);
+    public void removeLivroUsado(LivroUsado livroUsado);
+    public void removeLivroNovo(LivroNovo livroNovo);
 }

@@ -104,7 +104,12 @@ public abstract class Livro implements Comparable<Livro>{
 //      LivroUsadoListDAO livroUsadoDAO = new LivroUsadoListDAO();
       EstoqueDAO estoqueDAO =  new EstoqueDAO();
       
-      for(Livro livrosEstoque :  estoqueDAO.getTodosLivros()){
+      for(Livro livrosEstoque :  estoqueDAO.getTodosLivrosUsado()){
+          if(livrosEstoque.getIsbn().equals(isbn)){
+          throw new  IsbnExistenteException();
+      }
+      }
+      for(Livro livrosEstoque :  estoqueDAO.getTodosLivrosNovo()){
           if(livrosEstoque.getIsbn().equals(isbn)){
           throw new  IsbnExistenteException();
       }

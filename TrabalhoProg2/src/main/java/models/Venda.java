@@ -17,21 +17,31 @@ public class Venda {
     private String observacao;
     private Cliente clientes;
     private Funcionario funcionarios;
-    private Livro livros;
+    private LivroUsado livrou;
+     private LivroNovo livron;
 
 
    
 
-    public Venda(String dataVenda, String observacao, Cliente cliente, Funcionario funcionario, Livro livro) {
+    public Venda(String dataVenda, String observacao, Cliente cliente, Funcionario funcionario, LivroUsado livrou,LivroNovo livron) {
         this.dataVenda = dataVenda;
         this.observacao = observacao;
         this.clientes = cliente;
         this.funcionarios = funcionario;
-        this.livros = livro;
+        this.livron = livron;
+        this.livrou = livrou;
     }
 
     public String getDataVenda() {
         return dataVenda;
+    }
+    
+    public String livrosVenda(){
+    
+    String livrousa = livrou.toString();
+    String livronov = livron.toString();
+    
+    return "Livro Usado: "+ livrou + " Livro Novo: "+ livron;
     }
 
    
@@ -40,6 +50,16 @@ public class Venda {
         return observacao;
     }
 
+    public double totalVenda(){
+    
+      double livronovo = livron.getPreco();
+      double livrousado = livrou.getPreco();
+      
+      double total = livronovo + livrousado;
+      
+      return total;
+      
+    }
  
 
     public void setObservacao(String observacao) {
@@ -48,7 +68,7 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Valor total da Venda: " +livros.preco +" Data da Venda: " + dataVenda + ", observacao: " + observacao + ", Cliente: " + clientes.nome + ", funcionarios: " + funcionarios.nome + ", livro: " + livros +"\n";
+        return "Valor total da Venda: " + totalVenda() +" Data da Venda: " + dataVenda + ", observacao: " + observacao + ", Cliente: " + clientes.nome + ", funcionarios: " + funcionarios.nome + ", livro: " + livrosVenda() +"\n";
     }
     
 
