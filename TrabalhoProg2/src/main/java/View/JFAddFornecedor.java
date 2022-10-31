@@ -123,10 +123,12 @@ public class JFAddFornecedor extends javax.swing.JFrame {
         
        apresentarMensagem("Fornecedor cadastrado com sucesso!");
         
-       limparTela();
-       this.dispose();
+     
        JFFornecedorList fFornecedorList = new JFFornecedorList();
        fFornecedorList.setVisible(true);
+       limparTela();
+       this.dispose();
+      
 //       JFTelaInicial fTelaInicial = new JFTelaInicial();
 //       fTelaInicial.setVisible(true);
         

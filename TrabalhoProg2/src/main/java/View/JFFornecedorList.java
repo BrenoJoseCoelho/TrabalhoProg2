@@ -24,6 +24,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
      * Creates new form JFFornecedorList
      */
     public JFFornecedorList() {
+     
         initComponents();
     }
 
@@ -79,6 +80,8 @@ public class JFFornecedorList extends javax.swing.JFrame {
                 btnRemoverFornecedorActionPerformed(evt);
             }
         });
+
+        initComboFornecedor();
 
         btnTelaInicial.setText("Tela Inicial");
         btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +169,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRemoverFornecedorActionPerformed
     
-         public void initComboCliente(){
+         public void initComboFornecedor(){
         List<Fornecedor> fs = fr.buscarTodosFornecedores();
         for(Fornecedor f : fs ){   
         cbRemoverFornecedor.addItem(f.getEmpresa());
