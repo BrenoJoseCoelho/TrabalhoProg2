@@ -300,19 +300,7 @@ public class JFAddLivro extends javax.swing.JFrame {
       this.dispose();
     }//GEN-LAST:event_btnAddLivroAction
 
-   
-    public void conditionalCombo(){
-        if(comboTempoUso.getSelectedItem().equals("Até 6 Meses")){
-            livroUsado.setTempoUSo((String) comboTempoUso.getSelectedItem());
-        }else
-            if(comboTempoUso.getSelectedItem().equals("Até 1 Ano")){
-            livroUsado.setTempoUSo((String) comboTempoUso.getSelectedItem());   
-            }else
-                if(comboTempoUso.getSelectedItem().equals("Acima de 1 ano")){
-            livroUsado.setTempoUSo((String) comboTempoUso.getSelectedItem());
-                }
-        
-    }      
+       
     public LivroNovo returnLivroNovo(){
         String autorLivro =  txtAutorLivro.getText();
         String tituloLivro = txtTituloLivro.getText();
@@ -363,7 +351,6 @@ public class JFAddLivro extends javax.swing.JFrame {
         LivroUsado livroUsado = returnLivroUsado();
         livroUsadoRepositorio.addLivroUsado(livroUsado);
         estoquerepositorio.addEstoqueUsado(livroUsado);
-         conditionalCombo();
         mostrarMensagem("Adicionado Livro Usado com Sucesso! " + livroUsado.getTempoUSo() );
         this.dispose();
     }
