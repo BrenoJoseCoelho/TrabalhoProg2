@@ -334,23 +334,22 @@ public class JFAddLivro extends javax.swing.JFrame {
         String localEditora = txtLocalEditoraLivro.getText();
         String edicaoLivro = txtNEdicaoLivro.getText();
         String ISBNLivro =  txtISBNLivro.getText();
-        String tempoUso = comboTempoUso.getSelectedItem().toString();
+        String tempoUso =(String) comboTempoUso.getSelectedItem();
         double precoLivro =  Double.parseDouble(txtValorLivro.getText()); 
        
-        Livro book = new LivroUsado(tempoUso, autorLivro, tempoUso, localEditora, tempoUso, edicaoLivro,
-                ISBNLivro, precoLivro);
-        
+        Livro book = new LivroUsado(autorLivro, tituloLivro, localEditora, localEditora, 
+                edicaoLivro, ISBNLivro, precoLivro);
         return (LivroUsado) book;
     }
   
     public void addLivroUsado() throws IsbnExistenteException{
-       // EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
+        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
       
         LivroUsadoRepositorio livroUsadoRepositorio =  new LivroUsadoListDAO();
         LivroUsado livroUsado = returnLivroUsado();
         livroUsadoRepositorio.addLivroUsado(livroUsado);
-       // estoquerepositorio.addEstoqueUsado(livroUsado);
-        mostrarMensagem("Adicionado Livro Usado com Sucesso!" + livroUsado.toString()  );
+        estoquerepositorio.addEstoqueUsado(livroUsado);
+        mostrarMensagem("Adicionado Livro Usado com Sucesso!"  );
         this.dispose();
     }
  
