@@ -94,9 +94,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfNomeCliente">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfCPFCliente">
       <AuxValues>

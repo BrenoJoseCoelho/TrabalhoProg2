@@ -5,6 +5,7 @@
 package View;
 import Repositorio.FornecedorRepositorio;
 import DAO.FornecedorDAO;
+import Exception.CpfIgualException;
 import javax.swing.JOptionPane;
 import models.Fornecedor;
 /**
@@ -101,6 +102,7 @@ public class JFAddFornecedor extends javax.swing.JFrame {
 
     private void btnSalvarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFornecedorActionPerformed
       
+        
        String nome = jtfNomeFornecedor.getText();       
        String empresa = jtfEmpresa.getText();       
        String CNPJ = jtfCNPJfornecedor.getText();        
@@ -111,9 +113,10 @@ public class JFAddFornecedor extends javax.swing.JFrame {
        fFornecedorList.setVisible(true);
        this.dispose();   
        
+        
     }//GEN-LAST:event_btnSalvarFornecedorActionPerformed
 
-    public void salvarFornecedor(Fornecedor fornecedor){
+    public void salvarFornecedor(Fornecedor fornecedor) {
         FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
         fornecedorRepositorio.salvarFornecedor(fornecedor);
     }

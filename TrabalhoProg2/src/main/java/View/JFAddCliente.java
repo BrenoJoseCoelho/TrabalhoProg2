@@ -5,6 +5,8 @@
 package View;
 
 import DAO.ClienteDAO;
+import Exception.CampoVazioException;
+import Exception.CpfIgualException;
 import models.Cliente;
 import Repositorio.ClienteRepositorio;
 import java.util.HashMap;
@@ -47,8 +49,6 @@ public class JFAddCliente extends javax.swing.JFrame {
 
         lblNovoCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNovoCliente.setText("ADICIONAR CLIENTE");
-
-        jtfNomeCliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtNomeCliente.setText("NOME :");
 
@@ -109,14 +109,18 @@ public class JFAddCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-     
+     try{
         Map<String, String> dados = getCampos();
         //criar a instância de Paciente
         Cliente cliente = new Cliente(dados.get("nome"), dados.get("CPF"));
         //salvar no BD
         salvarCliente(cliente);
         //Mostrar mensagem de sucesso
-        apresentarMensagem("Cliente Adicionado com Sucesso");
+        apresentarMensagem("Cliente Adicionado com Sucesso!");
+       }catch(CampoVazioException | CpfIgualException ex){
+                apresentarMensagem(ex.getMessage());
+                }
+        
         //abri nova tela
         JFClienteList clienteList = new JFClienteList();
         clienteList.setVisible(true);
@@ -126,7 +130,7 @@ public class JFAddCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
       
-    public void salvarCliente(Cliente cliente){
+    public void salvarCliente(Cliente cliente) throws CpfIgualException, CampoVazioException{
        ClienteRepositorio clienteRepositorio = new ClienteDAO();
        clienteRepositorio.salvarCliente(cliente);
     }

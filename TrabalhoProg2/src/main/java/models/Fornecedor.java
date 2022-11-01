@@ -82,6 +82,8 @@ public class Fornecedor {
     public String toString() {
         return " Empresa: " + empresa + ", Nome: " + nome + ", CNPJ: " + CNPJ+".";
     }
+
+
     
     
 }

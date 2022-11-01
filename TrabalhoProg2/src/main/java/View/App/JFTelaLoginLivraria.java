@@ -2,11 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View;
+package View.App;
 
 import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Repositorio.FuncionarioRepositorio;
+import View.JFCadastrarLogin;
+import View.JFTelaInicial;
 import javax.swing.JOptionPane;
 import models.AutenticacaoLogin;
 import models.Funcionario;
@@ -137,7 +139,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
        
         try {
             entrar();   
-            mostrarMensagem("Login Realizado!");
+           
         } catch (CampoVazioException ex) {
             mostrarMensagem(ex.getMessage());
         }
@@ -147,17 +149,18 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarActionPerformed
     
     public void entrar() throws CampoVazioException{
-      String login = this.txtLogin.getText();
-              
-        String senha = this.txtSenha.getText();
+        
+      String login = this.txtLogin.getText();     
+      String senha = this.txtSenha.getText();
         
         if(LogarSystem(login, senha)){
             openTelaInicial(); 
-        }else if(!login.equals(login) || txtLogin.getText().isEmpty()) { 
+        }else if(!(login).equals(txtLogin.getText()) || txtLogin.getText().isEmpty()) { 
              mostrarMensagem("Login Inválido, verifique as suas Credencias!");
-        }else if(!senha.equals(senha) || txtSenha.getText().isEmpty()){
+        }else if(!(senha).equals(txtSenha.getText()) || txtSenha.getText().isEmpty()){
               mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
         }  
+        mostrarMensagem("Login Realizado!");
     }
     
     

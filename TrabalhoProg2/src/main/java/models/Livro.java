@@ -16,7 +16,7 @@ import java.util.Set;
  *
  * @author LRodrigues
  */
-public abstract class Livro implements Comparable<Livro>{
+public abstract class Livro{
     
     private Estoque estoque;
     private String autor;
@@ -31,7 +31,8 @@ public abstract class Livro implements Comparable<Livro>{
 
     }
 
-    public Livro(String autor, String titulo, String editora, String local, String edicao, String isbn, double preco  ) {
+    public Livro(String autor, String titulo, String editora, String local, 
+            String edicao, String isbn, double preco  ) {
         this.autor = autor;
         this.titulo = titulo;
         this.editora = editora;
@@ -121,14 +122,6 @@ public abstract class Livro implements Comparable<Livro>{
         return isbn;
     }
     
-
-            
-    @Override
-    public int compareTo(Livro o) {
-        return this.isbn.compareTo(o.getIsbn());
-    }
-    
- 
     @Override
     public String toString() {
         return "Autor: " + autor + 

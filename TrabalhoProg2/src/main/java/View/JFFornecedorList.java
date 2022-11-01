@@ -8,6 +8,8 @@ import DAO.ClienteDAO;
 import DAO.FornecedorDAO;
 import Repositorio.ClienteRepositorio;
 import Repositorio.FornecedorRepositorio;
+import java.security.cert.CollectionCertStoreParameters;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
@@ -151,7 +153,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
 
     private void btnListFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListFornecedorActionPerformed
        FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
-  
+       
           for(Fornecedor fornecedor : fornecedorRepositorio.buscarTodosFornecedores()){
               txtListFornecedor.append(fornecedor.toString()+"\n");
        }
@@ -165,10 +167,8 @@ public class JFFornecedorList extends javax.swing.JFrame {
       
       FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
       Fornecedor fornecedor = new Fornecedor();
-      fornecedor = (Fornecedor)
-              cbRemoverFornecedor.getSelectedItem();
-      fornecedorRepositorio
-              .removerFornecedor(fornecedor);
+      fornecedor = (Fornecedor) cbRemoverFornecedor.getSelectedItem();
+      fornecedorRepositorio.removerFornecedor(fornecedor);
       JFFornecedorList fFornecedorList = new JFFornecedorList();
       fFornecedorList.setVisible(true);
       this.dispose();

@@ -49,7 +49,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtAddNovoFunc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtAddNovoFunc.setText("Adicionar novo Funcionario:");
+        txtAddNovoFunc.setText("ADICIONAR FUNCIONÁRIO");
 
         txtNomeFuncionario.setText("Nome:");
 
@@ -89,7 +89,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(232, 232, 232)
                         .addComponent(btnSalvarFuncionario)))
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +137,8 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         Funcionario func = returnFunc();
         funcionarioRepositorio.salvarFuncionario(func);
         
-        mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - " + func.toString());
+        mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+
+                ", Senha: "+func.getCpf() +" ] - " + func.toString());
         
         }catch( CampoVazioException | CpfIgualException e){
             mostrarMsg(e.getMessage());

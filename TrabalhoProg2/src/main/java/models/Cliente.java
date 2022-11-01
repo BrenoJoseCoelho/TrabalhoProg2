@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author breno
  */
-public class Cliente {
+public class Cliente implements Comparable<Cliente>{
     
     protected String nome;
     protected String cpf;
@@ -37,4 +37,18 @@ public class Cliente {
     public String toString() {
         return "Cliente: " + "nome: " + nome + ", cpf: " + cpf;
     }
+
+    @Override
+    public int compareTo(Cliente o) {
+  
+        if(nome == o.getNome()){
+                return 1;
+        }else{
+                return -1;
+            }
+   
+    
+    }
+
+ 
 }
