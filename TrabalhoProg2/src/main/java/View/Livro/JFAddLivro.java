@@ -334,11 +334,12 @@ public class JFAddLivro extends javax.swing.JFrame {
         String localEditora = txtLocalEditoraLivro.getText();
         String edicaoLivro = txtNEdicaoLivro.getText();
         String ISBNLivro =  txtISBNLivro.getText();
-        String tempoUso =(String) comboTempoUso.getSelectedItem();
+        String tempoUso = comboTempoUso.getSelectedItem().toString();
         double precoLivro =  Double.parseDouble(txtValorLivro.getText()); 
        
-        Livro book = new LivroUsado(autorLivro, tituloLivro, localEditora, localEditora, 
-                edicaoLivro, ISBNLivro, precoLivro);
+        Livro book = new LivroUsado(tempoUso, autorLivro, tempoUso, localEditora, tempoUso, edicaoLivro,
+                ISBNLivro, precoLivro);
+        
         return (LivroUsado) book;
     }
   
@@ -349,7 +350,7 @@ public class JFAddLivro extends javax.swing.JFrame {
         LivroUsado livroUsado = returnLivroUsado();
         livroUsadoRepositorio.addLivroUsado(livroUsado);
        // estoquerepositorio.addEstoqueUsado(livroUsado);
-        mostrarMensagem("Adicionado Livro Usado com Sucesso!"  );
+        mostrarMensagem("Adicionado Livro Usado com Sucesso!" + livroUsado.toString()  );
         this.dispose();
     }
  

@@ -141,7 +141,9 @@ public class JFAddFuncionario extends javax.swing.JFrame {
                 ", Senha: "+func.getCpf() +" ] - " + func.toString());
         JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
          fFuncionarioList.setVisible(true);
+         
         this.dispose();
+        
         }catch( CampoVazioException | CpfIgualException e){
             mostrarMsg(e.getMessage());
         }

@@ -22,10 +22,13 @@ public class LivroUsado extends Livro   {
     public LivroUsado(){
         
     }
-    public LivroUsado(String autor, String titulo, String editora, String local, String edicao, String isbn, double preco) {
+
+    public LivroUsado(String tempoUSo, String autor, String titulo, 
+            String editora, String local, String edicao, String isbn, double preco) {
         super(autor, titulo, editora, local, edicao, isbn, preco);
         this.tempoUSo = tempoUSo;
     }
+    
 
     public String getTempoUSo() {
         return tempoUSo;

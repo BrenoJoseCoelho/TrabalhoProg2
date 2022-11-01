@@ -106,7 +106,8 @@ public class JFAddFornecedor extends javax.swing.JFrame {
        String nome = jtfNomeFornecedor.getText();       
        String empresa = jtfEmpresa.getText();       
        String CNPJ = jtfCNPJfornecedor.getText();        
-       Fornecedor fornecedor = new Fornecedor(empresa, nome, CNPJ);      
+       Fornecedor fornecedor = new Fornecedor(empresa, nome, CNPJ); 
+       
        salvarFornecedor(fornecedor);  
        apresentarMensagem("Fornecedor cadastrado com sucesso!");
        JFFornecedorList fFornecedorList = new JFFornecedorList();
