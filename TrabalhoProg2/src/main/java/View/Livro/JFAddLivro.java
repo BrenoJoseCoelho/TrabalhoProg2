@@ -270,7 +270,7 @@ public class JFAddLivro extends javax.swing.JFrame {
     private void rbLivroNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLivroNovoActionPerformed
          comboTempoUso.setVisible(false);
          lblTempoUso.setVisible(false);
-         //comboTempoUso.disable();
+
     }//GEN-LAST:event_rbLivroNovoActionPerformed
 
     private void rbLivroUsadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLivroUsadoActionPerformed
@@ -281,13 +281,12 @@ public class JFAddLivro extends javax.swing.JFrame {
     private void btnAddLivroAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroAction
 
         if(rbLivroNovo.isSelected()){
-           
-            // comboTempoUso.disable();
             try {
                 addLivroNovo();              
             } catch (IsbnExistenteException ex) {
                 mostrarMensagem(ex.getMessage());
             }
+            
         } else if (rbLivroUsado.isSelected()){
             try {
                 addLivroUsado();   
@@ -309,7 +308,8 @@ public class JFAddLivro extends javax.swing.JFrame {
         String edicaoLivro = txtNEdicaoLivro.getText();
         String ISBNLivro =  txtISBNLivro.getText();
         double precoLivro =  Double.parseDouble(txtValorLivro.getText());
-        Livro book = new LivroNovo();
+        Livro book = new LivroNovo(autorLivro, tituloLivro,
+                localEditora, localEditora, edicaoLivro, ISBNLivro, precoLivro);
         
         return (LivroNovo) book;
     }
@@ -322,12 +322,12 @@ public class JFAddLivro extends javax.swing.JFrame {
         LivroNovo livroNovo = returnLivroNovo();
         livroNovoRepositorio.addLivroNovo(livroNovo);
         estoquerepositorio.addEstoqueNovo(livroNovo);
-        mostrarMensagem("Adicionado Livro Novo com Sucesso! "+ livroNovo.toString());
+        mostrarMensagem("Adicionado Livro Novo com Sucesso! ");
         this.dispose();
     }
     
      public LivroUsado returnLivroUsado(){
-         LivroUsado b = null;
+       
         String autorLivro =  txtAutorLivro.getText();
         String tituloLivro = txtTituloLivro.getText();
         String editoraLivro = txtEditoraLivro.getText();
@@ -335,23 +335,21 @@ public class JFAddLivro extends javax.swing.JFrame {
         String edicaoLivro = txtNEdicaoLivro.getText();
         String ISBNLivro =  txtISBNLivro.getText();
         String tempoUso =(String) comboTempoUso.getSelectedItem();
-        
         double precoLivro =  Double.parseDouble(txtValorLivro.getText()); 
        
         Livro book = new LivroUsado(autorLivro, tituloLivro, localEditora, localEditora, 
                 edicaoLivro, ISBNLivro, precoLivro);
-       
         return (LivroUsado) book;
     }
   
     public void addLivroUsado() throws IsbnExistenteException{
-        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
+       // EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
       
         LivroUsadoRepositorio livroUsadoRepositorio =  new LivroUsadoListDAO();
         LivroUsado livroUsado = returnLivroUsado();
         livroUsadoRepositorio.addLivroUsado(livroUsado);
-        estoquerepositorio.addEstoqueUsado(livroUsado);
-        mostrarMensagem("Adicionado Livro Usado com Sucesso! " + livroUsado.getTempoUSo() );
+       // estoquerepositorio.addEstoqueUsado(livroUsado);
+        mostrarMensagem("Adicionado Livro Usado com Sucesso!"  );
         this.dispose();
     }
  
