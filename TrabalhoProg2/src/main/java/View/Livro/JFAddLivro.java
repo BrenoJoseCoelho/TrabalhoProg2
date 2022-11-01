@@ -343,12 +343,12 @@ public class JFAddLivro extends javax.swing.JFrame {
     }
   
     public void addLivroUsado() throws IsbnExistenteException{
-       // EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
+        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
       
         LivroUsadoRepositorio livroUsadoRepositorio =  new LivroUsadoListDAO();
         LivroUsado livroUsado = returnLivroUsado();
         livroUsadoRepositorio.addLivroUsado(livroUsado);
-       // estoquerepositorio.addEstoqueUsado(livroUsado);
+        estoquerepositorio.addEstoqueUsado(livroUsado);
         mostrarMensagem("Adicionado Livro Usado com Sucesso!"  );
         this.dispose();
     }
