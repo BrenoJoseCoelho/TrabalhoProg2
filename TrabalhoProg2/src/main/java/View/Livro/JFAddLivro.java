@@ -337,8 +337,8 @@ public class JFAddLivro extends javax.swing.JFrame {
         String tempoUso =(String) comboTempoUso.getSelectedItem();
         double precoLivro =  Double.parseDouble(txtValorLivro.getText()); 
        
-        Livro book = new LivroUsado(autorLivro, tituloLivro, localEditora, localEditora, 
-                edicaoLivro, ISBNLivro, precoLivro);
+        Livro book = new LivroUsado(tempoUso, autorLivro, tempoUso, localEditora, 
+                tempoUso, edicaoLivro, ISBNLivro, precoLivro);
         return (LivroUsado) book;
     }
   
