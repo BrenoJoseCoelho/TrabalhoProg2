@@ -76,16 +76,16 @@ public class AddLivroController {
                 if(addLivro.rbLivroNovo.isSelected()){
             try {
                 addLivroNovo();}
-            catch (IsbnExistenteException ex) {
-                addLivro.mostrarMensagem(ex.getMessage());}
+                catch (IsbnExistenteException ex) {
+                    addLivro.mostrarMensagem(ex.getMessage());}
             
             }
             else 
                if (addLivro.rbLivroUsado.isSelected()){
-            try {
-                addLivroUsado();} 
-            catch (IsbnExistenteException exception) {
-                addLivro.mostrarMensagem(exception.getMessage());
+                 try {
+                    addLivroUsado();} 
+                 catch (IsbnExistenteException exception) {
+                    addLivro.mostrarMensagem(exception.getMessage());
             }}}
             });
             }
