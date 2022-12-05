@@ -10,6 +10,8 @@ import DAO.LivroUsadoListDAO;
 import View.JFTelaInicial;
 import View.Livro.JFAddLivro;
 import View.Livro.JFLivroList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Comparator;
 import models.LivroNovo;
 import models.LivroUsado;
@@ -18,25 +20,26 @@ import models.LivroUsado;
  *
  * @author LRodrigues
  */
-public class ListLivroController {
+public class ListLivroController{
     private JFTelaInicial jFTelaInicial;
-    private JFLivroList LivroList;
+    private JFLivroList LivroList ; 
     private LivroNovo livroNovo;
     private LivroUsado livroUsado;
     private LivroNovoListDAO livroNovoListDAO = new LivroNovoListDAO();
     private LivroUsadoListDAO livroUsadoListDAO =  new LivroUsadoListDAO();
     private EstoqueDAO estoqueDAO = new EstoqueDAO();
 
-    public ListLivroController(JFLivroList LivroList, LivroNovo livroNovo, LivroUsado livroUsado) {
+    public ListLivroController(JFLivroList LivroList) {
         this.LivroList = LivroList;
-        this.livroNovo = livroNovo;
-        this.livroUsado = livroUsado;
         iniciarAcoes();
     }
-    
+    public  ListLivroController(){}
+
      public void iniciarAcoes(){
+         
          LivroList.addAcaoTelaAddLivro(e -> {
-         acaoTelaAddLivro();
+
+             acaoTelaAddLivro();
          });
          LivroList.addAcaoTelaIniciar(e -> {
          acaoTelaIniciar();
@@ -85,16 +88,21 @@ public class ListLivroController {
      }
      
      public void acaoTelaIniciar(){
-         TelaInicialController telaInicialController =
-                 new TelaInicialController(new JFTelaInicial());
-         jFTelaInicial.exibirTela();
+         JFTelaInicial fTelaInicial= new JFTelaInicial();
+         TelaInicialController inicialController =
+                 new TelaInicialController(fTelaInicial);
+         inicialController.exibirTela();
+        
+         
+         
+   
          
      }
      
       public void acaoTelaAddLivro(){
-         AddLivroController addLivroController =
-                 new AddLivroController(null, null, new JFAddLivro());
-         jFTelaInicial.exibirTela();
+         AddLivroController addLivroController = 
+                 new AddLivroController(new JFAddLivro());
+        addLivroController.exibirTela();
          
      }
      
@@ -106,6 +114,8 @@ public class ListLivroController {
       public void exbirTela(){
        LivroList.exbirTela();
     }
+
+  
      
     
     

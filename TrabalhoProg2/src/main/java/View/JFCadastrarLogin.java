@@ -173,6 +173,10 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
         jTextFieldEmailFuncionario.setText("");
         jTextFieldNomeFuncionario.setText("");
     }
+    
+     public void exbirTela(){
+        setVisible(true);
+    }
 
     
     /**

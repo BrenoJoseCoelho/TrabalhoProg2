@@ -206,6 +206,10 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
          this.dispose();
     }
     
+     public void exbirTela(){
+        setVisible(true);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

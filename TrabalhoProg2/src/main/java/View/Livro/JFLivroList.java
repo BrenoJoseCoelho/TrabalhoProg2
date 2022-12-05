@@ -4,6 +4,7 @@
  */
 package View.Livro;
 
+import Controller.ListLivroController;
 import DAO.EstoqueDAO;
 import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
@@ -28,11 +29,13 @@ public class JFLivroList extends javax.swing.JFrame {
     private LivroNovoListDAO livroNovoListDAO = new LivroNovoListDAO();
     private LivroUsadoListDAO livroUsadoListDAO =  new LivroUsadoListDAO();
     private EstoqueDAO estoqueDAO = new EstoqueDAO();
+    private ListLivroController livroController;
     
     public JFLivroList() {
      
         
         initComponents();
+        livroController = new ListLivroController(this);
     }
 
     /**
@@ -77,6 +80,11 @@ public class JFLivroList extends javax.swing.JFrame {
 
         btnAddLivro.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnAddLivro.setText("ADICIONAR LIVRO");
+        btnAddLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddLivroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,11 +130,19 @@ public class JFLivroList extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroActionPerformed
+        addAcaoTelaAddLivro((ActionListener) evt);
+        this.dispose();
+    }//GEN-LAST:event_btnAddLivroActionPerformed
     
         public void exbirTela(){
-        setVisible(true);
+        this.setVisible(true);
     }
         
+    //ListLivroController livroController = new ListLivroController(new JFLivroList());
+  
+                
     public void listarTodosLivros(){
                for(LivroUsado livroUsado : livroUsadoListDAO.getTodosLivrosUsados()){
                txtAreaListar.append(livroUsado.toString()+"\n");       
@@ -158,6 +174,7 @@ public class JFLivroList extends javax.swing.JFrame {
     }    
     
      public void addAcaoLimparTela(ActionListener acao){
+         
          btnLimparTela.addActionListener(acao);
      }
      
@@ -174,27 +191,16 @@ public class JFLivroList extends javax.swing.JFrame {
     }
       
     public void addAcaoTelaIniciar(ActionListener acao){  
-    btnAddLivro.addActionListener(acao);
+        btnPaginaInicial.addActionListener(acao);
     }
-    
-     private JComboBox<LivroUsado> jComboBox = new javax.swing.JComboBox<>();   
-     public void precherComboTempo(){
-         //List<LivroUsado> listaLivrosUsado = new LivroUsadoListDAO;
-     }
-
-    /**
-     * @param args the command line arguments
-     */
-     
-    
+   
       public void mostrarMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddLivro;
+    public javax.swing.JButton btnAddLivro;
     private javax.swing.JButton btnGetLivros;
     private javax.swing.JButton btnLimparTela;
     private javax.swing.JButton btnListarLivrosNovos;

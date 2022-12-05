@@ -48,7 +48,7 @@ public class TelaInicialController {
     
      public void acaoMenuEstoque(){
         ListLivroController listLivroController = 
-                new ListLivroController(new JFLivroList(), null, null);
+                new ListLivroController(new JFLivroList());
         listLivroController.exbirTela();
     }
      public void acaoSair(){
