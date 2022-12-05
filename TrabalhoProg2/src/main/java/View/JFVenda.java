@@ -41,6 +41,10 @@ public class JFVenda extends javax.swing.JFrame {
 
     }
 
+    public void exibirTela() {
+        setVisible(true);
+    }
+
     public List<Cliente> buscarTodosClientes() {
         ClienteRepositorio clienteRepositorio = new ClienteDAO();
         return clienteRepositorio.buscarTodosClientes();
@@ -61,16 +65,16 @@ public class JFVenda extends javax.swing.JFrame {
             jComboBoxCliente.addItem(c);
         }
     }
-    
+
     public void popularLivros() {
         EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
         List<LivroUsado> estoqueu = estoquerepositorio.getTodosLivrosUsado();
-         List<LivroNovo> estoquen = estoquerepositorio.getTodosLivrosNovo();
+        List<LivroNovo> estoquen = estoquerepositorio.getTodosLivrosNovo();
 
         for (LivroUsado livrou : estoqueu) {
             jComboBoxLivroU.addItem(livrou);
         }
-        
+
         for (LivroNovo livron : estoquen) {
             jComboBoxLivroN.addItem(livron);
         }
@@ -206,16 +210,16 @@ public class JFVenda extends javax.swing.JFrame {
         Funcionario funcionario = (Funcionario) jComboBoxFuncionario.getSelectedItem();
         //obter o livros
         LivroUsado livroUsado = (LivroUsado) jComboBoxLivroU.getSelectedItem();
-        
-         LivroNovo livroNovo = (LivroNovo) jComboBoxLivroN.getSelectedItem();
-        
+
+        LivroNovo livroNovo = (LivroNovo) jComboBoxLivroN.getSelectedItem();
+
         String observacao = jtfObservacao.getText();
-        
-          EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-          estoquerepositorio.removeLivroUsado(livroUsado);
-          estoquerepositorio.removeLivroNovo(livroNovo);
+
+        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
+        estoquerepositorio.removeLivroUsado(livroUsado);
+        estoquerepositorio.removeLivroNovo(livroNovo);
         //criar a instância de Paciente
-        Venda venda = new Venda(data, observacao, cliente, funcionario,livroUsado,livroNovo);
+        Venda venda = new Venda(data, observacao, cliente, funcionario, livroUsado, livroNovo);
         //salvar no BD
         salvarVenda(venda);
         //Mostrar mensagem de sucesso
@@ -224,28 +228,32 @@ public class JFVenda extends javax.swing.JFrame {
         limparTela();
     }//GEN-LAST:event_btnVenderActionPerformed
 
-     public void salvarVenda(Venda venda){
-       
-         
-       VendaRepositorio vendaRepositorio = new VendaDAO();
-       vendaRepositorio.novaVenda(venda);
+    public void salvarVenda(Venda venda) {
+
+        VendaRepositorio vendaRepositorio = new VendaDAO();
+        vendaRepositorio.novaVenda(venda);
     }
-    
-    public void limparTela(){
+
+    public void limparTela() {
         jtfObservacao.setText("");
         jtfDataVenda.setText("");
     }
+<<<<<<< Updated upstream
     public void exbirTela(){
         setVisible(true);
     }
     
     public void apresentarMensagem(String msg){
+=======
+
+    public void apresentarMensagem(String msg) {
+>>>>>>> Stashed changes
         JOptionPane.showMessageDialog(null, msg);
     }
     /**
      * @param args the command line arguments
      */
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVender;

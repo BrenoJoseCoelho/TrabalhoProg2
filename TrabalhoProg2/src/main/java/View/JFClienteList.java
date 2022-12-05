@@ -6,6 +6,7 @@ package View;
 
 import DAO.ClienteDAO;
 import Repositorio.ClienteRepositorio;
+import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -141,6 +142,40 @@ public class JFClienteList extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAddClienteActionPerformed
 
+    public void AcaoCadastrarCliente(ActionListener acao){
+        btnAddCliente.addActionListener(acao);
+    }
+    
+    public void AcaoListCliente(ActionListener acao){
+        btnListClientes.addActionListener(acao);
+    }
+    
+    public void AcaoLimparTela(ActionListener acao){
+         btnLimparTela.addActionListener(acao);
+    }
+    
+    public void AcaoTelaInicial(ActionListener acao){
+         btnTelaInicial.addActionListener(acao);
+    }
+    
+    public void AcaoRemoverCliente(ActionListener acao){
+         btnRemoverCliente.addActionListener(acao);
+    }
+    
+    public void exibirTela(){
+        setVisible(true);
+    }
+    
+    public void limparTela(){
+        txtListCientes.setText("");
+    }
+    
+    public void populaDadosListClientes(List<Cliente> clientes){
+        for (Cliente c : clientes) {
+            txtListCientes.append(c.toString() + "\n");
+        }
+    }
+    
     private void btnListClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListClientesActionPerformed
        ClienteRepositorio clienteRepositorio = new ClienteDAO();
        Collections.sort(clienteRepositorio.buscarTodosClientes());
@@ -153,6 +188,7 @@ public class JFClienteList extends javax.swing.JFrame {
         txtListCientes.setText("");
     }//GEN-LAST:event_btnLimparTelaActionPerformed
 
+    
     private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
         JFTelaInicial fTelaInicial = new JFTelaInicial();
         fTelaInicial.setVisible(true);

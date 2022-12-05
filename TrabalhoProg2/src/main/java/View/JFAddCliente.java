@@ -9,6 +9,7 @@ import Exception.CampoVazioException;
 import Exception.CpfIgualException;
 import models.Cliente;
 import Repositorio.ClienteRepositorio;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -129,7 +130,27 @@ public class JFAddCliente extends javax.swing.JFrame {
         
         this.dispose();
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
+     
+    public void adicionarAcaoBtnSalvarCliente(ActionListener acao){
+        btnSalvarCliente.addActionListener(acao);
+    }
       
+    public String getCPF(){
+        return jtfCPFCliente.getText();
+    }
+    
+    public String getNome(){
+        return jtfNomeCliente.getText();
+    }
+    
+     public void exibirMensagem(String msg){
+        JOptionPane.showMessageDialog(null, msg);
+    }
+     
+     public void exibirTela(){
+        setVisible(true);
+    }
+     
     public void salvarCliente(Cliente cliente) throws CpfIgualException, CampoVazioException{
        ClienteRepositorio clienteRepositorio = new ClienteDAO();
        clienteRepositorio.salvarCliente(cliente);

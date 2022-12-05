@@ -8,6 +8,7 @@ import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
 import Repositorio.FuncionarioRepositorio;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -137,7 +138,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         Funcionario func = returnFunc();
         funcionarioRepositorio.salvarFuncionario(func);
         
-        mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+
+        exibirMensagem(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+
                 ", Senha: "+func.getCpf() +" ] - " + func.toString());
         JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
          fFuncionarioList.setVisible(true);
@@ -145,15 +146,35 @@ public class JFAddFuncionario extends javax.swing.JFrame {
         this.dispose();
         
         }catch( CampoVazioException | CpfIgualException e){
-            mostrarMsg(e.getMessage());
+            exibirMensagem(e.getMessage());
         }
         
        
 //        limparTela();
     }
-    
-      public void mostrarMsg(String msg) {
+      
+      public String getCPF(){
+          return jTextFieldCPF.getText();
+      }
+     public String getNome(){
+          return jTextFieldNomeFuncionario.getText();
+      }
+      public String getCargo(){
+          return jTextFieldCargoFuncionario.getText();
+      }
+       public String getEmail(){
+          return jTextFieldEmailFuncionario.getText();
+      }
+     public void exibirMensagem(String msg){
         JOptionPane.showMessageDialog(null, msg);
+    }
+     
+     public void exibirTela(){
+        setVisible(true);
+    }
+      
+      public void adicionarAcaoBtnSalvarCliente(ActionListener acao){
+        btnSalvarFuncionario.addActionListener(acao);
     }
 
     public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException {

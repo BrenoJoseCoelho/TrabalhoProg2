@@ -8,6 +8,7 @@ import DAO.ClienteDAO;
 import DAO.FuncionarioDAO;
 import Repositorio.ClienteRepositorio;
 import Repositorio.FuncionarioRepositorio;
+import java.awt.event.ActionListener;
 import java.util.Comparator;
 import java.util.List;
 import models.Cliente;
@@ -160,6 +161,40 @@ public class JFFuncionarioList extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_btnListFuncionarioActionPerformed
 
+    public void AcaoCadastrarFuncionario(ActionListener acao){
+        btnAddFuncionario.addActionListener(acao);
+    }
+    
+    public void AcaoListFuncionario(ActionListener acao){
+        btnListFuncionario.addActionListener(acao);
+    }
+    
+    public void AcaoLimparTela(ActionListener acao){
+         btnLimparTela.addActionListener(acao);
+    }
+    
+    public void AcaoTelaInicial(ActionListener acao){
+         btnTelaInicial.addActionListener(acao);
+    }
+    
+    public void AcaoRemoverFuncionario(ActionListener acao){
+         btnRemoverFunc.addActionListener(acao);
+    }
+    
+    public void exibirTela(){
+        setVisible(true);
+    }
+    
+    public void limparTela(){
+        txtAreaFuncionarios.setText("");
+    }
+    
+    public void populaDadosListaFuncionarios(List<Funcionario> funcionarios){
+        for (Funcionario f : funcionarios) {
+            txtAreaFuncionarios.append(f.toString() + "\n");
+        }
+    }
+    
     private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
        txtAreaFuncionarios.setText("");
     }//GEN-LAST:event_btnLimparTelaActionPerformed

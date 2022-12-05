@@ -8,6 +8,7 @@ import DAO.ClienteDAO;
 import DAO.FornecedorDAO;
 import Repositorio.ClienteRepositorio;
 import Repositorio.FornecedorRepositorio;
+import java.awt.event.ActionListener;
 import java.security.cert.CollectionCertStoreParameters;
 import java.util.Collections;
 import java.util.Comparator;
@@ -144,6 +145,40 @@ public class JFFornecedorList extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public void AcaoCadastrarFornecedor(ActionListener acao){
+        btnAddFornecedor.addActionListener(acao);
+    }
+    
+    public void AcaoListFornecedor(ActionListener acao){
+        btnListFornecedor.addActionListener(acao);
+    }
+    
+    public void AcaoLimparTela(ActionListener acao){
+         btnLimparTela.addActionListener(acao);
+    }
+    
+    public void AcaoTelaInicial(ActionListener acao){
+         btnPaginaInicial.addActionListener(acao);
+    }
+    
+    public void AcaoRemoverFornecedor(ActionListener acao){
+         btnRemoverFornecedor.addActionListener(acao);
+    }
+    
+    public void exibirTela(){
+        setVisible(true);
+    }
+    
+    public void limparTela(){
+        txtListFornecedor.setText("");
+    }
+    
+    public void populaDadosListaFornecedor(Set<Fornecedor> fornecedores){
+        for (Fornecedor f : fornecedores) {
+            txtListFornecedor.append(f.toString() + "\n");
+        }
+    }
+    
     private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
         JFAddFornecedor addFornecedor = new JFAddFornecedor();
         addFornecedor.setVisible(true);

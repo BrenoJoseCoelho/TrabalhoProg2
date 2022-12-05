@@ -18,8 +18,6 @@ public class ClienteDAO implements ClienteRepositorio {
 
 
 
-    
-
     private static List<Cliente> clientes = new ArrayList<>();
 
     @Override

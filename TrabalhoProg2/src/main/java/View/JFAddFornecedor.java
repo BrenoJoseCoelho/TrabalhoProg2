@@ -6,6 +6,7 @@ package View;
 import Repositorio.FornecedorRepositorio;
 import DAO.FornecedorDAO;
 import Exception.CpfIgualException;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import models.Fornecedor;
 /**
@@ -116,14 +117,42 @@ public class JFAddFornecedor extends javax.swing.JFrame {
        
         
     }//GEN-LAST:event_btnSalvarFornecedorActionPerformed
+<<<<<<< Updated upstream
      
     public void exibirTela() {
         setVisible(true);
     }
      
+=======
+
+    public void adicionarAcaobtnSalvarFornecedor(ActionListener acao){
+        btnSalvarFornecedor.addActionListener(acao);
+    }
+    
+    public String getNome() {
+        return jtfNomeFornecedor.getText(); 
+    }
+    
+    public String getEmpresa() {
+        return jtfEmpresa.getText(); 
+    }
+    
+    public String getCNPJ() {
+        return jtfCNPJfornecedor.getText(); 
+    }
+    
+>>>>>>> Stashed changes
     public void salvarFornecedor(Fornecedor fornecedor) {
         FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
         fornecedorRepositorio.salvarFornecedor(fornecedor);
+    }
+    
+    public void exibirMensagem(String msg){
+        JOptionPane.showMessageDialog(null, msg);
+    }
+    
+    public void exibirTela(){
+        setVisible(true);
     }
     
     public void limparTela(){

@@ -15,13 +15,13 @@ import models.Venda;
 public class JFRelatorioVenda extends javax.swing.JFrame {
 
     private VendaDAO vendalivro = new VendaDAO();
+
     /**
      * Creates new form JFRelatorioVenda
      */
     public JFRelatorioVenda() {
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -110,33 +110,34 @@ public class JFRelatorioVenda extends javax.swing.JFrame {
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
         VendaRepositorio livrorepositorio = new VendaDAO();
-        
-         String data = tfdatapesquisa.getText();
-         
-     txtAreaVendas.append(livrorepositorio.relatorioVendaData(data));
-     
-     
-    }//GEN-LAST:event_btnpesquisarActionPerformed
 
+        String data = tfdatapesquisa.getText();
+
+        txtAreaVendas.append(livrorepositorio.relatorioVendaData(data));
+
+
+    }//GEN-LAST:event_btnpesquisarActionPerformed
+    public void exibirTela() {
+        setVisible(true);
+    }
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-      
-        
-        for(Venda venda : vendalivro.listarTodasVendas()){
-           txtAreaVendas.append(venda.toString()+"\n");
-       }
+
+        for (Venda venda : vendalivro.listarTodasVendas()) {
+            txtAreaVendas.append(venda.toString() + "\n");
+        }
     }//GEN-LAST:event_btnVendasActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-      limparTela();
+        limparTela();
     }//GEN-LAST:event_btnLimparActionPerformed
 
-     public void limparTela(){
+    public void limparTela() {
         txtAreaVendas.setText("");
     }
     /**
      * @param args the command line arguments
      */
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLimpar;
