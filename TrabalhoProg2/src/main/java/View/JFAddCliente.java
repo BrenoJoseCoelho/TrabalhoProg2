@@ -148,6 +148,11 @@ public class JFAddCliente extends javax.swing.JFrame {
         jtfCPFCliente.setText("");
     }
     
+       
+    public void exibirTela(){
+        setVisible(true);
+    }
+    
     public void apresentarMensagem(String msg){
         JOptionPane.showMessageDialog(null, msg);
     }

@@ -68,7 +68,11 @@ public class JFGeralVendas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void exbirTela(){
+        setVisible(true);
+    }
+    
     private void btnNovavendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovavendaActionPerformed
         JFVenda jfvenda = new JFVenda();
         jfvenda.setVisible(true);

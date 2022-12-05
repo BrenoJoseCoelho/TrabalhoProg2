@@ -9,6 +9,7 @@ import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
 import Repositorio.LivroUsadoRepositorio;
 import View.JFTelaInicial;
+import java.awt.event.ActionListener;
 import java.util.Comparator;
 import java.util.List;
 import javax.swing.JComboBox;
@@ -57,27 +58,12 @@ public class JFLivroList extends javax.swing.JFrame {
 
         btnListarLivrosNovos.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnListarLivrosNovos.setText("LISTAR LIVROS NOVOS");
-        btnListarLivrosNovos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarLivrosNovosActionPerformed(evt);
-            }
-        });
 
         btnListarLivrosUsados.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnListarLivrosUsados.setText("LISTAR LIVROS USADOS");
-        btnListarLivrosUsados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarLivrosUsadosActionPerformed(evt);
-            }
-        });
 
         btnGetLivros.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnGetLivros.setText("LISTAR TODOS OS LIVROS");
-        btnGetLivros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGetLivrosActionPerformed(evt);
-            }
-        });
 
         txtAreaListar.setColumns(20);
         txtAreaListar.setRows(5);
@@ -85,27 +71,12 @@ public class JFLivroList extends javax.swing.JFrame {
 
         btnLimparTela.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnLimparTela.setText("LIMPAR TELA");
-        btnLimparTela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparTelaActionPerformed(evt);
-            }
-        });
 
         btnPaginaInicial.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnPaginaInicial.setText("PÁGINA INICIAL");
-        btnPaginaInicial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPaginaInicialActionPerformed(evt);
-            }
-        });
 
         btnAddLivro.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnAddLivro.setText("ADICIONAR LIVRO");
-        btnAddLivro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddLivroActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,82 +122,66 @@ public class JFLivroList extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnListarLivrosUsadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarLivrosUsadosActionPerformed
-     
-         livroUsadoListDAO.getTodosLivrosUsados().sort((new Comparator<LivroUsado>() {
-             @Override
-             public int compare(LivroUsado o1, LivroUsado o2) {
-                  return o1.getIsbn().compareTo(o2.getIsbn());    
-             }
+    
+        public void exbirTela(){
+        setVisible(true);
+    }
         
-       }));
-       for(LivroUsado livroUsado : livroUsadoListDAO.getTodosLivrosUsados()){
-           txtAreaListar.append(livroUsado.toString()+"\n");       
-       }
-    }//GEN-LAST:event_btnListarLivrosUsadosActionPerformed
-
-    private void btnGetLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetLivrosActionPerformed
-      
- 
-             for(LivroUsado livroUsado : livroUsadoListDAO.getTodosLivrosUsados()){
+    public void listarTodosLivros(){
+               for(LivroUsado livroUsado : livroUsadoListDAO.getTodosLivrosUsados()){
                txtAreaListar.append(livroUsado.toString()+"\n");       
        }
             for(LivroNovo livroNovo : livroNovoListDAO.getTodosLivrosNovos()){
               txtAreaListar.append(livroNovo.toString()+"\n"); 
-       }
-    }//GEN-LAST:event_btnGetLivrosActionPerformed
-
-    private void btnListarLivrosNovosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarLivrosNovosActionPerformed
-       livroNovoListDAO.getTodosLivrosNovos().sort((new Comparator<LivroNovo>() {
-           @Override
-           public int compare(LivroNovo o1, LivroNovo o2) {
-
-               return o1.getIsbn().compareTo(o2.getIsbn());      
-           }
-       }));
-       for(LivroNovo livroNovo : livroNovoListDAO.getTodosLivrosNovos()){
+       } 
+    }
+    
+    public void listarLivrosNovos(){
+      for(LivroNovo livroNovo : livroNovoListDAO.getTodosLivrosNovos()){
            txtAreaListar.append(livroNovo.toString()+"\n");       
        }
-    }//GEN-LAST:event_btnListarLivrosNovosActionPerformed
-
-    private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
-        // TODO add your handling code here:
-        txtAreaListar.setText("");
-        
-    }//GEN-LAST:event_btnLimparTelaActionPerformed
-
-    private void btnPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaInicialActionPerformed
-        JFTelaInicial fTelaInicial = new JFTelaInicial();
-        fTelaInicial.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnPaginaInicialActionPerformed
-
-    private void btnAddLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroActionPerformed
-     JFAddLivro addLivro = new JFAddLivro();
-     addLivro.setVisible(true);
-    }//GEN-LAST:event_btnAddLivroActionPerformed
+    }
+    
+     public void listarLivrosUsados(){
+ 
+       for(LivroUsado livroUsado : livroUsadoListDAO.getTodosLivrosUsados()){
+           txtAreaListar.append(livroUsado.toString()+"\n");       
+       }
+    }
+     
+      public void addAcaoListarTodosLivros(ActionListener acao){
+        btnGetLivros.addActionListener(acao);
+    }
+      
+     public void limparTela(){
+         txtAreaListar.setText("");
+    }    
+    
+     public void addAcaoLimparTela(ActionListener acao){
+         btnLimparTela.addActionListener(acao);
+     }
+     
+      public void addAcaoListarLivrosUsado(ActionListener acao){
+        btnListarLivrosUsados.addActionListener(acao);
+    }
+      
+    public void addAcaoListarLivrosNovo(ActionListener acao){
+        btnListarLivrosNovos.addActionListener(acao);
+    }
+    
+      public void addAcaoTelaAddLivro(ActionListener acao){
+        btnAddLivro.addActionListener(acao);
+    }
+      
+    public void addAcaoTelaIniciar(ActionListener acao){  
+    btnAddLivro.addActionListener(acao);
+    }
     
      private JComboBox<LivroUsado> jComboBox = new javax.swing.JComboBox<>();   
      public void precherComboTempo(){
          //List<LivroUsado> listaLivrosUsado = new LivroUsadoListDAO;
      }
-//   public void verificandoOpcaoInvalidaCombo(){
-//
-//        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
-//            JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
-//        }else{
-//            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
-//        }
-//
-////        if(jComboBoxTempo.getSelectedItem().equals("<Selecione uma da opções>")){
-////            JOptionPane.showMessageDialog(null,"OPÇÃO INVÁLIDA, SELECIONE UM TEMPO DE USO VÁLIDO!", null, WIDTH );
-////        }else{
-////            JOptionPane.showMessageDialog(null,"OPÇÃO VÁLIDA", null, WIDTH );
-////        }
-//
-//            
-//    }
+
     /**
      * @param args the command line arguments
      */

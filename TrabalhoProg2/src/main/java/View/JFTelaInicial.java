@@ -5,6 +5,7 @@
 package View;
 
 import View.Livro.JFLivroList;
+import java.awt.event.ActionListener;
 import java.net.URL;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
@@ -153,7 +154,36 @@ public class JFTelaInicial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+    
+     public void adicionarAcaoBotaoCliente(ActionListener acao){
+        btnCliente.addActionListener(acao); 
+    }
+    
+    public void adicionarAcaoBotaoFuncionario(ActionListener acao){
+        btnFuncionario.addActionListener(acao); 
+    }
+    
+    public void adicionarAcaoBotaoEstoqueLivro(ActionListener acao){
+        btnEstoque.addActionListener(acao); 
+    }
+    
+    public void adicionarAcaoBotaoFornecedor(ActionListener acao){
+        btnFornecedor.addActionListener(acao); 
+    }
+    
+    public void adicionarAcaoBotaoVenda(ActionListener acao){
+        btnvenda.addActionListener(acao); 
+    }
+    
+    public void adicionarAcaoBotaoSair(ActionListener acao){
+        btnSair.addActionListener(acao); 
+    }
+    
+    public void exibirTela(){
+        setVisible(true);
+    }
+    
+
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
       JFClienteList clienteList = new JFClienteList();
         clienteList.setVisible(true);

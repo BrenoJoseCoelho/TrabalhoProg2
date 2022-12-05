@@ -170,6 +170,10 @@ public class JFAddFuncionario extends javax.swing.JFrame {
       
         return f;
     }  
+    
+    public void exibirTela(){
+        setVisible(true);
+    }
       
     
         public void limparTela() {

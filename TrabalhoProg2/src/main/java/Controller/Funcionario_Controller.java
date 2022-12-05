@@ -4,10 +4,27 @@
  */
 package Controller;
 
+import View.JFAddFuncionario;
+import models.Funcionario;
+
 /**
  *
  * @author breno
  */
 public class Funcionario_Controller {
+    
+    private Funcionario funcionario;
+    private JFAddFuncionario addFuncionario;
+
+    public Funcionario_Controller(JFAddFuncionario addFuncionario, Funcionario funcionario) {
+        this.funcionario = funcionario;
+        this.addFuncionario = addFuncionario;
+    }
+    
+    
+    public void exibirTela(){
+        addFuncionario.exibirTela();
+    }
+    
     
 }

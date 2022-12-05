@@ -4,10 +4,31 @@
  */
 package Controller;
 
+import View.JFGeralVendas;
+import View.JFVenda;
+import models.Venda;
+
 /**
  *
  * @author breno
  */
 public class Venda_controller {
+    private Venda venda;
+    private JFGeralVendas fGeralVendas;
+
+    public Venda_controller(JFGeralVendas fGeralVendas, Venda venda ) {
+        this.venda = venda;
+        this.fGeralVendas = fGeralVendas;
+    }
+
+  
+
+    public void exibirTela() {
+        fGeralVendas.exbirTela();
+    }
+
+    
+    
+    
     
 }

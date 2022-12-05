@@ -235,6 +235,9 @@ public class JFVenda extends javax.swing.JFrame {
         jtfObservacao.setText("");
         jtfDataVenda.setText("");
     }
+    public void exbirTela(){
+        setVisible(true);
+    }
     
     public void apresentarMensagem(String msg){
         JOptionPane.showMessageDialog(null, msg);

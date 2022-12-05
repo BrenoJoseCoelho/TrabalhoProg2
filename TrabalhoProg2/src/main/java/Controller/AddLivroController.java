@@ -25,13 +25,12 @@ import models.LivroUsado;
 public class AddLivroController {
     private LivroNovo livroNovo;
     private LivroUsado livroUsado;
-    private Livro livro;
     private JFAddLivro addLivro;
 
-    public AddLivroController(LivroNovo livroNovo, LivroUsado livroUsado, Livro livro, JFAddLivro addLivro) {
+    public AddLivroController(LivroNovo livroNovo, LivroUsado livroUsado, JFAddLivro addLivro) {
         this.livroNovo = livroNovo;
         this.livroUsado = livroUsado;
-        this.livro = livro;
+    
         this.addLivro = addLivro;
         addActionButton();
     }

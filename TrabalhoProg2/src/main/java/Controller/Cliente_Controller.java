@@ -4,10 +4,29 @@
  */
 package Controller;
 
+import View.JFAddCliente;
+import models.Cliente;
+
 /**
  *
  * @author breno
  */
 public class Cliente_Controller {
+    private Cliente cliente;
+    private JFAddCliente addCliente;
+
+    public Cliente_Controller( JFAddCliente addCliente, Cliente cliente) {
+        this.cliente = cliente;
+        this.addCliente = addCliente;
+    }
+
+    
+    
+    
+    void exibirTela() {
+        addCliente.exibirTela();
+    }
+    
+    
     
 }

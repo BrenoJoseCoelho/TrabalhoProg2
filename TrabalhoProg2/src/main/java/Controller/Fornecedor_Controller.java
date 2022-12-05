@@ -4,10 +4,27 @@
  */
 package Controller;
 
+import View.JFAddFornecedor;
+import models.Fornecedor;
+
 /**
- *
+ *s
  * @author breno
  */
 public class Fornecedor_Controller {
+
+    private JFAddFornecedor addFornecedor;
+    private Fornecedor fornecedor;
+
+    public Fornecedor_Controller(JFAddFornecedor addFornecedor, Fornecedor fornecedor) {
+        this.addFornecedor = addFornecedor;
+        this.fornecedor = fornecedor;
+    }
+    
+    public void exibirTela(){
+        addFornecedor.exibirTela();
+    }
+    
+    
     
 }

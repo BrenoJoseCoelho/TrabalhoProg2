@@ -116,7 +116,11 @@ public class JFAddFornecedor extends javax.swing.JFrame {
        
         
     }//GEN-LAST:event_btnSalvarFornecedorActionPerformed
-
+     
+    public void exibirTela() {
+        setVisible(true);
+    }
+     
     public void salvarFornecedor(Fornecedor fornecedor) {
         FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
         fornecedorRepositorio.salvarFornecedor(fornecedor);
@@ -142,5 +146,7 @@ public class JFAddFornecedor extends javax.swing.JFrame {
     private javax.swing.JLabel txtEmpresa;
     private javax.swing.JLabel txtNomeFOrnecedor;
     // End of variables declaration//GEN-END:variables
+
+  
 
 }
