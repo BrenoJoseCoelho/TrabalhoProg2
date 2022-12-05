@@ -260,9 +260,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar Livro"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddLivroAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblEditoraLivro">
           <Properties>
@@ -321,6 +318,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbLivroUsadoActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbLivroNovo">
           <Properties>
@@ -334,6 +334,7 @@
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="AddLivroNovoView_rbLivroNovo"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lblValorLivroNovo1">

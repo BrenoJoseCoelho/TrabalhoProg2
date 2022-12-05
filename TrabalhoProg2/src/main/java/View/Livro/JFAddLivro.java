@@ -103,11 +103,6 @@ public class JFAddLivro extends javax.swing.JFrame {
         lblTituloLivro.setText("Titulo do Livro:");
 
         btnAddLivro.setText("Adicionar Livro");
-        btnAddLivro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddLivroAction(evt);
-            }
-        });
 
         lblEditoraLivro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblEditoraLivro.setText("Editora do Livro:");
@@ -277,29 +272,11 @@ public class JFAddLivro extends javax.swing.JFrame {
          comboTempoUso.setVisible(true);
          lblTempoUso.setVisible(true);
     }//GEN-LAST:event_rbLivroUsadoActionPerformed
+     public void addAcaoBotaoSalvar(ActionListener acao){
+      
+        btnAddLivro.addActionListener(acao);
+    }
 
-    private void btnAddLivroAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroAction
-
-        if(rbLivroNovo.isSelected()){
-            try {
-                addLivroNovo();              
-            } catch (IsbnExistenteException ex) {
-                mostrarMensagem(ex.getMessage());
-            }
-            
-        } else if (rbLivroUsado.isSelected()){
-            try {
-                addLivroUsado();   
-               
-            } catch (Exception e) {
-                mostrarMensagem(e.getMessage());
-            }
-        }
-
-      this.dispose();
-    }//GEN-LAST:event_btnAddLivroAction
-
-       
     public LivroNovo returnLivroNovo(){
         String autorLivro =  txtAutorLivro.getText();
         String tituloLivro = txtTituloLivro.getText();
@@ -313,18 +290,7 @@ public class JFAddLivro extends javax.swing.JFrame {
         
         return (LivroNovo) book;
     }
-  
-    public void addLivroNovo() throws IsbnExistenteException{
-      
-        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-        
-        LivroNovoRepositorio livroNovoRepositorio =  new LivroNovoListDAO();
-        LivroNovo livroNovo = returnLivroNovo();
-        livroNovoRepositorio.addLivroNovo(livroNovo);
-        estoquerepositorio.addEstoqueNovo(livroNovo);
-        mostrarMensagem("Adicionado Livro Novo com Sucesso! ");
-        this.dispose();
-    }
+
     
      public LivroUsado returnLivroUsado(){
        
@@ -341,17 +307,7 @@ public class JFAddLivro extends javax.swing.JFrame {
                 tempoUso, edicaoLivro, ISBNLivro, precoLivro);
         return (LivroUsado) book;
     }
-  
-    public void addLivroUsado() throws IsbnExistenteException{
-        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-      
-        LivroUsadoRepositorio livroUsadoRepositorio =  new LivroUsadoListDAO();
-        LivroUsado livroUsado = returnLivroUsado();
-        livroUsadoRepositorio.addLivroUsado(livroUsado);
-        estoquerepositorio.addEstoqueUsado(livroUsado);
-        mostrarMensagem("Adicionado Livro Usado com Sucesso!"  );
-        this.dispose();
-    }
+ 
  
       public void mostrarMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
@@ -374,8 +330,8 @@ public class JFAddLivro extends javax.swing.JFrame {
     private javax.swing.JLabel lblTituloLivro;
     private javax.swing.JLabel lblValorLivroNovo;
     private javax.swing.JLabel lblValorLivroNovo1;
-    private javax.swing.JRadioButton rbLivroNovo;
-    private javax.swing.JRadioButton rbLivroUsado;
+    public javax.swing.JRadioButton rbLivroNovo;
+    public javax.swing.JRadioButton rbLivroUsado;
     private javax.swing.JTextField txtAutorLivro;
     private javax.swing.JTextField txtEditoraLivro;
     private javax.swing.JTextField txtISBNLivro;
