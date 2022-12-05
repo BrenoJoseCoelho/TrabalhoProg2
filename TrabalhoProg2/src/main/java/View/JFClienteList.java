@@ -144,14 +144,6 @@ public class JFClienteList extends javax.swing.JFrame {
     private void btnListClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListClientesActionPerformed
        ClienteRepositorio clienteRepositorio = new ClienteDAO();
        Collections.sort(clienteRepositorio.buscarTodosClientes());
-//       clienteRepositorio.buscarTodosClientes().sort((new Comparator<Cliente>(){
-//    
-//           @Override
-//           public int compare(Cliente o1, Cliente o2) {
-//               
-//               return o1.getNome().compareTo(o2.getNome());              
-//           }         
-//       }));
        for(Cliente c : clienteRepositorio.buscarTodosClientes()){
           txtListCientes.append(c.toString()+"\n");       
        }
