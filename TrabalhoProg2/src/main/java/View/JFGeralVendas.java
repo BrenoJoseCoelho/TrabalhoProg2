@@ -4,8 +4,6 @@
  */
 package View;
 
-import java.awt.event.ActionListener;
-
 /**
  *
  * @author breno
@@ -28,54 +26,49 @@ public class JFGeralVendas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        button1 = new java.awt.Button();
-        btnRelatorioVenda = new javax.swing.JButton();
         btnNovavenda = new javax.swing.JButton();
-
-        button1.setLabel("button1");
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        btnRelatorioVenda.setText("Relatorio Vendas");
-        btnRelatorioVenda.addActionListener(new java.awt.event.ActionListener() {
+        btnNovavenda.setText("Nova Venda");
+        btnNovavenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRelatorioVendaActionPerformed(evt);
+                btnNovavendaActionPerformed(evt);
             }
         });
 
-        btnNovavenda.setText("jButton1");
+        jButton2.setText("Relatorio Vendas");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(130, Short.MAX_VALUE)
-                .addComponent(btnRelatorioVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139))
             .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addComponent(btnNovavenda)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(jButton2)
+                .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(btnNovavenda)
-                .addGap(46, 46, 46)
-                .addComponent(btnRelatorioVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGap(118, 118, 118)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(btnNovavenda))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-<<<<<<< Updated upstream
-    
-    public void exbirTela(){
-        setVisible(true);
-    }
-    
+
     private void btnNovavendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovavendaActionPerformed
         JFVenda jfvenda = new JFVenda();
         jfvenda.setVisible(true);
@@ -85,31 +78,13 @@ public class JFGeralVendas extends javax.swing.JFrame {
          JFRelatorioVenda relatoriovenda = new JFRelatorioVenda();
         relatoriovenda.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-=======
-
-    
-     public void adicionarAcaobtnNovaVenda(ActionListener acao){
-        btnNovavenda.addActionListener(acao);
-    }
-     
-     public void adicionarAcaobtnRelatorioVenda(ActionListener acao){
-        btnRelatorioVenda.addActionListener(acao);
-    }
-            
-    private void btnRelatorioVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioVendaActionPerformed
-     //    JFRelatorioVenda relatoriovenda = new JFRelatorioVenda();
-    }//GEN-LAST:event_btnRelatorioVendaActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   public void exibirTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNovavenda;
-    private javax.swing.JButton btnRelatorioVenda;
-    private java.awt.Button button1;
+    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }

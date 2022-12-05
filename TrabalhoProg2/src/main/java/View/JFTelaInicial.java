@@ -4,23 +4,20 @@
  */
 package View;
 
-import View.Livro.JFLivroList;
-import java.awt.event.ActionListener;
-import java.net.URL;
-import javax.swing.JFrame;
-import javax.swing.SwingConstants;
-
 /**
  *
  * @author breno
  */
 public class JFTelaInicial extends javax.swing.JFrame {
-        
+
     /**
      * Creates new form JFTelaInicial
      */
     public JFTelaInicial() {
         initComponents();
+
+           AutenticacaoLogin loginSucesso = JFTelaLoginLivraria.getUsuarioLogado();
+h
     }
 
     /**
@@ -32,175 +29,106 @@ public class JFTelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        btnSair = new javax.swing.JButton();
-        btnvenda = new javax.swing.JButton();
+
         btnFornecedor = new javax.swing.JButton();
-        btnFuncionario = new javax.swing.JButton();
+        btnvenda = new javax.swing.JButton();
         btnEstoque = new javax.swing.JButton();
+        btnFuncionario = new javax.swing.JButton();
         btnCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Página Inicial");
-        setPreferredSize(new java.awt.Dimension(600, 400));
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(500, 300));
-        jPanel1.setPreferredSize(new java.awt.Dimension(500, 300));
 
-        btnSair.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnSair.setText("SAIR");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
-
-        btnvenda.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnvenda.setText("VENDA");
-        btnvenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnvendaActionPerformed(evt);
-            }
-        });
-
-        btnFornecedor.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnFornecedor.setText("FORNECEDOR");
+        btnFornecedor.setText("Cadastro Fornecedor");
         btnFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFornecedorActionPerformed(evt);
             }
         });
 
-        btnFuncionario.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnFuncionario.setText("FUNCIONÁRIO");
-        btnFuncionario.setToolTipText("Adicionar e Lista Funcionario");
-        btnFuncionario.addActionListener(new java.awt.event.ActionListener() {
+
+        btnvenda.setText("Venda");
+        btnvenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFuncionarioActionPerformed(evt);
+                btnvendaActionPerformed(evt);
             }
         });
 
-        btnEstoque.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnEstoque.setText("ESTOQUE");
+        btnEstoque.setText("Visualizar Estoque");
         btnEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEstoqueActionPerformed(evt);
             }
         });
 
-        btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnCliente.setText("CLIENTE");
-        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+        btnFuncionario.setText("Cadastro Funcionario");
+        btnFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClienteActionPerformed(evt);
+                btnFuncionarioActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                        .addComponent(btnEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(94, 94, 94))
-        );
+        btnCliente.setText("Cadastro Cliente");
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteActionPerformed(evt);
+
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(115, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                    .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnvenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEstoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(110, 110, 110))
+
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+
+                .addGap(52, 52, 52)
+                .addComponent(btnCliente)
+                .addGap(18, 18, 18)
+                .addComponent(btnFuncionario)
+                .addGap(18, 18, 18)
+                .addComponent(btnFornecedor)
+                .addGap(18, 18, 18)
+                .addComponent(btnvenda)
+                .addGap(18, 18, 18)
+                .addComponent(btnEstoque)
+                .addContainerGap(66, Short.MAX_VALUE))
+
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-     public void adicionarAcaoBotaoCliente(ActionListener acao){
-        btnCliente.addActionListener(acao); 
-    }
-    
-    public void adicionarAcaoBotaoFuncionario(ActionListener acao){
-        btnFuncionario.addActionListener(acao); 
-    }
-    
-    public void adicionarAcaoBotaoEstoqueLivro(ActionListener acao){
-        btnEstoque.addActionListener(acao); 
-    }
-    
-    public void adicionarAcaoBotaoFornecedor(ActionListener acao){
-        btnFornecedor.addActionListener(acao); 
-    }
-    
-    public void adicionarAcaoBotaoVenda(ActionListener acao){
-        btnvenda.addActionListener(acao); 
-    }
-    
-    public void adicionarAcaoBotaoSair(ActionListener acao){
-        btnSair.addActionListener(acao); 
-    }
-    
-    public void exibirTela(){
-        setVisible(true);
-    }
-    
+
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-      JFClienteList clienteList = new JFClienteList();
-        clienteList.setVisible(true);
-        this.dispose();
+      JFAddCliente addCliente = new JFAddCliente();
+        
+        addCliente.setVisible(true);
     }//GEN-LAST:event_btnClienteActionPerformed
 
+
     private void btnFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionarioActionPerformed
-         JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
-         fFuncionarioList.setVisible(true); 
-         this.dispose();
-      
+         JFAddFuncionario addFuncionario = new JFAddFuncionario();
+        addFuncionario.setVisible(true);
     }//GEN-LAST:event_btnFuncionarioActionPerformed
 
     private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
-        JFFornecedorList fFornecedorList = new JFFornecedorList();
-         fFornecedorList.setVisible(true);
-         this.dispose();
+       JFAddFornecedor addFornecedor = new JFAddFornecedor();
+        addFornecedor.setVisible(true);
     }//GEN-LAST:event_btnFornecedorActionPerformed
 
     private void btnvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendaActionPerformed
@@ -209,27 +137,22 @@ public class JFTelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnvendaActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
-        JFLivroList fLivroList = new JFLivroList();
-        fLivroList.setVisible(true);
-        this.dispose();
+        JFEstoque estoqueView = new JFEstoque();
+                 estoqueView.setVisible(true);
     }//GEN-LAST:event_btnEstoqueActionPerformed
-
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-    this.dispose();
-    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
      */
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnEstoque;
     private javax.swing.JButton btnFornecedor;
     private javax.swing.JButton btnFuncionario;
-    private javax.swing.JButton btnSair;
     private javax.swing.JButton btnvenda;
-    private javax.swing.JPanel jPanel1;
+
     // End of variables declaration//GEN-END:variables
 }

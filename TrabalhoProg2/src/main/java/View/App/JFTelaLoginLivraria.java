@@ -2,13 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View.App;
+package View;
 
 import DAO.FuncionarioDAO;
-import Exception.CampoVazioException;
 import Repositorio.FuncionarioRepositorio;
-import View.JFCadastrarLogin;
-import View.JFTelaInicial;
 import javax.swing.JOptionPane;
 import models.AutenticacaoLogin;
 import models.Funcionario;
@@ -29,8 +26,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     }
     public void dadosDefault(){
     FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
-   
-
+   funcionarioRepositorio.salvarFuncionario(new Funcionario("Funcionario1", "12345", "Vendedor", "Func1@gmail.com"));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -43,7 +39,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
         txtLogin = new javax.swing.JTextField();
         btnEntrar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -53,9 +49,9 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
         lblTitleLivraria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitleLivraria.setText("LIVRARIA");
 
-        lblLogin.setText("Login:");
+        lblLogin.setText("Login");
 
-        lblSenha.setText("Senha:");
+        lblSenha.setText("Senha");
 
         btnEntrar.setText("Entrar");
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,68 +60,64 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
             }
         });
 
-        btnCadastrar.setText("Cadastrar-se");
+        btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Ainda não tem cadastro?");
+        jPanel1.setLayout(new javax.swing.OverlayLayout(jPanel1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(lblTitleLivraria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblSenha)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSenha)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCadastrar)
-                                .addGap(43, 43, 43)))
-                        .addGap(60, 60, 60))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(lblLogin)
-                        .addContainerGap(299, Short.MAX_VALUE))))
+                                .addGap(173, 173, 173)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSenha)
+                                    .addComponent(lblLogin)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(107, 107, 107)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnEntrar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                                        .addComponent(btnCadastrar))
+                                    .addComponent(txtLogin)
+                                    .addComponent(txtSenha))))
+                        .addGap(0, 112, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblTitleLivraria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitleLivraria, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTitleLivraria, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(lblSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(btnEntrar)
+                    .addComponent(btnCadastrar))
+                .addGap(0, 45, Short.MAX_VALUE))
         );
 
         pack();
@@ -137,39 +129,28 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        
-        try {
-            entrar();      
-        } catch (CampoVazioException ex) {
-            mostrarMensagem(ex.getMessage());
-        }
+        String login = this.txtLogin.getText();
+              
+        String senha = this.txtSenha.getText();
         
+        if(LogarSystem(login, senha)){
+            openTelaInicial(); 
+        }else if(!login.equals(login) || txtLogin.getText().isBlank() || txtLogin.getText().isEmpty()) { 
+             mostrarMensagem("Login Inválido, verifique as suas Credencias!");
+        }else if(!senha.equals(senha) || txtSenha.getText().isBlank() || txtSenha.getText().isEmpty()){
+              mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
+        }
         
        
     }//GEN-LAST:event_btnEntrarActionPerformed
     
-    public void entrar() throws CampoVazioException{
-        
-      String login = this.txtLogin.getText();     
-      String senha = this.txtSenha.getText();
-        
-        if(LogarSystem(login, senha)){
-            openTelaInicial(); 
-        }else if(!(login).equals(txtLogin.getText()) || txtLogin.getText().isEmpty()) { 
-             mostrarMensagem("Login Inválido, verifique as suas Credencias!");
-        }else if(!(senha).equals(txtSenha.getText()) || txtSenha.getText().isEmpty()){
-              mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
-        }  
-        mostrarMensagem("Login Realizado!");
-    }
-    
-    
+ 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
          JFCadastrarLogin cadastrarLogin = new JFCadastrarLogin();
          cadastrarLogin.setVisible(true);
           this.dispose();
     }//GEN-LAST:event_btnCadastrarActionPerformed
-    
-    
+        
      
     public static AutenticacaoLogin getUsuarioLogado(){
           return loginSucess;
@@ -180,8 +161,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
          //Instaciando construtor da classe FuncionarioDAO
         FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
         Funcionario f1 = funcionarioRepositorio.retornarEmailFuncionario(login);
-        //funcionario1 = funcionarioRepositorio.retornarCpfFuncionario(senha);
-   
+        
         //Estrutura condicional para caso o funcionario for encontraado
         if(f1 != null){
             if(f1.Logar(login, senha)){ loginSucess = f1;
@@ -192,17 +172,10 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
      }
     
      //métodos de abrir Tela
-//    public void OpenTelaAfterLogin(){
-//        if(loginSucess instanceof Funcionario){
-//            JFTelaFuncionario telaFuncionario = new JFTelaFuncionario();
-//            telaFuncionario.setVisible(true);     
-//        }      
-//        this.dispose();
-//        }
-   
+
     public void openTelaInicial(){
-        JFTelaInicial fTelaInicial = new JFTelaInicial();
-         fTelaInicial.setVisible(true );
+        JFTelaInicial2 fTelaInicial = new JFTelaInicial2();
+         fTelaInicial.setVisible(true);
          this.dispose();
     }
     
@@ -220,13 +193,13 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -243,7 +216,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnEntrar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblTitleLivraria;

@@ -4,7 +4,7 @@
  */
 package View;
 
-import DAO.VendaDAO;
+import DAO.VendaDao;
 import Repositorio.VendaRepositorio;
 import models.Venda;
 import DAO.ClienteDAO;
@@ -19,8 +19,6 @@ import javax.swing.JOptionPane;
 import models.Estoque;
 import models.Funcionario;
 import models.Livro;
-import models.LivroNovo;
-import models.LivroUsado;
 
 /**
  *
@@ -41,13 +39,9 @@ public class JFVenda extends javax.swing.JFrame {
 
     }
 
-    public void exibirTela() {
-        setVisible(true);
-    }
-
     public List<Cliente> buscarTodosClientes() {
         ClienteRepositorio clienteRepositorio = new ClienteDAO();
-        return clienteRepositorio.buscarTodosClientes();
+        return clienteRepositorio.getCliente();
     }
 
     public void popularFuncionario() {
@@ -65,18 +59,13 @@ public class JFVenda extends javax.swing.JFrame {
             jComboBoxCliente.addItem(c);
         }
     }
-
+    
     public void popularLivros() {
         EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-        List<LivroUsado> estoqueu = estoquerepositorio.getTodosLivrosUsado();
-        List<LivroNovo> estoquen = estoquerepositorio.getTodosLivrosNovo();
+        List<Livro> estoque = estoquerepositorio.getTodosLivros();
 
-        for (LivroUsado livrou : estoqueu) {
-            jComboBoxLivroU.addItem(livrou);
-        }
-
-        for (LivroNovo livron : estoquen) {
-            jComboBoxLivroN.addItem(livron);
+        for (Livro livro : estoque) {
+            jComboBoxLivro.addItem(livro);
         }
     }
 
@@ -90,7 +79,7 @@ public class JFVenda extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBoxCliente = new javax.swing.JComboBox<>();
-        jComboBoxLivroU = new javax.swing.JComboBox<>();
+        jComboBoxLivro = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtfDataVenda = new javax.swing.JTextField();
@@ -101,21 +90,29 @@ public class JFVenda extends javax.swing.JFrame {
         jtfObservacao = new javax.swing.JTextField();
         jlObservacao = new javax.swing.JLabel();
         jComboBoxFuncionario = new javax.swing.JComboBox<>();
-        jComboBoxLivroN = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jComboBoxLivroU.setToolTipText("");
+        jComboBoxCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxClienteActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setText("REALIZAR VENDA");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Realizar Venda");
 
         jLabel2.setText("Data:");
 
+        jtfDataVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfDataVendaActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Cliente:");
 
-        jLabel4.setText("Livro Usado:");
+        jLabel4.setText("Livro:");
 
         btnVender.setText("Vender");
         btnVender.addActionListener(new java.awt.event.ActionListener() {
@@ -126,50 +123,54 @@ public class JFVenda extends javax.swing.JFrame {
 
         jLabel5.setText("Funcionario:");
 
+        jtfObservacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfObservacaoActionPerformed(evt);
+            }
+        });
+
         jlObservacao.setText("Observações:");
 
-        jComboBoxLivroN.setToolTipText("");
-
-        jLabel6.setText("Livro Novo:");
+        jComboBoxFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFuncionarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(179, 179, 179))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(197, 197, 197))
             .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jComboBoxLivroN, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBoxLivroU, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(btnVender))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jComboBoxCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jtfObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jlObservacao))
-                .addContainerGap(64, Short.MAX_VALUE))
+                            .addComponent(jtfDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jlObservacao)
+                                .addComponent(jLabel3)
+                                .addComponent(jComboBoxCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4)
+                                .addComponent(jComboBoxLivro, 0, 217, Short.MAX_VALUE)
+                                .addComponent(jtfObservacao)
+                                .addComponent(jComboBoxFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel1)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtfDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,18 +178,14 @@ public class JFVenda extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(12, 12, 12)
-                .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxLivroN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxLivroU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlObservacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -201,6 +198,22 @@ public class JFVenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxClienteActionPerformed
+
+    private void jtfDataVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDataVendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfDataVendaActionPerformed
+
+    private void jtfObservacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfObservacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfObservacaoActionPerformed
+
+    private void jComboBoxFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxFuncionarioActionPerformed
+
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         //obter o data
         String data = jtfDataVenda.getText();
@@ -209,17 +222,14 @@ public class JFVenda extends javax.swing.JFrame {
         //obter o funcionario
         Funcionario funcionario = (Funcionario) jComboBoxFuncionario.getSelectedItem();
         //obter o livros
-        LivroUsado livroUsado = (LivroUsado) jComboBoxLivroU.getSelectedItem();
-
-        LivroNovo livroNovo = (LivroNovo) jComboBoxLivroN.getSelectedItem();
-
+        Livro livros = (Livro) jComboBoxLivro.getSelectedItem();
+        
         String observacao = jtfObservacao.getText();
-
-        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-        estoquerepositorio.removeLivroUsado(livroUsado);
-        estoquerepositorio.removeLivroNovo(livroNovo);
+        
+          EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
+          estoquerepositorio.removeLivro(livros);
         //criar a instância de Paciente
-        Venda venda = new Venda(data, observacao, cliente, funcionario, livroUsado, livroNovo);
+        Venda venda = new Venda(data, observacao, cliente, funcionario,livros);
         //salvar no BD
         salvarVenda(venda);
         //Mostrar mensagem de sucesso
@@ -228,45 +238,36 @@ public class JFVenda extends javax.swing.JFrame {
         limparTela();
     }//GEN-LAST:event_btnVenderActionPerformed
 
-    public void salvarVenda(Venda venda) {
-
-        VendaRepositorio vendaRepositorio = new VendaDAO();
-        vendaRepositorio.novaVenda(venda);
+     public void salvarVenda(Venda venda){
+       
+         
+       VendaRepositorio vendaRepositorio = new VendaDao();
+       vendaRepositorio.novaVenda(venda);
     }
-
-    public void limparTela() {
+    
+    public void limparTela(){
         jtfObservacao.setText("");
         jtfDataVenda.setText("");
     }
-<<<<<<< Updated upstream
-    public void exbirTela(){
-        setVisible(true);
-    }
     
     public void apresentarMensagem(String msg){
-=======
-
-    public void apresentarMensagem(String msg) {
->>>>>>> Stashed changes
         JOptionPane.showMessageDialog(null, msg);
     }
     /**
      * @param args the command line arguments
      */
-
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVender;
     private javax.swing.JComboBox<Cliente> jComboBoxCliente;
     private javax.swing.JComboBox<Funcionario> jComboBoxFuncionario;
-    private javax.swing.JComboBox<LivroNovo> jComboBoxLivroN;
-    private javax.swing.JComboBox<LivroUsado> jComboBoxLivroU;
+    private javax.swing.JComboBox<Livro> jComboBoxLivro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jlObservacao;
     private javax.swing.JTextField jtfDataVenda;
     private javax.swing.JTextField jtfObservacao;
