@@ -37,7 +37,7 @@ public class ManterFornecedor_Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                controllerCadastrarFornecedor.exibir();
+                exibirTelaCadastrarFornecedor();
             }
         });
 
@@ -82,7 +82,7 @@ public class ManterFornecedor_Controller {
         telaFornecedor.exibirTela();
     }
 
-    public void exibirTelaCadastrarCliente() {
+    public void exibirTelaCadastrarFornecedor() {
         controllerCadastrarFornecedor.exibir();
     }
 
