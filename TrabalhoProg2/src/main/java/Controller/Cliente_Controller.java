@@ -27,7 +27,7 @@ import models.Cliente;
         this.cliente = cliente;
         this.addCliente = addCliente;
         acaoSalvarCliente();
-        exibirTela();
+      
     }
 
     

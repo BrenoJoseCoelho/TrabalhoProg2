@@ -22,8 +22,7 @@ import models.Funcionario;
  * @author LRodrigues
  */
 public class JFTelaLoginLivraria extends javax.swing.JFrame {
-      private static AutenticacaoLogin loginSucess;
-     // JFTelaInicial fTelaInicial = new JFTelaInicial();
+
        TelaInicialController telaInicialController = new TelaInicialController(new JFTelaInicial());
      
     
@@ -133,47 +132,20 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     }
     
     public void addAcaoEntrar(ActionListener acao){ 
-    btnEntrar.addActionListener(acao);
+        btnEntrar.addActionListener(acao);
     }
     
-    public boolean LogarSystem(String login, String senha){
-         //Instaciando construtor da classe FuncionarioDAO
-        FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
-        Funcionario f1 = funcionarioRepositorio.retornarEmailFuncionario(login);
-         //Estrutura condicional para caso o funcionario for encontraado
-        if(f1 != null){
-            if(f1.Logar(login, senha)){ loginSucess = f1;
-                return true;
-            }
-        }
-          return false;
-     }
-    
-    public void retunrnCamposlogin(){
+
+    public String retunrnCampologin(){
       String login = this.txtLogin.getText();     
-      String senha = this.txtSenha.getText();
+          return login;
+      
     }
-    
-    public void entrar() throws CampoVazioException{
-        
-      String login = this.txtLogin.getText();     
-      String senha = this.txtSenha.getText();
-    
-        
-        if(LogarSystem(login, senha)){
-        telaInicialController.exibirTela();
-             fecharTela();
-              
-           
-        }else if(!(login).equals(login) || login.isEmpty()) { 
-             mostrarMensagem("Login Inválido, verifique as suas Credencias!");
-        }else if(!(senha).equals(senha) || senha.isEmpty()){
-              mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
-        }  
-        mostrarMensagem("Login Realizado!");
+      public String retunrnCampoSenha(){
+        String senha = this.txtSenha.getText();
+            return senha;
     }
-    
-        
+  
     public void addAcaoCadastrar(ActionListener acao){ 
         btnCadastrar.addActionListener(acao);
     }
@@ -187,7 +159,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     }
     
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+
             TelaLoginController loginController 
                 = new TelaLoginController(new JFTelaLoginLivraria());
                  loginController.exibirTela();
