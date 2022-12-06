@@ -6,7 +6,7 @@ package Controller;
 
 import DAO.FornecedorDAO;
 import Repositorio.FornecedorRepositorio;
-import View.JFAddFornecedor;
+import View.JFAddFornecedor;        
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import models.Fornecedor;

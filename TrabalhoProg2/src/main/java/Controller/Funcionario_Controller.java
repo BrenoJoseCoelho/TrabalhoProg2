@@ -24,6 +24,8 @@ public class Funcionario_Controller {
     public Funcionario_Controller(JFAddFuncionario addFuncionario, Funcionario funcionario) {
         this.funcionario = funcionario;
         this.addFuncionario = addFuncionario;
+        
+        adicionarAcaoBotoes();
     }
     
       public void adicionarAcaoBotoes(){
@@ -46,7 +48,7 @@ public class Funcionario_Controller {
         Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
         FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
         funcionarioRepositorio.salvarFuncionario(funcionario);
-        addFuncionario.exibirMensagem("Fornecedor cadastrado com sucesso");
+        addFuncionario.exibirMensagem("Funcionario cadastrado com sucesso");
         addFuncionario.limparTela();
 
     }

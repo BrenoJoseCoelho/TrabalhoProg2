@@ -6,6 +6,7 @@ package Controller;
 
 import DAO.FornecedorDAO;
 import Repositorio.FornecedorRepositorio;
+import View.JFAddFornecedor;
 import View.JFFornecedorList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,13 +34,14 @@ public class ManterFornecedor_Controller {
 
     public void inicializarAcaoBotoes() {
 
-        telaFornecedor.adicionarAcaoBtnAddFornecedor(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                exibirTelaCadastrarFornecedor();
-            }
-        });
+        telaFornecedor.adicionarAcaoBtnAddFornecedor(e ->  exibirTelaCadastrarFornecedor());
+//        telaFornecedor.adicionarAcaoBtnAddFornecedor(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//
+//                exibirTelaCadastrarFornecedor();
+//            }
+//        });
 
 
         telaFornecedor.adicionarAcaobtnListFornecedor(new ActionListener() {
@@ -83,7 +85,7 @@ public class ManterFornecedor_Controller {
     }
 
     public void exibirTelaCadastrarFornecedor() {
-        controllerCadastrarFornecedor.exibir();
+         new Fornecedor_Controller(new JFAddFornecedor(), null).exibir();
     }
 
     public void listarFornecedor() {
