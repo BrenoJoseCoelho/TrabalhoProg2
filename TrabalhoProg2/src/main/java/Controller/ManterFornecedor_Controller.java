@@ -46,7 +46,7 @@ public class ManterFornecedor_Controller {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                listarClientes();
+                listarFornecedor();
             }
         });
 
@@ -86,7 +86,7 @@ public class ManterFornecedor_Controller {
         controllerCadastrarFornecedor.exibir();
     }
 
-    public void listarClientes() {
+    public void listarFornecedor() {
         FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
 
         telaFornecedor.populaDadosListaFornecedor(fornecedorRepositorio.buscarTodosFornecedores());

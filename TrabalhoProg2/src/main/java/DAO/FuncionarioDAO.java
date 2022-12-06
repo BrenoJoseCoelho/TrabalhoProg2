@@ -14,50 +14,48 @@ import models.Funcionario;
  * @author breno
  */
 public class FuncionarioDAO implements FuncionarioRepositorio {
-    
+
     private static Funcionario funcionario;
     private static List<Funcionario> funcionarios = new ArrayList<>();
 
-
-
     @Override
     public Funcionario retornarCpfFuncionario(String cpf) {
-       for(Funcionario func: funcionarios){
-            if(func.getCpf().equals(cpf))
+        for (Funcionario func : funcionarios) {
+            if (func.getCpf().equals(cpf)) {
                 return func;
+            }
         }
         return null;
     }
 
     @Override
     public void salvarFuncionario(Funcionario func) {
-            funcionarios.add(func);
+        funcionarios.add(func);
     }
 
     @Override
     public Funcionario retornarEmailFuncionario(String email) {
-          for(Funcionario func: funcionarios){
-            if(func.getEmail().equals(email))
+        for (Funcionario func : funcionarios) {
+            if (func.getEmail().equals(email)) {
                 return func;
-          }
+            }
+        }
         return null;
-          }
+    }
 
     @Override
     public List<Funcionario> getTodosFuncionarios() {
-   return funcionarios;
+        return funcionarios;
     }
 
     @Override
     public void removerFuncionario(Funcionario f) {
-      funcionarios.remove(f);      
+        funcionarios.remove(f);
     }
 
     @Override
     public Funcionario getFuncionario() {
-       return funcionario;
-    }
-    
-    
+        return funcionario;
     }
 
+}
