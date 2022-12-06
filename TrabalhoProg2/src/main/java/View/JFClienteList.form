@@ -97,33 +97,21 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Adicionar Cliente"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddClienteActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnListClientes">
       <Properties>
         <Property name="text" type="java.lang.String" value="Listar Clientes"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListClientesActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnLimparTela">
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpar Tela"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparTelaActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnRemoverCliente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remover Cliente"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverClienteActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbRemoverCliente">
       <Properties>
@@ -139,9 +127,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Tela Inicial"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTelaInicialActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

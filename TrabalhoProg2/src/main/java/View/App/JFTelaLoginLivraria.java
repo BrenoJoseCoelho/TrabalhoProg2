@@ -159,9 +159,9 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
              fecharTela();
               
            
-        }else if(!(login).equals(txtLogin.getText()) || txtLogin.getText().isEmpty()) { 
+        }else if(!(login).equals(login) || login.isEmpty()) { 
              mostrarMensagem("Login Inválido, verifique as suas Credencias!");
-        }else if(!(senha).equals(txtSenha.getText()) || txtSenha.getText().isEmpty()){
+        }else if(!(senha).equals(senha) || senha.isEmpty()){
               mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
         }  
         mostrarMensagem("Login Realizado!");

@@ -70,11 +70,13 @@ public class TelaLoginController {
      
      
      
-     public void acaoBotaoEntrar(){
+     public void acaoBotaoEntrar() throws CampoVazioException{
          loginLivraria.addAcaoEntrar(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
                   try {
+                      loginLivraria.retunrnCamposlogin();
+                      
                       loginLivraria.entrar();
                        } catch (CampoVazioException ex) {
                               loginLivraria.mostrarMensagem(ex.getMessage());
