@@ -135,6 +135,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     public void addAcaoEntrar(ActionListener acao){ 
     btnEntrar.addActionListener(acao);
     }
+    
     public boolean LogarSystem(String login, String senha){
          //Instaciando construtor da classe FuncionarioDAO
         FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
@@ -147,6 +148,11 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
         }
           return false;
      }
+    
+    public void retunrnCamposlogin(){
+      String login = this.txtLogin.getText();     
+      String senha = this.txtSenha.getText();
+    }
     
     public void entrar() throws CampoVazioException{
         
