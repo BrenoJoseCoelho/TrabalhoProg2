@@ -36,9 +36,9 @@ public class JFTelaInicial extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         btnvenda = new javax.swing.JButton();
         btnFornecedor = new javax.swing.JButton();
-        btnFuncionario = new javax.swing.JButton();
         btnEstoque = new javax.swing.JButton();
         btnCliente = new javax.swing.JButton();
+        btnFuncionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Página Inicial");
@@ -71,15 +71,6 @@ public class JFTelaInicial extends javax.swing.JFrame {
             }
         });
 
-        btnFuncionario.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnFuncionario.setText("FUNCIONÁRIO");
-        btnFuncionario.setToolTipText("Adicionar e Lista Funcionario");
-        btnFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFuncionarioActionPerformed(evt);
-            }
-        });
-
         btnEstoque.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnEstoque.setText("ESTOQUE");
         btnEstoque.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +87,8 @@ public class JFTelaInicial extends javax.swing.JFrame {
             }
         });
 
+        btnFuncionario.setText("jButton2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -107,8 +100,8 @@ public class JFTelaInicial extends javax.swing.JFrame {
                         .addComponent(btnFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addComponent(btnEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnFuncionario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -122,8 +115,8 @@ public class JFTelaInicial extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFuncionario))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,17 +183,10 @@ public class JFTelaInicial extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnClienteActionPerformed
 
-    private void btnFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionarioActionPerformed
-         JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
-         fFuncionarioList.setVisible(true); 
-         this.dispose();
-      
-    }//GEN-LAST:event_btnFuncionarioActionPerformed
-
     private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
-        JFFornecedorList fFornecedorList = new JFFornecedorList();
-         fFornecedorList.setVisible(true);
-         this.dispose();
+//        JFFornecedorList fFornecedorList = new JFFornecedorList();
+//         fFornecedorList.setVisible(true);
+//         this.dispose();
     }//GEN-LAST:event_btnFornecedorActionPerformed
 
     private void btnvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendaActionPerformed

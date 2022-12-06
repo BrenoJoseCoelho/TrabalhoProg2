@@ -6,6 +6,7 @@ package Controller;
 
 import DAO.FuncionarioDAO;
 import Repositorio.FuncionarioRepositorio;
+import View.JFAddFuncionario;
 import View.JFFuncionarioList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,14 +32,14 @@ public class ManterFuncionario_Controller {
     }
 
     public void inicializarAcaoBotoes() {
-
-        telaFuncionario.adicionarAcaoBtnAddFuncionario(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                exibirTelaCadastrarCliente();
-            }
-        });
+        telaFuncionario.adicionarAcaoBtnAddFuncionario(e ->  exibirTelaCadastrarFuncionario());
+//        telaFuncionario.adicionarAcaoBtnAddFuncionario(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//
+//                exibirTelaCadastrarFuncionario();
+//            }
+//        });
 
 
         telaFuncionario.adicionarAcaobtnListFuncionario(new ActionListener() {
@@ -81,8 +82,9 @@ public class ManterFuncionario_Controller {
         telaFuncionario.exibirTela();
     }
 
-    public void exibirTelaCadastrarCliente(){
-        controllerCadastrarFuncionario.exibirTela();
+    public void exibirTelaCadastrarFuncionario(){
+        new Funcionario_Controller(new JFAddFuncionario(), null).exibirTela();
+       
     }
 
     public void listarFuncionario() {
