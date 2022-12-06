@@ -15,9 +15,8 @@ import View.JFTelaInicial;
 public class app {
     public static void main(String[] args) {
       
-            TelaInicialController telaInicialController =
-                new TelaInicialController(new JFTelaInicial());
-        
-        telaInicialController.exibirTela();
+         TelaLoginController loginController 
+                = new TelaLoginController(new JFTelaLoginLivraria());
+                 loginController.exibirTela();
     }
 }

@@ -25,7 +25,7 @@ public class TelaCadastroLoginController {
     public TelaCadastroLoginController(JFCadastrarLogin cadastrarLogin) {
         this.cadastrarLogin = cadastrarLogin;
         iniciarAcoes();
-        exibirTela();
+     
     }
     
     
@@ -41,10 +41,13 @@ public class TelaCadastroLoginController {
         FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
         Funcionario func = cadastrarLogin.returnFunc();
         funcionarioRepositorio.salvarFuncionario(func); 
-        cadastrarLogin.mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - " + func.toString());
-        JFTelaLoginLivraria fTelaLoginLivraria = new JFTelaLoginLivraria();
-        fTelaLoginLivraria.setVisible(true);
-        fecharTela();
+        cadastrarLogin.mostrarMsg(" Funcionario Adicionado com sucesso! "
+                + "\n [ Login: "+func.getEmail()+", "
+                        + "Senha: "+func.getCpf() +" ] - " + func.toString());
+        TelaLoginController telaLoginController 
+                = new TelaLoginController(new JFTelaLoginLivraria());
+                telaLoginController.exibirTela();
+                    fecharTela();
         
         }catch( CampoVazioException | CpfIgualException e){
             cadastrarLogin.mostrarMsg(e.getMessage());

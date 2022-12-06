@@ -27,17 +27,18 @@ public class TelaInicialController {
     public TelaInicialController(JFTelaInicial telaInicial) {
         
        this.telaInicial = new JFTelaInicial();
-       livroController = new ListLivroController();
+       livroController = new ListLivroController(new JFLivroList());
        startButton();
       
     }
     
     public void startButton(){
-        acaoMenuEstoque();
-//        telaInicial.adicionarAcaoBotaoEstoqueLivro(e -> 
-//        {
-//            acaoMenuEstoque();
-//        });
+     
+        telaInicial.adicionarAcaoBotaoEstoqueLivro(e -> 
+        {
+            acaoMenuEstoque();
+        });
+        
         telaInicial.adicionarAcaoBotaoSair(e -> {
             acaoSair();
         });
@@ -57,18 +58,14 @@ public class TelaInicialController {
     
     
      public void acaoMenuEstoque(){
-         telaInicial.adicionarAcaoBotaoEstoqueLivro(new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                ListLivroController listLivroController = 
-                new ListLivroController(fLivroList);
-        listLivroController.exbirTela();
-             }
-         });
         
+     ListLivroController listLivroController =
+            new ListLivroController(new JFLivroList());
+        listLivroController.exbirTela();
     }
+     
      public void acaoSair(){
-         telaInicial.sairTela();
+         fecharTela();
     }       
      public void acaoMenuFuncionario(){
         Funcionario_Controller funcionario_Controller =
@@ -99,5 +96,8 @@ public class TelaInicialController {
      telaInicial.exibirTela();
      }
      
+     public void fecharTela(){
+         telaInicial.sairTela();
+     }
 
 }

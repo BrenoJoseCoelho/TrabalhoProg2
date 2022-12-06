@@ -51,11 +51,11 @@ public class TelaLoginController {
        
     
     }
-     public void acaoTelaIniciar(){
-       TelaInicialController inicialController =
-                 new TelaInicialController(new JFTelaInicial());
-         inicialController.exibirTela(); 
-     }
+//     public void acaoTelaIniciar(){
+//       TelaInicialController inicialController =
+//                 new TelaInicialController(new JFTelaInicial());
+//         inicialController.exibirTela(); 
+//     }
      
        public static AutenticacaoLogin getUsuarioLogado(){
           return loginSucess;
@@ -80,8 +80,10 @@ public class TelaLoginController {
         if(LogarSystem(loginLivraria.retunrnCampologin(), loginLivraria.retunrnCampoSenha())){
             TelaInicialController telaInicialController =
                  new TelaInicialController(new JFTelaInicial());
+                     fecharTela();
                      telaInicialController.exibirTela();
-                      loginLivraria.fecharTela();      
+                       loginLivraria.mostrarMensagem("Login Realizado!");
+                           
         }else 
             if(!(loginLivraria.retunrnCampologin())
                 .equals(loginLivraria.retunrnCampologin()) 
@@ -93,10 +95,12 @@ public class TelaLoginController {
                             || loginLivraria.retunrnCampoSenha().isEmpty()){
                             loginLivraria.mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
         }  
-        loginLivraria.mostrarMensagem("Login Realizado!");
+      
      }
      
-     
+     public void fecharTela(){
+         loginLivraria.fecharTela();
+     }
      
      public void acaoBotaoEntrar(){
          loginLivraria.addAcaoEntrar(new ActionListener() {

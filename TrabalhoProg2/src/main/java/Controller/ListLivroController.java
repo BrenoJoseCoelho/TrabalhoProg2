@@ -33,15 +33,11 @@ public class ListLivroController{
         this.LivroList = new JFLivroList();
         this.jFTelaInicial  = new JFTelaInicial();
         iniciarAcoes();
-        exbirTela();
     }
-    public  ListLivroController(){}
 
      public void iniciarAcoes(){
-         
          LivroList.addAcaoTelaAddLivro(e -> {
-
-             acaoTelaAddLivro();
+         acaoTelaAddLivro();
          });
          LivroList.addAcaoTelaIniciar(e -> {
          acaoTelaIniciar();
@@ -57,11 +53,9 @@ public class ListLivroController{
          });
          LivroList.addAcaoLimparTela(e-> {
          limparTela();
-         });
-         
-         
-                 
+         });                         
      }
+     
      public void listarTodosLivros(){
       LivroList.listarTodosLivros();
      }
@@ -83,35 +77,30 @@ public class ListLivroController{
             livroNovoListDAO.getTodosLivrosNovos().sort((new Comparator<LivroNovo>() {
            @Override
            public int compare(LivroNovo o1, LivroNovo o2) {
-
                return o1.getIsbn().compareTo(o2.getIsbn());      
            }
        }));
      }
      
      public void acaoTelaIniciar(){
-         JFTelaInicial fTelaInicial= new JFTelaInicial();
-         fTelaInicial.exibirTela();
+        
          TelaInicialController inicialController =
                  new TelaInicialController(new JFTelaInicial());
          inicialController.exibirTela();
-        
-        
-         
+ 
      }
      
       public void acaoTelaAddLivro(){
          AddLivroController addLivroController = 
                  new AddLivroController(new JFAddLivro());
-        addLivroController.exibirTela();
+                addLivroController.exibirTela();
          
      }
      
      public void limparTela(){
          LivroList.limparTela();
      }
-     
-     
+
       public void exbirTela(){
        LivroList.exbirTela();
     }
