@@ -22,24 +22,18 @@ import models.Funcionario;
 public class TelaLoginController {
     private JFTelaLoginLivraria loginLivraria;
     private JFCadastrarLogin cadastrarLogin;
-      private static AutenticacaoLogin loginSucess;
+    private static AutenticacaoLogin loginSucess;
 
     public TelaLoginController(JFTelaLoginLivraria loginLivraria) {
         this.loginLivraria = loginLivraria;
         this.cadastrarLogin = cadastrarLogin;
         startButton();
-        exibirTela();
+     
     }
 
-    public TelaLoginController() {
-    }
-    
-    
+
     public void startButton(){
-//    loginLivraria.addAcaoCadastrar(e -> {
-//        acaoCadastrarUser();
-//                
-//    });
+
     acaoCadastrarUser();
     acaoBotaoEntrar();
     }
@@ -67,24 +61,52 @@ public class TelaLoginController {
           return loginSucess;
     }    
    
+        public boolean LogarSystem(String login, String senha){
+         //Instaciando construtor da classe FuncionarioDAO
+        FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
+        Funcionario f1 = funcionarioRepositorio.retornarEmailFuncionario(login);
+         //Estrutura condicional para caso o funcionario for encontraado
+        if(f1 != null){
+            if(f1.Logar(login, senha)){ loginSucess = f1;
+                return true;
+            }
+        }
+          return false;
+     } 
+        
+        
+     public void entrarLogin()throws CampoVazioException {
+          
+        if(LogarSystem(loginLivraria.retunrnCampologin(), loginLivraria.retunrnCampoSenha())){
+            TelaInicialController telaInicialController =
+                 new TelaInicialController(new JFTelaInicial());
+                     telaInicialController.exibirTela();
+                      loginLivraria.fecharTela();      
+        }else 
+            if(!(loginLivraria.retunrnCampologin())
+                .equals(loginLivraria.retunrnCampologin()) 
+                    || loginLivraria.retunrnCampologin().isEmpty()) { 
+                        loginLivraria.mostrarMensagem("Login Inválido, verifique as suas Credencias!");
+                 }else 
+                    if(!(loginLivraria.retunrnCampoSenha())
+                        .equals(loginLivraria.retunrnCampoSenha()) 
+                            || loginLivraria.retunrnCampoSenha().isEmpty()){
+                            loginLivraria.mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
+        }  
+        loginLivraria.mostrarMensagem("Login Realizado!");
+     }
      
      
      
-     public void acaoBotaoEntrar() throws CampoVazioException{
+     public void acaoBotaoEntrar(){
          loginLivraria.addAcaoEntrar(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
                   try {
-                      loginLivraria.retunrnCamposlogin();
-                      
-                      loginLivraria.entrar();
-                       } catch (CampoVazioException ex) {
-                              loginLivraria.mostrarMensagem(ex.getMessage());
-             }
-             }
-         });
-     
-     }
+                        entrarLogin();
+                       } catch (CampoVazioException exception) {
+                              loginLivraria.mostrarMensagem(exception.getMessage());
+             }}});}
     
      public void exibirTela(){
          loginLivraria.exbirTela();
