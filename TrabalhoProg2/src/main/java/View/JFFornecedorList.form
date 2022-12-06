@@ -25,14 +25,16 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnListFornecedor" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnRemoverFornecedor" pref="205" max="32767" attributes="0"/>
-                  <Component id="btnLimparTela" max="32767" attributes="0"/>
-                  <Component id="btnAddFornecedor" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnAddFornecedor" pref="172" max="32767" attributes="0"/>
+                      <Component id="btnListFornecedor" max="32767" attributes="0"/>
+                      <Component id="btnLimparTela" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="btnRemoverFornecedor" min="-2" pref="188" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cbRemoverFornecedor" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" pref="399" max="32767" attributes="0"/>
@@ -41,7 +43,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
-              <Component id="btnPaginaInicial" min="-2" max="-2" attributes="0"/>
+              <Component id="btnPaginaInicial" min="-2" pref="148" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -49,25 +51,28 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="188" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="btnAddFornecedor" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnListFornecedor" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnLimparTela" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" pref="188" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="53" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnRemoverFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbRemoverFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRemoverFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="btnPaginaInicial" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,50 +93,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnAddFornecedor">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="ADICIONAR FORNECEDOR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddFornecedorActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnListFornecedor">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="LISTAR FORNECEDOR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListFornecedorActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnLimparTela">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="LIMPAR TELA"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparTelaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnRemoverFornecedor">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="REMOVER FORNECEDOR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverFornecedorActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JComboBox" name="cbRemoverFornecedor">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -143,16 +104,30 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Fornecedor&gt;"/>
       </AuxValues>
     </Component>
+    <Component class="javax.swing.JButton" name="btnAddFornecedor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cadastrar Fornecedor"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnListFornecedor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Listar Fornecedores"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLimparTela">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar Tela"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRemoverFornecedor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Remover Fornecedor"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JButton" name="btnPaginaInicial">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="P&#xc1;GINA INICIAL"/>
+        <Property name="text" type="java.lang.String" value="Pagina Inicial"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPaginaInicialActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

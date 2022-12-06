@@ -43,8 +43,8 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
-                      <Component id="btnSalvarFuncionario" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+                      <Component id="btnSalvarFuncionario" min="-2" pref="92" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="164" max="32767" attributes="0"/>
@@ -72,9 +72,9 @@
               <Component id="txtEmailFuncionario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTextFieldEmailFuncionario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnSalvarFuncionario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace pref="74" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -118,11 +118,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSalvarFuncionario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salvar "/>
+        <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarFuncionarioActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -4,7 +4,12 @@
  */
 package Controller;
 
+import DAO.FornecedorDAO;
+import DAO.FuncionarioDAO;
+import Repositorio.FuncionarioRepositorio;
 import View.JFAddFuncionario;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import models.Funcionario;
 
 /**
@@ -21,6 +26,30 @@ public class Funcionario_Controller {
         this.addFuncionario = addFuncionario;
     }
     
+      public void adicionarAcaoBotoes(){
+        addFuncionario.adicionarAcaoBtnSalvarFuncionario(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                novoFuncionario();
+            }
+        });
+    }
+
+  
+    
+    public void novoFuncionario(){
+        String cpf = addFuncionario.getCPF();
+        String nome = addFuncionario.getNome();
+         String email = addFuncionario.getEmail();
+         String cargo = addFuncionario.getCargo();
+
+        Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
+        FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
+        funcionarioRepositorio.salvarFuncionario(funcionario);
+        addFuncionario.exibirMensagem("Fornecedor cadastrado com sucesso");
+        addFuncionario.limparTela();
+
+    }
     
     public void exibirTela(){
         addFuncionario.exibirTela();

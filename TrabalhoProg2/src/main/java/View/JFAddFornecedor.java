@@ -6,6 +6,7 @@ package View;
 import Repositorio.FornecedorRepositorio;
 import DAO.FornecedorDAO;
 import Exception.CpfIgualException;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import models.Fornecedor;
 /**
@@ -46,11 +47,6 @@ public class JFAddFornecedor extends javax.swing.JFrame {
         jLabel4.setText("Adicionar Novo Fornecedor:");
 
         btnSalvarFornecedor.setText("Salvar");
-        btnSalvarFornecedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarFornecedorActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,8 +67,8 @@ public class JFAddFornecedor extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(btnSalvarFornecedor)))
+                        .addGap(153, 153, 153)
+                        .addComponent(btnSalvarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,38 +88,32 @@ public class JFAddFornecedor extends javax.swing.JFrame {
                 .addComponent(txtCNPJFornecedor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfCNPJfornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addComponent(btnSalvarFornecedor)
-                .addGap(41, 41, 41))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSalvarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFornecedorActionPerformed
-      
-        
-       String nome = jtfNomeFornecedor.getText();       
-       String empresa = jtfEmpresa.getText();       
-       String CNPJ = jtfCNPJfornecedor.getText();        
-       Fornecedor fornecedor = new Fornecedor(empresa, nome, CNPJ); 
-       
-       salvarFornecedor(fornecedor);  
-       apresentarMensagem("Fornecedor cadastrado com sucesso!");
-       JFFornecedorList fFornecedorList = new JFFornecedorList();
-       fFornecedorList.setVisible(true);
-       this.dispose();   
-       
-        
-    }//GEN-LAST:event_btnSalvarFornecedorActionPerformed
      
+    public void adicionarAcaoBtnSalvarFornecedor(ActionListener acao){
+        btnSalvarFornecedor.addActionListener(acao);
+    }
+    public String getNome(){
+        return jtfNomeFornecedor.getText(); 
+    }
+    
+    public String getEmpresa(){
+        return jtfEmpresa.getText(); 
+    }
+    
+    public String getCNPJ(){
+        return jtfCNPJfornecedor.getText(); 
+    }
+    
+    
     public void exibirTela() {
         setVisible(true);
-    }
-     
-    public void salvarFornecedor(Fornecedor fornecedor) {
-        FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
-        fornecedorRepositorio.salvarFornecedor(fornecedor);
     }
     
     public void limparTela(){
@@ -132,7 +122,7 @@ public class JFAddFornecedor extends javax.swing.JFrame {
         jtfNomeFornecedor.setText("");
     }
     
-    public void apresentarMensagem(String msg){
+    public void exibirMensagem(String msg){
         JOptionPane.showMessageDialog(null, msg);
     }
 

@@ -8,6 +8,7 @@ import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
 import Repositorio.FuncionarioRepositorio;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -59,12 +60,7 @@ public class JFAddFuncionario extends javax.swing.JFrame {
 
         txtEmailFuncionario.setText("Email:");
 
-        btnSalvarFuncionario.setText("Salvar ");
-        btnSalvarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarFuncionarioActionPerformed(evt);
-            }
-        });
+        btnSalvarFuncionario.setText("Salvar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,8 +83,8 @@ public class JFAddFuncionario extends javax.swing.JFrame {
                             .addComponent(jTextFieldCargoFuncionario)
                             .addComponent(jTextFieldEmailFuncionario)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(btnSalvarFuncionario)))
+                        .addGap(222, 222, 222)
+                        .addComponent(btnSalvarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,71 +108,78 @@ public class JFAddFuncionario extends javax.swing.JFrame {
                 .addComponent(txtEmailFuncionario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldEmailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
                 .addComponent(btnSalvarFuncionario)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalvarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFuncionarioActionPerformed
-    try {
-            salvarFuncionario();
-            
-        } catch (CampoVazioException | CpfIgualException ex) {
-            Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void adicionarAcaoBtnSalvarFuncionario(ActionListener acao) {
+        btnSalvarFuncionario.addActionListener(acao);
+        
+        //try {
+        //         salvarFuncionario();
 
- 
-    }//GEN-LAST:event_btnSalvarFuncionarioActionPerformed
-    
-      public void salvarFuncionario() throws CampoVazioException, CpfIgualException {
-        try{
-        FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
-        Funcionario func = returnFunc();
-        funcionarioRepositorio.salvarFuncionario(func);
-        
-        mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+
-                ", Senha: "+func.getCpf() +" ] - " + func.toString());
-        JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
-         fFuncionarioList.setVisible(true);
-         
-        this.dispose();
-        
-        }catch( CampoVazioException | CpfIgualException e){
-            mostrarMsg(e.getMessage());
-        }
-        
-       
-//        limparTela();
+        //    } catch (CampoVazioException | CpfIgualException ex) {
+        //        Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        //    }
     }
-    
-      public void mostrarMsg(String msg) {
+    // public void salvarFuncionario() throws CampoVazioException, CpfIgualException {
+    //   try{
+    //   FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
+    //   Funcionario func = returnFunc();
+    //   funcionarioRepositorio.salvarFuncionario(func);
+
+    //    mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+
+    //         ", Senha: "+func.getCpf() +" ] - " + func.toString());
+    //    JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
+    //     fFuncionarioList.setVisible(true);
+    //   this.dispose();
+    //   }catch( CampoVazioException | CpfIgualException e){
+    //       mostrarMsg(e.getMessage());
+    //   }
+//        limparTela();
+    // }
+    public void exibirMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
 
-    public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException {
-        String nome = jTextFieldNomeFuncionario.getText();
-        String cpf = jTextFieldCPF.getText();
-        String email = jTextFieldEmailFuncionario.getText();
-        String cargo = jTextFieldCargoFuncionario.getText();
-
-        Funcionario f = new Funcionario();
-        f.setNome(nome);
-        f.setCpf(cpf);
-        f.setEmail(email);
-        f.setCargo(cargo);
-      
-        return f;
-    }  
+    // public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException {
+    //     String nome = jTextFieldNomeFuncionario.getText();
+    //     String cpf = jTextFieldCPF.getText();
+    //    String email = jTextFieldEmailFuncionario.getText();
+    //     String cargo = jTextFieldCargoFuncionario.getText();
+    //      Funcionario f = new Funcionario();
+    //      f.setNome(nome);
+    //      f.setCpf(cpf);
+    //      f.setEmail(email);
+    //      f.setCargo(cargo);
+    //    return f;
+    // }  
+    
+    public String getNome(){
+        return jTextFieldNomeFuncionario.getText(); 
+    }
+    
+    public String getCPF(){
+        return jTextFieldCPF.getText(); 
+    }
+    
+    public String getEmail(){
+        return jTextFieldEmailFuncionario.getText(); 
+    }
+    
+    public String getCargo(){
+        return jTextFieldCargoFuncionario.getText(); 
+    }
     
     public void exibirTela(){
         setVisible(true);
     }
-      
-    
-        public void limparTela() {
+
+    public void limparTela(){
         jTextFieldCPF.setText("");
         jTextFieldCargoFuncionario.setText("");
         jTextFieldEmailFuncionario.setText("");

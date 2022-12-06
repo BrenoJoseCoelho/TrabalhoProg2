@@ -69,7 +69,7 @@ public class TelaInicialController {
      public void acaoMenuFornecedor(){   
       Fornecedor_Controller fornecedor_Controller =
               new Fornecedor_Controller(new JFAddFornecedor(), null);
-     fornecedor_Controller.exibirTela();
+     fornecedor_Controller.exibir();
      
      }
      
