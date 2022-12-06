@@ -5,6 +5,7 @@
 package View.App;
 
 import Controller.TelaCadastroLoginController;
+import Controller.TelaInicialController;
 import Controller.TelaLoginController;
 import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
@@ -22,8 +23,8 @@ import models.Funcionario;
  */
 public class JFTelaLoginLivraria extends javax.swing.JFrame {
       private static AutenticacaoLogin loginSucess;
-      private TelaLoginController loginController;
-      JFTelaInicial fTelaInicial = new JFTelaInicial();
+     // JFTelaInicial fTelaInicial = new JFTelaInicial();
+       TelaInicialController telaInicialController = new TelaInicialController(new JFTelaInicial());
      
     
     /**
@@ -134,6 +135,18 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     public void addAcaoEntrar(ActionListener acao){ 
     btnEntrar.addActionListener(acao);
     }
+    public boolean LogarSystem(String login, String senha){
+         //Instaciando construtor da classe FuncionarioDAO
+        FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
+        Funcionario f1 = funcionarioRepositorio.retornarEmailFuncionario(login);
+         //Estrutura condicional para caso o funcionario for encontraado
+        if(f1 != null){
+            if(f1.Logar(login, senha)){ loginSucess = f1;
+                return true;
+            }
+        }
+          return false;
+     }
     
     public void entrar() throws CampoVazioException{
         
@@ -141,9 +154,10 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
       String senha = this.txtSenha.getText();
     
         
-        if(loginController.LogarSystem(login, senha)){
-            fTelaInicial.setVisible(true );
-             this.dispose();
+        if(LogarSystem(login, senha)){
+        telaInicialController.exibirTela();
+             fecharTela();
+              
            
         }else if(!(login).equals(txtLogin.getText()) || txtLogin.getText().isEmpty()) { 
              mostrarMensagem("Login Inválido, verifique as suas Credencias!");
@@ -157,42 +171,20 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     public void addAcaoCadastrar(ActionListener acao){ 
         btnCadastrar.addActionListener(acao);
     }
-
+    
+    public void fecharTela(){
+    this.dispose();
+    }
+    
      public void exbirTela(){
         setVisible(true);
     }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFTelaLoginLivraria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new JFTelaLoginLivraria().setVisible(true);
-            }
-        });
+            TelaLoginController loginController 
+                = new TelaLoginController(new JFTelaLoginLivraria());
+                 loginController.exibirTela();
     }
 
 

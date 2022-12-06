@@ -61,6 +61,7 @@ public class TelaCadastroLoginController {
             Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
       }  
+      
         public void fecharTela(){
             cadastrarLogin.fecharTela();
         }  

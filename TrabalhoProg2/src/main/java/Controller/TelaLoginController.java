@@ -10,6 +10,8 @@ import Repositorio.FuncionarioRepositorio;
 import View.App.JFTelaLoginLivraria;
 import View.JFCadastrarLogin;
 import View.JFTelaInicial;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import models.AutenticacaoLogin;
 import models.Funcionario;
 
@@ -34,20 +36,25 @@ public class TelaLoginController {
     
     
     public void startButton(){
-    loginLivraria.addAcaoCadastrar(e -> {
-        acaoCadastrarUser();
-                
-    });
-    loginLivraria.addAcaoEntrar(e -> {
-        acaoBotaoEntrar();
-    });
+//    loginLivraria.addAcaoCadastrar(e -> {
+//        acaoCadastrarUser();
+//                
+//    });
+    acaoCadastrarUser();
+    acaoBotaoEntrar();
     }
     
     
     public void acaoCadastrarUser(){
-        TelaCadastroLoginController cadastroLoginController =
+        loginLivraria.addAcaoCadastrar(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               TelaCadastroLoginController cadastroLoginController =
                 new TelaCadastroLoginController(new JFCadastrarLogin());
-        cadastrarLogin.exbirTela();
+                cadastroLoginController.exibirTela();
+            }
+        });
+       
     
     }
      public void acaoTelaIniciar(){
@@ -60,28 +67,21 @@ public class TelaLoginController {
           return loginSucess;
     }    
    
-     public boolean LogarSystem(String login, String senha){
-         //Instaciando construtor da classe FuncionarioDAO
-        FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
-        Funcionario f1 = funcionarioRepositorio.retornarEmailFuncionario(login);
-         //Estrutura condicional para caso o funcionario for encontraado
-        if(f1 != null){
-            if(f1.Logar(login, senha)){ loginSucess = f1;
-                return true;
-            }
-        }
-          return false;
-     }
+     
      
      
      public void acaoBotaoEntrar(){
-         
-        try {
-            loginLivraria.entrar();
-                 
-        } catch (CampoVazioException ex) {
-           loginLivraria.mostrarMensagem(ex.getMessage());
-        }
+         loginLivraria.addAcaoEntrar(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                  try {
+                      loginLivraria.entrar();
+                       } catch (CampoVazioException ex) {
+                              loginLivraria.mostrarMensagem(ex.getMessage());
+             }
+             }
+         });
+     
      }
     
      public void exibirTela(){

@@ -10,6 +10,8 @@ import View.JFAddFuncionario;
 import View.JFGeralVendas;
 import View.JFTelaInicial;
 import View.Livro.JFLivroList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -20,21 +22,22 @@ public class TelaInicialController {
     private JFTelaInicial telaInicial;
     private JFLivroList fLivroList;
     private ListLivroController livroController;
+
     
     public TelaInicialController(JFTelaInicial telaInicial) {
-       telaInicial = new JFTelaInicial();
+        
+       this.telaInicial = new JFTelaInicial();
        livroController = new ListLivroController();
-//       fLivroList = new JFLivroList();
-               
-        startButton();
-        exibirTela();
+       startButton();
+      
     }
     
     public void startButton(){
-        telaInicial.adicionarAcaoBotaoEstoqueLivro(e -> 
-        {
-            acaoMenuEstoque();
-        });
+        acaoMenuEstoque();
+//        telaInicial.adicionarAcaoBotaoEstoqueLivro(e -> 
+//        {
+//            acaoMenuEstoque();
+//        });
         telaInicial.adicionarAcaoBotaoSair(e -> {
             acaoSair();
         });
@@ -54,9 +57,15 @@ public class TelaInicialController {
     
     
      public void acaoMenuEstoque(){
-        ListLivroController listLivroController = 
+         telaInicial.adicionarAcaoBotaoEstoqueLivro(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                ListLivroController listLivroController = 
                 new ListLivroController(fLivroList);
         listLivroController.exbirTela();
+             }
+         });
+        
     }
      public void acaoSair(){
          telaInicial.sairTela();

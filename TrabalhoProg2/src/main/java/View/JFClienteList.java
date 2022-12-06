@@ -6,6 +6,7 @@ package View;
 
 import DAO.ClienteDAO;
 import Repositorio.ClienteRepositorio;
+import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -140,7 +141,10 @@ public class JFClienteList extends javax.swing.JFrame {
         addCliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAddClienteActionPerformed
-
+    public void acaoAddCliente(ActionListener actionListener){
+        btnAddCliente.addActionListener(actionListener);
+        
+    }
     private void btnListClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListClientesActionPerformed
        ClienteRepositorio clienteRepositorio = new ClienteDAO();
        Collections.sort(clienteRepositorio.buscarTodosClientes());
@@ -149,6 +153,10 @@ public class JFClienteList extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btnListClientesActionPerformed
 
+    public void acaoListCliente(ActionListener actionListener){
+        btnListClientes.addActionListener(actionListener);
+        
+    }
     private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
         txtListCientes.setText("");
     }//GEN-LAST:event_btnLimparTelaActionPerformed
