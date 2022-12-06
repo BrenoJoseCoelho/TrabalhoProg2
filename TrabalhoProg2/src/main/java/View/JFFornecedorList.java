@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
+import javax.swing.JButton;
 import models.Cliente;
 import models.Fornecedor;
 import models.Funcionario;
@@ -52,6 +53,9 @@ public class JFFornecedorList extends javax.swing.JFrame {
         btnLimparTela = new javax.swing.JButton();
         btnRemoverFornecedor = new javax.swing.JButton();
         btnPaginaInicial = new javax.swing.JButton();
+        btnCadastroFornecedor = new javax.swing.JButton();
+        btnListaFornecedor = new javax.swing.JButton();
+        btnLimparTela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciar Funcionário");
@@ -59,6 +63,14 @@ public class JFFornecedorList extends javax.swing.JFrame {
         txtListFornecedor.setColumns(20);
         txtListFornecedor.setRows(5);
         jScrollPane1.setViewportView(txtListFornecedor);
+
+        btnRemoverFornecedor.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btnRemoverFornecedor.setText("REMOVER FORNECEDOR");
+        btnRemoverFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverFornecedorActionPerformed(evt);
+            }
+        });
 
         initComboFornecedor();
 
@@ -71,6 +83,12 @@ public class JFFornecedorList extends javax.swing.JFrame {
         btnRemoverFornecedor.setText("Remover Fornecedor");
 
         btnPaginaInicial.setText("Pagina Inicial");
+
+        btnCadastroFornecedor.setText("Cadastrar Fornecedor");
+
+        btnListaFornecedor.setText("Listar Fornecedores");
+
+        btnLimparTela.setText("Limpar Tela");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,6 +103,11 @@ public class JFFornecedorList extends javax.swing.JFrame {
                         .addComponent(btnLimparTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btnRemoverFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRemoverFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                    .addComponent(btnCadastroFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListaFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLimparTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbRemoverFornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
@@ -106,6 +129,10 @@ public class JFFornecedorList extends javax.swing.JFrame {
                         .addComponent(btnAddFornecedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnListFornecedor)
+                        .addGap(5, 5, 5)
+                        .addComponent(btnCadastroFornecedor)
+                        .addGap(17, 17, 17)
+                        .addComponent(btnListaFornecedor)
                         .addGap(18, 18, 18)
                         .addComponent(btnLimparTela)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
@@ -120,12 +147,13 @@ public class JFFornecedorList extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     public void adicionarAcaoBtnAddFornecedor(ActionListener acao) {
-        btnAddFornecedor.addActionListener(acao);
+   //     btnAddFornecedor.addActionListener(acao);
     }
 
     public void adicionarAcaobtnListFornecedor(ActionListener acao) {
-        btnListFornecedor.addActionListener(acao);
+     //   btnListFornecedor.addActionListener(acao);
     }
 
     public void adicionarAcaobtnLimparTela(ActionListener acao) {
@@ -150,10 +178,33 @@ public class JFFornecedorList extends javax.swing.JFrame {
             txtListFornecedor.append(fornecedor.toString() + "\n");
         }
     }
+
+    
+   
+
     
     public void exibirTela(){
         setVisible(true);
     }
+
+    
+    private void btnRemoverFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFornecedorActionPerformed
+      
+      FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
+      Fornecedor fornecedor = new Fornecedor();
+      fornecedor = (Fornecedor) cbRemoverFornecedor.getSelectedItem();
+      fornecedorRepositorio.removerFornecedor(fornecedor);
+      JFFornecedorList fFornecedorList = new JFFornecedorList();
+      fFornecedorList.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_btnRemoverFornecedorActionPerformed
+
+    private void btnPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaInicialActionPerformed
+        JFTelaInicial fTelaInicial = new JFTelaInicial();
+        fTelaInicial.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnPaginaInicialActionPerformed
+
     
     public void initComboFornecedor() {
         Set<Fornecedor> fornecedores = fr.buscarTodosFornecedores();
@@ -164,9 +215,9 @@ public class JFFornecedorList extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddFornecedor;
+    private javax.swing.JButton btnCadastroFornecedor;
     private javax.swing.JButton btnLimparTela;
-    private javax.swing.JButton btnListFornecedor;
+    private javax.swing.JButton btnListaFornecedor;
     private javax.swing.JButton btnPaginaInicial;
     private javax.swing.JButton btnRemoverFornecedor;
     private javax.swing.JComboBox<Fornecedor> cbRemoverFornecedor;

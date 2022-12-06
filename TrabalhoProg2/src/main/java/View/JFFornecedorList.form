@@ -27,12 +27,19 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< Updated upstream
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="btnAddFornecedor" pref="172" max="32767" attributes="0"/>
                       <Component id="btnListFornecedor" max="32767" attributes="0"/>
                       <Component id="btnLimparTela" max="32767" attributes="0"/>
                   </Group>
                   <Component id="btnRemoverFornecedor" min="-2" pref="188" max="-2" attributes="0"/>
+=======
+                  <Component id="btnRemoverFornecedor" pref="205" max="32767" attributes="0"/>
+                  <Component id="btnCadastroFornecedor" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnListaFornecedor" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnLimparTela" alignment="0" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
               </Group>
               <EmptySpace type="unrelated" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -53,6 +60,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+<<<<<<< Updated upstream
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="188" max="-2" attributes="0"/>
                   </Group>
@@ -61,6 +69,12 @@
                       <Component id="btnAddFornecedor" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnListFornecedor" min="-2" max="-2" attributes="0"/>
+=======
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="btnCadastroFornecedor" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="btnListaFornecedor" min="-2" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnLimparTela" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -93,6 +107,7 @@
         </Component>
       </SubComponents>
     </Container>
+<<<<<<< Updated upstream
     <Component class="javax.swing.JComboBox" name="cbRemoverFornecedor">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -115,6 +130,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnLimparTela">
+=======
+    <Component class="javax.swing.JButton" name="btnRemoverFornecedor">
+>>>>>>> Stashed changes
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpar Tela"/>
       </Properties>
@@ -127,6 +145,21 @@
     <Component class="javax.swing.JButton" name="btnPaginaInicial">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pagina Inicial"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCadastroFornecedor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cadastrar Fornecedor"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnListaFornecedor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Listar Fornecedores"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLimparTela">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar Tela"/>
       </Properties>
     </Component>
   </SubComponents>

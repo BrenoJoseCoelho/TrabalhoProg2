@@ -16,8 +16,11 @@ import models.Fornecedor;
  * @author breno
  */
 public class ManterFornecedor_Controller {
+    
+       
 
-    private JFFornecedorList telaFornecedor;
+   private JFFornecedorList telaFornecedor;
+
     private Fornecedor fornecedorModel;
 
     private Fornecedor_Controller controllerCadastrarFornecedor;
@@ -29,6 +32,7 @@ public class ManterFornecedor_Controller {
     }
 
     public void inicializarAcaoBotoes() {
+
         telaFornecedor.adicionarAcaoBtnAddFornecedor(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,12 +41,15 @@ public class ManterFornecedor_Controller {
             }
         });
 
+
         telaFornecedor.adicionarAcaobtnListFornecedor(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 listarClientes();
             }
         });
+
 
         telaFornecedor.adicionarAcaobtnLimparTela(new ActionListener() {
             @Override
@@ -51,18 +58,24 @@ public class ManterFornecedor_Controller {
             }
         });
 
+
         //  telaFornecedor.adicionarAcaobtnPaginaInicial(new ActionListener() {
+
         //    @Override
         //     public void actionPerformed(ActionEvent e) {
         //         controladorListarPacientes.exibir();
         //     }
         //  });
+
         // telaFornecedor.adicionarAcaobtnRemoverFornecedor(new ActionListener() {
         //      @Override
         //      public void actionPerformed(ActionEvent e) {
         //            controladorListarPacientes.exibir();
         //   }
         //    });
+
+
+
     }
 
     public void exibir() {

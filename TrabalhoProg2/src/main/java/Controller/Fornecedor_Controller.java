@@ -7,7 +7,6 @@ package Controller;
 import DAO.FornecedorDAO;
 import Repositorio.FornecedorRepositorio;
 import View.JFAddFornecedor;
-import View.JFFornecedorList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import models.Fornecedor;
@@ -16,6 +15,7 @@ import models.Fornecedor;
  *s
  * @author breno
  */
+
 public class Fornecedor_Controller{
      private Fornecedor modelFornecedor;
     private JFAddFornecedor telaFornecedor;
@@ -53,5 +53,7 @@ public class Fornecedor_Controller{
         telaFornecedor.limparTela();
 
     }
+
+
     
 }
