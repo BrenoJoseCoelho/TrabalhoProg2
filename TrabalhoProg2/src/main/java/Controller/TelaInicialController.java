@@ -18,14 +18,21 @@ import View.Livro.JFLivroList;
 public class TelaInicialController {
     
     private JFTelaInicial telaInicial;
-
+    private JFLivroList fLivroList;
+    private ListLivroController livroController;
+    
     public TelaInicialController(JFTelaInicial telaInicial) {
-        this.telaInicial = telaInicial;
+       telaInicial = new JFTelaInicial();
+       livroController = new ListLivroController();
+//       fLivroList = new JFLivroList();
+               
         startButton();
+        exibirTela();
     }
     
     public void startButton(){
-        telaInicial.adicionarAcaoBotaoEstoqueLivro(e -> {
+        telaInicial.adicionarAcaoBotaoEstoqueLivro(e -> 
+        {
             acaoMenuEstoque();
         });
         telaInicial.adicionarAcaoBotaoSair(e -> {
@@ -48,11 +55,11 @@ public class TelaInicialController {
     
      public void acaoMenuEstoque(){
         ListLivroController listLivroController = 
-                new ListLivroController(new JFLivroList());
+                new ListLivroController(fLivroList);
         listLivroController.exbirTela();
     }
      public void acaoSair(){
-         telaInicial.dispose();
+         telaInicial.sairTela();
     }       
      public void acaoMenuFuncionario(){
         Funcionario_Controller funcionario_Controller =

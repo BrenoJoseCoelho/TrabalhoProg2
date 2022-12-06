@@ -4,11 +4,14 @@
  */
 package View.App;
 
+import Controller.TelaCadastroLoginController;
+import Controller.TelaLoginController;
 import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Repositorio.FuncionarioRepositorio;
 import View.JFCadastrarLogin;
 import View.JFTelaInicial;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import models.AutenticacaoLogin;
 import models.Funcionario;
@@ -19,6 +22,9 @@ import models.Funcionario;
  */
 public class JFTelaLoginLivraria extends javax.swing.JFrame {
       private static AutenticacaoLogin loginSucess;
+      private TelaLoginController loginController;
+      JFTelaInicial fTelaInicial = new JFTelaInicial();
+     
     
     /**
      * Creates new form TelaLoginLivraria
@@ -58,18 +64,8 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
         lblSenha.setText("Senha:");
 
         btnEntrar.setText("Entrar");
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
-            }
-        });
 
         btnCadastrar.setText("Cadastrar-se");
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Ainda não tem cadastro?");
 
@@ -135,25 +131,20 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, msg);
     }
     
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-       
-        try {
-            entrar();      
-        } catch (CampoVazioException ex) {
-            mostrarMensagem(ex.getMessage());
-        }
-        
-        
-       
-    }//GEN-LAST:event_btnEntrarActionPerformed
+    public void addAcaoEntrar(ActionListener acao){ 
+    btnEntrar.addActionListener(acao);
+    }
     
     public void entrar() throws CampoVazioException{
         
       String login = this.txtLogin.getText();     
       String senha = this.txtSenha.getText();
+    
         
-        if(LogarSystem(login, senha)){
-            openTelaInicial(); 
+        if(loginController.LogarSystem(login, senha)){
+            fTelaInicial.setVisible(true );
+             this.dispose();
+           
         }else if(!(login).equals(txtLogin.getText()) || txtLogin.getText().isEmpty()) { 
              mostrarMensagem("Login Inválido, verifique as suas Credencias!");
         }else if(!(senha).equals(txtSenha.getText()) || txtSenha.getText().isEmpty()){
@@ -162,50 +153,11 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
         mostrarMensagem("Login Realizado!");
     }
     
-    
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-         JFCadastrarLogin cadastrarLogin = new JFCadastrarLogin();
-         cadastrarLogin.setVisible(true);
-          this.dispose();
-    }//GEN-LAST:event_btnCadastrarActionPerformed
-    
-    
-     
-    public static AutenticacaoLogin getUsuarioLogado(){
-          return loginSucess;
-    }    
-   
-    
-    public boolean LogarSystem(String login, String senha){
-         //Instaciando construtor da classe FuncionarioDAO
-        FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
-        Funcionario f1 = funcionarioRepositorio.retornarEmailFuncionario(login);
-        //funcionario1 = funcionarioRepositorio.retornarCpfFuncionario(senha);
-   
-        //Estrutura condicional para caso o funcionario for encontraado
-        if(f1 != null){
-            if(f1.Logar(login, senha)){ loginSucess = f1;
-                return true;
-            }
-        }
-          return false;
-     }
-    
-     //métodos de abrir Tela
-//    public void OpenTelaAfterLogin(){
-//        if(loginSucess instanceof Funcionario){
-//            JFTelaFuncionario telaFuncionario = new JFTelaFuncionario();
-//            telaFuncionario.setVisible(true);     
-//        }      
-//        this.dispose();
-//        }
-   
-    public void openTelaInicial(){
-        JFTelaInicial fTelaInicial = new JFTelaInicial();
-         fTelaInicial.setVisible(true );
-         this.dispose();
+        
+    public void addAcaoCadastrar(ActionListener acao){ 
+        btnCadastrar.addActionListener(acao);
     }
-    
+
      public void exbirTela(){
         setVisible(true);
     }

@@ -4,7 +4,16 @@
  */
 package Controller;
 
+import DAO.FuncionarioDAO;
+import Exception.CampoVazioException;
+import Exception.CpfIgualException;
+import Repositorio.FuncionarioRepositorio;
+import View.App.JFTelaLoginLivraria;
+import View.JFAddFuncionario;
 import View.JFCadastrarLogin;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import models.Funcionario;
 
 /**
  *
@@ -15,7 +24,56 @@ public class TelaCadastroLoginController {
 
     public TelaCadastroLoginController(JFCadastrarLogin cadastrarLogin) {
         this.cadastrarLogin = cadastrarLogin;
+        iniciarAcoes();
+        exibirTela();
     }
     
     
+    public void iniciarAcoes (){
+        cadastrarLogin.addAcaoSalvarFunc(e -> {
+        acaoSalvaFunc();
+        });
+    }
+    
+    
+      public void salvarFuncionario() throws CampoVazioException, CpfIgualException {
+        try{
+        FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
+        Funcionario func = cadastrarLogin.returnFunc();
+        funcionarioRepositorio.salvarFuncionario(func); 
+        cadastrarLogin.mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - " + func.toString());
+        JFTelaLoginLivraria fTelaLoginLivraria = new JFTelaLoginLivraria();
+        fTelaLoginLivraria.setVisible(true);
+        fecharTela();
+        
+        }catch( CampoVazioException | CpfIgualException e){
+            cadastrarLogin.mostrarMsg(e.getMessage());
+        }
+    
+        limparTela();
+    }
+      
+      public void acaoSalvaFunc(){
+             try {
+            salvarFuncionario();
+            
+        } catch (CampoVazioException | CpfIgualException ex) {
+            Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }  
+        public void fecharTela(){
+            cadastrarLogin.fecharTela();
+        }  
+        
+        public void exibirTela(){
+           cadastrarLogin.exbirTela();
+        }
+        
+        public void limparTela(){
+            cadastrarLogin.limparTela();
+        }
+       
+      
+            
+        
 }

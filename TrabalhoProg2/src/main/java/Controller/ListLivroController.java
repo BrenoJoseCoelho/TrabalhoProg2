@@ -30,8 +30,10 @@ public class ListLivroController{
     private EstoqueDAO estoqueDAO = new EstoqueDAO();
 
     public ListLivroController(JFLivroList LivroList) {
-        this.LivroList = LivroList;
+        this.LivroList = new JFLivroList();
+        this.jFTelaInicial  = new JFTelaInicial();
         iniciarAcoes();
+        exbirTela();
     }
     public  ListLivroController(){}
 
@@ -89,13 +91,12 @@ public class ListLivroController{
      
      public void acaoTelaIniciar(){
          JFTelaInicial fTelaInicial= new JFTelaInicial();
+         fTelaInicial.exibirTela();
          TelaInicialController inicialController =
-                 new TelaInicialController(fTelaInicial);
+                 new TelaInicialController(new JFTelaInicial());
          inicialController.exibirTela();
         
-         
-         
-   
+        
          
      }
      

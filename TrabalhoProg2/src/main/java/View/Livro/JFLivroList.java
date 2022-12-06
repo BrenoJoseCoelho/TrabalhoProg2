@@ -74,6 +74,11 @@ public class JFLivroList extends javax.swing.JFrame {
 
         btnLimparTela.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnLimparTela.setText("LIMPAR TELA");
+        btnLimparTela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparTelaActionPerformed(evt);
+            }
+        });
 
         btnPaginaInicial.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnPaginaInicial.setText("PÁGINA INICIAL");
@@ -135,6 +140,10 @@ public class JFLivroList extends javax.swing.JFrame {
         addAcaoTelaAddLivro((ActionListener) evt);
         this.dispose();
     }//GEN-LAST:event_btnAddLivroActionPerformed
+
+    private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
+        addAcaoLimparTela((ActionListener) evt);
+    }//GEN-LAST:event_btnLimparTelaActionPerformed
     
         public void exbirTela(){
         this.setVisible(true);

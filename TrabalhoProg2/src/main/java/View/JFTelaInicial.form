@@ -112,9 +112,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="SAIR"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnvenda">
           <Properties>
@@ -123,9 +120,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="VENDA"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnvendaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnFornecedor">
           <Properties>
@@ -134,9 +128,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="FORNECEDOR"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFornecedorActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnFuncionario">
           <Properties>
@@ -146,9 +137,6 @@
             <Property name="text" type="java.lang.String" value="FUNCION&#xc1;RIO"/>
             <Property name="toolTipText" type="java.lang.String" value="Adicionar e Lista Funcionario"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFuncionarioActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEstoque">
           <Properties>
@@ -157,9 +145,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ESTOQUE"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEstoqueActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCliente">
           <Properties>
@@ -168,9 +153,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="CLIENTE"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClienteActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

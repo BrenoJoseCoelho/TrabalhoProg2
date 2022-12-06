@@ -49,52 +49,22 @@ public class JFTelaInicial extends javax.swing.JFrame {
 
         btnSair.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSair.setText("SAIR");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
 
         btnvenda.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnvenda.setText("VENDA");
-        btnvenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnvendaActionPerformed(evt);
-            }
-        });
 
         btnFornecedor.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnFornecedor.setText("FORNECEDOR");
-        btnFornecedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFornecedorActionPerformed(evt);
-            }
-        });
 
         btnFuncionario.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnFuncionario.setText("FUNCIONÁRIO");
         btnFuncionario.setToolTipText("Adicionar e Lista Funcionario");
-        btnFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFuncionarioActionPerformed(evt);
-            }
-        });
 
         btnEstoque.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnEstoque.setText("ESTOQUE");
-        btnEstoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEstoqueActionPerformed(evt);
-            }
-        });
 
         btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCliente.setText("CLIENTE");
-        btnCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClienteActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,42 +151,14 @@ public class JFTelaInicial extends javax.swing.JFrame {
     
     public void exibirTela(){
         setVisible(true);
+        
     }
+    public void sairTela(){
+        this.dispose();
+    }
+            
     
-
-    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-      JFClienteList clienteList = new JFClienteList();
-        clienteList.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnClienteActionPerformed
-
-    private void btnFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionarioActionPerformed
-         JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
-         fFuncionarioList.setVisible(true); 
-         this.dispose();
-      
-    }//GEN-LAST:event_btnFuncionarioActionPerformed
-
-    private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
-        JFFornecedorList fFornecedorList = new JFFornecedorList();
-         fFornecedorList.setVisible(true);
-         this.dispose();
-    }//GEN-LAST:event_btnFornecedorActionPerformed
-
-    private void btnvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendaActionPerformed
-        JFGeralVendas venda = new JFGeralVendas();
-        venda.setVisible(true);
-    }//GEN-LAST:event_btnvendaActionPerformed
-
-    private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
-        JFLivroList fLivroList = new JFLivroList();
-        fLivroList.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnEstoqueActionPerformed
-
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-    this.dispose();
-    }//GEN-LAST:event_btnSairActionPerformed
+    
 
     /**
      * @param args the command line arguments
