@@ -8,6 +8,7 @@ import View.App.JFTelaLoginLivraria;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
 import Repositorio.FuncionarioRepositorio;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -57,11 +58,6 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
         txtEmailFuncionario.setText("Email:");
 
         btnSalvarFuncionario.setText("Salvar ");
-        btnSalvarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarFuncionarioActionPerformed(evt);
-            }
-        });
 
         txtAddNovoFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtAddNovoFuncionario.setText("Cadastro Login:");
@@ -118,35 +114,10 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSalvarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarFuncionarioActionPerformed
-
-     try {
-            salvarFuncionario();
-            
-        } catch (CampoVazioException | CpfIgualException ex) {
-            Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        
-    }//GEN-LAST:event_btnSalvarFuncionarioActionPerformed
-
-      public void salvarFuncionario() throws CampoVazioException, CpfIgualException {
-        try{
-        FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
-        Funcionario func = returnFunc();
-        funcionarioRepositorio.salvarFuncionario(func); 
-        mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+", Senha: "+func.getCpf() +" ] - " + func.toString());
-        JFTelaLoginLivraria fTelaLoginLivraria = new JFTelaLoginLivraria();
-        fTelaLoginLivraria.setVisible(true);
-        this.dispose();
-        
-        }catch( CampoVazioException | CpfIgualException e){
-            mostrarMsg(e.getMessage());
-        }
-    
-        limparTela();
+    public void addAcaoSalvarFunc(ActionListener acao){
+        btnSalvarFuncionario.addActionListener(acao);
     }
+    
         
     public void mostrarMsg(String msg) {
         JOptionPane.showMessageDialog(null, msg);
@@ -173,6 +144,13 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
         jTextFieldEmailFuncionario.setText("");
         jTextFieldNomeFuncionario.setText("");
     }
+    
+     public void exbirTela(){
+        setVisible(true);
+    }
+     public void fecharTela(){
+         this.dispose();
+     }
 
     
     /**

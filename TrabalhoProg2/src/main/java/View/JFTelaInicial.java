@@ -36,9 +36,9 @@ public class JFTelaInicial extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         btnvenda = new javax.swing.JButton();
         btnFornecedor = new javax.swing.JButton();
+        btnFuncionario = new javax.swing.JButton();
         btnEstoque = new javax.swing.JButton();
         btnCliente = new javax.swing.JButton();
-        btnFuncionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Página Inicial");
@@ -49,45 +49,22 @@ public class JFTelaInicial extends javax.swing.JFrame {
 
         btnSair.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSair.setText("SAIR");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
 
         btnvenda.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnvenda.setText("VENDA");
-        btnvenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnvendaActionPerformed(evt);
-            }
-        });
 
         btnFornecedor.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnFornecedor.setText("FORNECEDOR");
-        btnFornecedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFornecedorActionPerformed(evt);
-            }
-        });
+
+        btnFuncionario.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnFuncionario.setText("FUNCIONÁRIO");
+        btnFuncionario.setToolTipText("Adicionar e Lista Funcionario");
 
         btnEstoque.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnEstoque.setText("ESTOQUE");
-        btnEstoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEstoqueActionPerformed(evt);
-            }
-        });
 
         btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCliente.setText("CLIENTE");
-        btnCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClienteActionPerformed(evt);
-            }
-        });
-
-        btnFuncionario.setText("jButton2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,8 +77,8 @@ public class JFTelaInicial extends javax.swing.JFrame {
                         .addComponent(btnFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addComponent(btnEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnFuncionario)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -115,8 +92,8 @@ public class JFTelaInicial extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFuncionario))
+                    .addComponent(btnFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,35 +151,14 @@ public class JFTelaInicial extends javax.swing.JFrame {
     
     public void exibirTela(){
         setVisible(true);
+        
     }
+    public void sairTela(){
+        this.dispose();
+    }
+            
     
-
-    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-      JFClienteList clienteList = new JFClienteList();
-        clienteList.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnClienteActionPerformed
-
-    private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
-//        JFFornecedorList fFornecedorList = new JFFornecedorList();
-//         fFornecedorList.setVisible(true);
-//         this.dispose();
-    }//GEN-LAST:event_btnFornecedorActionPerformed
-
-    private void btnvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendaActionPerformed
-        JFGeralVendas venda = new JFGeralVendas();
-        venda.setVisible(true);
-    }//GEN-LAST:event_btnvendaActionPerformed
-
-    private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
-        JFLivroList fLivroList = new JFLivroList();
-        fLivroList.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnEstoqueActionPerformed
-
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-    this.dispose();
-    }//GEN-LAST:event_btnSairActionPerformed
+    
 
     /**
      * @param args the command line arguments

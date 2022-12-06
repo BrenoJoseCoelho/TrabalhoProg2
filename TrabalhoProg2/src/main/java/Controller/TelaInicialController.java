@@ -10,6 +10,8 @@ import View.JFAddFuncionario;
 import View.JFGeralVendas;
 import View.JFTelaInicial;
 import View.Livro.JFLivroList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -18,16 +20,24 @@ import View.Livro.JFLivroList;
 public class TelaInicialController {
     
     private JFTelaInicial telaInicial;
+    private JFLivroList fLivroList;
+    private ListLivroController livroController;
 
+    
     public TelaInicialController(JFTelaInicial telaInicial) {
-        this.telaInicial = telaInicial;
-        startButton();
+        
+       this.telaInicial = new JFTelaInicial();
+       livroController = new ListLivroController();
+       startButton();
+      
     }
     
     public void startButton(){
-        telaInicial.adicionarAcaoBotaoEstoqueLivro(e -> {
-            acaoMenuEstoque();
-        });
+        acaoMenuEstoque();
+//        telaInicial.adicionarAcaoBotaoEstoqueLivro(e -> 
+//        {
+//            acaoMenuEstoque();
+//        });
         telaInicial.adicionarAcaoBotaoSair(e -> {
             acaoSair();
         });
@@ -47,12 +57,18 @@ public class TelaInicialController {
     
     
      public void acaoMenuEstoque(){
-        ListLivroController listLivroController = 
-                new ListLivroController(new JFLivroList(), null, null);
+         telaInicial.adicionarAcaoBotaoEstoqueLivro(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                ListLivroController listLivroController = 
+                new ListLivroController(fLivroList);
         listLivroController.exbirTela();
+             }
+         });
+        
     }
      public void acaoSair(){
-         telaInicial.dispose();
+         telaInicial.sairTela();
     }       
      public void acaoMenuFuncionario(){
         Funcionario_Controller funcionario_Controller =

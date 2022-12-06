@@ -308,7 +308,9 @@ public class JFAddLivro extends javax.swing.JFrame {
         return (LivroUsado) book;
     }
  
- 
+       public void exibirTela() {
+        this.setVisible(true);
+    }
       public void mostrarMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }

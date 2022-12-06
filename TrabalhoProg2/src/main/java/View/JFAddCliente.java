@@ -9,6 +9,7 @@ import Exception.CampoVazioException;
 import Exception.CpfIgualException;
 import models.Cliente;
 import Repositorio.ClienteRepositorio;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -55,11 +56,6 @@ public class JFAddCliente extends javax.swing.JFrame {
         txtCPFCliente.setText("CPF :");
 
         btnSalvarCliente.setText("SALVAR");
-        btnSalvarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarClienteActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,33 +103,10 @@ public class JFAddCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-     try{
-        Map<String, String> dados = getCampos();
-        //criar a instância de Paciente
-        Cliente cliente = new Cliente(dados.get("nome"), dados.get("CPF"));
-        //salvar no BD
-        salvarCliente(cliente);
-        //Mostrar mensagem de sucesso
-        apresentarMensagem("Cliente Adicionado com Sucesso!");
-       }catch(CampoVazioException | CpfIgualException ex){
-                apresentarMensagem(ex.getMessage());
-                }
-        
-        //abri nova tela
-        JFClienteList clienteList = new JFClienteList();
-        clienteList.setVisible(true);
-        //limpar tela        
-        limparTela();
-        
-        this.dispose();
-    }//GEN-LAST:event_btnSalvarClienteActionPerformed
-      
-    public void salvarCliente(Cliente cliente) throws CpfIgualException, CampoVazioException{
-       ClienteRepositorio clienteRepositorio = new ClienteDAO();
-       clienteRepositorio.salvarCliente(cliente);
-    }
+      public void addAcaoSalvarCliente(ActionListener acao){
+      btnSalvarCliente.addActionListener(acao);
+      }
+   
     
     public Map<String, String> getCampos(){
     
@@ -147,7 +120,9 @@ public class JFAddCliente extends javax.swing.JFrame {
         jtfNomeCliente.setText("");
         jtfCPFCliente.setText("");
     }
-    
+    public void fecharTela(){
+    this.dispose();
+    }
        
     public void exibirTela(){
         setVisible(true);

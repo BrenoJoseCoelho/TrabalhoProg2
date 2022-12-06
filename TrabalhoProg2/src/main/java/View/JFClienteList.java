@@ -6,6 +6,7 @@ package View;
 
 import DAO.ClienteDAO;
 import Repositorio.ClienteRepositorio;
+import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -53,39 +54,14 @@ public class JFClienteList extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtListCientes);
 
         btnAddCliente.setText("Adicionar Cliente");
-        btnAddCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddClienteActionPerformed(evt);
-            }
-        });
 
         btnListClientes.setText("Listar Clientes");
-        btnListClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListClientesActionPerformed(evt);
-            }
-        });
 
         btnLimparTela.setText("Limpar Tela");
-        btnLimparTela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparTelaActionPerformed(evt);
-            }
-        });
 
         btnRemoverCliente.setText("Remover Cliente");
-        btnRemoverCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverClienteActionPerformed(evt);
-            }
-        });
 
         btnTelaInicial.setText("Tela Inicial");
-        btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaInicialActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,48 +110,55 @@ public class JFClienteList extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClienteActionPerformed
-        JFAddCliente addCliente = new JFAddCliente();
-        addCliente.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAddClienteActionPerformed
-
-    private void btnListClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListClientesActionPerformed
-       ClienteRepositorio clienteRepositorio = new ClienteDAO();
+    public void acaoAddCliente(ActionListener actionListener){
+        btnAddCliente.addActionListener(actionListener);
+        
+    }    public void listarCliente(){ 
+          ClienteRepositorio clienteRepositorio = new ClienteDAO();
        Collections.sort(clienteRepositorio.buscarTodosClientes());
        for(Cliente c : clienteRepositorio.buscarTodosClientes()){
           txtListCientes.append(c.toString()+"\n");       
        }
-    }//GEN-LAST:event_btnListClientesActionPerformed
-
-    private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
-        txtListCientes.setText("");
-    }//GEN-LAST:event_btnLimparTelaActionPerformed
-
-    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
-        JFTelaInicial fTelaInicial = new JFTelaInicial();
-        fTelaInicial.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnTelaInicialActionPerformed
-
-    private void btnRemoverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverClienteActionPerformed
-       ClienteRepositorio clienteRepositorio = new ClienteDAO();
-       Cliente c = new Cliente();
-       c = (Cliente) cbRemoverCliente.getSelectedItem();
-       clienteRepositorio.removeCliente(c);
-        JFClienteList clienteList = new JFClienteList();
-        clienteList.setVisible(true);
-        this.dispose();
-      
-    }//GEN-LAST:event_btnRemoverClienteActionPerformed
-
+    }
+    
+    public void acaoListCliente(ActionListener actionListener){
+        btnListClientes.addActionListener(actionListener);
+        
+    }    public void limparTela(){
+     txtListCientes.setText("");
+    }
+    
+    public void acaoLimparTela(ActionListener acao){
+        btnLimparTela.addActionListener(acao);
+                
+    }    public void acaoAcessarTelaInicial(ActionListener acao){
+         btnTelaInicial.addActionListener(acao);
+    }
+    public void acaoRemoverCliente(ActionListener acao){
+        btnRemoverCliente.addActionListener(acao);
+                
+    }        public void removerCliente(){
+         ClienteRepositorio clienteRepositorio = new ClienteDAO();
+         Cliente c = new Cliente();
+         c = (Cliente) cbRemoverCliente.getSelectedItem();
+         clienteRepositorio.removeCliente(c);
+        }
+    
+    
        public void initComboCliente(){
         List<Cliente> cliente = cr.buscarTodosClientes();
         for(Cliente c : cliente ){   
         cbRemoverCliente.addItem(c);
         }
     }
+       
+       public void exibirTela(){
+           this.setVisible(true);
+       }
+       public void fecharTela(){
+           this.dispose();
+       }
+               
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

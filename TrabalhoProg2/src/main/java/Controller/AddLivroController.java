@@ -27,12 +27,13 @@ public class AddLivroController {
     private LivroUsado livroUsado;
     private JFAddLivro addLivro;
 
-    public AddLivroController(LivroNovo livroNovo, LivroUsado livroUsado, JFAddLivro addLivro) {
+    public AddLivroController( JFAddLivro addLivro) {
         this.livroNovo = livroNovo;
         this.livroUsado = livroUsado;
     
         this.addLivro = addLivro;
         addActionButton();
+        exibirTela();
     }
     
     public void addActionButton(){
@@ -40,7 +41,7 @@ public class AddLivroController {
     }
     
      public void exibirTela(){
-       addLivro.setVisible(true);
+     addLivro.exibirTela();
     }
     
      public void addLivroUsado() throws IsbnExistenteException{
