@@ -20,6 +20,7 @@ public class Funcionario_Controller {
     
     private Funcionario funcionario;
     private JFAddFuncionario addFuncionario;
+    
 
     public Funcionario_Controller(JFAddFuncionario addFuncionario, Funcionario funcionario) {
         this.funcionario = funcionario;
@@ -33,6 +34,7 @@ public class Funcionario_Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 novoFuncionario();
+              
             }
         });
     }
@@ -50,7 +52,13 @@ public class Funcionario_Controller {
         funcionarioRepositorio.salvarFuncionario(funcionario);
         addFuncionario.exibirMensagem("Funcionario cadastrado com sucesso");
         addFuncionario.limparTela();
+        fecharTela();
+        
 
+    }
+    
+    public void fecharTela(){
+        addFuncionario.fecharTela();
     }
     
     public void exibirTela(){

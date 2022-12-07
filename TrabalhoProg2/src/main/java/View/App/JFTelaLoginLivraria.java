@@ -33,6 +33,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     }
     public void dadosDefault(){
     FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
+    funcionarioRepositorio.salvarFuncionario(new Funcionario("1", "1", "1", "1"));
    
 
     }
@@ -158,8 +159,7 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     
     public static void main(String args[]) {
 
-            TelaLoginController loginController 
-                = new TelaLoginController(new JFTelaLoginLivraria());
+            TelaLoginController loginController = new TelaLoginController(new JFTelaLoginLivraria());
                  loginController.exibirTela();
     }
 

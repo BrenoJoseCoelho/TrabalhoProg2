@@ -26,7 +26,7 @@ public class ManterFuncionario_Controller {
 
     public ManterFuncionario_Controller(JFFuncionarioList telaFuncionario) {
         this.telaFuncionario = telaFuncionario;
-
+        this.telaFuncionario = new JFFuncionarioList();
         inicializarAcaoBotoes();
         exibir();
     }

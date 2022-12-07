@@ -9,6 +9,7 @@ import Repositorio.ClienteRepositorio;
 import View.JFAddCliente;
 import View.JFClienteList;
 import View.JFTelaInicial;
+import View.Livro.JFAddLivro;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
@@ -19,12 +20,16 @@ import java.util.Collections;
  */
 public class ClienteListController {
     private JFClienteList clienteList;
-
+   
+    private ClienteListController clienteListController;
     
     public ClienteListController(JFClienteList clienteList) {
+ 
     this.clienteList = new JFClienteList();
     iniciarAcoes();
-            }
+    exibirTela();
+    
+    }
     
     
     public void iniciarAcoes(){
@@ -42,9 +47,12 @@ public class ClienteListController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Cliente_Controller cliente_Controller =  
-                        new Cliente_Controller(new JFAddCliente(), null);
+                        new Cliente_Controller(null, new JFAddCliente(), null);
+                clienteList.fecharTela();
                 cliente_Controller.fecharTela();
+                
                 cliente_Controller.exibirTela();
+                
                 
                 
             }

@@ -314,6 +314,9 @@ public class JFAddLivro extends javax.swing.JFrame {
       public void mostrarMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
+    public void fecharTela(){
+        this.dispose();
+    }
 
 
 

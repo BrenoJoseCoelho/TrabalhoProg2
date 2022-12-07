@@ -31,8 +31,9 @@ public class ListLivroController{
 
     public ListLivroController(JFLivroList LivroList) {
       
-        this.jFTelaInicial  = new JFTelaInicial();
+       this.LivroList = new JFLivroList();
         iniciarAcoes();
+        exbirTela();
     }
 
      public void iniciarAcoes(){
@@ -41,6 +42,7 @@ public class ListLivroController{
          });
          LivroList.addAcaoTelaIniciar(e -> {
          acaoTelaIniciar();
+         fecharListTela();
          });
          LivroList.addAcaoListarLivrosNovo(e -> {
          listaLivroNovo();
@@ -61,25 +63,28 @@ public class ListLivroController{
      }
      
      public void listarLivroUsado(){
-         LivroList.listarLivrosNovos();
-              livroUsadoListDAO.getTodosLivrosUsados().sort((new Comparator<LivroUsado>() {
+       LivroList.listarLivrosUsados();
+             livroUsadoListDAO.getTodosLivrosUsados().sort((new Comparator<LivroUsado>() {
              @Override
-             public int compare(LivroUsado o1, LivroUsado o2) {
+               public int compare(LivroUsado o1, LivroUsado o2) {
                   return o1.getIsbn().compareTo(o2.getIsbn());    
              }
-        
+           
        }));
   
      }
      
      public void listaLivroNovo(){
-         LivroList.listarLivrosUsados();
+          LivroList.listarLivrosNovos();
             livroNovoListDAO.getTodosLivrosNovos().sort((new Comparator<LivroNovo>() {
-           @Override
-           public int compare(LivroNovo o1, LivroNovo o2) {
+           @Override   
+            public int compare(LivroNovo o1, LivroNovo o2) {
                return o1.getIsbn().compareTo(o2.getIsbn());      
            }
+        
        }));
+  
+       
      }
      
      public void acaoTelaIniciar(){
@@ -95,6 +100,10 @@ public class ListLivroController{
                  new AddLivroController(new JFAddLivro());
                 addLivroController.exibirTela();
          
+     }
+      
+     public void fecharListTela(){
+      LivroList.fecharTela();
      }
      
      public void limparTela(){

@@ -7,6 +7,8 @@ package Controller;
 import View.JFAddCliente;
 import View.JFAddFornecedor;
 import View.JFAddFuncionario;
+import View.JFClienteList;
+import View.JFFuncionarioList;
 import View.JFGeralVendas;
 import View.JFTelaInicial;
 import View.Livro.JFLivroList;
@@ -36,6 +38,7 @@ public class TelaInicialController {
         telaInicial.adicionarAcaoBotaoEstoqueLivro(e -> 
         {
             acaoMenuEstoque();
+            fecharTela();
         });
         
         telaInicial.adicionarAcaoBotaoSair(e -> {
@@ -60,16 +63,16 @@ public class TelaInicialController {
         
      ListLivroController listLivroController =
             new ListLivroController(new JFLivroList());
-        listLivroController.exbirTela();
+     listLivroController.exbirTela();
     }
      
      public void acaoSair(){
          fecharTela();
     }       
      public void acaoMenuFuncionario(){
-        Funcionario_Controller funcionario_Controller =
-                 new Funcionario_Controller(new JFAddFuncionario(), null);
-        funcionario_Controller.exibirTela();
+        ManterFuncionario_Controller manterFuncionario_Controller =
+                 new ManterFuncionario_Controller(new JFFuncionarioList());
+        manterFuncionario_Controller.exibir();
         }
      
      public void acaoMenuVenda(){     
@@ -86,9 +89,10 @@ public class TelaInicialController {
      }
      
      public void acaoMenuCliente(){
-         Cliente_Controller cliente_Controller = 
-                 new Cliente_Controller(new JFAddCliente(), null); 
-                 cliente_Controller.exibirTela();
+         ClienteListController clienteListController = 
+                 new ClienteListController(new JFClienteList()); 
+                 clienteListController.exibirTela();
+                 fecharTela();
      }
      
      public void exibirTela(){

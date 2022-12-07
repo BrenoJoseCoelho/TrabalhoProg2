@@ -10,6 +10,7 @@ import Exception.CpfIgualException;
 import Repositorio.ClienteRepositorio;
 import View.JFAddCliente;
 import View.JFClienteList;
+import View.Livro.JFLivroList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
@@ -22,12 +23,15 @@ import models.Cliente;
     public class Cliente_Controller {
     private Cliente cliente;
     private JFAddCliente addCliente;
+    private JFLivroList livroList;
+    private JFClienteList clienteList;
 
-    public Cliente_Controller( JFAddCliente addCliente, Cliente cliente) {
+    public Cliente_Controller( JFClienteList clienteList, JFAddCliente addCliente, Cliente cliente) {
         this.cliente = cliente;
-        this.addCliente = addCliente;
+        this.addCliente = new JFAddCliente();
+        this.clienteList = new JFClienteList();
         acaoSalvarCliente();
-      
+        exibirTela();
     }
 
     
@@ -48,8 +52,9 @@ import models.Cliente;
                 }
         
         //abri nova tela
-        JFClienteList clienteList = new JFClienteList();
-        clienteList.setVisible(true);
+         ClienteListController clienteListController = 
+                 new ClienteListController(new JFClienteList()); 
+                 clienteListController.exibirTela();
         //limpar tela        
         limparTela();
         

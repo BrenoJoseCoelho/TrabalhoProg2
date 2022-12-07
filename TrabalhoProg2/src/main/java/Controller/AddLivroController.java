@@ -46,12 +46,13 @@ public class AddLivroController {
     
      public void addLivroUsado() throws IsbnExistenteException{
           EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-        LivroNovoRepositorio livroNovoRepositorio =  new LivroNovoListDAO();
-        LivroNovo livroNovo = addLivro.returnLivroNovo();
-        livroNovoRepositorio.addLivroNovo(livroNovo);
-        estoquerepositorio.addEstoqueNovo(livroNovo);
-        addLivro.mostrarMensagem("Adicionado Livro Novo com Sucesso! ");
-        addLivro.dispose();
+          LivroUsadoRepositorio livroUsadoRepositorio = new LivroUsadoListDAO();
+        LivroUsado livroUsado = addLivro.returnLivroUsado();
+        livroUsadoRepositorio.addLivroUsado(livroUsado);
+        estoquerepositorio.addEstoqueUsado(livroUsado);
+        
+        mostraMsg("Adicionado Livro Usado com Sucesso! ");
+        fecharTela();
          
     }
      
@@ -63,8 +64,8 @@ public class AddLivroController {
         LivroNovo livroNovo = addLivro.returnLivroNovo();
         livroNovoRepositorio.addLivroNovo(livroNovo);
         estoquerepositorio.addEstoqueNovo(livroNovo);
-        addLivro.mostrarMensagem("Adicionado Livro Novo com Sucesso! ");
-        addLivro.dispose();
+        mostraMsg("Adicionado Livro Novo com Sucesso! ");
+       fecharTela();
 
      }
      
@@ -89,6 +90,14 @@ public class AddLivroController {
             }}}
             });
             }
+     
+     public void fecharTela(){
+         addLivro.fecharTela();
+     }
+     
+     public void mostraMsg(String msg){
+         addLivro.mostrarMensagem(msg);
+     }
      
      
 }
