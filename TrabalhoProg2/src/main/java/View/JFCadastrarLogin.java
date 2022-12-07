@@ -5,6 +5,7 @@
 package View;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
+import Exception.EmailInválidoException;
 import Exception.SomenteNumerosExceptionCPF;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -119,7 +120,8 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, msg);
         }
 
-    public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException, SomenteNumerosExceptionCPF{
+    public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException, 
+            SomenteNumerosExceptionCPF, EmailInválidoException{
         String nome = jTextFieldNomeFuncionario.getText();
         String cpf =  jTextFieldCPF.getText();
         String email = jTextFieldEmailFuncionario.getText();

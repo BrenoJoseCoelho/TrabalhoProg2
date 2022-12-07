@@ -7,6 +7,7 @@ package Controller;
 import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
+import Exception.EmailInválidoException;
 import Exception.SomenteNumerosExceptionCPF;
 import Repositorio.FuncionarioRepositorio;
 import View.App.JFTelaLoginLivraria;
@@ -48,7 +49,7 @@ public class TelaCadastroLoginController {
                 telaLoginController.exibirTela();
                     fecharTela();
         
-        }catch(CampoVazioException | CpfIgualException | SomenteNumerosExceptionCPF ex){
+        }catch(CampoVazioException | CpfIgualException | SomenteNumerosExceptionCPF | EmailInválidoException ex){
    
             mostrarMsg(ex.getMessage());
         }
@@ -57,16 +58,7 @@ public class TelaCadastroLoginController {
     }
       
       public void acaoSalvaFunc(){
-//             try {
             salvarFuncionario();
-//            
-//        } catch (CampoVazioException | CpfIgualException | SomenteNumerosException ex) {
-//            if(ex instanceof SomenteNumerosException){
-//                mostrarMsg("Campo CPF "+ ex.getMessage());
-//            }    
-//            
-//            mostrarMsg(ex.getMessage());
-//        }
       }  
       
         public void fecharTela(){

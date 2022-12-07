@@ -7,6 +7,7 @@ package models;
 import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
+import Exception.EmailInválidoException;
 import Exception.SomenteNumerosExceptionCPF;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,12 @@ public class Funcionario implements AutenticacaoLogin {
         return email;
     }
 
-    public void setEmail(String email)throws CampoVazioException{
+    public void setEmail(String email)throws CampoVazioException, EmailInválidoException{
+        
+        if(!email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                +"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
+            throw new EmailInválidoException();
+        }
         if(email.isBlank()){
             throw new CampoVazioException();
         }
