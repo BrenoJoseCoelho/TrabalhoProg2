@@ -7,13 +7,10 @@ package Controller;
 import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
-import Exception.SomenteNumerosException;
+import Exception.SomenteNumerosExceptionCPF;
 import Repositorio.FuncionarioRepositorio;
 import View.App.JFTelaLoginLivraria;
-import View.JFAddFuncionario;
 import View.JFCadastrarLogin;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import models.Funcionario;
 
 /**
@@ -51,11 +48,8 @@ public class TelaCadastroLoginController {
                 telaLoginController.exibirTela();
                     fecharTela();
         
-        }catch(CampoVazioException | CpfIgualException | SomenteNumerosException ex){
-              if(ex instanceof SomenteNumerosException){
-                mostrarMsg("Campo CPF, "+ ex.getMessage());
-            }else
-                 
+        }catch(CampoVazioException | CpfIgualException | SomenteNumerosExceptionCPF ex){
+   
             mostrarMsg(ex.getMessage());
         }
     

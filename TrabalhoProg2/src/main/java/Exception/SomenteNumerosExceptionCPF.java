@@ -8,12 +8,12 @@ package Exception;
  *
  * @author LRodrigues
  */
-public class SomenteNumerosException extends Exception{
+public class SomenteNumerosExceptionCPF extends Exception{
 
     
     
-    public SomenteNumerosException() {
-        super("Aceita Somente Números!");
+    public SomenteNumerosExceptionCPF() {
+        super("Campo CPF aceita Somente Números!");
     }
     
     

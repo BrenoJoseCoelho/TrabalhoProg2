@@ -3,15 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-import View.App.JFTelaLoginLivraria;
- import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
-import Exception.SomenteNumerosException;
-import Repositorio.FuncionarioRepositorio;
+import Exception.SomenteNumerosExceptionCPF;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import models.Funcionario;
 /**
@@ -124,7 +119,7 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, msg);
         }
 
-    public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException, SomenteNumerosException{
+    public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException, SomenteNumerosExceptionCPF{
         String nome = jTextFieldNomeFuncionario.getText();
         String cpf =  jTextFieldCPF.getText();
         String email = jTextFieldEmailFuncionario.getText();
