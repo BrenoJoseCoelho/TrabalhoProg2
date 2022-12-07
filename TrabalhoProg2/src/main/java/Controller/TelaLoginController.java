@@ -23,12 +23,16 @@ public class TelaLoginController {
     private JFTelaLoginLivraria loginLivraria;
     private JFCadastrarLogin cadastrarLogin;
     private static AutenticacaoLogin loginSucess;
+    private Funcionario funcionario;
 
     public TelaLoginController(JFTelaLoginLivraria loginLivraria) {
         this.loginLivraria = loginLivraria;
         this.cadastrarLogin = cadastrarLogin;
+        this.funcionario = funcionario;
         startButton();
-     
+    }
+
+    public TelaLoginController() {
     }
 
 
@@ -46,16 +50,17 @@ public class TelaLoginController {
                TelaCadastroLoginController cadastroLoginController =
                 new TelaCadastroLoginController(new JFCadastrarLogin());
                 cadastroLoginController.exibirTela();
+                fecharTela();
             }
         });
        
     
     }
-//     public void acaoTelaIniciar(){
-//       TelaInicialController inicialController =
-//                 new TelaInicialController(new JFTelaInicial());
-//         inicialController.exibirTela(); 
-//     }
+     public void abrirTelaIniciar(){
+       TelaInicialController inicialController =
+                 new TelaInicialController(new JFTelaInicial());
+         inicialController.exibirTela(); 
+     }
      
        public static AutenticacaoLogin getUsuarioLogado(){
           return loginSucess;
@@ -67,33 +72,27 @@ public class TelaLoginController {
         Funcionario f1 = funcionarioRepositorio.retornarEmailFuncionario(login);
          //Estrutura condicional para caso o funcionario for encontraado
         if(f1 != null){
-            if(f1.Logar(login, senha)){ loginSucess = f1;
-                return true;
-            }
-        }
+            if(f1.Logar(login, senha))
+            { loginSucess = f1;
+                return true;}}
           return false;
      } 
         
         
      public void entrarLogin()throws CampoVazioException {
           
-        if(LogarSystem(loginLivraria.retunrnCampologin(), loginLivraria.retunrnCampoSenha())){
-            TelaInicialController telaInicialController =
-                 new TelaInicialController(new JFTelaInicial());
-                     fecharTela();
-                     telaInicialController.exibirTela();
-                       loginLivraria.mostrarMensagem("Login Realizado!");
-                           
+        if(LogarSystem(getLogin(), getSenha())){
+            abrirTelaIniciar();
+                       mostraMsg("Login Realizado!");
+                           fecharTela();
         }else 
-            if(!(loginLivraria.retunrnCampologin())
-                .equals(loginLivraria.retunrnCampologin()) 
-                    || loginLivraria.retunrnCampologin().isEmpty()) { 
-                        loginLivraria.mostrarMensagem("Login Inválido, verifique as suas Credencias!");
+            if(!(getLogin()).equals(getLogin()) 
+                    || getLogin().isEmpty()) { 
+                        mostraMsg("Login Inválido, verifique as suas Credencias!");
                  }else 
-                    if(!(loginLivraria.retunrnCampoSenha())
-                        .equals(loginLivraria.retunrnCampoSenha()) 
-                            || loginLivraria.retunrnCampoSenha().isEmpty()){
-                            loginLivraria.mostrarMensagem("Senha Inválida, verifique as suas Credencias!");
+                    if(!(getSenha()).equals(getSenha()) 
+                            || getSenha().isEmpty()){
+                            mostraMsg("Senha Inválida, verifique as suas Credencias!");
         }  
       
      }
@@ -101,7 +100,20 @@ public class TelaLoginController {
      public void fecharTela(){
          loginLivraria.fecharTela();
      }
+     public void mostraMsg(String msg){
+         loginLivraria.mostrarMensagem(msg);
      
+     }
+     
+     public String getLogin(){
+        String login = loginLivraria.retunrnCampologin();
+         return login;
+     }
+     
+     public String getSenha(){
+         String senha = loginLivraria.retunrnCampoSenha();
+         return senha;
+     }
      public void acaoBotaoEntrar(){
          loginLivraria.addAcaoEntrar(new ActionListener() {
              @Override
@@ -113,7 +125,7 @@ public class TelaLoginController {
              }}});}
     
      public void exibirTela(){
-         loginLivraria.exbirTela();
+         loginLivraria.exibirTela();
      }
    
     

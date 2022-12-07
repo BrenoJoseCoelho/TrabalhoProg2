@@ -27,7 +27,6 @@ public class TelaInicialController {
     public TelaInicialController(JFTelaInicial telaInicial) {
         
        this.telaInicial = new JFTelaInicial();
-       livroController = new ListLivroController(new JFLivroList());
        startButton();
       
     }

@@ -35,7 +35,7 @@ public class JFLivroList extends javax.swing.JFrame {
      
         
         initComponents();
-        livroController = new ListLivroController(this);
+      
     }
 
     /**
@@ -74,22 +74,12 @@ public class JFLivroList extends javax.swing.JFrame {
 
         btnLimparTela.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnLimparTela.setText("LIMPAR TELA");
-        btnLimparTela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparTelaActionPerformed(evt);
-            }
-        });
 
         btnPaginaInicial.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnPaginaInicial.setText("PÁGINA INICIAL");
 
         btnAddLivro.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnAddLivro.setText("ADICIONAR LIVRO");
-        btnAddLivro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddLivroActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,22 +125,10 @@ public class JFLivroList extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLivroActionPerformed
-        addAcaoTelaAddLivro((ActionListener) evt);
-        this.dispose();
-    }//GEN-LAST:event_btnAddLivroActionPerformed
-
-    private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
-        addAcaoLimparTela((ActionListener) evt);
-    }//GEN-LAST:event_btnLimparTelaActionPerformed
     
         public void exbirTela(){
         this.setVisible(true);
     }
-        
-    //ListLivroController livroController = new ListLivroController(new JFLivroList());
-  
                 
     public void listarTodosLivros(){
                for(LivroUsado livroUsado : livroUsadoListDAO.getTodosLivrosUsados()){

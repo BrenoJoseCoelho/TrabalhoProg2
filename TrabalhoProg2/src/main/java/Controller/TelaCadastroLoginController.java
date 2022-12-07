@@ -44,6 +44,7 @@ public class TelaCadastroLoginController {
         cadastrarLogin.mostrarMsg(" Funcionario Adicionado com sucesso! "
                 + "\n [ Login: "+func.getEmail()+", "
                         + "Senha: "+func.getCpf() +" ] - " + func.toString());
+        
         TelaLoginController telaLoginController 
                 = new TelaLoginController(new JFTelaLoginLivraria());
                 telaLoginController.exibirTela();

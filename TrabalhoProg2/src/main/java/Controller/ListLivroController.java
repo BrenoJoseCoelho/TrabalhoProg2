@@ -30,7 +30,7 @@ public class ListLivroController{
     private EstoqueDAO estoqueDAO = new EstoqueDAO();
 
     public ListLivroController(JFLivroList LivroList) {
-        this.LivroList = new JFLivroList();
+      
         this.jFTelaInicial  = new JFTelaInicial();
         iniciarAcoes();
     }

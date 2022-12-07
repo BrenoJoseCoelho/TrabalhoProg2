@@ -23,9 +23,7 @@ import models.Funcionario;
  */
 public class JFTelaLoginLivraria extends javax.swing.JFrame {
 
-       TelaInicialController telaInicialController = new TelaInicialController(new JFTelaInicial());
-     
-    
+
     /**
      * Creates new form TelaLoginLivraria
      */
@@ -154,8 +152,8 @@ public class JFTelaLoginLivraria extends javax.swing.JFrame {
     this.dispose();
     }
     
-     public void exbirTela(){
-        setVisible(true);
+     public void exibirTela(){
+        this.setVisible(true);
     }
     
     public static void main(String args[]) {
