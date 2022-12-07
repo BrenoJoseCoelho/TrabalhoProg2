@@ -7,6 +7,7 @@ import View.App.JFTelaLoginLivraria;
  import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
+import Exception.SomenteNumerosException;
 import Repositorio.FuncionarioRepositorio;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -122,13 +123,13 @@ public class JFCadastrarLogin extends javax.swing.JFrame {
     public void mostrarMsg(String msg) {
         JOptionPane.showMessageDialog(null, msg);
         }
-       
-    public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException {
+
+    public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException, SomenteNumerosException{
         String nome = jTextFieldNomeFuncionario.getText();
-        String cpf = jTextFieldCPF.getText();
+        String cpf =  jTextFieldCPF.getText();
         String email = jTextFieldEmailFuncionario.getText();
         String cargo = jTextFieldCargoFuncionario.getText();
-
+        
         Funcionario f = new Funcionario();
         f.setNome(nome);
         f.setCpf(cpf);

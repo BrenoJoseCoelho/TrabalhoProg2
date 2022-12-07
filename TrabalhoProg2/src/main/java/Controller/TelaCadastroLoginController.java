@@ -7,6 +7,7 @@ package Controller;
 import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
+import Exception.SomenteNumerosException;
 import Repositorio.FuncionarioRepositorio;
 import View.App.JFTelaLoginLivraria;
 import View.JFAddFuncionario;
@@ -36,12 +37,12 @@ public class TelaCadastroLoginController {
     }
     
     
-      public void salvarFuncionario() throws CampoVazioException, CpfIgualException {
+      public void salvarFuncionario() {
         try{
         FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
         Funcionario func = cadastrarLogin.returnFunc();
         funcionarioRepositorio.salvarFuncionario(func); 
-        cadastrarLogin.mostrarMsg(" Funcionario Adicionado com sucesso! "
+        mostrarMsg(" Funcionario Adicionado com sucesso! "
                 + "\n [ Login: "+func.getEmail()+", "
                         + "Senha: "+func.getCpf() +" ] - " + func.toString());
         
@@ -50,20 +51,28 @@ public class TelaCadastroLoginController {
                 telaLoginController.exibirTela();
                     fecharTela();
         
-        }catch( CampoVazioException | CpfIgualException e){
-            cadastrarLogin.mostrarMsg(e.getMessage());
+        }catch(CampoVazioException | CpfIgualException | SomenteNumerosException ex){
+              if(ex instanceof SomenteNumerosException){
+                mostrarMsg("Campo CPF, "+ ex.getMessage());
+            }else
+                 
+            mostrarMsg(ex.getMessage());
         }
     
         limparTela();
     }
       
       public void acaoSalvaFunc(){
-             try {
+//             try {
             salvarFuncionario();
-            
-        } catch (CampoVazioException | CpfIgualException ex) {
-            Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//            
+//        } catch (CampoVazioException | CpfIgualException | SomenteNumerosException ex) {
+//            if(ex instanceof SomenteNumerosException){
+//                mostrarMsg("Campo CPF "+ ex.getMessage());
+//            }    
+//            
+//            mostrarMsg(ex.getMessage());
+//        }
       }  
       
         public void fecharTela(){
@@ -79,6 +88,9 @@ public class TelaCadastroLoginController {
         }
        
       
-            
-        
+       public void mostrarMsg(String msg){
+           cadastrarLogin.mostrarMsg(msg);
+       }
+               
+       
 }
