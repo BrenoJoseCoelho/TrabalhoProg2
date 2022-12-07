@@ -7,7 +7,7 @@ package models;
 import DAO.FuncionarioDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
-import Exception.SomenteNumerosException;
+import Exception.SomenteNumerosExceptionCPF;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,10 +68,10 @@ public class Funcionario implements AutenticacaoLogin {
         this.nome = nome;
     }
 
-    public void setCpf(String cpf) throws CpfIgualException, CampoVazioException, SomenteNumerosException {
+    public void setCpf(String cpf) throws CpfIgualException, CampoVazioException, SomenteNumerosExceptionCPF {
        
         if(!cpf.matches("[0-9.]+")){
-            throw  new SomenteNumerosException();
+            throw  new SomenteNumerosExceptionCPF();
         }
         
         if(cpf.isBlank()){
