@@ -53,8 +53,9 @@ public class Funcionario implements AutenticacaoLogin {
 
     public void setEmail(String email)throws CampoVazioException, EmailInválidoException{
         
-        if(!email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                +"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
+//        if(!email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+//                +"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"))
+        if(!email.matches("^(.+)@(\\S+)$")){
             throw new EmailInválidoException();
         }
         if(email.isBlank()){

@@ -5,6 +5,10 @@
 package Controller;
 
 import DAO.FornecedorDAO;
+import Exception.CampoVazioException;
+import Exception.CpfIgualException;
+import Exception.EmailInválidoException;
+import Exception.SomenteNumerosExceptionCPF;
 import Repositorio.FornecedorRepositorio;
 import View.JFAddFornecedor;        
 import java.awt.event.ActionEvent;
@@ -41,7 +45,8 @@ public class Fornecedor_Controller{
         telaFornecedor.exibirTela();
     }
     
-    public void novoFornecedor(){
+    public void novoFornecedor() {
+   
         String cnpj = telaFornecedor.getCNPJ();
         String nome = telaFornecedor.getNome();
          String empresa = telaFornecedor.getEmpresa();

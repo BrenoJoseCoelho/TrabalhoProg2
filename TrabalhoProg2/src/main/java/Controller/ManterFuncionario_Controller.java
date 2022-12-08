@@ -84,6 +84,7 @@ public class ManterFuncionario_Controller {
 
     public void exibirTelaCadastrarFuncionario(){
         new Funcionario_Controller(new JFAddFuncionario(), null).exibirTela();
+        telaFuncionario.fecharTela();
        
     }
 

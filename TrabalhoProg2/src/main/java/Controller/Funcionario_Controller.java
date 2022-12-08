@@ -6,10 +6,17 @@ package Controller;
 
 import DAO.FornecedorDAO;
 import DAO.FuncionarioDAO;
+import Exception.CampoVazioException;
+import Exception.CpfIgualException;
+import Exception.EmailInválidoException;
+import Exception.SomenteNumerosExceptionCPF;
 import Repositorio.FuncionarioRepositorio;
 import View.JFAddFuncionario;
+import View.JFFuncionarioList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.Funcionario;
 
 /**
@@ -20,11 +27,12 @@ public class Funcionario_Controller {
     
     private Funcionario funcionario;
     private JFAddFuncionario addFuncionario;
-    
+    private JFFuncionarioList funcionarioList;
 
     public Funcionario_Controller(JFAddFuncionario addFuncionario, Funcionario funcionario) {
         this.funcionario = funcionario;
         this.addFuncionario = addFuncionario;
+        this.funcionarioList = new JFFuncionarioList();
         
         adicionarAcaoBotoes();
     }
@@ -33,7 +41,13 @@ public class Funcionario_Controller {
         addFuncionario.adicionarAcaoBtnSalvarFuncionario(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                novoFuncionario();
+                try {
+                    novoFuncionario();
+                } catch(CampoVazioException | CpfIgualException | SomenteNumerosExceptionCPF | EmailInválidoException ex){
+   
+                mostraMsg(ex.getMessage());
+            
+                }
               
             }
         });
@@ -41,18 +55,27 @@ public class Funcionario_Controller {
 
   
     
-    public void novoFuncionario(){
-        String cpf = addFuncionario.getCPF();
-        String nome = addFuncionario.getNome();
+    public void novoFuncionario() throws CpfIgualException, CampoVazioException, 
+            SomenteNumerosExceptionCPF, EmailInválidoException{
+        
+         String cpf = addFuncionario.getCPF();
+         String nome = addFuncionario.getNome();
          String email = addFuncionario.getEmail();
          String cargo = addFuncionario.getCargo();
 
         Funcionario funcionario = new Funcionario(nome, cpf, cargo, email);
+        funcionario.setNome(nome);
+        funcionario.setCargo(cargo);
+        funcionario.setCpf(cpf);
+        funcionario.setEmail(email);
         FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
         funcionarioRepositorio.salvarFuncionario(funcionario);
-        addFuncionario.exibirMensagem("Funcionario cadastrado com sucesso");
-        addFuncionario.limparTela();
-        fecharTela();
+        mostraMsg("Funcionario cadastrado com sucesso");
+        
+         fecharTela();
+         funcionarioList.exibirTela();
+        
+       
         
 
     }
@@ -64,6 +87,8 @@ public class Funcionario_Controller {
     public void exibirTela(){
         addFuncionario.exibirTela();
     }
-    
+    public void mostraMsg(String s){
+      addFuncionario.exibirMensagem(s);
+    }
     
 }

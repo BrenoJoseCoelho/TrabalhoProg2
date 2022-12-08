@@ -137,7 +137,9 @@ public class JFClienteList extends javax.swing.JFrame {
     public void acaoRemoverCliente(ActionListener acao){
         btnRemoverCliente.addActionListener(acao);
                 
-    }        public void removerCliente(){
+    }       
+    
+    public void removerCliente(){
          ClienteRepositorio clienteRepositorio = new ClienteDAO();
          Cliente c = new Cliente();
          c = (Cliente) cbRemoverCliente.getSelectedItem();

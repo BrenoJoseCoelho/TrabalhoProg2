@@ -142,6 +142,9 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     public void exibirTela(){
         setVisible(true);
     }
+    public void fecharTela(){
+        this.dispose();
+    }
     
     public void populaDadosListaFuncionario(List<Funcionario> funcionarios) {
         for (Funcionario funcionario : funcionarios) {

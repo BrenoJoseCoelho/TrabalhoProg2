@@ -7,6 +7,7 @@ package Controller;
 import DAO.ClienteDAO;
 import Exception.CampoVazioException;
 import Exception.CpfIgualException;
+import Exception.SomenteNumerosExceptionCPF;
 import Repositorio.ClienteRepositorio;
 import View.JFAddCliente;
 import View.JFClienteList;
@@ -14,6 +15,8 @@ import View.Livro.JFLivroList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.Cliente;
 
 /**
@@ -40,28 +43,18 @@ import models.Cliente;
             @Override
             public void actionPerformed(ActionEvent e) {
              try{
-        Map<String, String> dados = addCliente.getCampos();
-        //criar a instância de Paciente
-        Cliente cliente = new Cliente(dados.get("nome"), dados.get("CPF"));
-        //salvar no BD
-        salvarCliente(cliente);
-        //Mostrar mensagem de sucesso
-       addCliente.apresentarMensagem("Cliente Adicionado com Sucesso!");
-       }catch(CampoVazioException | CpfIgualException ex){
-              addCliente.apresentarMensagem(ex.getMessage());
-                }
-        
-        //abri nova tela
-         ClienteListController clienteListController = 
+                 Cliente c= new Cliente();
+        salvarCliente(c);
+             ClienteListController clienteListController = 
                  new ClienteListController(new JFClienteList()); 
                  clienteListController.exibirTela();
-        //limpar tela        
-        limparTela();
-        
-        fecharTela();
-            }
-        });
-    }
+              fecharTela();
+        //Mostrar mensagem de sucesso
+       addCliente.apresentarMensagem("Cliente Adicionado com Sucesso!");
+       }catch(CampoVazioException | CpfIgualException | SomenteNumerosExceptionCPF ex){
+              addCliente.apresentarMensagem(ex.getMessage());
+                      limparTela();
+              }}});}
     
     void exibirTela() {
         addCliente.exibirTela();
@@ -75,7 +68,13 @@ import models.Cliente;
     }
 
     
-     public void salvarCliente(Cliente cliente) throws CpfIgualException, CampoVazioException{
+     public void salvarCliente(Cliente cliente) throws CpfIgualException, CampoVazioException, SomenteNumerosExceptionCPF{
+       Map<String, String> dados = addCliente.getCampos();
+        //criar a instância de Paciente
+
+        //salvar no BD
+         cliente.setNome(dados.get("nome"));
+         cliente.setCpf(dados.get("CPF"));
        ClienteRepositorio clienteRepositorio = new ClienteDAO();
        clienteRepositorio.salvarCliente(cliente);
     }

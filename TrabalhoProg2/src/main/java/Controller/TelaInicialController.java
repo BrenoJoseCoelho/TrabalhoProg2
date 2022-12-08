@@ -8,6 +8,7 @@ import View.JFAddCliente;
 import View.JFAddFornecedor;
 import View.JFAddFuncionario;
 import View.JFClienteList;
+import View.JFFornecedorList;
 import View.JFFuncionarioList;
 import View.JFGeralVendas;
 import View.JFTelaInicial;
@@ -82,8 +83,9 @@ public class TelaInicialController {
         }
      
      public void acaoMenuFornecedor(){   
-      Fornecedor_Controller fornecedor_Controller =
-              new Fornecedor_Controller(new JFAddFornecedor(), null);
+         
+      ManterFornecedor_Controller fornecedor_Controller =
+              new ManterFornecedor_Controller(new JFFornecedorList());
      fornecedor_Controller.exibir();
      
      }
