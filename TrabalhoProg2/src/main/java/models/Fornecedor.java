@@ -44,7 +44,7 @@ public class Fornecedor {
              throw new CnpjIgualException();
             }}
         
-         if(CNPJ.matches("[0-9.]+")){
+         if(!CNPJ.matches("[0-9.]+")){
             throw  new SomenteNumerosExceptionCNPJ();
         }
            if(this.CNPJ.isBlank()){
