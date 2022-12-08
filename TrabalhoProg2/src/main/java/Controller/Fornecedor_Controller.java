@@ -6,13 +6,17 @@ package Controller;
 
 import DAO.FornecedorDAO;
 import Exception.CampoVazioException;
+import Exception.CnpjIgualException;
 import Exception.CpfIgualException;
 import Exception.EmailInválidoException;
+import Exception.SomenteNumerosExceptionCNPJ;
 import Exception.SomenteNumerosExceptionCPF;
 import Repositorio.FornecedorRepositorio;
 import View.JFAddFornecedor;        
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.Fornecedor;
 
 /**
@@ -36,7 +40,12 @@ public class Fornecedor_Controller{
         telaFornecedor.adicionarAcaoBtnSalvarFornecedor(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                novoFornecedor();
+                try {
+                    novoFornecedor();
+                      mostrarMsg("Fornecedor cadastrado com sucesso!");
+                } catch (CnpjIgualException | SomenteNumerosExceptionCNPJ| CampoVazioException ex) {
+                      mostrarMsg(ex.getMessage());  
+                }
             }
         });
     }
@@ -45,20 +54,29 @@ public class Fornecedor_Controller{
         telaFornecedor.exibirTela();
     }
     
-    public void novoFornecedor() {
+    public void novoFornecedor() throws CnpjIgualException, SomenteNumerosExceptionCNPJ, CampoVazioException {
    
         String cnpj = telaFornecedor.getCNPJ();
         String nome = telaFornecedor.getNome();
          String empresa = telaFornecedor.getEmpresa();
+         
+         
 
         Fornecedor fornecedor = new Fornecedor(empresa, nome, cnpj);
+     
+        fornecedor.setEmpresa(empresa);
+        fornecedor.setNome(nome);
+           fornecedor.setCNPJ(cnpj);
+        
         FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
         fornecedorRepositorio.salvarFornecedor(fornecedor);
-        telaFornecedor.exibirMensagem("Fornecedor cadastrado com sucesso");
+     
         telaFornecedor.limparTela();
 
     }
 
-
+    public void mostrarMsg(String a){
+        telaFornecedor.exibirMensagem(a);
+    }
     
 }

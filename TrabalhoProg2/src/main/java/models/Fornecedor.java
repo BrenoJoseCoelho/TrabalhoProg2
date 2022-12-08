@@ -4,6 +4,13 @@
  */
 package models;
 
+import DAO.FornecedorDAO;
+import DAO.FuncionarioDAO;
+import Exception.CampoVazioException;
+import Exception.CnpjIgualException;
+import Exception.CpfIgualException;
+import Exception.SomenteNumerosExceptionCNPJ;
+import Exception.SomenteNumerosExceptionCPF;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -27,13 +34,39 @@ public class Fornecedor {
     public Fornecedor() {
        
     }
-    
 
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
+
+    public void setCNPJ(String CNPJ) throws CnpjIgualException, SomenteNumerosExceptionCNPJ, CampoVazioException {
+      
+        FornecedorDAO  fornDAO = new FornecedorDAO();
+        for(Fornecedor forn : fornDAO.buscarTodosFornecedores()){
+          if(forn.getCnpj().equals(CNPJ)){
+             throw new CnpjIgualException();
+            }}
+        
+         if(CNPJ.matches("[0-9.]+")){
+            throw  new SomenteNumerosExceptionCNPJ();
+        }
+           if(this.CNPJ.isBlank()){
+            throw new CampoVazioException();
+        } 
+        this.CNPJ = CNPJ;
+    }
+    
+    public void setEmpresa(String empresa) throws CampoVazioException {
+            
+        if(empresa.isBlank()){
+            throw new CampoVazioException();
+        }
+    
+        
+      this.empresa = empresa;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws CampoVazioException {
+        if(nome.isBlank()){
+            throw new CampoVazioException();
+        }
         this.nome = nome;
     }
 
