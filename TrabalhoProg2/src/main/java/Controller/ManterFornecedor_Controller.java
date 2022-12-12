@@ -98,6 +98,7 @@ public class ManterFornecedor_Controller {
 
     public void exibirTelaCadastrarFornecedor() {
         new Fornecedor_Controller(new JFAddFornecedor(), null).exibir();
+        fecharTela();
     }
 
     public void listarFornecedor() {

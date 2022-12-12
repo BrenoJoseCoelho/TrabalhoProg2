@@ -87,6 +87,7 @@ public class TelaInicialController {
       ManterFornecedor_Controller fornecedor_Controller =
               new ManterFornecedor_Controller(new JFFornecedorList(), null);
      fornecedor_Controller.exibir();
+    fecharTela();
      
      }
      
