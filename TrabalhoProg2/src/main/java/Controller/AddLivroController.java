@@ -30,7 +30,6 @@ public class AddLivroController {
     public AddLivroController( JFAddLivro addLivro) {
         this.livroNovo = livroNovo;
         this.livroUsado = livroUsado;
-    
         this.addLivro = addLivro;
         addActionButton();
         exibirTela();
@@ -45,27 +44,23 @@ public class AddLivroController {
     }
     
      public void addLivroUsado() throws IsbnExistenteException{
-          EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-          LivroUsadoRepositorio livroUsadoRepositorio = new LivroUsadoListDAO();
-        LivroUsado livroUsado = addLivro.returnLivroUsado();
-        livroUsadoRepositorio.addLivroUsado(livroUsado);
-        estoquerepositorio.addEstoqueUsado(livroUsado);
-        
-        mostraMsg("Adicionado Livro Usado com Sucesso! ");
-        fecharTela();
-         
-    }
-     
-     
+        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
+        LivroUsadoRepositorio livroUsadoRepositorio = new LivroUsadoListDAO();
+            LivroUsado livroUsado = addLivro.returnLivroUsado();
+                 livroUsadoRepositorio.addLivroUsado(livroUsado);
+                    estoquerepositorio.addEstoqueUsado(livroUsado);
+             mostraMsg("Adicionado Livro Usado com Sucesso! ");
+             fecharTela();}
+
      public void addLivroNovo() throws IsbnExistenteException {
          EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
         
         LivroNovoRepositorio livroNovoRepositorio =  new LivroNovoListDAO();
         LivroNovo livroNovo = addLivro.returnLivroNovo();
-        livroNovoRepositorio.addLivroNovo(livroNovo);
-        estoquerepositorio.addEstoqueNovo(livroNovo);
-        mostraMsg("Adicionado Livro Novo com Sucesso! ");
-       fecharTela();
+             livroNovoRepositorio.addLivroNovo(livroNovo);
+                estoquerepositorio.addEstoqueNovo(livroNovo);
+            mostraMsg("Adicionado Livro Novo com Sucesso! ");
+            fecharTela();
 
      }
      
@@ -73,31 +68,25 @@ public class AddLivroController {
             
             addLivro.addAcaoBotaoSalvar(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e){
                 if(addLivro.rbLivroNovo.isSelected()){
             try {
-                addLivroNovo();}
+              addLivroNovo();}
                 catch (IsbnExistenteException ex) {
-                    addLivro.mostrarMensagem(ex.getMessage());}
-            
-            }
+                    addLivro.mostrarMensagem(ex.getMessage());}}
             else 
                if (addLivro.rbLivroUsado.isSelected()){
                  try {
                     addLivroUsado();} 
-                 catch (IsbnExistenteException exception) {
-                    addLivro.mostrarMensagem(exception.getMessage());
-            }}}
-            });
-            }
+                     catch (IsbnExistenteException exception) {
+                         addLivro.mostrarMensagem(exception.getMessage());
+            }}}});}
      
      public void fecharTela(){
-         addLivro.fecharTela();
-     }
+         addLivro.fecharTela();}
      
      public void mostraMsg(String msg){
-         addLivro.mostrarMensagem(msg);
-     }
+         addLivro.mostrarMensagem(msg);}
      
      
 }

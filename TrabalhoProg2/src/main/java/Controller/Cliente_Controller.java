@@ -75,9 +75,10 @@ import models.Cliente;
         //salvar no BD
          cliente.setNome(dados.get("nome"));
          cliente.setCpf(dados.get("CPF"));
-       ClienteRepositorio clienteRepositorio = new ClienteDAO();
-       clienteRepositorio.salvarCliente(cliente);
+        ClienteRepositorio clienteRepositorio = new ClienteDAO();
+        clienteRepositorio.salvarCliente(cliente);
     }
+   
     
     
 }

@@ -26,7 +26,7 @@ import models.LivroUsado;
  */
 public class JFLivroList extends javax.swing.JFrame {
 
-    private LivroNovoListDAO livroNovoListDAO = new LivroNovoListDAO();
+    
     private LivroUsadoListDAO livroUsadoListDAO =  new LivroUsadoListDAO();
     private EstoqueDAO estoqueDAO = new EstoqueDAO();
     private ListLivroController livroController;
@@ -130,24 +130,25 @@ public class JFLivroList extends javax.swing.JFrame {
         this.setVisible(true);
     }
                 
-    public void listarTodosLivros(){
-               for(LivroUsado livroUsado : livroUsadoListDAO.getTodosLivrosUsados()){
+    public void listarTodosLivros(List<LivroNovo> livroNovos, List<LivroUsado> livroUsados){
+               for(LivroUsado livroUsado : livroUsados){
                txtAreaListar.append(livroUsado.toString()+"\n");       
        }
-            for(LivroNovo livroNovo : livroNovoListDAO.getTodosLivrosNovos()){
+            for(LivroNovo livroNovo : livroNovos){
               txtAreaListar.append(livroNovo.toString()+"\n"); 
        } 
     }
     
-    public void listarLivrosNovos(){
-      for(LivroNovo livroNovo : livroNovoListDAO.getTodosLivrosNovos()){
-           txtAreaListar.append(livroNovo.toString()+"\n");       
+    public void listarLivrosNovos(List<LivroNovo> livroNovos){
+
+        for(LivroNovo livroNovo : livroNovos){
+        txtAreaListar.append(livroNovo.toString()+"\n");       
        }
     }
     
-     public void listarLivrosUsados(){
+     public void listarLivrosUsados(List<LivroUsado> livroUsados){
  
-       for(LivroUsado livroUsado : livroUsadoListDAO.getTodosLivrosUsados()){
+       for(LivroUsado livroUsado : livroUsados){
            txtAreaListar.append(livroUsado.toString()+"\n");       
        }
     }

@@ -18,13 +18,13 @@ import models.Funcionario;
  * @author LRodrigues
  */
 public class JFClienteList extends javax.swing.JFrame {
-        ClienteRepositorio cr = new ClienteDAO();
+        
     /**
      * Creates new form JFFornecedorList
      */
     public JFClienteList() {
         initComponents();
-        initComboCliente();
+ 
         
     }
 
@@ -113,10 +113,9 @@ public class JFClienteList extends javax.swing.JFrame {
     public void acaoAddCliente(ActionListener actionListener){
         btnAddCliente.addActionListener(actionListener);
         
-    }    public void listarCliente(){ 
-          ClienteRepositorio clienteRepositorio = new ClienteDAO();
-       Collections.sort(clienteRepositorio.buscarTodosClientes());
-       for(Cliente c : clienteRepositorio.buscarTodosClientes()){
+    }    
+    public void listarCliente(List<Cliente> clientes){ 
+       for(Cliente c : clientes){
           txtListCientes.append(c.toString()+"\n");       
        }
     }
@@ -138,21 +137,19 @@ public class JFClienteList extends javax.swing.JFrame {
         btnRemoverCliente.addActionListener(acao);
                 
     }       
+    public void comboItemRemover(){
+         cbRemoverCliente.getSelectedItem();
+    }
     
-    public void removerCliente(){
-         ClienteRepositorio clienteRepositorio = new ClienteDAO();
-         Cliente c = new Cliente();
-         c = (Cliente) cbRemoverCliente.getSelectedItem();
-         clienteRepositorio.removeCliente(c);
+    public Cliente removerCliente(){
+        return (Cliente) cbRemoverCliente.getSelectedItem();
         }
     
-    
-       public void initComboCliente(){
-        List<Cliente> cliente = cr.buscarTodosClientes();
+       public void initComboCliente(List<Cliente> cliente){
+  
         for(Cliente c : cliente ){   
         cbRemoverCliente.addItem(c);
-        }
-    }
+        }}
        
        public void exibirTela(){
            this.setVisible(true);
