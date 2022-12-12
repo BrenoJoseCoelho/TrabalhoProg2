@@ -7,12 +7,15 @@ package Controller;
 import DAO.EstoqueDAO;
 import DAO.LivroNovoListDAO;
 import DAO.LivroUsadoListDAO;
+import Repositorio.LivroNovoRepositorio;
+import Repositorio.LivroUsadoRepositorio;
 import View.JFTelaInicial;
 import View.Livro.JFAddLivro;
 import View.Livro.JFLivroList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Comparator;
+import java.util.List;
 import models.LivroNovo;
 import models.LivroUsado;
 
@@ -23,8 +26,8 @@ import models.LivroUsado;
 public class ListLivroController{
     private JFTelaInicial jFTelaInicial;
     private JFLivroList LivroList ; 
-    private LivroNovo livroNovo;
-    private LivroUsado livroUsado;
+    private List<LivroNovo> livroNovo;
+    private List<LivroUsado> livroUsado;
     private LivroNovoListDAO livroNovoListDAO = new LivroNovoListDAO();
     private LivroUsadoListDAO livroUsadoListDAO =  new LivroUsadoListDAO();
     private EstoqueDAO estoqueDAO = new EstoqueDAO();
@@ -59,60 +62,59 @@ public class ListLivroController{
      }
      
      public void listarTodosLivros(){
-      LivroList.listarTodosLivros();
+       LivroUsadoRepositorio livroUsadoRepositorio= new LivroUsadoListDAO();
+       LivroNovoRepositorio livroNovoRepositorio = new LivroNovoListDAO();
+         livroUsado = (List<LivroUsado>) livroUsadoRepositorio.getTodosLivrosUsados();
+         livroNovo = (List<LivroNovo>) livroNovoRepositorio.getTodosLivrosNovos();
+            LivroList.listarLivrosUsados((List<LivroUsado>) livroUsado);
+            LivroList.listarLivrosNovos((List<LivroNovo>) livroNovo);
      }
      
      public void listarLivroUsado(){
-       LivroList.listarLivrosUsados();
+          listUsed();
              livroUsadoListDAO.getTodosLivrosUsados().sort((new Comparator<LivroUsado>() {
              @Override
                public int compare(LivroUsado o1, LivroUsado o2) {
                   return o1.getIsbn().compareTo(o2.getIsbn());    
-             }
-           
-       }));
-  
-     }
+             }}));}
      
      public void listaLivroNovo(){
-          LivroList.listarLivrosNovos();
+         listarNewLivro();
             livroNovoListDAO.getTodosLivrosNovos().sort((new Comparator<LivroNovo>() {
            @Override   
             public int compare(LivroNovo o1, LivroNovo o2) {
                return o1.getIsbn().compareTo(o2.getIsbn());      
-           }
-        
-       }));
-  
-       
-     }
+           }}));}
+
+     
+     public void listUsed(){
+         LivroUsadoRepositorio livroUsadoRepositorio= new LivroUsadoListDAO();
+         livroUsado = (List<LivroUsado>)livroUsadoRepositorio.getTodosLivrosUsados();
+         LivroList.listarLivrosUsados((List<LivroUsado>) livroUsado);}
+     
+     public void listarNewLivro(){
+         LivroNovoRepositorio livroNovoRepositorio = new LivroNovoListDAO();
+         livroNovo = (List<LivroNovo>)livroNovoRepositorio.getTodosLivrosNovos();
+         LivroList.listarLivrosNovos((List<LivroNovo>) livroNovo);}
      
      public void acaoTelaIniciar(){
-        
          TelaInicialController inicialController =
-                 new TelaInicialController(new JFTelaInicial());
-         inicialController.exibirTela();
- 
-     }
+         new TelaInicialController(new JFTelaInicial());
+         inicialController.exibirTela();}
      
       public void acaoTelaAddLivro(){
          AddLivroController addLivroController = 
                  new AddLivroController(new JFAddLivro());
-                addLivroController.exibirTela();
-         
-     }
+                addLivroController.exibirTela();}
       
      public void fecharListTela(){
-      LivroList.fecharTela();
-     }
+      LivroList.fecharTela();}
      
      public void limparTela(){
-         LivroList.limparTela();
-     }
+         LivroList.limparTela();}
 
       public void exbirTela(){
-       LivroList.exbirTela();
-    }
+       LivroList.exbirTela();}
 
   
      
