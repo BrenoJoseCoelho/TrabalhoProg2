@@ -72,20 +72,20 @@ public class TelaInicialController {
     }       
      public void acaoMenuFuncionario(){
         ManterFuncionario_Controller manterFuncionario_Controller =
-                 new ManterFuncionario_Controller(new JFFuncionarioList());
+                 new ManterFuncionario_Controller(new JFFuncionarioList(), null);
         manterFuncionario_Controller.exibir();
         }
      
      public void acaoMenuVenda(){     
-        Venda_controller venda_controller = 
-                 new Venda_controller (new JFGeralVendas(), null);
-        venda_controller.exibirTela();
+        ManterVenda_Controller manterVenda_controller = 
+                 new ManterVenda_Controller (new JFGeralVendas());
+        manterVenda_controller.exibirTela();
         }
      
      public void acaoMenuFornecedor(){   
          
       ManterFornecedor_Controller fornecedor_Controller =
-              new ManterFornecedor_Controller(new JFFornecedorList());
+              new ManterFornecedor_Controller(new JFFornecedorList(), null);
      fornecedor_Controller.exibir();
      
      }

@@ -14,6 +14,7 @@ import models.Cliente;
 import Repositorio.ClienteRepositorio;
 import Repositorio.EstoqueRepositorio;
 import Repositorio.FuncionarioRepositorio;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
 import models.Estoque;
@@ -34,22 +35,9 @@ public class JFVenda extends javax.swing.JFrame {
     public JFVenda() {
         initComponents();
 
-        List<Cliente> clientes = buscarTodosClientes();
-        popularCliente(clientes);
-        popularFuncionario();
-        popularLivros();
-
     }
 
-    public List<Cliente> buscarTodosClientes() {
-        ClienteRepositorio clienteRepositorio = new ClienteDAO();
-        return clienteRepositorio.buscarTodosClientes();
-    }
-
-    public void popularFuncionario() {
-        FuncionarioRepositorio funcionariorepositorio = new FuncionarioDAO();
-        List<Funcionario> funcionarios = funcionariorepositorio.getTodosFuncionarios();
-
+    public void popularFuncionario(List<Funcionario> funcionarios) {
         for (Funcionario fun : funcionarios) {
             jComboBoxFuncionario.addItem(fun);
         }
@@ -61,19 +49,21 @@ public class JFVenda extends javax.swing.JFrame {
             jComboBoxCliente.addItem(c);
         }
     }
-    
-    public void popularLivros() {
-        EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-        List<LivroUsado> estoqueu = estoquerepositorio.getTodosLivrosUsado();
-         List<LivroNovo> estoquen = estoquerepositorio.getTodosLivrosNovo();
 
+    public void popularLivroUsado(List<LivroUsado> estoqueu) {
         for (LivroUsado livrou : estoqueu) {
             jComboBoxLivroU.addItem(livrou);
         }
-        
+    }
+
+    public void popularLivroNovo(List<LivroNovo> estoquen) {
         for (LivroNovo livron : estoquen) {
             jComboBoxLivroN.addItem(livron);
         }
+    }
+
+    public void fecharTela() {
+        this.dispose();
     }
 
     /**
@@ -114,11 +104,6 @@ public class JFVenda extends javax.swing.JFrame {
         jLabel4.setText("Livro Usado:");
 
         btnVender.setText("Vender");
-        btnVender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVenderActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Funcionario:");
 
@@ -132,14 +117,6 @@ public class JFVenda extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(179, 179, 179))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(197, 197, 197))
             .addGroup(layout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,6 +136,15 @@ public class JFVenda extends javax.swing.JFrame {
                         .addComponent(jtfObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jlObservacao))
                 .addContainerGap(64, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(197, 197, 197))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(221, 221, 221))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,55 +183,50 @@ public class JFVenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        //obter o data
-        String data = jtfDataVenda.getText();
-        //obter o cliente
-        Cliente cliente = (Cliente) jComboBoxCliente.getSelectedItem();
-        //obter o funcionario
-        Funcionario funcionario = (Funcionario) jComboBoxFuncionario.getSelectedItem();
-        //obter o livros
-        LivroUsado livroUsado = (LivroUsado) jComboBoxLivroU.getSelectedItem();
-        
-         LivroNovo livroNovo = (LivroNovo) jComboBoxLivroN.getSelectedItem();
-        
-        String observacao = jtfObservacao.getText();
-        
-          EstoqueRepositorio estoquerepositorio = new EstoqueDAO();
-          estoquerepositorio.removeLivroUsado(livroUsado);
-          estoquerepositorio.removeLivroNovo(livroNovo);
-        //criar a instância de Paciente
-        Venda venda = new Venda(data, observacao, cliente, funcionario,livroUsado,livroNovo);
-        //salvar no BD
-        salvarVenda(venda);
-        //Mostrar mensagem de sucesso
-        apresentarMensagem("Venda realizada com sucesso!");
-        //limpar tela
-        limparTela();
-    }//GEN-LAST:event_btnVenderActionPerformed
-
-     public void salvarVenda(Venda venda){
-       
-         
-       VendaRepositorio vendaRepositorio = new VendaDAO();
-       vendaRepositorio.novaVenda(venda);
+    public String getData() {
+        return jtfDataVenda.getText();
     }
-    
-    public void limparTela(){
+
+    public Cliente getCliente() {
+        return (Cliente) jComboBoxCliente.getSelectedItem();
+    }
+
+    public Funcionario getFuncionario() {
+        return (Funcionario) jComboBoxFuncionario.getSelectedItem();
+    }
+
+    public LivroUsado getLivroUsado() {
+        return (LivroUsado) jComboBoxLivroU.getSelectedItem();
+    }
+
+    public LivroNovo getLivroNovo() {
+        return (LivroNovo) jComboBoxLivroN.getSelectedItem();
+    }
+
+    public String getObservacao() {
+        return jtfObservacao.getText();
+    }
+
+    public void adicionarAcaoBotaoVender(ActionListener acao) {
+        btnVender.addActionListener(acao);
+    }
+
+    public void limparTela() {
         jtfObservacao.setText("");
         jtfDataVenda.setText("");
     }
-    public void exbirTela(){
+
+    public void exbirTela() {
         setVisible(true);
     }
-    
-    public void apresentarMensagem(String msg){
+
+    public void apresentarMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
     /**
      * @param args the command line arguments
      */
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVender;

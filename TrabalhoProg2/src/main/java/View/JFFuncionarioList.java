@@ -22,14 +22,14 @@ import models.LivroUsado;
  */
 public class JFFuncionarioList extends javax.swing.JFrame {
 
-    FuncionarioRepositorio fr = new FuncionarioDAO();
+    
 
     /**
      * Creates new form JFListFuncionario
      */
     public JFFuncionarioList() {
         initComponents();
-        initComboFuncionario();
+        
     }
 
     /**
@@ -135,6 +135,10 @@ public class JFFuncionarioList extends javax.swing.JFrame {
         btnRemoverFuncionario.addActionListener(acao);
     }
 
+    public Funcionario getFuncionario(){
+        return (Funcionario) cbRemoverFunc.getSelectedItem();
+    }
+    
     public void limparTela() {
         txtAreaFuncionarios.setText("");
     }
@@ -154,8 +158,8 @@ public class JFFuncionarioList extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public void initComboFuncionario() {
-        List<Funcionario> funcionarios = fr.getTodosFuncionarios();
+    public void initComboFuncionario(List<Funcionario> funcionarios) {
+        
         for (Funcionario f : funcionarios) {
             cbRemoverFunc.addItem(f);
         }

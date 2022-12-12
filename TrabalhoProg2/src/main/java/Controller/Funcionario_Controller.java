@@ -73,11 +73,11 @@ public class Funcionario_Controller {
         mostraMsg("Funcionario cadastrado com sucesso");
         
          fecharTela();
-         funcionarioList.exibirTela();
+         ManterFuncionario_Controller manterFuncionario_Controller
+                = new ManterFuncionario_Controller(new JFFuncionarioList(), null);
+        manterFuncionario_Controller.exibir();
         
        
-        
-
     }
     
     public void fecharTela(){

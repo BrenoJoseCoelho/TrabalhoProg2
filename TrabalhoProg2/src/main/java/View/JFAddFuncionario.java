@@ -118,46 +118,11 @@ public class JFAddFuncionario extends javax.swing.JFrame {
 
     public void adicionarAcaoBtnSalvarFuncionario(ActionListener acao) {
         btnSalvarFuncionario.addActionListener(acao);
-        
-        //try {
-        //         salvarFuncionario();
-
-        //    } catch (CampoVazioException | CpfIgualException ex) {
-        //        Logger.getLogger(JFAddFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        //    }
     }
-    // public void salvarFuncionario() throws CampoVazioException, CpfIgualException {
-    //   try{
-    //   FuncionarioRepositorio funcionarioRepositorio =  new FuncionarioDAO();
-    //   Funcionario func = returnFunc();
-    //   funcionarioRepositorio.salvarFuncionario(func);
-
-    //    mostrarMsg(" Funcionario Adicionado com sucesso! \n [ Login: "+func.getEmail()+
-    //         ", Senha: "+func.getCpf() +" ] - " + func.toString());
-    //    JFFuncionarioList fFuncionarioList = new JFFuncionarioList();
-    //     fFuncionarioList.setVisible(true);
-    //   this.dispose();
-    //   }catch( CampoVazioException | CpfIgualException e){
-    //       mostrarMsg(e.getMessage());
-    //   }
-//        limparTela();
-    // }
     public void exibirMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
 
-    // public Funcionario returnFunc() throws  CpfIgualException, CampoVazioException {
-    //     String nome = jTextFieldNomeFuncionario.getText();
-    //     String cpf = jTextFieldCPF.getText();
-    //    String email = jTextFieldEmailFuncionario.getText();
-    //     String cargo = jTextFieldCargoFuncionario.getText();
-    //      Funcionario f = new Funcionario();
-    //      f.setNome(nome);
-    //      f.setCpf(cpf);
-    //      f.setEmail(email);
-    //      f.setCargo(cargo);
-    //    return f;
-    // }  
     
     public String getNome(){
         return jTextFieldNomeFuncionario.getText(); 

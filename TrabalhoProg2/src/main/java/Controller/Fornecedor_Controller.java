@@ -12,7 +12,8 @@ import Exception.EmailInválidoException;
 import Exception.SomenteNumerosExceptionCNPJ;
 import Exception.SomenteNumerosExceptionCPF;
 import Repositorio.FornecedorRepositorio;
-import View.JFAddFornecedor;        
+import View.JFAddFornecedor;
+import View.JFFornecedorList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -20,63 +21,65 @@ import java.util.logging.Logger;
 import models.Fornecedor;
 
 /**
- *s
+ * s
+ *
  * @author breno
  */
+public class Fornecedor_Controller {
 
-public class Fornecedor_Controller{
-     private Fornecedor modelFornecedor;
-    private JFAddFornecedor telaFornecedor;
+    private Fornecedor modelFornecedor;
+    private JFAddFornecedor telaAddFornecedor;
     
-            
-    public Fornecedor_Controller(JFAddFornecedor telaFornecedor, Fornecedor modelFornecedor){
+
+    public Fornecedor_Controller(JFAddFornecedor telaFornecedor, Fornecedor modelFornecedor) {
         this.modelFornecedor = modelFornecedor;
-        this.telaFornecedor = telaFornecedor;
-        
+        this.telaAddFornecedor = telaFornecedor;
+
         adicionarAcaoBotoes();
     }
-    
-    public void adicionarAcaoBotoes(){
-        telaFornecedor.adicionarAcaoBtnSalvarFornecedor(new ActionListener() {
+
+    public void adicionarAcaoBotoes() {
+        telaAddFornecedor.adicionarAcaoBtnSalvarFornecedor(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     novoFornecedor();
-                      mostrarMsg("Fornecedor cadastrado com sucesso!");
-                } catch (CnpjIgualException | SomenteNumerosExceptionCNPJ| CampoVazioException ex) {
-                      mostrarMsg(ex.getMessage());  
+                    mostrarMsg("Fornecedor cadastrado com sucesso!");
+                } catch (CnpjIgualException | SomenteNumerosExceptionCNPJ | CampoVazioException ex) {
+                    mostrarMsg(ex.getMessage());
                 }
             }
         });
     }
 
-    public void exibir(){
-        telaFornecedor.exibirTela();
+    public void exibir() {
+        telaAddFornecedor.exibirTela();
     }
-    
+
     public void novoFornecedor() throws CnpjIgualException, SomenteNumerosExceptionCNPJ, CampoVazioException {
-   
-        String cnpj = telaFornecedor.getCNPJ();
-        String nome = telaFornecedor.getNome();
-         String empresa = telaFornecedor.getEmpresa();
-         
-         
+
+        String cnpj = telaAddFornecedor.getCNPJ();
+        String nome = telaAddFornecedor.getNome();
+        String empresa = telaAddFornecedor.getEmpresa();
 
         Fornecedor fornecedor = new Fornecedor(empresa, nome, cnpj);
-     
+
         fornecedor.setEmpresa(empresa);
         fornecedor.setNome(nome);
-           fornecedor.setCNPJ(cnpj);
-        
+        fornecedor.setCNPJ(cnpj);
+
         FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
         fornecedorRepositorio.salvarFornecedor(fornecedor);
-     
-        telaFornecedor.limparTela();
 
+        telaAddFornecedor.fecharTela();
+
+        ManterFornecedor_Controller manterFornecedor_Controller
+                = new ManterFornecedor_Controller(new JFFornecedorList(), null);
+        manterFornecedor_Controller.exibir();
     }
 
-    public void mostrarMsg(String a){
-        telaFornecedor.exibirMensagem(a);
+    public void mostrarMsg(String a) {
+        telaAddFornecedor.exibirMensagem(a);
     }
-    
+
 }

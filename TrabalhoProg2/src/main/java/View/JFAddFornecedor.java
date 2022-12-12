@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+
 import Repositorio.FornecedorRepositorio;
 import DAO.FornecedorDAO;
 import Exception.CpfIgualException;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import models.Fornecedor;
+
 /**
  *
  * @author levan
@@ -20,8 +22,9 @@ public class JFAddFornecedor extends javax.swing.JFrame {
      */
     public JFAddFornecedor() {
         initComponents();
-        
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -95,34 +98,38 @@ public class JFAddFornecedor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-     
-    public void adicionarAcaoBtnSalvarFornecedor(ActionListener acao){
+
+    public void adicionarAcaoBtnSalvarFornecedor(ActionListener acao) {
         btnSalvarFornecedor.addActionListener(acao);
     }
-    public String getNome(){
-        return jtfNomeFornecedor.getText(); 
+
+    public String getNome() {
+        return jtfNomeFornecedor.getText();
     }
-    
-    public String getEmpresa(){
-        return jtfEmpresa.getText(); 
+
+    public String getEmpresa() {
+        return jtfEmpresa.getText();
     }
-    
-    public String getCNPJ(){
-        return jtfCNPJfornecedor.getText(); 
+
+    public String getCNPJ() {
+        return jtfCNPJfornecedor.getText();
     }
-    
-    
+
     public void exibirTela() {
         setVisible(true);
     }
-    
-    public void limparTela(){
+
+    public void limparTela() {
         jtfCNPJfornecedor.setText("");
         jtfEmpresa.setText("");
         jtfNomeFornecedor.setText("");
     }
-    
-    public void exibirMensagem(String msg){
+
+    public void fecharTela() {
+        this.dispose();
+    }
+
+    public void exibirMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
 
@@ -136,7 +143,5 @@ public class JFAddFornecedor extends javax.swing.JFrame {
     private javax.swing.JLabel txtEmpresa;
     private javax.swing.JLabel txtNomeFOrnecedor;
     // End of variables declaration//GEN-END:variables
-
-  
 
 }

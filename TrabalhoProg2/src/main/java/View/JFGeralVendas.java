@@ -4,6 +4,8 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author breno
@@ -27,23 +29,13 @@ public class JFGeralVendas extends javax.swing.JFrame {
     private void initComponents() {
 
         btnNovavenda = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnRelatorioVenda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnNovavenda.setText("Nova Venda");
-        btnNovavenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovavendaActionPerformed(evt);
-            }
-        });
 
-        jButton2.setText("Relatorio Vendas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        btnRelatorioVenda.setText("Relatorio Vendas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,7 +44,7 @@ public class JFGeralVendas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(130, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                    .addComponent(btnRelatorioVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                     .addComponent(btnNovavenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(139, 139, 139))
         );
@@ -62,7 +54,7 @@ public class JFGeralVendas extends javax.swing.JFrame {
                 .addGap(92, 92, 92)
                 .addComponent(btnNovavenda, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRelatorioVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(106, Short.MAX_VALUE))
         );
 
@@ -73,16 +65,14 @@ public class JFGeralVendas extends javax.swing.JFrame {
         setVisible(true);
     }
     
-    private void btnNovavendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovavendaActionPerformed
-        JFVenda jfvenda = new JFVenda();
-        jfvenda.setVisible(true);
-    }//GEN-LAST:event_btnNovavendaActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         JFRelatorioVenda relatoriovenda = new JFRelatorioVenda();
-        relatoriovenda.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    public void adicionarAcaoBotaoNovaVenda(ActionListener acao){
+         btnNovavenda.addActionListener(acao); 
+    }
+    
+    public void adicionarAcaoBotaoRelatorioVenda(ActionListener acao){
+         btnRelatorioVenda.addActionListener(acao); 
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -90,6 +80,6 @@ public class JFGeralVendas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNovavenda;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnRelatorioVenda;
     // End of variables declaration//GEN-END:variables
 }

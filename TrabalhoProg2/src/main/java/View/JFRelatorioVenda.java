@@ -6,6 +6,8 @@ package View;
 
 import DAO.VendaDAO;
 import Repositorio.VendaRepositorio;
+import java.awt.event.ActionListener;
+import java.util.List;
 import models.Venda;
 
 /**
@@ -15,13 +17,13 @@ import models.Venda;
 public class JFRelatorioVenda extends javax.swing.JFrame {
 
     private VendaDAO vendalivro = new VendaDAO();
+
     /**
      * Creates new form JFRelatorioVenda
      */
     public JFRelatorioVenda() {
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,11 +40,6 @@ public class JFRelatorioVenda extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnpesquisar.setText("Procurar por Data");
-        btnpesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpesquisarActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Data:");
 
@@ -51,18 +48,8 @@ public class JFRelatorioVenda extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtAreaVendas);
 
         btnVendas.setText("Listar Todas Vendas");
-        btnVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVendasActionPerformed(evt);
-            }
-        });
 
         btnLimpar.setText("Limpar Tudo");
-        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,35 +95,42 @@ public class JFRelatorioVenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
-        VendaRepositorio livrorepositorio = new VendaDAO();
-        
-         String data = tfdatapesquisa.getText();
-         
-     txtAreaVendas.append(livrorepositorio.relatorioVendaData(data));
-     
-     
-    }//GEN-LAST:event_btnpesquisarActionPerformed
+    public void adicionarAcaoBotaoLimparTela(ActionListener acao) {
+        btnLimpar.addActionListener(acao);
+    }
 
-    private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-      
-        
-        for(Venda venda : vendalivro.listarTodasVendas()){
-           txtAreaVendas.append(venda.toString()+"\n");
-       }
-    }//GEN-LAST:event_btnVendasActionPerformed
+    public void adicionarAcaoBotaoListaVendas(ActionListener acao) {
+        btnVendas.addActionListener(acao);
+    }
 
-    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-      limparTela();
-    }//GEN-LAST:event_btnLimparActionPerformed
+    public void adicionarAcaoBotaoPesquisaData(ActionListener acao) {
+        btnpesquisar.addActionListener(acao);
+    }
+    public void populaDadosListaVendas(List<Venda> vendas) {
+        for (Venda venda : vendas) {
+            txtAreaVendas.append(venda.toString() + "\n");
+        }
+    }
+    
+    public String getData(){
+        return tfdatapesquisa.getText();
+    }
 
-     public void limparTela(){
+    public void populaDadosListaVendasData(String venda) {
+        txtAreaVendas.append(venda);
+    }
+
+    public void limparTela() {
         txtAreaVendas.setText("");
+    }
+
+    public void exibirTela() {
+        setVisible(true);
     }
     /**
      * @param args the command line arguments
      */
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLimpar;

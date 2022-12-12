@@ -8,8 +8,10 @@ import DAO.FuncionarioDAO;
 import Repositorio.FuncionarioRepositorio;
 import View.JFAddFuncionario;
 import View.JFFuncionarioList;
+import View.JFTelaInicial;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import models.Funcionario;
 
 /**
@@ -22,24 +24,18 @@ public class ManterFuncionario_Controller {
 
     private Funcionario FuncionarioModel;
 
-    private Funcionario_Controller controllerCadastrarFuncionario;
 
-    public ManterFuncionario_Controller(JFFuncionarioList telaFuncionario) {
+    public ManterFuncionario_Controller(JFFuncionarioList telaFuncionario, Funcionario FuncionarioModel) {
         this.telaFuncionario = telaFuncionario;
-        this.telaFuncionario = new JFFuncionarioList();
+        this.FuncionarioModel = FuncionarioModel;
         inicializarAcaoBotoes();
+        popularFuncionario();
         exibir();
     }
 
     public void inicializarAcaoBotoes() {
         telaFuncionario.adicionarAcaoBtnAddFuncionario(e ->  exibirTelaCadastrarFuncionario());
-//        telaFuncionario.adicionarAcaoBtnAddFuncionario(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//
-//                exibirTelaCadastrarFuncionario();
-//            }
-//        });
+
 
 
         telaFuncionario.adicionarAcaobtnListFuncionario(new ActionListener() {
@@ -59,20 +55,24 @@ public class ManterFuncionario_Controller {
         });
 
 
-        //  telaFornecedor.adicionarAcaobtnPaginaInicial(new ActionListener() {
+          telaFuncionario.adicionarAcaobtnPaginaInicial(new ActionListener() {
 
-        //    @Override
-        //     public void actionPerformed(ActionEvent e) {
-        //         controladorListarPacientes.exibir();
-        //     }
-        //  });
+            @Override
+             public void actionPerformed(ActionEvent e) {
+                TelaInicialController telaInicialController
+                        = new TelaInicialController(new JFTelaInicial());
+                telaInicialController.fecharTela();
+                telaInicialController.exibirTela();
+                telaFuncionario.fecharTela();
+             }
+          });
 
-        // telaFornecedor.adicionarAcaobtnRemoverFuncionario(new ActionListener() {
-        //      @Override
-        //      public void actionPerformed(ActionEvent e) {
-        //            controladorListarPacientes.exibir();
-        //   }
-        //    });
+         telaFuncionario.adicionarAcaobtnRemoverFuncionario(new ActionListener() {
+              @Override
+              public void actionPerformed(ActionEvent e) {
+                   removerFuncionario();
+           }
+            });
 
 
 
@@ -82,6 +82,25 @@ public class ManterFuncionario_Controller {
         telaFuncionario.exibirTela();
     }
 
+    public void removerFuncionario(){
+        Funcionario funcionario = telaFuncionario.getFuncionario();
+        
+        FuncionarioRepositorio fornecedorRepositorio = new FuncionarioDAO();
+        fornecedorRepositorio.removerFuncionario(funcionario);
+
+        telaFuncionario.fecharTela();
+        ManterFuncionario_Controller manterFuncionario_Controller
+                = new ManterFuncionario_Controller(new JFFuncionarioList(), null);
+        manterFuncionario_Controller.exibir();
+        
+    }
+    
+    public void popularFuncionario(){
+    FuncionarioRepositorio funcionarioRepositorio = new FuncionarioDAO();
+        List<Funcionario> funcionarios = funcionarioRepositorio.getTodosFuncionarios();
+        telaFuncionario.initComboFuncionario(funcionarios);
+    }
+    
     public void exibirTelaCadastrarFuncionario(){
         new Funcionario_Controller(new JFAddFuncionario(), null).exibirTela();
         telaFuncionario.fecharTela();

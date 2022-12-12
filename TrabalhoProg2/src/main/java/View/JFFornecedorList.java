@@ -36,8 +36,8 @@ public class JFFornecedorList extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtListFornecedor = new javax.swing.JTextArea();
         btnRemoverFornecedor = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         btnPaginaInicial = new javax.swing.JButton();
+        cbFornecedor = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,9 +53,9 @@ public class JFFornecedorList extends javax.swing.JFrame {
 
         btnRemoverFornecedor.setText("Remover Fornecedor");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         btnPaginaInicial.setText("Tela Inicial");
+
+        cbFornecedor.setSelectedIndex(-1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,7 +74,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(cbFornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(246, 246, 246)
                         .addComponent(btnPaginaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -95,7 +95,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRemoverFornecedor)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPaginaInicial)
                 .addGap(19, 19, 19))
@@ -106,6 +106,10 @@ public class JFFornecedorList extends javax.swing.JFrame {
 
     public void adicionarAcaoBtnAddFornecedor(ActionListener acao) {
         btnAddFornecedor.addActionListener(acao);
+    }
+    
+    public Fornecedor getFornecedor(){
+        return (Fornecedor) cbFornecedor.getSelectedItem();
     }
 
     public void adicionarAcaobtnListFornecedor(ActionListener acao) {
@@ -132,6 +136,16 @@ public class JFFornecedorList extends javax.swing.JFrame {
         for (Fornecedor fornecedor : fornecedores) {
             txtListFornecedor.append(fornecedor.toString() + "\n");
         }
+    }
+
+    public void popularFornecedor(Set<Fornecedor> fornecedores) {
+        for (Fornecedor fornecedor : fornecedores) {
+            cbFornecedor.addItem(fornecedor);
+        }
+    }
+
+    public void fecharTela() {
+        this.dispose();
     }
 
     public void exibirTela() {
@@ -179,7 +193,7 @@ public class JFFornecedorList extends javax.swing.JFrame {
     private javax.swing.JButton btnListFornecedor;
     private javax.swing.JButton btnPaginaInicial;
     private javax.swing.JButton btnRemoverFornecedor;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<Fornecedor> cbFornecedor;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtListFornecedor;
     // End of variables declaration//GEN-END:variables

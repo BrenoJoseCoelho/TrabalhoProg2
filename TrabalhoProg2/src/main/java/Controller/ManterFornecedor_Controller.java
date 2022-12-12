@@ -8,8 +8,10 @@ import DAO.FornecedorDAO;
 import Repositorio.FornecedorRepositorio;
 import View.JFAddFornecedor;
 import View.JFFornecedorList;
+import View.JFTelaInicial;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Set;
 import models.Fornecedor;
 
 /**
@@ -17,32 +19,21 @@ import models.Fornecedor;
  * @author breno
  */
 public class ManterFornecedor_Controller {
-    
-       
 
-   private JFFornecedorList telaFornecedor;
+    private JFFornecedorList telaFornecedor;
 
     private Fornecedor fornecedorModel;
 
-    private Fornecedor_Controller controllerCadastrarFornecedor;
-
-    public ManterFornecedor_Controller(JFFornecedorList telaFornecedor) {
+    public ManterFornecedor_Controller(JFFornecedorList telaFornecedor, Fornecedor fornecedorModel) {
         this.telaFornecedor = telaFornecedor;
-
+        this.fornecedorModel = fornecedorModel;
         inicializarAcaoBotoes();
+        populaFornecedor();
     }
 
     public void inicializarAcaoBotoes() {
 
-        telaFornecedor.adicionarAcaoBtnAddFornecedor(e ->  exibirTelaCadastrarFornecedor());
-//        telaFornecedor.adicionarAcaoBtnAddFornecedor(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//
-//                exibirTelaCadastrarFornecedor();
-//            }
-//        });
-
+        telaFornecedor.adicionarAcaoBtnAddFornecedor(e -> exibirTelaCadastrarFornecedor());
 
         telaFornecedor.adicionarAcaobtnListFornecedor(new ActionListener() {
 
@@ -52,7 +43,6 @@ public class ManterFornecedor_Controller {
             }
         });
 
-
         telaFornecedor.adicionarAcaobtnLimparTela(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,23 +50,23 @@ public class ManterFornecedor_Controller {
             }
         });
 
+        telaFornecedor.adicionarAcaobtnPaginaInicial(new ActionListener() {
 
-        //  telaFornecedor.adicionarAcaobtnPaginaInicial(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaInicialController telaInicialController
+                        = new TelaInicialController(new JFTelaInicial());
+                telaInicialController.exibirTela();
+                telaFornecedor.fecharTela();
+            }
+        });
 
-        //    @Override
-        //     public void actionPerformed(ActionEvent e) {
-        //         controladorListarPacientes.exibir();
-        //     }
-        //  });
-
-        // telaFornecedor.adicionarAcaobtnRemoverFornecedor(new ActionListener() {
-        //      @Override
-        //      public void actionPerformed(ActionEvent e) {
-        //            controladorListarPacientes.exibir();
-        //   }
-        //    });
-
-
+        telaFornecedor.adicionarAcaobtnRemoverFornecedor(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                removerFornecedor();
+            }
+        });
 
     }
 
@@ -84,8 +74,30 @@ public class ManterFornecedor_Controller {
         telaFornecedor.exibirTela();
     }
 
+    public void removerFornecedor() {
+
+        Fornecedor fornecedor = telaFornecedor.getFornecedor();
+
+        FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
+        fornecedorRepositorio.removerFornecedor(fornecedor);
+
+        telaFornecedor.fecharTela();
+        ManterFornecedor_Controller manterFornecedor_Controller
+                = new ManterFornecedor_Controller(new JFFornecedorList(), null);
+        manterFornecedor_Controller.exibir();
+        telaFornecedor.fecharTela();
+
+    }
+
+    public void populaFornecedor() {
+        FornecedorRepositorio fornecedorRepositorio = new FornecedorDAO();
+        Set<Fornecedor> fornecedor = fornecedorRepositorio.buscarTodosFornecedores();
+
+        telaFornecedor.popularFornecedor(fornecedor);
+    }
+
     public void exibirTelaCadastrarFornecedor() {
-         new Fornecedor_Controller(new JFAddFornecedor(), null).exibir();
+        new Fornecedor_Controller(new JFAddFornecedor(), null).exibir();
     }
 
     public void listarFornecedor() {
@@ -94,5 +106,9 @@ public class ManterFornecedor_Controller {
         telaFornecedor.populaDadosListaFornecedor(fornecedorRepositorio.buscarTodosFornecedores());
 
     }
+    
+    public void fecharTela(){
+         telaFornecedor.fecharTela();
+     }
 
 }
