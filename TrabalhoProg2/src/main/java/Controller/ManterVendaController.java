@@ -12,11 +12,11 @@ import View.JFVenda;
  *
  * @author breno
  */
-public class ManterVenda_Controller {
+public class ManterVendaController {
 
     private JFGeralVendas telaGeralVendas;
 
-    public ManterVenda_Controller(JFGeralVendas telaGeralVendas) {
+    public ManterVendaController(JFGeralVendas telaGeralVendas) {
 
         this.telaGeralVendas = new JFGeralVendas();
         startButton();
@@ -37,14 +37,14 @@ public class ManterVenda_Controller {
 
     public void acaoNovaVenda() {
 
-        Venda_controller vendaController
-                = new Venda_controller(new JFVenda(), null);
+        VendaController vendaController
+                = new VendaController(new JFVenda(), null);
         vendaController.exibirTela();
     }
 
     public void acaoRelatorioVenda() {
-        RelatorioVenda_Controller relatorioVenda_Controller
-                = new RelatorioVenda_Controller(new JFRelatorioVenda(), null);
+        RelatorioVendaController relatorioVenda_Controller
+                = new RelatorioVendaController(new JFRelatorioVenda(), null);
         relatorioVenda_Controller.exibirTela();
     }
 

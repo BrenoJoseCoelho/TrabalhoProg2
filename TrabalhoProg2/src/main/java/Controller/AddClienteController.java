@@ -23,13 +23,13 @@ import models.Cliente;
  *
  * @author breno
  */
-    public class Cliente_Controller {
+    public class AddClienteController {
     private Cliente cliente;
     private JFAddCliente addCliente;
     private JFLivroList livroList;
     private JFClienteList clienteList;
 
-    public Cliente_Controller( JFClienteList clienteList, JFAddCliente addCliente, Cliente cliente) {
+    public AddClienteController( JFClienteList clienteList, JFAddCliente addCliente, Cliente cliente) {
         this.cliente = cliente;
         this.addCliente = new JFAddCliente();
         this.clienteList = new JFClienteList();

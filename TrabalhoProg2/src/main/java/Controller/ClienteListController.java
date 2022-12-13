@@ -48,8 +48,8 @@ public class ClienteListController {
         clienteList.acaoAddCliente(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Cliente_Controller cliente_Controller =  
-                        new Cliente_Controller(null, new JFAddCliente(), null);
+                AddClienteController cliente_Controller =  
+                        new AddClienteController(null, new JFAddCliente(), null);
                 clienteList.fecharTela();
                 cliente_Controller.fecharTela();                
                 cliente_Controller.exibirTela();      

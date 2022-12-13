@@ -25,13 +25,13 @@ import models.Fornecedor;
  *
  * @author breno
  */
-public class Fornecedor_Controller {
+public class AddFornecedorController {
 
     private Fornecedor modelFornecedor;
     private JFAddFornecedor telaAddFornecedor;
     
 
-    public Fornecedor_Controller(JFAddFornecedor telaFornecedor, Fornecedor modelFornecedor) {
+    public AddFornecedorController(JFAddFornecedor telaFornecedor, Fornecedor modelFornecedor) {
         this.modelFornecedor = modelFornecedor;
         this.telaAddFornecedor = telaFornecedor;
 
@@ -73,8 +73,8 @@ public class Fornecedor_Controller {
 
         telaAddFornecedor.fecharTela();
 
-        ManterFornecedor_Controller manterFornecedor_Controller
-                = new ManterFornecedor_Controller(new JFFornecedorList(), null);
+        ManterFornecedorController manterFornecedor_Controller
+                = new ManterFornecedorController(new JFFornecedorList(), null);
         manterFornecedor_Controller.exibir();
     }
 

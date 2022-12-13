@@ -25,12 +25,12 @@ import models.Venda;
  *
  * @author breno
  */
-public class Venda_controller {
+public class VendaController {
 
     private Venda venda;
     private JFVenda fvenda;
 
-    public Venda_controller(JFVenda fvenda, Venda venda) {
+    public VendaController(JFVenda fvenda, Venda venda) {
         this.venda = venda;
         this.fvenda = fvenda;
 

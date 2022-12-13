@@ -23,13 +23,13 @@ import models.Funcionario;
  *
  * @author breno
  */
-public class Funcionario_Controller {
+public class AddFuncionarioController {
     
     private Funcionario funcionario;
     private JFAddFuncionario addFuncionario;
     private JFFuncionarioList funcionarioList;
 
-    public Funcionario_Controller(JFAddFuncionario addFuncionario, Funcionario funcionario) {
+    public AddFuncionarioController(JFAddFuncionario addFuncionario, Funcionario funcionario) {
         this.funcionario = funcionario;
         this.addFuncionario = addFuncionario;
         this.funcionarioList = new JFFuncionarioList();
@@ -73,8 +73,8 @@ public class Funcionario_Controller {
         mostraMsg("Funcionario cadastrado com sucesso");
         
          fecharTela();
-         ManterFuncionario_Controller manterFuncionario_Controller
-                = new ManterFuncionario_Controller(new JFFuncionarioList(), null);
+         ManterFuncionarioController manterFuncionario_Controller
+                = new ManterFuncionarioController(new JFFuncionarioList(), null);
         manterFuncionario_Controller.exibir();
         
        

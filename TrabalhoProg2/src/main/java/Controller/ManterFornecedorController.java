@@ -18,13 +18,13 @@ import models.Fornecedor;
  *
  * @author breno
  */
-public class ManterFornecedor_Controller {
+public class ManterFornecedorController {
 
     private JFFornecedorList telaFornecedor;
 
     private Fornecedor fornecedorModel;
 
-    public ManterFornecedor_Controller(JFFornecedorList telaFornecedor, Fornecedor fornecedorModel) {
+    public ManterFornecedorController(JFFornecedorList telaFornecedor, Fornecedor fornecedorModel) {
         this.telaFornecedor = telaFornecedor;
         this.fornecedorModel = fornecedorModel;
         inicializarAcaoBotoes();
@@ -82,8 +82,8 @@ public class ManterFornecedor_Controller {
         fornecedorRepositorio.removerFornecedor(fornecedor);
 
         telaFornecedor.fecharTela();
-        ManterFornecedor_Controller manterFornecedor_Controller
-                = new ManterFornecedor_Controller(new JFFornecedorList(), null);
+        ManterFornecedorController manterFornecedor_Controller
+                = new ManterFornecedorController(new JFFornecedorList(), null);
         manterFornecedor_Controller.exibir();
         telaFornecedor.fecharTela();
 
@@ -97,7 +97,7 @@ public class ManterFornecedor_Controller {
     }
 
     public void exibirTelaCadastrarFornecedor() {
-        new Fornecedor_Controller(new JFAddFornecedor(), null).exibir();
+        new AddFornecedorController(new JFAddFornecedor(), null).exibir();
         fecharTela();
     }
 

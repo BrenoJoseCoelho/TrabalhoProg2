@@ -18,14 +18,14 @@ import models.Funcionario;
  *
  * @author breno
  */
-public class ManterFuncionario_Controller {
+public class ManterFuncionarioController {
     
     private JFFuncionarioList telaFuncionario;
 
     private Funcionario FuncionarioModel;
 
 
-    public ManterFuncionario_Controller(JFFuncionarioList telaFuncionario, Funcionario FuncionarioModel) {
+    public ManterFuncionarioController(JFFuncionarioList telaFuncionario, Funcionario FuncionarioModel) {
         this.telaFuncionario = telaFuncionario;
         this.FuncionarioModel = FuncionarioModel;
         inicializarAcaoBotoes();
@@ -89,8 +89,8 @@ public class ManterFuncionario_Controller {
         fornecedorRepositorio.removerFuncionario(funcionario);
 
         telaFuncionario.fecharTela();
-        ManterFuncionario_Controller manterFuncionario_Controller
-                = new ManterFuncionario_Controller(new JFFuncionarioList(), null);
+        ManterFuncionarioController manterFuncionario_Controller
+                = new ManterFuncionarioController(new JFFuncionarioList(), null);
         manterFuncionario_Controller.exibir();
         
     }
@@ -102,7 +102,7 @@ public class ManterFuncionario_Controller {
     }
     
     public void exibirTelaCadastrarFuncionario(){
-        new Funcionario_Controller(new JFAddFuncionario(), null).exibirTela();
+        new AddFuncionarioController(new JFAddFuncionario(), null).exibirTela();
         telaFuncionario.fecharTela();
        
     }

@@ -13,12 +13,12 @@ import models.Venda;
  *
  * @author breno
  */
-public class RelatorioVenda_Controller {
+public class RelatorioVendaController {
 
     private Venda venda;
     private JFRelatorioVenda frelatorioVenda;
 
-    public RelatorioVenda_Controller(JFRelatorioVenda frelatorioVenda, Venda venda) {
+    public RelatorioVendaController(JFRelatorioVenda frelatorioVenda, Venda venda) {
         this.venda = venda;
         this.frelatorioVenda = frelatorioVenda;
         startButton();
